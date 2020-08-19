@@ -8,3 +8,4 @@ La falta de desarrollo empresarial, el bajo nivel educativo de la población y c
 
 #### SOLUCIÓN 
 Desarrollar una plataforma para que los emprendedores tengan la oportunidad de invertir proyectos.
+
