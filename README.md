@@ -29,6 +29,11 @@ La falta de desarrollo empresarial, el bajo nivel educativo de la población y c
 
 Desarrollar una plataforma para que los emprendedores tengan la oportunidad de invertir proyectos sin dificultades, además, la propuesta podrá compartirse junto a otras personas con habilidades requeridas para desarrollar la colaboración del proyecto .
 
+### Limites 
+El proyecto tendrá un enfoque principal en la comunidad universitaria de La Paz.
+Comenzaremos en el departamento de La Paz como prueba con planes de poder expandirse a los demás departamentos.
+
+
 ## HERRAMIENTAS
 
 ### Frameworks:
