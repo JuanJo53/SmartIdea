@@ -32,8 +32,6 @@ Desarrollar una plataforma para que los emprendedores tengan la oportunidad de i
 
 - Angular
 
-![Angular Logo](https://worldvectorlogo.com/logo/angular-icon-1)
-
 ### Lenguajes de Programacion:
 
 - TypeScript
