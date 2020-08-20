@@ -25,3 +25,12 @@ La falta de desarrollo empresarial, el bajo nivel educativo de la población y c
 Desarrollar una plataforma para que los emprendedores tengan la oportunidad de invertir proyectos sin dificultades, además, la propuesta podrá compartirse junto a otras personas con habilidades requeridas para desarrollar la colaboración del proyecto .
 
 ## HERRAMIENTAS
+
+### Frameworks:
+
+- Angular
+  ![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fworldvectorlogo.com%2Flogo%2Fangular-icon&psig=AOvVaw0hIu17DOK4YUJkfJkKGMYZ&ust=1598024434163000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjMt4ePqusCFQAAAAAdAAAAABAD)
+
+### Lenguajes de Programacion:
+
+- TypeScript
