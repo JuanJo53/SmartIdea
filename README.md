@@ -10,6 +10,8 @@
 
 #### CONTENIDO:
 
+**Table of Contents**
+
 [TOC]
 
 ## INTRODUCCIÓN
@@ -29,7 +31,8 @@ Desarrollar una plataforma para que los emprendedores tengan la oportunidad de i
 ### Frameworks:
 
 - Angular
-  ![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fworldvectorlogo.com%2Flogo%2Fangular-icon&psig=AOvVaw0hIu17DOK4YUJkfJkKGMYZ&ust=1598024434163000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKjMt4ePqusCFQAAAAAdAAAAABAD)
+
+![Angular Logo](https://worldvectorlogo.com/logo/angular-icon-1)
 
 ### Lenguajes de Programacion:
 
