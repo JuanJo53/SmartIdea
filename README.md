@@ -2,11 +2,11 @@
 
 #### INTEGRANTES:
 
-- Juan Jonas Maidana Alvarado
-- Corina Colque Flores
-- Laura Rebeca Salinas Ruiz
-- Josue Rodrigo Mamani Becerra
-- Juan José Fernández Duarte
+- Juan Jonas Maidana Alvarado - [jonasmaidana47@gmail.com]()
+- Corina Colque Flores - [corina.colque.f@gmail.com](https://github.com/coriccf)
+- Laura Rebeca Salinas Ruiz - [laura.salinas.r@ucb.edu.bo](https://github.com/lr-salinas)
+- Josue Rodrigo Mamani Becerra - [joromabe@gmail.com]()
+- Juan José Fernández Duarte - [juanjofer1999@gmail.com](https://github.com/JuanJo53)
 
 #### CONTENIDO:
 
