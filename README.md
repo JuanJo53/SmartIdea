@@ -1,4 +1,4 @@
-# **FirstIdea**
+# **Project Connect BO**
 
 #### INTEGRANTES:
 
