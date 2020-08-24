@@ -23,7 +23,9 @@ El emprendimiento hoy en día, ha ganado una gran importancia por la necesidad d
 
 ## PROBLEMA
 
-La falta de desarrollo empresarial, el bajo nivel educativo de la población y consiguientemente, la escasa capacidad de generación de empleo y oportunidades económicas, el brote de COVID- 19, el ecosistema (las normas, los recursos, la infraestructura, el ambiente y la cultura) que requiere la empresa dificulta al emprendedor al momento de presentar su proyecto, por lo tanto, para salir de la crisis necesitamos reinventarnos hacia contenidos digitales y un paso hacia la tecnología.
+La falta de desarrollo empresarial, la escasa capacidad de generación de empleo y oportunidades económicas, el brote de COVID-19, el ecosistema (las normas, los recursos, la infraestructura, el ambiente y la cultura) que requiere la empresa dificulta al emprendedor al momento de presentar su proyecto.
+La pandemia dificulta que se puede generar conexiones utiles para un desarrollo óptimo de proyectos, ademas de que genera dificultad para encontrar oportunidades y las personas indicadas para que esas oportunidades se conviertan en proyectos con futuro.
+Por lo tanto, para salir de la crisis necesitamos reinventarnos hacia contenidos digitales y un paso hacia la tecnología.
 
 ## PROPUESTA
 
@@ -32,7 +34,7 @@ Desarrollar una plataforma para que los usuarios tengan la oportunidad de colabo
 ### Limites
 
 El proyecto tendrá un enfoque principal en la comunidad universitaria de La Paz.
-Comenzaremos en el departamento de La Paz como prueba con planes de poder expandirse a los demás departamentos.
+Comenzaremos en el departamento de La Paz como prueba con planes de poder expandirse.
 
 ## HERRAMIENTAS
 
