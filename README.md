@@ -25,14 +25,14 @@ El emprendimiento hoy en día, ha ganado una gran importancia por la necesidad d
 
 La falta de desarrollo empresarial, el bajo nivel educativo de la población y consiguientemente, la escasa capacidad de generación de empleo y oportunidades económicas, el brote de COVID- 19, el ecosistema (las normas, los recursos, la infraestructura, el ambiente y la cultura) que requiere la empresa dificulta al emprendedor al momento de presentar su proyecto, por lo tanto, para salir de la crisis necesitamos reinventarnos hacia contenidos digitales y un paso hacia la tecnología.
 
-## SOLUCIÓN
+## PROPUESTA
 
-Desarrollar una plataforma para que los emprendedores tengan la oportunidad de invertir proyectos sin dificultades, además, la propuesta podrá compartirse junto a otras personas con habilidades requeridas para desarrollar la colaboración del proyecto .
+Desarrollar una plataforma para que los emprendedores tengan la oportunidad de colaborar en proyectos sin dificultades, además, la propuesta podrá compartirse junto a otras personas con habilidades requeridas para desarrollar la colaboración del proyecto .
 
-### Limites 
+### Limites
+
 El proyecto tendrá un enfoque principal en la comunidad universitaria de La Paz.
 Comenzaremos en el departamento de La Paz como prueba con planes de poder expandirse a los demás departamentos.
-
 
 ## HERRAMIENTAS
 
