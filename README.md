@@ -12,7 +12,7 @@
 
 - [Introduccion](#introduccion)
 - [Problema](#problema)
-- [Solucion](#solucion)
+- [Propuesta](#propuesta)
 - [Herramientas](#herramientas)
   - [Frameworks](#frameworks)
   - [Lenguajes de Programacion](#lenguajes-de-programacion)
