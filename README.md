@@ -38,7 +38,7 @@ A diferencia de otras plataformas similares de colaboracion en equipos sobre un 
 
 ![alt text](https://www.bbva.com/wp-content/uploads/2018/04/equipo-startup-bbva-1-e1524492124593-1024x521.jpg)
 
-### Limites
+### LIMITES
 
 - El proyecto tendrá un enfoque principal en la comunidad universitaria de La Paz.Comenzaremos en el departamento de La Paz como prueba con planes de poder expandirse.
 - La plataforma tomará en cuenta a proyectos o propuestas de startups relacionados con tecnologia.
