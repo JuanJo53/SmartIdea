@@ -29,7 +29,7 @@ Por lo tanto, para salir de la crisis necesitamos reinventarnos hacia contenidos
 
 ## PROPUESTA
 
-Desarrollar una plataforma para que los usuarios tengan la oportunidad de colaborar en proyectos sin dificultades. La plataforma sera capaz de conectar a personas con ciertas habilidades necesarias para formar parte de un proyecto.Además, la propuesta del proyecto podra compartirse en la plataforma para tambien agregar a los portafolios de los colaboradores del proyecto.
+Desarrollar una plataforma para que los usuarios tengan la oportunidad de colaborar en proyectos sin dificultades. La plataforma sera capaz de conectar a personas con ciertas habilidades necesarias para formar parte de un proyecto. Además, la propuesta del proyecto podra compartirse en la plataforma para tambien agregar a los portafolios de los colaboradores del proyecto.
 
 ### Limites
 
