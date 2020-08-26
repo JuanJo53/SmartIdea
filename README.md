@@ -37,3 +37,7 @@ Comenzaremos en el departamento de La Paz como prueba con planes de poder expand
 ## REFERENCIAS
 
 - https://www.ine.gob.bo/index.php/desocupacion/
+- https://www.lostiempos.com/actualidad/economia/20200430/trabajo-vs-pandemia-coronavirus-pone-riesgo-52-millones-empleos-bolivia
+- https://www.france24.com/es/20200709-bolivia-enfrenta-su-peor-a%C3%B1o-econ%C3%B3mico-por-cuenta-de-la-pandemia
+- https://boliviaemprende.com/area/innovacion
+
