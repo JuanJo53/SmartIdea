@@ -14,6 +14,7 @@
 - [Problema](#problema)
 - [Propuesta](#propuesta)
   - [Confidencialidad de los proyectos](#confidencialidaddelosproyectos)
+  - [Cobro por tipo de uso](#Cobro_por_tipo_de_uso)
   - [Limites](#limites)
 - [Referencias](#referencias)
 
@@ -40,7 +41,9 @@ A diferencia de otras plataformas similares de colaboracion en equipos sobre un 
 ### Confidencialidad de los proyectos
 Para que las ideas de los usuarios sean protegidos solos lo que aceptaron participar en el proyecto verán la idea mejor desarrolla. Caso contrario solo se les dejara ver una pequeña descripción del proyecto , las cualidades de personal   que requieren  y lo que ofrecen a cambio de que  se les ayude a desarrollar el  proyecto .
 
+### Cobro por tipo de uso
 
+Una forma para que algunos proyectos sean más relevantes en comparación a otros se les dará la opción para que su proyecto aparezca en recomendados .
 
 ### LIMITES
 
