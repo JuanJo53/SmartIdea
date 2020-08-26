@@ -32,7 +32,7 @@ Por lo tanto, para salir de la crisis necesitamos reinventarnos hacia contenidos
 
 ## PROPUESTA
 
-Desarrollar una plataforma para que los usuarios tengan la oportunidad de colaborar en proyectos sin dificultades. La plataforma sera capaz de conectar a personas con ciertas habilidades necesarias para formar parte de un proyecto. Además, la propuesta del proyecto podra compartirse en la plataforma para tambien agregar a los portafolios de los colaboradores del proyecto.
+Desarrollar una plataforma para que los usuarios tengan la oportunidad de colaborar en proyectos sin dificultades. La plataforma sera capaz de conectar a personas con ciertas habilidades necesarias para formar parte de un proyecto. Además, la propuesta del proyecto podra compartirse en la plataforma para tambien agregar a los portafolios de los colaboradores del proyecto. Los usuarios tendran la opcion de poder ofrecer porcentajes de acciones a los interesados en ser parte del proyecto, para asi tener un incentivo extra para formar parte de un proyecto o startup.
 
 A diferencia de otras plataformas similares de colaboracion en equipos sobre un proyecto, como por ejemplo Github o LinkedIn, nuestra plataforma se orienta a la colaboracion de proyectos y a conectar a las personas indicadas para un proyecto, no esta estrictamente relacionada al codigo o la programacion (si hablamos de Github, Gitlab u otros similares), y tampoco se centra en la contratacion de empleados o la busqueda de empleo como tal (si hablamos de LinkedIn u otros similares). Nosotros vamos a conectar gente para la construccion de proyectos maravillosos de tecnologia.
 
