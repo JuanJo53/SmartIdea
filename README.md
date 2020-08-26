@@ -13,6 +13,7 @@
 - [Introduccion](#introduccion)
 - [Problema](#problema)
 - [Propuesta](#propuesta)
+  - [Confidencialidad de los proyectos](#confidencialidaddelosproyectos)
   - [Limites](#limites)
 - [Referencias](#referencias)
 
@@ -39,12 +40,14 @@ A diferencia de otras plataformas similares de colaboracion en equipos sobre un 
 ### Confidencialidad de los proyectos
 Para que las ideas de los usuarios sean protegidos solos lo que aceptaron participar en el proyecto verán la idea mejor desarrolla. Caso contrario solo se les dejara ver una pequeña descripción del proyecto , las cualidades de personal   que requieren  y lo que ofrecen a cambio de que  se les ayude a desarrollar el  proyecto .
 
-![alt text](https://www.bbva.com/wp-content/uploads/2018/04/equipo-startup-bbva-1-e1524492124593-1024x521.jpg)
+
 
 ### Limites
 
 - El proyecto tendrá un enfoque principal en la comunidad universitaria de La Paz.Comenzaremos en el departamento de La Paz como prueba con planes de poder expandirse.
 - La plataforma tomará en cuenta a proyectos o propuestas de startups relacionados con tecnologia.
+
+![alt text](https://www.bbva.com/wp-content/uploads/2018/04/equipo-startup-bbva-1-e1524492124593-1024x521.jpg)
 
 ## REFERENCIAS
 
