@@ -1,4 +1,4 @@
-# **Project Connect BO**º
+# **Project Connect BO**
 
 #### INTEGRANTES:
 
@@ -55,8 +55,6 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 
 - El proyecto tendrá un enfoque principal en la ciudad de La Paz, principalmente en la comunidad universitaria, como prueba con planes de poder expandirse.
 - La plataforma tomará en cuenta a proyectos o propuestas de startups relacionados con tecnologia.
-
-![alt text](https://www.bbva.com/wp-content/uploads/2018/04/equipo-startup-bbva-1-e1524492124593-1024x521.jpg)
 
 ## REFERENCIAS
 
