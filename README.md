@@ -1,4 +1,4 @@
-# **Project Connect BO**
+# **Project Connect BO**º
 
 #### INTEGRANTES:
 
@@ -13,6 +13,8 @@
 - [Introduccion](#introduccion)
 - [Problema](#problema)
 - [Propuesta](#propuesta)
+  - [Confidencialidad de los proyectos](#confidencialidaddelosproyectos)
+  - [Cobro por tipo de uso](#Cobro_por_tipo_de_uso)
   - [Limites](#limites)
 - [Referencias](#referencias)
 
@@ -42,10 +44,19 @@ A diferencia de otras plataformas similares de colaboracion en equipos sobre un 
 Además, cabe mencionar que, según investigaciones realizadas, no existe una plataforma en Bolivia similiar a la plataforma que se desarrollará, solo existe una plataforma web de información sobre emprendimiento. 
 ![alt text](https://www.bbva.com/wp-content/uploads/2018/04/equipo-startup-bbva-1-e1524492124593-1024x521.jpg)
 
+### Confidencialidad de los proyectos
+Para que las ideas de los usuarios sean protegidos solos lo que aceptaron participar en el proyecto verán la idea mejor desarrolla. Caso contrario solo se les dejara ver una pequeña descripción del proyecto , las cualidades de personal   que requieren  y lo que ofrecen a cambio de que  se les ayude a desarrollar el  proyecto .
+
+### Cobro por tipo de uso
+
+Una forma para que algunos proyectos sean más relevantes en comparación a otros se les dará la opción para que su proyecto aparezca en recomendados.
+
 ### LIMITES
 
 - El proyecto tendrá un enfoque principal en la ciudad de La Paz, principalmente en la comunidad universitaria, como prueba con planes de poder expandirse.
 - La plataforma tomará en cuenta a proyectos o propuestas de startups relacionados con tecnologia.
+
+![alt text](https://www.bbva.com/wp-content/uploads/2018/04/equipo-startup-bbva-1-e1524492124593-1024x521.jpg)
 
 ## REFERENCIAS
 
