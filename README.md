@@ -26,12 +26,13 @@ Por lo tanto, para salir de la crisis necesitamos reinventarnos hacia contenidos
 
 ## PROPUESTA
 
-Desarrollar una plataforma para que los usuarios tengan la oportunidad de colaborar en proyectos sin dificultades. La plataforma sera capaz de conectar a personas con ciertas habilidades necesarias para formar parte de un proyecto. Además, la propuesta del proyecto podra compartirse en la plataforma para tambien agregar a los portafolios de los colaboradores del proyecto.
-A diferencia de otras plataformas similares de colaboracion en equipos sobre un proyecto, como por ejemplo Github o LinkedIn, nuestra plataforma se orienta a la colaboracion de proyectos y a conectar a las personas indicadas para un proyecto, no esta estrictamente relacionada al codigo o la programacion (si hablamos de Github, Gitlab u otros similares), y tampoco se centra en la contratacion de empleados o la busqueda de empleo como tal (si hablamos de LinkedIn u otros similares). Nosotros vamos a conectar gente para la construccion de proyectos maravillosos de tecnologia.
+Desarrollar una plataforma para que los usuarios tengan la oportunidad de colaborar en proyectos sin dificultades. Es decir, la plataforma será capaz de conectar a personas con ciertas habilidades necesarias para formar parte de un proyecto. Además, la propuesta del proyecto podrá compartirse en la plataforma para tambien agregar a los portafolios de los colaboradores del proyecto.
+A diferencia de otras plataformas similares de colaboración en equipos sobre un proyecto, como por ejemplo Github o LinkedIn, nuestra plataforma se orienta a la colaboracion de proyectos y a conectar  personas indicadas para un proyecto según las habilidades requeridas como se mencionó anteriormente, no esta estrictamente relacionada al código o la programación (si hablamos de Github, Gitlab u otros similares), y tampoco se centra en la contratación de empleados o la búsqueda de empleo como tal (si hablamos de LinkedIn u otros similares). Nuestra plataforma se basa en conectar personas para la construccion de proyectos maravillosos e innovadores en el área de tecnologia.
+También, cabe mencionar que la plataforma que se desarrollará no es similar o existentes a otras plataformas en Bolivia, según, las investigaciones realizadas, solo existe una página de emprendimiento donde solamente proporciona información acerca del emprendimmiento, no existe la interacción y conexión entre personas como la plataforma que se desarrollará. 
 
 ### Limites
 
-- El proyecto tendrá un enfoque principal en la comunidad universitaria de La Paz.Comenzaremos en el departamento de La Paz como prueba con planes de poder expandirse.
+- El proyecto tendrá un enfoque principal en la ciudad de La Paz, principalmente en la comunidad universitaria, como prueba con planes de poder expandirse.
 - La plataforma tomará en cuenta a proyectos o propuestas de startups relacionados con tecnologia.
 
 ## REFERENCIAS
