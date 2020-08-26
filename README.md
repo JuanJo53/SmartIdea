@@ -13,9 +13,6 @@
 - [Introduccion](#introduccion)
 - [Problema](#problema)
 - [Propuesta](#propuesta)
-- [Herramientas](#herramientas)
-  - [Frameworks](#frameworks)
-  - [Lenguajes de Programacion](#lenguajes-de-programacion)
 
 ## INTRODUCCIÓN
 
@@ -36,15 +33,6 @@ Desarrollar una plataforma para que los usuarios tengan la oportunidad de colabo
 - El proyecto tendrá un enfoque principal en la comunidad universitaria de La Paz.Comenzaremos en el departamento de La Paz como prueba con planes de poder expandirse.
 - La plataforma tomará en cuenta a proyectos o propuestas de startups relacionados con tecnologia.
 
-## HERRAMIENTAS
-
-### Frameworks:
-
-- Angular
-
-### Lenguajes de Programacion:
-
-- TypeScript
 
 ## REFERENCIAS
 
