@@ -13,6 +13,8 @@
 - [Introduccion](#introduccion)
 - [Problema](#problema)
 - [Propuesta](#propuesta)
+  - [Limites](#limites)
+- [Referencias](#referencias)
 
 ## INTRODUCCIÓN
 
