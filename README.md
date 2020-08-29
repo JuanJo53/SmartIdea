@@ -63,14 +63,13 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 - La plataforma tomará en cuenta a proyectos o propuestas de startups relacionados con tecnologia.
 ## ELEMENTOS DE UNA SOLICITUD DEL SISTEMA 
 
-| System Request Project Connect BO             |
-|-----------------------------------------------|
-|Project Sponsor               |                |
-|Business Need                 |                |
-|Business Requirements         |                |
-|Business Value                |                |
-|Special Issues or Constraints |
-
+| System Request Project Connect BO|                |
+|---------------------------------------------------|
+|__Project Sponsor__               |                |
+|__Business Need__                 |                |
+|__Business Requirements__         |                |
+|__Business Value__                |                |
+|__Special Issues or Constraints__ |                |
 ## ANALISIS DE FACTIBILIDAD
 ## REFERENCIAS
 
