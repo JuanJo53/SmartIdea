@@ -17,7 +17,7 @@
   - [Cobro por tipo de uso](#Cobro-por-tipo-de-uso)
   - [Limites](#limites)
 - [Referencias](#referencias)
-- [Elementos de una solicitud de sistema](#elemntos-de-una-solicitud-de-sistema)
+- [Elementos de una solicitud de sistema](#elementos-de-una-solicitud-de-sistema)
 
 
 ## INTRODUCCIÓN
