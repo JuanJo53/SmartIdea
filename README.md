@@ -19,6 +19,9 @@
 - [Referencias](#referencias)
 - [Elementos de una solicitud de sistema](#elementos-de-una-solicitud-de-sistema)
 - [Analisis de factibilidad](#analisis-de-factibilidad)
+  - [Factibilidad tecnica](#factibilidad-tecnica)
+  - [Factibilidad economica](#factibilidad-economica)
+  - [Factibilidad organizacional](#factibilidad organizacional)
 
 
 ## INTRODUCCIÓN
