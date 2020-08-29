@@ -63,6 +63,9 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 - La plataforma tomará en cuenta a proyectos o propuestas de startups relacionados con tecnologia.
 ## ELEMENTOS DE UNA SOLICITUD DEL SISTEMA 
 
+| System Request Project |
+|------------------------|
+
 ## ANALISIS DE FACTIBILIDAD
 ## REFERENCIAS
 
