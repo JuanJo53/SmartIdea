@@ -65,11 +65,11 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 
 | System Request Project Connect BO|                |
 |----------------------------------|----------------|
-|    Project Sponsor               |  CONTENIDO     |
-|    Business Need                 |  CONTENIDO     |
-|    Business Requirements         |  CONTENIDO     |
-|    Business Value                |  CONTENIDO     |
-|    Special Issues or Constraints |  CONTENIDO     |
+|    **Project Sponsor**               |  CONTENIDO     |
+|    **Business Need**                 |  CONTENIDO     |
+|    **Business Requirements**         |  CONTENIDO     |
+|    **Business Value**                |  CONTENIDO     |
+|    **Special Issues or Constraints** |  CONTENIDO     |
 
 ## ANALISIS DE FACTIBILIDAD
 ## REFERENCIAS
