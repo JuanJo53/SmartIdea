@@ -68,8 +68,8 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 | **Project Sponsor**               | Juan Jonas Maidana Alvarado, Corina Colque Flores, Laura Rebeca Salinas Ruiz, Josue Rodrigo Mamani Becerra, Juan José Fernández Duarte |
 | **Business Need**                 | La necesidad de conectar mas facilmente a personas para aportar a proyectos de tecnologia.                                             |
 | **Business Requirements**         | Plataforma web que permita la administracion usuarios y publicacion de proyectos.                                                      |
-| **Business Value**                | La facilidad de encortar la gente receridad para los proyectos                                                                                                                              |
-| **Special Issues or Constraints** | La plataforma tomará en cuenta a proyectos o propuestas relacionados con tecnologia                                                                                                                            |
+| **Business Value**                | La facilidad de encortar la gente receridad para los proyectos                                                                         |
+| **Special Issues or Constraints** | La plataforma tomará en cuenta a proyectos o propuestas relacionados con tecnologia                                                    |
 
 ## ANALISIS DE FACTIBILIDAD
 
