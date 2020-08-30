@@ -10,18 +10,18 @@
 
 #### CONTENIDO:
 
-- [Introduccion](#introduccion)
+- [Introduccion](#introducción)
 - [Problema](#problema)
 - [Propuesta](#propuesta)
   - [Confidencialidad de los proyectos](#confidencialidad-de-los-proyectos)
   - [Cobro por tipo de uso](#Cobro-por-tipo-de-uso)
   - [Limites](#limites)
-- [Referencias](#referencias)
-- [Elementos de una Solicitud de Sistema](#elementos-de-una-solicitud-de-sistema)
+- [Elementos de la Solicitud del Sistema](#elementos-de-la-solicitud-del-sistema)
 - [Análisis de Factibilidad](#analisis-de-factibilidad)
-  - [Factibilidad Técnica](#factibilidad-tecnica)
-  - [Factibilidad Económica](#factibilidad-economica)
+  - [Factibilidad Técnica](#factibilidad-técnica)
+  - [Factibilidad Económica](#factibilidad-económica)
   - [Factibilidad Organizacional](#factibilidad-organizacional)
+- [Referencias](#referencias)
 
 ## INTRODUCCIÓN
 
@@ -61,9 +61,9 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 - El proyecto tendrá un enfoque principal en la ciudad de La Paz, principalmente en la comunidad universitaria, como prueba con planes de poder expandirse.
 - La plataforma tomará en cuenta a proyectos o propuestas de startups relacionados con tecnologia.
 
-## ELEMENTOS DE UNA SOLICITUD DEL SISTEMA
+## ELEMENTOS DE LA SOLICITUD DEL SISTEMA
 
-| System Request Project Connect BO |                                                                                                                                        |
+| System Request Smart Idea         |                                                                                                                                        |
 | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | **Project Sponsor**               | Juan Jonas Maidana Alvarado, Corina Colque Flores, Laura Rebeca Salinas Ruiz, Josue Rodrigo Mamani Becerra, Juan José Fernández Duarte |
 | **Business Need**                 | La necesidad de conectar mas facilmente a personas para aportar a proyectos de tecnologia.                                             |
