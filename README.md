@@ -23,7 +23,6 @@
   - [Factibilidad Económica](#factibilidad-economica)
   - [Factibilidad Organizacional](#factibilidad-organizacional)
 
-
 ## INTRODUCCIÓN
 
 El emprendimiento hoy en día, ha ganado una gran importancia por la necesidad de muchas personas de lograr su independencia y estabilidad económica. Los altos niveles de desempleo, y la baja calidad de los empleos existentes, han creado en las personas la necesidad de generar sus propias oportunidades, de iniciar sus propios negocios, y pasar de ser empleados a ser empleadores.
@@ -61,20 +60,24 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 
 - El proyecto tendrá un enfoque principal en la ciudad de La Paz, principalmente en la comunidad universitaria, como prueba con planes de poder expandirse.
 - La plataforma tomará en cuenta a proyectos o propuestas de startups relacionados con tecnologia.
-## ELEMENTOS DE UNA SOLICITUD DEL SISTEMA 
 
-| System Request Project Connect BO|                |
-|----------------------------------|----------------|
-|    **Project Sponsor**               |  CONTENIDO     |
-|    **Business Need**                 |  CONTENIDO     |
-|    **Business Requirements**         |  CONTENIDO     |
-|    **Business Value**                |  CONTENIDO     |
-|    **Special Issues or Constraints** |  CONTENIDO     |
+## ELEMENTOS DE UNA SOLICITUD DEL SISTEMA
+
+| System Request Project Connect BO |                                                                                                                                        |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Project Sponsor**               | Juan Jonas Maidana Alvarado, Corina Colque Flores, Laura Rebeca Salinas Ruiz, Josue Rodrigo Mamani Becerra, Juan José Fernández Duarte |
+| **Business Need**                 | CONTENIDO                                                                                                                              |
+| **Business Requirements**         | CONTENIDO                                                                                                                              |
+| **Business Value**                | CONTENIDO                                                                                                                              |
+| **Special Issues or Constraints** | CONTENIDO                                                                                                                              |
 
 ## ANALISIS DE FACTIBILIDAD
-###  Factibilidad Técnica
-###  Factibilidad Económica
-###  Factibilidad Organizacional
+
+### Factibilidad Técnica
+
+### Factibilidad Económica
+
+### Factibilidad Organizacional
 
 ## REFERENCIAS
 
