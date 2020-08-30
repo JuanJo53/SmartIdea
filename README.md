@@ -66,8 +66,8 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 | System Request Project Connect BO |                                                                                                                                        |
 | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | **Project Sponsor**               | Juan Jonas Maidana Alvarado, Corina Colque Flores, Laura Rebeca Salinas Ruiz, Josue Rodrigo Mamani Becerra, Juan José Fernández Duarte |
-| **Business Need**                 | CONTENIDO                                                                                                                              |
-| **Business Requirements**         | CONTENIDO                                                                                                                              |
+| **Business Need**                 | La necesidad de conectar mas facilmente a personas para aportar a proyectos de tecnologia.                                             |
+| **Business Requirements**         | Plataforma web que permita la administracion usuarios y publicacion de proyectos.                                                      |
 | **Business Value**                | CONTENIDO                                                                                                                              |
 | **Special Issues or Constraints** | CONTENIDO                                                                                                                              |
 
