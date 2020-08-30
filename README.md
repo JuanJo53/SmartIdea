@@ -72,9 +72,9 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 |    **Special Issues or Constraints** |  CONTENIDO     |
 
 ## ANALISIS DE FACTIBILIDAD
-###  Factibilidad tecnica
-###  Factibilidad economica
-###  Factibilidad organizacional
+###  Factibilidad Técnica
+###  Factibilidad Económica
+###  Factibilidad Organizacional
 
 ## REFERENCIAS
 
