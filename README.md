@@ -21,7 +21,7 @@
 - [Analisis de factibilidad](#analisis-de-factibilidad)
   - [Factibilidad tecnica](#factibilidad-tecnica)
   - [Factibilidad economica](#factibilidad-economica)
-  - [Factibilidad organizacional](#factibilidad organizacional)
+  - [Factibilidad organizacional](#factibilidad-organizacional)
 
 
 ## INTRODUCCIÓN
