@@ -1,4 +1,4 @@
-# **Project Connect BO**
+# **Smart Idea**
 
 #### INTEGRANTES:
 
