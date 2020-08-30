@@ -75,6 +75,10 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 
 ### Factibilidad Técnica
 
+- Proyect size :mediano
+- Familiarity whit Technology : Angualar , SQL 
+- Familiarity with Funtional area : emprendimiento empresarial
+
 ### Factibilidad Económica
 
 ### Factibilidad Organizacional
