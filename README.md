@@ -17,11 +17,11 @@
   - [Cobro por tipo de uso](#Cobro-por-tipo-de-uso)
   - [Limites](#limites)
 - [Referencias](#referencias)
-- [Elementos de una solicitud de sistema](#elementos-de-una-solicitud-de-sistema)
-- [Analisis de factibilidad](#analisis-de-factibilidad)
-  - [Factibilidad tecnica](#factibilidad-tecnica)
-  - [Factibilidad economica](#factibilidad-economica)
-  - [Factibilidad organizacional](#factibilidad-organizacional)
+- [Elementos de una Solicitud de Sistema](#elementos-de-una-solicitud-de-sistema)
+- [Análisis de Factibilidad](#analisis-de-factibilidad)
+  - [Factibilidad Técnica](#factibilidad-tecnica)
+  - [Factibilidad Económica](#factibilidad-economica)
+  - [Factibilidad Organizacional](#factibilidad-organizacional)
 
 
 ## INTRODUCCIÓN
