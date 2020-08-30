@@ -80,9 +80,12 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 - Familiarity with Funtional area : emprendimiento empresarial
 
 ### Factibilidad Económica
-
+- Development cost: 216 000 BS 
 ### Factibilidad Organizacional
-
+- Proyect champions : Juan Jonas Maidana Alvarado 
+- Senior management : Juan José Fernández Duarte
+- Users : Emprendedores 
+- other stakeholders : 
 ## REFERENCIAS
 
 - https://www.ine.gob.bo/index.php/desocupacion/
