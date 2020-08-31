@@ -63,28 +63,28 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 
 ## ELEMENTOS DE LA SOLICITUD DEL SISTEMA
 
-| System Request Smart Idea         |                                                                                                                                        |
+| System Request                    |             SMART IDEA                                                                                                                           |
 | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | **Project Sponsor**               | Juan Jonas Maidana Alvarado, Corina Colque Flores, Laura Rebeca Salinas Ruiz, Josue Rodrigo Mamani Becerra, Juan José Fernández Duarte |
-| **Business Need**                 | La necesidad de conectar mas facilmente a personas para aportar a proyectos de tecnologia.                                             |
-| **Business Requirements**         | Plataforma web que permita la administracion usuarios y publicacion de proyectos.                                                      |
-| **Business Value**                | La facilidad de encontrar la gente necesaria para los proyectos                                                                         |
-| **Special Issues or Constraints** | La plataforma tomará en cuenta a proyectos o propuestas relacionados con tecnologia                                                    |
+| **Business Need**                 | La necesidad de conectar más facilmente a personas para aportar a proyectos de tecnología.                                             |
+| **Business Requirements**         | Plataforma web que permita la administración usuarios y publicación de proyectos.                                                      |
+| **Business Value**                | La facilidad de encontrar personas necesaria para los proyectos                                                                         |
+| **Special Issues or Constraints** | La plataforma tomará en cuenta a proyectos o propuestas relacionados con tecnología                                                    |
 
-## ANALISIS DE FACTIBILIDAD
+## ANÁLISIS DE FACTIBILIDAD
 
 ### Factibilidad Técnica
-- Proyect size :mediano
-- Familiarity whit Technology : Angualar , SQL 
-- Familiarity with Funtional area : emprendimiento empresarial
+- **Proyect size :** Mediano.
+- **Familiarity with Technology :** Angular , SQL. 
+- **Familiarity with Funtional Area :** Emprendimiento empresarial.
 
 ### Factibilidad Económica
-- Development cost: 216 000 BS 
+- **Development Cost:** Se estima Bs 216 000.  
 ### Factibilidad Organizacional
-- Proyect champions : Juan Jonas Maidana Alvarado 
-- Senior management : Juan José Fernández Duarte
-- Users : Emprendedores 
-- other stakeholders : 
+- **Proyect Champions :** Juan Jonas Maidana Alvarado. 
+- **Senior Management :** Juan José Fernández Duarte.
+- **Users : ** Emprendedores. 
+ 
 ## REFERENCIAS
 
 - https://www.ine.gob.bo/index.php/desocupacion/
