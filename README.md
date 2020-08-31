@@ -83,7 +83,7 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 ### Factibilidad Organizacional
 - **Proyect Champions :** Juan Jonas Maidana Alvarado. 
 - **Senior Management :** Juan José Fernández Duarte.
-- **Users : ** Emprendedores. 
+- **Users :** Emprendedores. 
  
 ## REFERENCIAS
 
