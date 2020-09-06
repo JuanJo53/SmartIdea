@@ -15,6 +15,7 @@
 - [Propuesta](#propuesta)
   - [Confidencialidad de los proyectos](#confidencialidad-de-los-proyectos)
   - [Cobro por tipo de uso](#Cobro-por-tipo-de-uso)
+  -[Mantenimiento a la Página Web](#mantenimiento-a-la-página-web)
   - [Limites](#limites)
 - [Elementos de la Solicitud del Sistema](#elementos-de-la-solicitud-del-sistema)
 - [Análisis de Factibilidad](#analisis-de-factibilidad)
@@ -56,6 +57,7 @@ Para que las ideas de los usuarios sean protegidos solos lo que aceptaron partic
 
 Una forma para que algunos proyectos sean más relevantes en comparación a otros se les dará la opción para que su proyecto aparezca en recomendados.
 
+### Mantenimiento de la Página Web
 ### Limites
 
 - El proyecto tendrá un enfoque principal en la ciudad de La Paz, principalmente en la comunidad universitaria, como prueba con planes de poder expandirse.
