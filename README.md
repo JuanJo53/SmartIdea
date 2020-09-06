@@ -49,6 +49,19 @@ También, cabe mencionar que la plataforma que se desarrollará no es similar o 
 
 ![alt text](https://www.bbva.com/wp-content/uploads/2018/04/equipo-startup-bbva-1-e1524492124593-1024x521.jpg)
 
+### Sobre los Usuarios
+
+#### **Sobre su Registro**
+
+Los usuarios podran registrarse ingresando su nombre completo, nombre de usuario (unico en toda la plataforma), edad, correo electronico y contraseña. Posteriormente el usuario podria completar otra informacion adicional dentro de la plataforma. Esto tomando en cuenta que la plataforma solo permitira que se cree una cuenta por correo electronico. Este correo, sera el cual nos permitirá verificar al usuario, enviandole un correo para que pueda verificar su cuenta recien creada. Si el usuario no verifica su cuenta, no tendrá acceso a la plataforma.
+
+#### **Sobre sus Habilidades**
+
+La plataforma permitirá que los usuarios puedan completar la informacion de su perfil de forma que pueda tener una breve descripcion de ellos. Podrán poner enlaces e informacion de algunos certificados, de dónde estudió, dónde trabajó, además de que puedan poner contactos de referencia para que puedan convalidar su experiencia y sus habilidades en ciertas áreas.
+
+### Sobre los Proyectos
+Cuando una persona entra a un proyecto este puede ver los detalles de la misma, y el lider de la idea podra dar informacion adicional a las personas involucradas acerca del avance y los detalles, por ejemplo, cada proyecto podra tener informacion acerca de si existira paga o no.
+
 ### Confidencialidad de los proyectos
 
 Para que las ideas de los usuarios sean protegidos solos lo que aceptaron participar en el proyecto verán la idea mejor desarrolla. Caso contrario solo se les dejara ver una pequeña descripción del proyecto , las cualidades de personal que requieren y lo que ofrecen a cambio de que se les ayude a desarrollar el proyecto .
@@ -66,28 +79,32 @@ Para un funcionamiento correcto de la plataforma web, se realizará un mantenimi
 
 ## ELEMENTOS DE LA SOLICITUD DEL SISTEMA
 
-| System Request                    |             SMART IDEA                                                                                                                           |
+| System Request                    | SMART IDEA                                                                                                                             |
 | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | **Project Sponsor**               | Juan Jonas Maidana Alvarado, Corina Colque Flores, Laura Rebeca Salinas Ruiz, Josue Rodrigo Mamani Becerra, Juan José Fernández Duarte |
 | **Business Need**                 | La necesidad de conectar más facilmente a personas para aportar a proyectos de tecnología.                                             |
 | **Business Requirements**         | Plataforma web que permita la administración usuarios y publicación de proyectos.                                                      |
-| **Business Value**                | La facilidad de encontrar personas necesaria para los proyectos                                                                         |
+| **Business Value**                | La facilidad de encontrar personas necesaria para los proyectos                                                                        |
 | **Special Issues or Constraints** | La plataforma tomará en cuenta a proyectos o propuestas relacionados con tecnología                                                    |
 
 ## ANÁLISIS DE FACTIBILIDAD
 
 ### Factibilidad Técnica
+
 - **Proyect size :** Mediano.
-- **Familiarity with Technology :** Angular , SQL. 
+- **Familiarity with Technology :** Angular , SQL.
 - **Familiarity with Funtional Area :** Emprendimiento empresarial.
 
 ### Factibilidad Económica
-- **Development Cost:** Se estima Bs 216 000.  
+
+- **Development Cost:** Se estima Bs 216 000.
+
 ### Factibilidad Organizacional
-- **Proyect Champions :** Juan Jonas Maidana Alvarado. 
+
+- **Proyect Champions :** Juan Jonas Maidana Alvarado.
 - **Senior Management :** Juan José Fernández Duarte.
-- **Users :** Emprendedores. 
- 
+- **Users :** Emprendedores.
+
 ## REFERENCIAS
 
 - https://www.ine.gob.bo/index.php/desocupacion/
