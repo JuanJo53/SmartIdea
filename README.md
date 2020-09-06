@@ -77,7 +77,7 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 
 ### Mantenimiento de la Página Web
 
-Para un funcionamiento correcto de la plataforma web, se realizará un mantenimiento constante para detectar posibles incidentes que `puedan surgir en el futuro con los usuarios y asi poder mejorar el rendimiento de la plataforma.
+Para un funcionamiento correcto de la plataforma web, se realizará un mantenimiento constante para detectar posibles incidentes que puedan surgir en el futuro con los usuarios y asi poder mejorar el rendimiento de la plataforma.
 
 ### Limites
 
