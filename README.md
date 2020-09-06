@@ -15,7 +15,7 @@
 - [Propuesta](#propuesta)
   - [Confidencialidad de los proyectos](#confidencialidad-de-los-proyectos)
   - [Cobro por tipo de uso](#Cobro-por-tipo-de-uso)
-  - [Mantenimiento a la Página Web](#mantenimiento-de-la-página-web)
+  - [Mantenimiento de la Página Web](#mantenimiento-de-la-página-web)
   - [Limites](#limites)
 - [Elementos de la Solicitud del Sistema](#elementos-de-la-solicitud-del-sistema)
 - [Análisis de Factibilidad](#analisis-de-factibilidad)
