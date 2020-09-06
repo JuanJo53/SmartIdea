@@ -77,6 +77,8 @@ Una forma para que algunos proyectos sean más relevantes en comparación a otro
 
 ### Mantenimiento de la Página Web
 
+Para un funcionamiento correcto de la plataforma web, se realizará un mantenimiento constante para prevenir incidentes con los usuarios.
+
 ### Limites
 
 - El proyecto tendrá un enfoque principal en la ciudad de La Paz, principalmente en la comunidad universitaria, como prueba con planes de poder expandirse.
