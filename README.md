@@ -67,7 +67,7 @@ Cuando una persona entra a un proyecto este puede ver los detalles de la misma, 
 
 Al momento en que el usuario le interese un proyecto se le notificara con un correo al que publico el proyecto para que se contacte con el interesado y le comente más del proyecto. Los proyectos tendrán tags para poder notificar vía correo electrónico a los usuarios que tengan interés en esos temas.
 
-### Confidencialidad de los proyectos
+#### **Confidencialidad de los proyectos**
 
 Para que las ideas de los usuarios sean protegidos solos lo que aceptaron participar en el proyecto verán la idea mejor desarrolla. Caso contrario solo se les dejara ver una pequeña descripción del proyecto , las cualidades de personal que requieren y lo que ofrecen a cambio de que se les ayude a desarrollar el proyecto .
 
@@ -76,6 +76,7 @@ Para que las ideas de los usuarios sean protegidos solos lo que aceptaron partic
 Una forma para que algunos proyectos sean más relevantes en comparación a otros se les dará la opción para que su proyecto aparezca en recomendados.
 
 ### Mantenimiento de la Página Web
+
 ### Limites
 
 - El proyecto tendrá un enfoque principal en la ciudad de La Paz, principalmente en la comunidad universitaria, como prueba con planes de poder expandirse.
