@@ -60,7 +60,12 @@ Los usuarios podran registrarse ingresando su nombre completo, nombre de usuario
 La plataforma permitirá que los usuarios puedan completar la informacion de su perfil de forma que pueda tener una breve descripcion de ellos. Podrán poner enlaces e informacion de algunos certificados, de dónde estudió, dónde trabajó, además de que puedan poner contactos de referencia para que puedan convalidar su experiencia y sus habilidades en ciertas áreas.
 
 ### Sobre los Proyectos
-Cuando una persona entra a un proyecto este puede ver los detalles de la misma, y el lider de la idea podra dar informacion adicional a las personas involucradas acerca del avance y los detalles, por ejemplo, cada proyecto podra tener informacion acerca de si existira paga o no.
+
+Cuando una persona entra a un proyecto este puede ver los detalles de la misma, y el lider de la idea podra dar informacion adicional a las personas involucradas acerca del avance y los detalles, por ejemplo, cada proyecto podra tener informacion acerca de si existira paga o no, tambien el porcentaje de avance del proyecto, fotos o evidencia de lo que el proyecto trate.
+
+#### **Publicación de proyectos**
+
+Al momento en que el usuario le interese un proyecto se le notificara con un correo al que publico el proyecto para que se contacte con el interesado y le comente más del proyecto. Los proyectos tendrán tags para poder notificar vía correo electrónico a los usuarios que tengan interés en esos temas.
 
 ### Confidencialidad de los proyectos
 
