@@ -59,7 +59,7 @@ Los usuarios podran registrarse ingresando su nombre completo, nombre de usuario
 
 La plataforma permitirá que los usuarios puedan completar la informacion de su perfil de forma que pueda tener una breve descripcion de ellos. Podrán poner enlaces e informacion de algunos certificados, de dónde estudió, dónde trabajó, además de que puedan poner contactos de referencia para que puedan convalidar su experiencia y sus habilidades en ciertas áreas.
 
-### Sobre los Usuarios
+### Sobre los Proyectos
 Cuando una persona entra a un proyecto este puede ver los detalles de la misma, y el lider de la idea podra dar informacion adicional a las personas involucradas acerca del avance y los detalles, por ejemplo, cada proyecto podra tener informacion acerca de si existira paga o no.
 
 ### Confidencialidad de los proyectos
