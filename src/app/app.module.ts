@@ -11,12 +11,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { LoginComponent } from './modules/login/login.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SideBarComponent
-  ],
+  declarations: [AppComponent, SideBarComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,9 +24,9 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, LoginComponent],
 })
-export class AppModule { }
+export class AppModule {}
