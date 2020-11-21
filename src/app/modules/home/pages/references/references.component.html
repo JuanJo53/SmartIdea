@@ -1,1 +1,22 @@
-<p>references works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">Benefits</th>
+    <th scope="col">Status</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let projects of listProjects">
+
+    <td>{{projects.projectTitle}}</td>
+    <td>{{projects.description}}</td>
+    <td>{{projects.benefits}}</td>
+    <td>{{projects.status}}</td>
+    <td><button type="button" class="btn btn-lg btn-block btn-info" routerLink="/user/referencesbyId/{{projects.projectsId}}">Ver Projecto</button></td>
+  </tr>
+  </tbody>
+</table>

@@ -21,6 +21,7 @@ import { ReferencesComponent } from './pages/references/references.component';
 import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
 import { CertificateComponent } from './pages/certificate/certificate.component';
 import { CertificatesComponent } from '../components/certificates/certificates.component';
+import {ReferenceByIdComponent} from "./pages/reference-by-id/reference-by-id.component";
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CertificatesComponent } from '../components/certificates/certificates.c
     CertificateComponent,
     CertificateContentComponent,
     CertificatesComponent,
+    ReferenceByIdComponent,
   ],
   imports: [
     CommonModule,

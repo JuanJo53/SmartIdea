@@ -9,6 +9,7 @@ import { CertificateComponent } from './modules/home/pages/certificate/certifica
 import { LoginComponent } from './modules/home/pages/login/login.component';
 import { MyprojectsComponent } from './modules/home/pages/myprojects/myprojects.component';
 import { ReferencesComponent } from './modules/home/pages/references/references.component';
+import {ReferenceByIdComponent} from "./modules/home/pages/reference-by-id/reference-by-id.component";
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
       {
         path: 'references',
         component: ReferencesComponent,
+      },
+      {
+        path: 'referencesbyId/:id',
+        component: ReferenceByIdComponent,
       },
     ],
   },
