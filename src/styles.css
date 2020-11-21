@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+  width: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 50px 20px;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@media (min-width: 576px) {
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .container {
+    max-width: 1110px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
