@@ -1,5 +1,5 @@
 export interface Certificate {
-  id: number;
+  certificateId: number;
   certificateName: string;
   company: string;
   credentialId: string;

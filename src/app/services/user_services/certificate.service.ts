@@ -12,6 +12,20 @@ export class CertificateService {
     return this.http.get<Certificate[]>(apiKey.api + '/user/1/certificates');
   }
   getCertificate(id: number) {
-    return this.http.get(`http://localhost:8080/user/1/certificates/${id}`);
+    return this.http.get<Certificate>(
+      apiKey.api + `/user/1/certificates/${id}`
+    );
+  }
+  postNewCertificate(certificate: Certificate) {
+    return this.http.post(apiKey.api + '/user/1/certificates', certificate);
+  }
+  editCertificate(id: number, certificate: Certificate) {
+    return this.http.put(
+      apiKey.api + `/user/1/certificates/${id}`,
+      certificate
+    );
+  }
+  deleteCertificate(id: number) {
+    return this.http.delete(apiKey.api + `/user/1/certificates/${id}`);
   }
 }

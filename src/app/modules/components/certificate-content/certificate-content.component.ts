@@ -20,9 +20,22 @@ export class CertificateContentComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      const id = parseInt(params.id);
-      const cert = this.certificatesService.getCertificate(id);
-      console.log(cert);
+      const id = params.id;
+      console.log(id);
+      this.fetchCertificate(id);
     });
+  }
+
+  ngOnDestroy() {
+    console.log('5. ngOnDestroy');
+  }
+  fetchCertificate(id: number) {
+    this.certificatesService.getCertificate(id).subscribe((certificate) => {
+      this.certificate = certificate;
+    });
+  }
+  deleteCertificate(id: number) {
+    this.certificatesService.deleteCertificate(id);
+    console.log('Deleted');
   }
 }

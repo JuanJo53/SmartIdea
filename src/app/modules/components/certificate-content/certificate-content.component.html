@@ -1,23 +1,39 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>
-      <h3>
-        <strong>{{ certificate.certificateName }}</strong>
-      </h3>
-    </mat-card-title>
-    <mat-card-subtitle>
-      <h4>{{ certificate.company }}</h4>
-    </mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
-      <strong>Fecha de expedicion: </strong
-      >{{ certificate.expeditionDate | date: "dd-MM-yyyy" }}
-    </p>
-    <p><strong>Credential ID: </strong>{{ certificate.credentialId }}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button id="{{ certificate.id }}" mat-button color="accent">Editar</button>
-    <button id="{{ certificate.id }}" mat-button color="warn">Eliminar</button>
-  </mat-card-actions>
-</mat-card>
+<div *ngIf="certificate">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <h3>
+          <strong>{{ certificate.certificateName }}</strong>
+        </h3>
+      </mat-card-title>
+      <mat-card-subtitle>
+        <h4>{{ certificate.company }}</h4>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        <strong>Fecha de expedicion: </strong
+        >{{ certificate.expeditionDate | date: "dd-MM-yyyy" }}
+      </p>
+      <p><strong>Credential ID: </strong>{{ certificate.credentialId }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <a
+        id="{{ certificate.certificateId }}"
+        [routerLink]="['../certificate', certificate.certificateId]"
+        mat-button
+        color="accent"
+      >
+        Editar
+      </a>
+      <button
+        id="{{ certificate.certificateId }}"
+        (click)="deleteCertificate(certificate.certificateId)"
+        mat-button
+        color="warn"
+      >
+        Eliminar
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
