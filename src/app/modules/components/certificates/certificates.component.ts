@@ -23,7 +23,7 @@ export class CertificatesComponent implements OnInit {
   fecthCertificates() {
     this.certificateService.getAllCertificates().subscribe((certificates) => {
       this.certificates = certificates;
-      console.log(certificates);
+      console.table(certificates);
     });
   }
 }
