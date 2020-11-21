@@ -1,1 +1,21 @@
-<p>myprojects works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">Benefits</th>
+    <th scope="col">Status</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let projects of listProjects">
+
+    <td>{{projects.projectTitle}}</td>
+    <td>{{projects.description}}</td>
+    <td>{{projects.benefits}}</td>
+    <td>{{projects.status}}</td>
+   </tr>
+  </tbody>
+</table>
