@@ -1,1 +1,22 @@
-<p>bill works!</p>
+<h1>FACTURACION</h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">BuyDate</th>
+    <th scope="col">BillingAddress</th>
+    <th scope="col">Country</th>
+    <th scope="col">City</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let bill of listBill">
+
+    <td>{{bill.buyDate}}</td>
+    <td>{{bill.billingAddress}}</td>
+    <td>{{bill.country}}</td>
+    <td>{{bill.city}}</td>
+  </tr>
+  </tbody>
+</table>
