@@ -11,6 +11,9 @@ export class ProjectsService {
   getAllProjects(){
     return this.http.get<Projects[]>('http://localhost:8080/user/list/1');
   }
+  getAllProjectsfeed(){
+    return this.http.get<Projects[]>('http://localhost:8080/user/1/project-feed');
+  }
 
   getProject(id: number) {
     return this.http.get<Projects>(`http://localhost:8080/user/1/projects/${id}`);
