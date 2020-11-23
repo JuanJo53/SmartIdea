@@ -57,6 +57,7 @@ export class CertificateContentComponent implements OnInit {
       const cert = this.form.value;
       this.updateCertificate(id, cert);
     }
+    this.cancel();
   }
   updateCertificate(id: number, updateCertificate: certificateRequest): void {
     this.certificatesService
