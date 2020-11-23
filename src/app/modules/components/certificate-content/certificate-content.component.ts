@@ -1,9 +1,10 @@
+import { CertificateService } from './../../../services/user_services/certificate.service';
 import { Certificate } from './../../../models/certificate.model';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { CertificateService } from 'src/app/services/user_services/certificate.service';
 import { certificateRequest } from 'src/app/models/certificateRequest.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CertificateComponent } from '../../home/pages/certificate/certificate.component';
 @Component({
   selector: 'app-certificate-content',
   templateUrl: './certificate-content.component.html',
@@ -51,13 +52,15 @@ export class CertificateContentComponent implements OnInit {
       this.certificate = certificate;
     });
   }
-  saveCertificate(event: Event, id: number) {
+  saveCertificate(event: Event, id: number): void {
     event.preventDefault();
     if (this.form.valid) {
       const cert = this.form.value;
+      console.log(cert);
       this.updateCertificate(id, cert);
     }
     this.cancel();
+    window.location.reload();
   }
   updateCertificate(id: number, updateCertificate: certificateRequest): void {
     this.certificatesService
@@ -70,6 +73,7 @@ export class CertificateContentComponent implements OnInit {
     this.certificatesService.deleteCertificate(id).subscribe((rta) => {
       console.log(rta);
     });
+    window.location.reload();
     console.log('Deleted');
   }
 }

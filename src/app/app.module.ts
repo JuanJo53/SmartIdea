@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modules/home/home.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CreateCertificateComponent } from './modules/components/dialogs/create-certificate/create-certificate.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [

@@ -3,6 +3,7 @@ import { certificateRequest } from '../../../models/certificateRequest.model';
 import { Component, OnChanges, OnInit } from '@angular/core';
 import { CertificateService } from 'src/app/services/user_services/certificate.service';
 import { MatDialog } from '@angular/material/dialog';
+import { CreateCertificateComponent } from '../dialogs/create-certificate/create-certificate.component';
 export interface DialogData {
   certificateName: string;
   company: string;
@@ -35,19 +36,34 @@ export class CertificatesComponent implements OnInit {
     this.fecthCertificates();
   }
   createCertificate(): void {
-    const newCertificate: certificateRequest = {
-      certificateName: 'Curso de Adobe Photoshop',
-      company: 'Coursera',
-      expeditionDate: '2018-10-12',
-      credentialId: '1234asdr6547resswqqd',
-      credentialURL: 'http://coursera.com/certificados/photoshop',
-      expirationDate: '2022-10-12',
-    };
-    this.certificateService
-      .postNewCertificate(newCertificate)
-      .subscribe((certificate) => {
-        console.log(certificate);
-      });
+    const dialogRef = this.dialog.open(CreateCertificateComponent, {
+      width: '500px',
+      data: {
+        certificateName: this.certificateName,
+        company: this.company,
+        expeditionDate: this.expeditionDate,
+        credentialId: this.credentialId,
+        credentialURL: this.credentialURL,
+        expirationDate: this.expirationDate,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.certificateName = result;
+    });
+    // const newCertificate: certificateRequest = {
+    // certificateName: 'Curso de Adobe Photoshop',
+    // company: 'Coursera',
+    // expeditionDate: '2018-10-12',
+    // credentialId: '1234asdr6547resswqqd',
+    // credentialURL: 'http://coursera.com/certificados/photoshop',
+    // expirationDate: '2022-10-12',
+    // };
+    // this.certificateService
+    //   .postNewCertificate(newCertificate)
+    //   .subscribe((certificate) => {
+    //     console.log(certificate);
+    //   });
   }
   fecthCertificates(): void {
     this.certificateService.getAllCertificates().subscribe((certificates) => {
