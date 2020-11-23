@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {PaymentPlanComponent} from './paymentPlan.component';
+import { PaymentPlanComponent} from './paymentPlan.component';
 
-describe('PaymentPlanComponent', () => {
+describe('HomeComponent', () => {
   let component: PaymentPlanComponent;
   let fixture: ComponentFixture<PaymentPlanComponent>;
 

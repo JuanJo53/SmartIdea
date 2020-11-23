@@ -4,8 +4,8 @@ import {PaymentPlan} from '../../../../models/paymentPlan.model';
 
 @Component({
   selector: 'app-paymentPlanBuy',
-  templateUrl: './paymentPlanBuy.component.html',
-  styleUrls: ['./paymentPlanBuy.component.css']
+  templateUrl: './PaymentPlanBuy.component.html',
+  styleUrls: ['./PaymentPlanBuy.component.css']
 })
 export class PaymentPlanBuyComponent implements OnInit {
   listPaymentPlan: PaymentPlan[];
@@ -19,5 +19,5 @@ export class PaymentPlanBuyComponent implements OnInit {
       this.listPaymentPlan = data;
     });
   }
-
 }
+
