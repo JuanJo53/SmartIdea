@@ -1,20 +1,22 @@
 <h1 mat-dialog-title>Nuevo Certificado</h1>
 <form [formGroup]="form" (ngSubmit)="saveCertificate()">
   <mat-dialog-content>
-    <mat-form-field>
+    <mat-form-field class="form">
       <mat-label>Nombre</mat-label>
       <input
         matInput
+        type="text"
         formControlName="certificateName"
         placeholder="Nombre Certificado"
         required
       /> </mat-form-field
     ><br />
-    <mat-form-field>
+    <mat-form-field class="form">
       <mat-label>Empresa</mat-label>
       <input
-        formControlName="company"
         matInput
+        type="text"
+        formControlName="company"
         placeholder="Empresa Emisora"
         required
       /> </mat-form-field
@@ -39,19 +41,21 @@
         required
       />
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="form">
       <mat-label>Credential ID:</mat-label
       ><input
         matInput
+        type="text"
         placeholder="ID de la credencial"
         formControlName="credentialId"
         required
       />
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field class="form">
       <mat-label>Credential URL: </mat-label
       ><input
         matInput
+        type="text"
         placeholder="URL de la credencial"
         formControlName="credentialURL"
         required
