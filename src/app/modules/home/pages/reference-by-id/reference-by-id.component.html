@@ -9,10 +9,10 @@
           <img class="img-fluid" src="https://es.unesco.org/youth/toptips/user/pages/images/home-feature-two_mobile.png">
         </div>
         <div class="team-content">
-          <h3 class="name">{{project.projectTitle}}</h3>
-          <h4 class="title"><b>Descripcion : </b>{{project.description}}</h4>
-          <h5 class="title"><b>Vistas : </b>{{project.views}}</h5>
-          <h5 class="title"><b>Fecha de creación : </b>{{project.createDate | date :'longDate'}}</h5>
+          <h3 class="name">{{project?.projectTitle}}</h3>
+          <h4 class="title"><b>Descripcion : </b>{{project?.description}}</h4>
+          <h5 class="title"><b>Vistas : </b>{{project?.views}}</h5>
+          <h5 class="title"><b>Fecha de creación : </b>{{project?.createDate | date :'longDate'}}</h5>
         </div>
       </div>
     </div>
