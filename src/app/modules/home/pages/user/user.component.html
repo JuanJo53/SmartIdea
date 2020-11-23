@@ -1,3 +1,19 @@
-<p>{{user?.email}}</p>
-<h1>{{user?.name}}</h1>
-<h1>{{user?.description}}</h1>
+<div>
+  <label>First Name</label>
+  <input type="text" [(ngModel)]="user.name" placeholder="Id" />
+  <label >Last Name</label>
+  <input type="text" [(ngModel)]="user.surname" />
+  <label >Nick Name</label>
+  <input type="text" [(ngModel)]="user.username"  />
+  <label >Email</label>
+  <input type="text" [(ngModel)]="user.email"  />
+  <label >Description</label>
+  <input type="text" [(ngModel)]="user.description"  />
+  <label >Image</label>
+  <input type="text" [(ngModel)]="user.image" />
+  <label >Cellphone</label>
+  <input type="text" [(ngModel)]="user.cellphone" />
+
+  <button class="button" (click)="update()">Update User</button>
+</div>
+
