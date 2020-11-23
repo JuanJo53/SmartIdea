@@ -1,0 +1,35 @@
+<div class="simple-dialog">
+  <div class="simple-dialog__content">
+    <!--icon-->
+    <div
+      class="simple-dialog__icon-content simple-dialog__icon-content--warning"
+    >
+      <mat-icon>warning</mat-icon>
+    </div>
+    <!--#icon-->
+    <!--Title simple dialog-->
+    <div class="simple-dialog__title">
+      <h1 class="simple-dialog__title--warning">¡Advertencia!</h1>
+    </div>
+    <!--#title simple dialog-->
+    <!--message-->
+    <span class="simple-dialog__message">
+      {{ message }}
+    </span>
+    <!--#message-->
+  </div>
+  <mat-dialog-actions align="center">
+    <button mat-button class="dialog-button-accept" (click)="accept()">
+      {{ buttonMessage }}
+    </button>
+    <button
+      mat-button
+      mat-raised-button
+      color="warn"
+      class="dialog-button-accept"
+      (click)="cancel()"
+    >
+      Cancelar
+    </button>
+  </mat-dialog-actions>
+</div>

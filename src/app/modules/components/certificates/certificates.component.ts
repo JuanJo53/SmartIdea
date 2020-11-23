@@ -51,19 +51,6 @@ export class CertificatesComponent implements OnInit {
       console.log('The dialog was closed');
       this.certificateName = result;
     });
-    // const newCertificate: certificateRequest = {
-    // certificateName: 'Curso de Adobe Photoshop',
-    // company: 'Coursera',
-    // expeditionDate: '2018-10-12',
-    // credentialId: '1234asdr6547resswqqd',
-    // credentialURL: 'http://coursera.com/certificados/photoshop',
-    // expirationDate: '2022-10-12',
-    // };
-    // this.certificateService
-    //   .postNewCertificate(newCertificate)
-    //   .subscribe((certificate) => {
-    //     console.log(certificate);
-    //   });
   }
   fecthCertificates(): void {
     this.certificateService.getAllCertificates().subscribe((certificates) => {

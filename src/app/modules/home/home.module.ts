@@ -28,6 +28,7 @@ import { UserComponent } from './pages/user/user.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WarningDialogComponent } from '../components/dialogs/warning-dialog/warning-dialog.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -47,6 +48,7 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
     FeedComponent,
     UserComponent,
     CreateCertificateComponent,
+    WarningDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -63,7 +65,8 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     FormsModule,
     MatDialogModule,
+    MatIconModule,
   ],
-  entryComponents: [CreateCertificateComponent],
+  entryComponents: [CreateCertificateComponent, WarningDialogComponent],
 })
 export class HomeModule {}

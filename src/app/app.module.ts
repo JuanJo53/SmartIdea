@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeModule } from './modules/home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateCertificateComponent } from './modules/components/dialogs/create-certificate/create-certificate.component';
+import { WarningDialogComponent } from './modules/components/dialogs/warning-dialog/warning-dialog.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [

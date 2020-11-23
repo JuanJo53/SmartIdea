@@ -5,6 +5,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { certificateRequest } from 'src/app/models/certificateRequest.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CertificateComponent } from '../../home/pages/certificate/certificate.component';
+import { WarningDialogComponent } from '../dialogs/warning-dialog/warning-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-certificate-content',
   templateUrl: './certificate-content.component.html',
@@ -20,7 +22,8 @@ export class CertificateContentComponent implements OnInit {
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private certificatesService: CertificateService
+    private certificatesService: CertificateService,
+    public dialog: MatDialog
   ) {}
   edit = false;
   ngOnInit(): void {
@@ -70,10 +73,19 @@ export class CertificateContentComponent implements OnInit {
       });
   }
   deleteCertificate(id: number): void {
-    this.certificatesService.deleteCertificate(id).subscribe((rta) => {
-      console.log(rta);
+    const dialogRef = this.dialog.open(WarningDialogComponent, {
+      width: '500px',
     });
-    window.location.reload();
-    console.log('Deleted');
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      console.log(result);
+      if (result) {
+        this.certificatesService.deleteCertificate(id).subscribe((rta) => {
+          console.log(rta);
+        });
+        window.location.reload();
+        console.log('Deleted');
+      }
+    });
   }
 }
