@@ -3,13 +3,14 @@ import {PaymentPlanService} from '../../../../services/user_services/paymentPlan
 import {PaymentPlan} from '../../../../models/paymentPlan.model';
 
 @Component({
-  selector: 'app-paymentPlan',
-  templateUrl: './paymentPlan.component.html',
-  styleUrls: ['./paymentPlan.component.css']
+  selector: 'app-paymentPlanBuy',
+  templateUrl: './paymentPlanBuy.component.html',
+  styleUrls: ['./paymentPlanBuy.component.css']
 })
-export class PaymentPlanComponent implements OnInit {
+export class PaymentPlanBuyComponent implements OnInit {
   listPaymentPlan: PaymentPlan[];
   constructor(private service: PaymentPlanService) { }
+
   ngOnInit(): void {
     this.loadlist();
   }
@@ -18,4 +19,5 @@ export class PaymentPlanComponent implements OnInit {
       this.listPaymentPlan = data;
     });
   }
+
 }

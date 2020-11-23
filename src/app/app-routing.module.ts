@@ -12,6 +12,7 @@ import { ReferencesComponent } from './modules/home/pages/references/references.
 import {ReferenceByIdComponent} from './modules/home/pages/reference-by-id/reference-by-id.component';
 import {FeedComponent} from './modules/home/pages/feed/feed.component';
 import {UserComponent} from "./modules/home/pages/user/user.component";
+import {PaymentPlanComponent} from './modules/home/pages/paymentPlan/paymentPlan.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,10 @@ const routes: Routes = [
       {
         path: 'profile',
         component: UserComponent,
+      },
+      {
+        path: 'paymentPlan',
+        component: PaymentPlanComponent,
       },
     ],
   },

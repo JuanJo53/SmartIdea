@@ -1,6 +1,5 @@
 export interface PaymentPlan{
-
-  paymentPlanId: number ;
+  paymentPlanId: number;
   plan: string;
   description: string;
   cost: number;
