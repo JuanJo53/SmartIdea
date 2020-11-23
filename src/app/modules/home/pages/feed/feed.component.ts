@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ProjectsService} from '../../../../services/user_services/projects.service';
-import {Projects} from '../../../../models/projects.model';
+import {IProjects} from '../../../../models/projects.model';
 
 @Component({
   selector: 'app-feed',
@@ -8,7 +8,7 @@ import {Projects} from '../../../../models/projects.model';
   styleUrls: ['./feed.component.css']
 })
 export class FeedComponent implements OnInit {
-  listProjects: Projects[];
+  listProjects: IProjects[];
   constructor(private service: ProjectsService) { }
 
   ngOnInit(): void {

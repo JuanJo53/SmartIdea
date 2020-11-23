@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ReferencesService} from '../../../../services/user_services/references.service';
-import {Projects} from '../../../../models/projects.model';
+import {IProjects} from '../../../../models/projects.model';
 
 @Component({
   selector: 'app-references',
@@ -8,7 +8,7 @@ import {Projects} from '../../../../models/projects.model';
   styleUrls: ['./references.component.css']
 })
 export class ReferencesComponent implements OnInit {
-  listProjects: Projects[];
+  listProjects: IProjects[];
   constructor(private service: ReferencesService) { }
 
 

@@ -23,6 +23,7 @@ import { CertificateComponent } from './pages/certificate/certificate.component'
 import { CertificatesComponent } from '../components/certificates/certificates.component';
 import {ReferenceByIdComponent} from './pages/reference-by-id/reference-by-id.component';
 import { FeedComponent } from './pages/feed/feed.component';
+import {UserComponent} from "./pages/user/user.component";
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { FeedComponent } from './pages/feed/feed.component';
     CertificatesComponent,
     ReferenceByIdComponent,
     FeedComponent,
+    UserComponent,
   ],
   imports: [
     CommonModule,

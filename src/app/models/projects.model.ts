@@ -1,6 +1,4 @@
-export interface Projects {
-
-
+export interface IProjects {
   projectsId: number;
   projectTitle: string;
   description: string;

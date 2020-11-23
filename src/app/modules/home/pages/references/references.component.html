@@ -1,22 +1,28 @@
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">Title</th>
-    <th scope="col">Description</th>
-    <th scope="col">Benefits</th>
-    <th scope="col">Status</th>
+<div class="container">
 
-  </tr>
-  </thead>
-  <tbody>
+  <h1>Proyectos en los que trabaje</h1>
 
-  <tr *ngFor="let projects of listProjects">
+  <div class="row">
 
-    <td>{{projects.projectTitle}}</td>
-    <td>{{projects.description}}</td>
-    <td>{{projects.benefits}}</td>
-    <td>{{projects.status}}</td>
-    <td><button type="button" class="btn btn-lg btn-block btn-info" routerLink="/user/referencesbyId/{{projects.projectsId}}">Ver Projecto</button></td>
-  </tr>
-  </tbody>
-</table>
+
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let projects of listProjects">
+      <div class="our-team">
+
+        <div class="picture">
+          <img class="img-fluid" src="https://es.unesco.org/youth/toptips/user/pages/images/home-feature-two_mobile.png">
+        </div>
+        <div class="team-content">
+          <h3 class="name">{{projects.projectTitle}}</h3>
+          <h4 class="title">Descripcion :{{projects.description}}</h4>
+          <h5 class="title">Vistas : {{projects.views}}</h5>
+        </div>
+        <ul class="social">
+          <li><button type="button" class="boton_personalizado" routerLink="/user/referencesbyId/{{projects.projectsId}}">Ver Projecto</button></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

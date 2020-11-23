@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Projects} from "../../../../models/projects.model";
+import {IProjects} from "../../../../models/projects.model";
 import { ActivatedRoute } from '@angular/router';
 import {ReferencesService} from "../../../../services/user_services/references.service";
 
@@ -9,14 +9,14 @@ import {ReferencesService} from "../../../../services/user_services/references.s
   styleUrls: ['./reference-by-id.component.css']
 })
 export class ReferenceByIdComponent implements OnInit {
-  project: Projects;
+  project: IProjects;
 
   constructor(private service: ReferencesService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.cargarTienda();
+    this.loadproject();
   }
-  cargarTienda(){
+  loadproject(){
     const id = this.activatedRoute.snapshot.params.id;
     this.service.getProject(id).subscribe(
       data => {
