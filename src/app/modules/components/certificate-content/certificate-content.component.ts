@@ -1,9 +1,9 @@
 import { Certificate } from './../../../models/certificate.model';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CertificateService } from 'src/app/services/user_services/certificate.service';
 import { certificateRequest } from 'src/app/models/certificateRequest.model';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-certificate-content',
   templateUrl: './certificate-content.component.html',
@@ -12,9 +12,12 @@ import { certificateRequest } from 'src/app/models/certificateRequest.model';
 export class CertificateContentComponent implements OnInit {
   @Input() certificate: Certificate;
 
+  form: FormGroup;
+
   // certificate: Certificate;
 
   constructor(
+    private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
     private certificatesService: CertificateService
   ) {}
@@ -28,33 +31,41 @@ export class CertificateContentComponent implements OnInit {
       }
     });
   }
-  editCert() {
+  cancel() {
+    this.edit = false;
+  }
+  editCert(): void {
     this.edit = true;
+    this.form = this.fromBuilder.group({
+      id: [0, [Validators.required]],
+      certificateName: ['', [Validators.required]],
+      company: ['', [Validators.required]],
+      expeditionDate: ['', [Validators.required]],
+      expirationDate: ['', [Validators.required]],
+      credentialId: ['', [Validators.required]],
+      credentialURL: ['', [Validators.required]],
+    });
   }
-  ngOnDestroy() {
-    console.log('5. ngOnDestroy');
-  }
-  fetchCertificate(id: number) {
+  fetchCertificate(id: number): void {
     this.certificatesService.getCertificate(id).subscribe((certificate) => {
       this.certificate = certificate;
     });
   }
-  updateCertificate(certificate: certificateRequest) {
-    const updateCertificate: certificateRequest = {
-      certificateName: 'Curso de Adobe Ilustrator',
-      company: 'Coursera',
-      expeditionDate: '2018-10-12',
-      credentialId: '1234asdr6547resswqqd',
-      credentialURL: 'http://coursera.com/certificados/ilustrator',
-      expirationDate: '2022-10-12',
-    };
+  saveCertificate(event: Event, id: number) {
+    event.preventDefault();
+    if (this.form.valid) {
+      const cert = this.form.value;
+      this.updateCertificate(id, cert);
+    }
+  }
+  updateCertificate(id: number, updateCertificate: certificateRequest): void {
     this.certificatesService
-      .updateCertificate(4, certificate)
+      .updateCertificate(id, updateCertificate)
       .subscribe((certificate) => {
         console.log(certificate);
       });
   }
-  deleteCertificate(id: number) {
+  deleteCertificate(id: number): void {
     this.certificatesService.deleteCertificate(id).subscribe((rta) => {
       console.log(rta);
     });

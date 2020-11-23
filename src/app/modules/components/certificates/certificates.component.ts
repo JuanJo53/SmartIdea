@@ -34,7 +34,7 @@ export class CertificatesComponent implements OnInit {
   ngOnInit(): void {
     this.fecthCertificates();
   }
-  createCertificate() {
+  createCertificate(): void {
     const newCertificate: certificateRequest = {
       certificateName: 'Curso de Adobe Photoshop',
       company: 'Coursera',
@@ -49,7 +49,7 @@ export class CertificatesComponent implements OnInit {
         console.log(certificate);
       });
   }
-  fecthCertificates() {
+  fecthCertificates(): void {
     this.certificateService.getAllCertificates().subscribe((certificates) => {
       this.certificates = certificates;
       console.table(certificates);

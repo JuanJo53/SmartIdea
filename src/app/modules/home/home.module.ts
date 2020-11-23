@@ -25,6 +25,8 @@ import { ReferenceByIdComponent } from './pages/reference-by-id/reference-by-id.
 import { FeedComponent } from './pages/feed/feed.component';
 import { UserComponent } from './pages/user/user.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -55,6 +57,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     LayoutModule,
     MatCardModule,
     MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
 })
 export class HomeModule {}

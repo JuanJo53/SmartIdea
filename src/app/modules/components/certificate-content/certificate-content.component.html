@@ -1,5 +1,5 @@
 <div *ngIf="certificate">
-  <mat-card *ngIf="!edit; else elseBlock">
+  <mat-card class="cert-card" *ngIf="!edit; else elseBlock">
     <mat-card-header>
       <mat-card-title>
         <h3>
@@ -41,5 +41,100 @@
       </button>
     </mat-card-actions>
   </mat-card>
-  <ng-template #elseBlock> editing </ng-template>
+  <ng-template #elseBlock>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="saveCertificate($event, certificate.certificateId)"
+    >
+      <mat-card class="cert-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-form-field>
+              <mat-label>Nombre</mat-label>
+              <input
+                matInput
+                formControlName="certificateName"
+                placeholder="Nombre Certificado"
+                [(ngModel)]="certificate.certificateName"
+                required
+              />
+            </mat-form-field>
+          </mat-card-title>
+          <mat-card-subtitle>
+            <mat-form-field>
+              <mat-label>Empresa</mat-label>
+              <input
+                formControlName="company"
+                matInput
+                placeholder="Empresa Emisora"
+                [(ngModel)]="certificate.company"
+                required
+              />
+            </mat-form-field>
+          </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <mat-form-field>
+            <mat-label>Fecha de expedicion: </mat-label
+            ><input
+              matInput
+              placeholder="Fecha de expedicion"
+              formControlName="expeditionDate"
+              [(ngModel)]="certificate.expeditionDate"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Fecha de expiracion: </mat-label
+            ><input
+              matInput
+              placeholder="Fecha de expiracion"
+              formControlName="expirationDate"
+              [(ngModel)]="certificate.expirationDate"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Credential ID:</mat-label
+            ><input
+              matInput
+              placeholder="ID de la credencial"
+              formControlName="credentialId"
+              [(ngModel)]="certificate.credentialId"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Credential URL: </mat-label
+            ><input
+              matInput
+              placeholder="URL de la credencial"
+              formControlName="credentialURL"
+              [(ngModel)]="certificate.credentialURL"
+              required
+            />
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            id="{{ certificate.certificateId }}"
+            type="submit"
+            mat-button
+            color="primary"
+          >
+            Guardar Cambios
+          </button>
+          <button
+            id="{{ certificate.certificateId }}"
+            (click)="cancel()"
+            mat-button
+            mat-raised-button
+            color="warn"
+          >
+            Cancelar
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+  </ng-template>
 </div>
