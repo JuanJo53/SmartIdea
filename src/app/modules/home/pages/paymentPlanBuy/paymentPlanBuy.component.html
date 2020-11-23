@@ -1,8 +1,10 @@
-<h1>Comprar Publicidad</h1>
-<h2 class="title">Plan :{{paymentplan.plan}}</h2>
+<div class="column" *ngFor="let paymentPlan of listPaymentPlan">
+  <h1>Comprar Publicidad</h1>
+<h2 class="title">Plan :{{paymentPlan.plan}}</h2>
 <h2 class="title">Descripcion :{{paymentPlan.description}}</h2>
 <h2 class="title">Costo :{{paymentPlan.cost}}</h2>
 <h2 class="title">Duracion de la publicidad :{{paymentPlan.duration}}</h2>
+</div>
 
 <section class="container flex">
   <div class="table">

@@ -13,6 +13,8 @@ import {ReferenceByIdComponent} from './modules/home/pages/reference-by-id/refer
 import {FeedComponent} from './modules/home/pages/feed/feed.component';
 import {UserComponent} from "./modules/home/pages/user/user.component";
 import {PaymentPlanComponent} from './modules/home/pages/paymentPlan/paymentPlan.component';
+import {PaymentPlanBuyComponent} from './modules/home/pages/paymentPlanBuy/paymentPlanBuy.component';
+import {AfiliarComponent} from './modules/home/pages/afiliar/afiliar.component';
 
 const routes: Routes = [
   {
@@ -66,6 +68,14 @@ const routes: Routes = [
       {
         path: 'paymentPlan',
         component: PaymentPlanComponent,
+      },
+      {
+        path: 'paymentPlanBuy',
+        component: PaymentPlanBuyComponent,
+      },
+      {
+        path: 'afiliar',
+        component: AfiliarComponent,
       },
     ],
   },
