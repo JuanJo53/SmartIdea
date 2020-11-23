@@ -28,7 +28,9 @@ export class UserComponent implements OnInit {
       this.user =  data;
     });
   }
+  createskill(){
 
+  }
   update() {
     let user1:User = {
       name: this.user.name,

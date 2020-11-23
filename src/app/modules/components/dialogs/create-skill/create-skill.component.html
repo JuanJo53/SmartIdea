@@ -1,0 +1,68 @@
+<h1 mat-dialog-title>Nuevo Certificado</h1>
+<form [formGroup]="form" (ngSubmit)="saveCertificate()">
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input
+        matInput
+        formControlName="certificateName"
+        placeholder="Nombre Certificado"
+        required
+      /> </mat-form-field
+    ><br />
+    <mat-form-field>
+      <mat-label>Empresa</mat-label>
+      <input
+        formControlName="company"
+        matInput
+        placeholder="Empresa Emisora"
+        required
+      /> </mat-form-field
+    ><br />
+    <mat-form-field>
+      <mat-label>Fecha de expedicion: </mat-label
+      ><input
+      matInput
+      type="date"
+      placeholder="Fecha de expedicion"
+      formControlName="expeditionDate"
+      required
+    />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Fecha de expiracion: </mat-label
+      ><input
+      matInput
+      type="date"
+      placeholder="Fecha de expiracion"
+      formControlName="expirationDate"
+      required
+    />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Credential ID:</mat-label
+      ><input
+      matInput
+      placeholder="ID de la credencial"
+      formControlName="credentialId"
+      required
+    />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Credential URL: </mat-label
+      ><input
+      matInput
+      placeholder="URL de la credencial"
+      formControlName="credentialURL"
+      required
+    />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+    <button mat-button mat-raised-button color="warn">Cancelar</button>
+  </mat-dialog-actions>
+</form>
+

@@ -49,3 +49,14 @@ table{
   border-spacing: 0;
   width: 50%;
 }
+th{
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: #4CAF50;
+  color: white;
+}
+td{
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 8px;
+}

@@ -10,7 +10,7 @@ export class BillService {
 
   constructor(private http: HttpClient) { }
   getAllBill(){
-    return this.http.get<Bill[]>('http://localhost:8080/user/list/1');
+    return this.http.get<Bill[]>('http://localhost:8080/user/1/bill');
   }
   getProject(id: number) {
     return this.http.get<Bill>(`http://localhost:8080/user/1/projects/${id}`);
