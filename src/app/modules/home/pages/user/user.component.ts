@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../../../../services/user_services/user.service";
 import {User} from "../../../../models/user.model";
-
+import {Skill} from "../../../../models/skill.model";
 
 @Component({
   selector: 'app-user',
@@ -10,14 +10,19 @@ import {User} from "../../../../models/user.model";
 })
 export class UserComponent implements OnInit {
   user: User;
-
+  skills: Skill[];
   constructor(private service: UserService) { }
 
   ngOnInit(): void {
     this.loadprofile();
+    this.loadSkillList();
 
   }
-
+  loadSkillList(){
+    this.service.getSkills().subscribe(data => {
+      this.skills = data;
+    });
+  }
   loadprofile(){
     this.service.getUserDeatails().subscribe(data=>{
       this.user =  data;

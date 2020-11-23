@@ -17,3 +17,20 @@
   <button class="button" (click)="update()">Update User</button>
 </div>
 
+<div class="your_div" >
+  <h1>SKILLS</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Skills</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="pure-table-odd" *ngFor="let skill of skills">
+      <td>{{skill.skillId}}</td>
+      <td>{{skill.skillName}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

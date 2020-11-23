@@ -1,3 +1,4 @@
+import { CreateCertificateComponent } from './../components/dialogs/create-certificate/create-certificate.component';
 import { MatCardModule } from '@angular/material/card';
 import { CertificateContentComponent } from './../components/certificate-content/certificate-content.component';
 import { NgModule } from '@angular/core';
@@ -45,6 +46,7 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReferenceByIdComponent,
     FeedComponent,
     UserComponent,
+    CreateCertificateComponent,
   ],
   imports: [
     CommonModule,
@@ -60,6 +62,8 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     ReactiveFormsModule,
     FormsModule,
+    MatDialogModule,
   ],
+  entryComponents: [CreateCertificateComponent],
 })
 export class HomeModule {}
