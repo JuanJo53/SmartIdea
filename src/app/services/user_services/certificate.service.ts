@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import apiKey from '../apiKey';
 import { Certificate } from './../../models/certificate.model';
+import { certificateRequest } from '../../models/certificateRequest.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,10 +17,10 @@ export class CertificateService {
       apiKey.api + `/user/1/certificates/${id}`
     );
   }
-  postNewCertificate(certificate: Certificate) {
+  postNewCertificate(certificate: certificateRequest) {
     return this.http.post(apiKey.api + '/user/1/certificates', certificate);
   }
-  editCertificate(id: number, certificate: Certificate) {
+  updateCertificate(id: number, certificate: certificateRequest) {
     return this.http.put(
       apiKey.api + `/user/1/certificates/${id}`,
       certificate

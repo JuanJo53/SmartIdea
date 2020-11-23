@@ -1,5 +1,5 @@
 <div *ngIf="certificate">
-  <mat-card>
+  <mat-card *ngIf="!edit; else elseBlock">
     <mat-card-header>
       <mat-card-title>
         <h3>
@@ -14,14 +14,18 @@
       <p>
         <strong>Fecha de expedicion: </strong
         >{{ certificate.expeditionDate | date: "dd-MM-yyyy" }}
+        <strong>Fecha de expiracion: </strong
+        >{{ certificate.expirationDate | date: "dd-MM-yyyy" }}
       </p>
       <p><strong>Credential ID: </strong>{{ certificate.credentialId }}</p>
+      <p><strong>Credential URL: </strong>{{ certificate.credentialURL }}</p>
     </mat-card-content>
     <mat-card-actions>
       <a
         id="{{ certificate.certificateId }}"
-        [routerLink]="['../certificate', certificate.certificateId]"
+        (click)="editCert()"
         mat-button
+        mat-raised-button
         color="accent"
       >
         Editar
@@ -30,10 +34,12 @@
         id="{{ certificate.certificateId }}"
         (click)="deleteCertificate(certificate.certificateId)"
         mat-button
+        mat-raised-button
         color="warn"
       >
         Eliminar
       </button>
     </mat-card-actions>
   </mat-card>
+  <ng-template #elseBlock> editing </ng-template>
 </div>

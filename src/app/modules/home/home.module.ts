@@ -21,10 +21,10 @@ import { ReferencesComponent } from './pages/references/references.component';
 import { MyprojectsComponent } from './pages/myprojects/myprojects.component';
 import { CertificateComponent } from './pages/certificate/certificate.component';
 import { CertificatesComponent } from '../components/certificates/certificates.component';
-import {ReferenceByIdComponent} from './pages/reference-by-id/reference-by-id.component';
+import { ReferenceByIdComponent } from './pages/reference-by-id/reference-by-id.component';
 import { FeedComponent } from './pages/feed/feed.component';
-import {UserComponent} from "./pages/user/user.component";
-
+import { UserComponent } from './pages/user/user.component';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -54,6 +54,7 @@ import {UserComponent} from "./pages/user/user.component";
     MatListModule,
     LayoutModule,
     MatCardModule,
+    MatDialogModule,
   ],
 })
 export class HomeModule {}
