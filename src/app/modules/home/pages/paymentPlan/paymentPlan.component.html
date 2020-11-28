@@ -1,22 +1,25 @@
-<section class="container flex">
+<h1>Plan de Pagos</h1>
+
+<section class="container flex" *ngFor="let paymentPlan of listPaymentPlan" >
+
   <div class="table">
-   <h2>1 Mes</h2>
-      <p>Un mes de publicidad para tu proyecto</p><br>
-      <h3>200 Bs.</h3>
+   <h2 class="text">{{paymentPlan.plan}}</h2>
+      <p class="text">"{{paymentPlan.description}}"</p><br>
+      <h3 class="text">{{paymentPlan.cost}}</h3>
     <a href="" class="button">Pagar</a>
   </div>
 
   <div class="table">
-    <h2>6 Meses</h2>
-      <p>Medio año de publicidad para tu proyecto</p><br>
-      <h3>1500 Bs.</h3>
+    <h2 class="text">{{paymentPlan.plan}}</h2>
+    <p class="text">"{{paymentPlan.description}}"</p><br>
+    <h3 class="text">{{paymentPlan.cost}}</h3>
       <a href="" class="button">Pagar</a>
   </div>
 
   <div class="table">
-    <h2>12 Meses</h2>
-      <p>Un año de publicidad para tu proyecto</p><br>
-      <h3> 2500 Bs.</h3>
+    <h2 class="text">{{paymentPlan.plan}}</h2>
+    <p class="text">"{{paymentPlan.description}}"</p><br>
+    <h3 class="text">{{paymentPlan.cost}}</h3>
       <a href="" class="button">Pagar</a>
   </div>
 </section>

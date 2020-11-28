@@ -1,12 +1,15 @@
-<div class="column" *ngFor="let paymentPlan of listPaymentPlan">
-  <h1>Comprar Publicidad</h1>
-<h2 class="title">Plan :{{paymentPlan.plan}}</h2>
-<h2 class="title">Descripcion :{{paymentPlan.description}}</h2>
-<h2 class="title">Costo :{{paymentPlan.cost}}</h2>
-<h2 class="title">Duracion de la publicidad :{{paymentPlan.duration}}</h2>
-</div>
 
-<section class="container flex">
+<section class="container">
+
+  <h1>Comprar Publicidad</h1>
+
+  <div class="content" *ngFor="let paymentPlan of listPaymentPlan">
+    <h2 class="text">Plan :{{paymentPlan.plan}}</h2>
+    <h2 class="text">Descripcion :{{paymentPlan.description}}</h2>
+    <h2 class="text">Costo :{{paymentPlan.cost}}</h2>
+    <h2 class="text">Duracion de la publicidad :{{paymentPlan.duration}}</h2>
+  </div>
+
   <div class="table">
       <p>Usar tarjeta de crédito</p><br>
       <a href="" class="buttonSelect">Seleccionar</a>
