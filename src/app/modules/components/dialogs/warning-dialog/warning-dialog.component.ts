@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import { CertificateService } from 'src/app/services/user_services/certificate.service';
 
 @Component({
@@ -8,9 +8,9 @@ import { CertificateService } from 'src/app/services/user_services/certificate.s
   styleUrls: ['./warning-dialog.component.css'],
 })
 export class WarningDialogComponent implements OnInit {
-  message: string = '¿Esta seguro que desea eliminar el certificado?';
+
   buttonMessage: string = 'Si';
-  constructor(public matDialogRef: MatDialogRef<WarningDialogComponent>) {}
+  constructor(public matDialogRef: MatDialogRef<WarningDialogComponent>,@Inject(MAT_DIALOG_DATA) public data: {message: string}) {}
   ngOnInit(): void {}
   accept() {
     this.matDialogRef.close(true);

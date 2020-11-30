@@ -29,6 +29,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WarningDialogComponent } from '../components/dialogs/warning-dialog/warning-dialog.component';
+import {CreateSkillComponent} from "../components/dialogs/create-skill/create-skill.component";
+import {EditSkillComponent} from "../components/dialogs/edit-skill/edit-skill.component";
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -49,6 +52,8 @@ import { WarningDialogComponent } from '../components/dialogs/warning-dialog/war
     UserComponent,
     CreateCertificateComponent,
     WarningDialogComponent,
+    CreateSkillComponent,
+    EditSkillComponent,
   ],
   imports: [
     CommonModule,
@@ -67,6 +72,6 @@ import { WarningDialogComponent } from '../components/dialogs/warning-dialog/war
     MatDialogModule,
     MatIconModule,
   ],
-  entryComponents: [CreateCertificateComponent, WarningDialogComponent],
+  entryComponents: [CreateCertificateComponent, WarningDialogComponent, EditSkillComponent],
 })
 export class HomeModule {}

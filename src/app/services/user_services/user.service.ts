@@ -17,7 +17,5 @@ export class UserService {
     return this.http.put<User>('http://localhost:8080/users/1',user);
   }
 
-  getSkills(){
-    return this.http.get<Skill[]>('http://localhost:8080/skills/userskills/1');
-  }
+
 }

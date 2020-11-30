@@ -1,24 +1,29 @@
-import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators } from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
-import {MatDialogRef} from "@angular/material/dialog";
-import {SkillService} from "../../../../services/user_services/skill.service";
+import {Component, Inject, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Skill} from "../../../../models/skill.model";
+import {ActivatedRoute} from "@angular/router";
+import {SkillService} from "../../../../services/user_services/skill.service";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+
+
+
 
 @Component({
-  selector: 'app-create-skill',
-  templateUrl: './create-skill.component.html',
-  styleUrls: ['./create-skill.component.css']
+  selector: 'app-edit-skill',
+  templateUrl: './edit-skill.component.html',
+  styleUrls: ['./edit-skill.component.css']
 })
+export class EditSkillComponent implements OnInit {
 
-export class CreateSkillComponent implements OnInit {
   formSkill: FormGroup;
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
     private skillService: SkillService,
-    public dialogRef: MatDialogRef<CreateSkillComponent>
+    public dialogRef: MatDialogRef<EditSkillComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: {idskill: number, skillname: string}
   ) { }
+
   edit = false;
   onNoClick(): void {
     this.dialogRef.close();
@@ -40,17 +45,17 @@ export class CreateSkillComponent implements OnInit {
       status: [0, [Validators.required]],
     });
   }
-  saveSkill(): void {
+  updateskill(): void {
     if (this.formSkill.valid) {
       const cert = this.formSkill.value;
       console.log(cert);
-      this.createSkill(cert);
+      this.update(this.data.idskill,cert);
     }
   }
 
-  createSkill(skill: Skill): void {
+  update(idskill:number,skill: Skill): void {
     this.skillService
-      .postnewskill(skill)
+      .updateskill(idskill,skill)
       .subscribe((skill) => {
         console.log(skill);
       });

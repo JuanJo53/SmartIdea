@@ -1,13 +1,12 @@
-<h1 mat-dialog-title>Nueva Skill</h1>
-<form [formGroup]="formSkill" (ngSubmit)="saveSkill()">
+<h1 mat-dialog-title>Edit Skill</h1>
+<form [formGroup]="formSkill" (ngSubmit)="updateskill()">
   <mat-dialog-content>
     <mat-form-field>
       <mat-label>Skill </mat-label
       ><input
       matInput
-      placeholder="Skill"
       formControlName="skillName"
-      required
+      ngModel="{{this.data.skillname}}"
     />
     </mat-form-field>
   </mat-dialog-content>

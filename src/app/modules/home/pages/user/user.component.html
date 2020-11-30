@@ -1,6 +1,6 @@
 <div>
   <label>First Name</label>
-  <input type="text" [(ngModel)]="user.name" placeholder="Id" />
+  <input type="text" [(ngModel)]="user.name" />
   <label >Last Name</label>
   <input type="text" [(ngModel)]="user.surname" />
   <label >Nick Name</label>
@@ -17,11 +17,11 @@
   <button class="button" (click)="update()">Update User</button>
 </div>
 
-<div class="your_div" >
-  <h1>SKILLS</h1>
-  <button class="button" > Add Skill</button>
+<h1>SKILLS</h1>
+<button class="button"
+        (click)="createSkill()">Add Skill</button>
   <hr>
-  <table>
+  <table an>
     <thead>
     <tr>
       <th>#</th>
@@ -29,10 +29,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr class="pure-table-odd" *ngFor="let skill of skills">
-      <td>{{skill.skillId}}</td>
-      <td>{{skill.skillName}}</td>
+    <tr class="pure-table-odd" *ngFor="let skill of skills" >
+      <td>{{skills.indexOf(skill)+1}}</td>
+      <td><input type="text" value="{{skill.skillName}}" *ngIf="this.editskill">{{skill.skillName}}</td>
+      <button type="button" (click)="deleteSkill(skill.skillId,skill.skillName,skills.indexOf(skill)); ngOnInit();">Eliminar</button>
+      <button type="button" (click)="editSkill(skill.skillId,skill.skillName)">Editar</button>
     </tr>
     </tbody>
   </table>
-</div>

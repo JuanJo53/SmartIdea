@@ -75,6 +75,9 @@ export class CertificateContentComponent implements OnInit {
   deleteCertificate(id: number): void {
     const dialogRef = this.dialog.open(WarningDialogComponent, {
       width: '500px',
+      data:{
+        message: "¿Esta seguro que desea eliminar el certificado?",
+      }
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
