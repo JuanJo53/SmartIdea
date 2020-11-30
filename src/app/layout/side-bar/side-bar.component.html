@@ -9,8 +9,12 @@
   >
     <mat-toolbar>Perfil</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/user/feed" routerLinkActive="active">Feed</a>
-
+      <a mat-list-item routerLink="/user/profile" routerLinkActive="active"
+        >Perfil</a
+      >
+      <a mat-list-item routerLink="/user/feed" routerLinkActive="active"
+        >Feed</a
+      >
       <a mat-list-item routerLink="/user/myprojects" routerLinkActive="active"
         >Mis Proyectos</a
       >
@@ -26,7 +30,6 @@
       <a mat-list-item routerLink="/user/references" routerLinkActive="active"
         >Referencias</a
       >
-      <a mat-list-item routerLink="/user/profile" routerLinkActive="active" >Perfil</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -40,7 +43,22 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>smart-idea</span>
+      <span>Smart Idea</span>
+      <div class="notification-icon">
+        <button mat-icon-button [matMenuTriggerFor]="notifications">
+          <mat-icon matBadge="9" matBadgeColor="warn">notifications</mat-icon>
+        </button>
+        <mat-menu #notifications="matMenu">
+          <a mat-menu-item>
+            <h4>Titulo Notificacion</h4>
+            <p>Mensaje</p>
+          </a>
+          <a mat-menu-item disabled>
+            <h4>Titulo Notificacion</h4>
+            <p>Mensaje notificacion</p>
+          </a>
+        </mat-menu>
+      </div>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet> </router-outlet>
