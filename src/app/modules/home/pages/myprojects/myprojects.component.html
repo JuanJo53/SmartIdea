@@ -1,7 +1,6 @@
 <div class="container">
 
     <h1>Mis proyectos</h1>
-
   <div class="row">
 
 
@@ -18,10 +17,14 @@
         </div>
         <ul class="social">
           <li><button type="button" class="boton_personalizado" routerLink="/user/referencesbyId/{{projects.projectsId}}">Ver Projecto</button></li>
+          <li><button type="button" class="boton_personalizado" (click)="createProject()">editar</button></li>
         </ul>
       </div>
     </div>
 
      </div>
+  <button class="botonF1" (click)="createProject()">
+    <span>+</span>
+  </button>
 
 </div>

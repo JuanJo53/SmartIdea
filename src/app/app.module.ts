@@ -10,11 +10,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateCertificateComponent } from './modules/components/dialogs/create-certificate/create-certificate.component';
 import { WarningDialogComponent } from './modules/components/dialogs/warning-dialog/warning-dialog.component';
 import { EditSkillComponent } from './modules/components/dialogs/edit-skill/edit-skill.component';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatDialogModule} from "@angular/material/dialog";
-import {ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+import {ReactiveFormsModule} from '@angular/forms';
+import { CreateProjectComponent } from './modules/components/dialogs/create-project/create-project.component';
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CreateProjectComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
