@@ -1,10 +1,5 @@
-<button
-  (click)="createCertificate()"
-  mat-raised-button
-  mat-button
-  color="primary"
->
-  Nuevo Certificado
+<button (click)="createCertificate()" mat-fab color="primary">
+  <mat-icon>add_icon</mat-icon>
 </button>
 <div class="certificates-grid">
   <app-certificate-content

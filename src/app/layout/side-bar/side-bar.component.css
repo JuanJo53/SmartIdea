@@ -17,4 +17,21 @@
 }
 .notification-icon {
   margin: 10px;
+  position: relative;
+  padding: 8px 15px;
+  float: right;
+  border-radius: 5px;
+}
+.notification-content {
+  position: absolute;
+  top: 40px;
+  right: 5px;
+  width: 350px;
+  height: 200px;
+  background-color: whitesmoke;
+  z-index: 300;
+}
+.header-row {
+  width: 100%;
+  margin: 20px;
 }

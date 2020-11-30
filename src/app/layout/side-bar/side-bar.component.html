@@ -43,21 +43,23 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Smart Idea</span>
-      <div class="notification-icon">
-        <button mat-icon-button [matMenuTriggerFor]="notifications">
-          <mat-icon matBadge="9" matBadgeColor="warn">notifications</mat-icon>
-        </button>
-        <mat-menu #notifications="matMenu">
-          <a mat-menu-item>
-            <h4>Titulo Notificacion</h4>
-            <p>Mensaje</p>
-          </a>
-          <a mat-menu-item disabled>
-            <h4>Titulo Notificacion</h4>
-            <p>Mensaje notificacion</p>
-          </a>
-        </mat-menu>
+      <div class="row between-xs middle-xs header-row">
+        <span>Smart Idea</span>
+        <div class="notification-icon">
+          <button mat-icon-button [matMenuTriggerFor]="notifications">
+            <mat-icon matBadge="9" matBadgeColor="warn">notifications</mat-icon>
+          </button>
+          <mat-menu #notifications="matMenu" class="notification-content">
+            <a mat-menu-item focus>
+              <mat-icon>group_add</mat-icon>
+              <span>Un usuario quiere unirse a un proyecto tuyo</span>
+            </a>
+            <a mat-menu-item disabled>
+              <mat-icon>group_add</mat-icon>
+              <span>Un usuario quiere unirse a un proyecto tuyo</span>
+            </a>
+          </mat-menu>
+        </div>
       </div>
     </mat-toolbar>
     <!-- Add Content Here -->
