@@ -12,9 +12,9 @@ import { ReferencesComponent } from './modules/home/pages/references/references.
 import {ReferenceByIdComponent} from './modules/home/pages/reference-by-id/reference-by-id.component';
 import {FeedComponent} from './modules/home/pages/feed/feed.component';
 import {UserComponent} from "./modules/home/pages/user/user.component";
-import {PaymentPlanComponent} from './modules/home/pages/paymentPlan/paymentPlan.component';
-import {PaymentPlanBuyComponent} from './modules/home/pages/paymentPlanBuy/paymentPlanBuy.component';
-
+import { PaymentPlanComponent } from './modules/home/pages/paymentPlan/paymentPlan.component';
+import { PaymentPlanBuyComponent } from './modules/home/pages/paymentPlanBuy/paymentPlanBuy.component';
+import { OrderReviewComponent } from './modules/home/pages/orderReview/orderReview.component';
 
 const routes: Routes = [
   {
@@ -72,6 +72,10 @@ const routes: Routes = [
       {
         path: 'paymentPlanBuy',
         component: PaymentPlanBuyComponent,
+      },
+      {
+        path: 'orderReview',
+        component: OrderReviewComponent,
       },
     ],
   },

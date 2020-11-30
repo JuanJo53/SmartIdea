@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReferencesComponent} from './references.component';
+import { OrderReviewComponent } from './orderReview.component';
 
-describe('ReferencesComponent', () => {
-  let component: ReferencesComponent;
-  let fixture: ComponentFixture<ReferencesComponent>;
+describe('OrderReviewComponent', () => {
+  let component: OrderReviewComponent;
+  let fixture: ComponentFixture<OrderReviewComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReferencesComponent]
+      declarations: [ OrderReviewComponent ]
     })
       .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReferencesComponent);
+    fixture = TestBed.createComponent(OrderReviewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,4 +23,3 @@ describe('ReferencesComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
