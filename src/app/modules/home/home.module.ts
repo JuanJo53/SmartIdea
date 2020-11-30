@@ -31,6 +31,7 @@ import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { WarningDialogComponent } from '../components/dialogs/warning-dialog/warning-dialog.component';
 import {CreateSkillComponent} from "../components/dialogs/create-skill/create-skill.component";
 import {EditSkillComponent} from "../components/dialogs/edit-skill/edit-skill.component";
+import {ImageUploadModule} from "angular2-image-upload";
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import {EditSkillComponent} from "../components/dialogs/edit-skill/edit-skill.co
     FormsModule,
     MatDialogModule,
     MatIconModule,
+    ImageUploadModule.forRoot()
   ],
   entryComponents: [CreateCertificateComponent, WarningDialogComponent, EditSkillComponent],
 })

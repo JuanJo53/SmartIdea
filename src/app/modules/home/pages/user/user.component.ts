@@ -8,6 +8,12 @@ import {CreateSkillComponent} from "../../../components/dialogs/create-skill/cre
 import {ActivatedRoute} from "@angular/router";
 import {WarningDialogComponent} from "../../../components/dialogs/warning-dialog/warning-dialog.component";
 import {EditSkillComponent} from "../../../components/dialogs/edit-skill/edit-skill.component";
+// import {COMMA, ENTER} from '@angular/cdk/keycodes';
+// import {FormControl} from '@angular/forms';
+// import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
+// import {MatChipInputEvent} from '@angular/material/chips';
+// import {Observable} from 'rxjs';
+// import {map, startWith} from 'rxjs/operators';
 export interface DialogData {
   skillName: string;
 }
@@ -24,6 +30,7 @@ export class UserComponent implements OnInit {
   skillName: string;
   skillId: number;
   status: number;
+  image: string;
   constructor(private activatedRoute: ActivatedRoute, private service: UserService,public dialog: MatDialog,private serviceSkill: SkillService) { }
 
   ngOnInit(): void {
@@ -53,9 +60,11 @@ export class UserComponent implements OnInit {
       if (result) {
         let skill : Skill={skillId:0, skillName: "", status: 0};
         this.serviceSkill.delete(idskill,skill).subscribe();
+        location.reload()
       }
 
-      window.location.reload()
+
+
     });
 
     this.ngOnInit();
@@ -63,7 +72,7 @@ export class UserComponent implements OnInit {
   createSkill(): void{
 
       const dialogRef = this.dialog.open(CreateSkillComponent, {
-        width: '500px',
+        width: '600px',
         data: {
           skillId: this.skillId,
           skillName: this.skillName,
@@ -95,7 +104,7 @@ export class UserComponent implements OnInit {
       username: this.user.username,
       email: this.user.email,
       description: this.user.description,
-      image: this.user.image,
+      image: this.image,
       cellphone: this.user.cellphone
     };
 
@@ -104,5 +113,22 @@ export class UserComponent implements OnInit {
         success => alert("Done"),
         error => alert(error)
       );
+  }
+  onUploadFinish(event) {
+    console.log(event.src)
+    this.image=event.src
+  }
+  getBase64(event) {
+    let me = this;
+    let file = event.target.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function () {
+      //me.modelvalue = reader.result;
+      console.log(reader.result);
+    };
+    reader.onerror = function (error) {
+      console.log('Error: ', error);
+    };
   }
 }
