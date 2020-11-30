@@ -62,9 +62,6 @@ export class UserComponent implements OnInit {
         this.serviceSkill.delete(idskill,skill).subscribe();
         location.reload()
       }
-
-
-
     });
 
     this.ngOnInit();
@@ -104,31 +101,37 @@ export class UserComponent implements OnInit {
       username: this.user.username,
       email: this.user.email,
       description: this.user.description,
-      image: this.image,
+      image: this.user.image,
       cellphone: this.user.cellphone
     };
 
     this.service.updateProfile(user1)
       .subscribe(
-        success => alert("Done"),
         error => alert(error)
       );
+    this.ngOnInit()
   }
   onUploadFinish(event) {
     console.log(event.src)
-    this.image=event.src
+      this.image=event.src
   }
-  getBase64(event) {
-    let me = this;
-    let file = event.target.files[0];
-    let reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = function () {
-      //me.modelvalue = reader.result;
-      console.log(reader.result);
+  updateimage(){
+    if (this.image!=null){
+    let user1:User = {
+      name: this.user.name,
+      surname: this.user.surname,
+      username: this.user.username,
+      email: this.user.email,
+      description: this.user.description,
+      image: this.image,
+      cellphone: this.user.cellphone
     };
-    reader.onerror = function (error) {
-      console.log('Error: ', error);
-    };
+      this.service.updateImage(user1)
+        .subscribe(
+          error => alert(error)
+        );
+      location.reload()
+    }
+
   }
 }

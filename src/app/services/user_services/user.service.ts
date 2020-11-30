@@ -17,5 +17,7 @@ export class UserService {
     return this.http.put<User>('http://localhost:8080/users/1',user);
   }
 
-
+  updateImage(image: User){
+    return this.http.put<User>('http://localhost:8080/users/1/image',image)
+  }
 }

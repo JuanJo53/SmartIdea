@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from "@angular/forms";
 import {ActivatedRoute} from '@angular/router';
 import {MatDialogRef} from '@angular/material/dialog';
-import {SkillService} from '../../../../services/user_services/skill.service';
 import {IProjects} from '../../../../models/projects.model';
-import {Skill} from '../../../../models/skill.model';
 import {ProjectsService} from '../../../../services/user_services/projects.service';
 
 @Component({
@@ -19,8 +17,7 @@ export class CreateProjectComponent implements OnInit {
     private route: ActivatedRoute,
     private projectService: ProjectsService,
     public dialogRef: MatDialogRef<CreateProjectComponent>
-
-  ) { }
+  ){}
 
   edit = false;
   onNoClick(): void {
@@ -61,5 +58,4 @@ export class CreateProjectComponent implements OnInit {
       });
     this.onNoClick();
   }
-
 }

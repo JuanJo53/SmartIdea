@@ -1,6 +1,16 @@
 <div>
-  <img src="{{this.user.image}}" alt="">
-  <image-upload (uploadFinished)="onUploadFinish($event)">Subir imagen</image-upload>
+  <img src="{{user.image}}" alt="" >
+  <image-upload
+    (uploadFinished)="onUploadFinish($event)"
+    [max]="1" [extensions]="['jpeg','png']"
+    buttonCaption="Editar Foto"
+    dropBoxMessage=""
+    style="color: #673ab7;"
+  ></image-upload>
+  <button class="button" (click)="updateimage()" *ngIf="this.image!=null">Subir Foto de perfil</button>
+</div>
+<div>
+  <br>
   <label>First Name</label>
   <input type="text" [(ngModel)]="user.name" />
   <label >Last Name</label>
@@ -11,7 +21,6 @@
   <input type="text" [(ngModel)]="user.email"  />
   <label >Description</label>
   <input type="text" [(ngModel)]="user.description"  />
-
   <label >Cellphone</label>
   <input type="text" [(ngModel)]="user.cellphone" />
 

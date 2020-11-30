@@ -32,6 +32,7 @@ import { WarningDialogComponent } from '../components/dialogs/warning-dialog/war
 import {CreateSkillComponent} from "../components/dialogs/create-skill/create-skill.component";
 import {EditSkillComponent} from "../components/dialogs/edit-skill/edit-skill.component";
 import {ImageUploadModule} from "angular2-image-upload";
+import {CreateProjectComponent} from "../components/dialogs/create-project/create-project.component";
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {ImageUploadModule} from "angular2-image-upload";
     WarningDialogComponent,
     CreateSkillComponent,
     EditSkillComponent,
+    CreateProjectComponent
   ],
   imports: [
     CommonModule,
@@ -74,6 +76,6 @@ import {ImageUploadModule} from "angular2-image-upload";
     MatIconModule,
     ImageUploadModule.forRoot()
   ],
-  entryComponents: [CreateCertificateComponent, WarningDialogComponent, EditSkillComponent],
+  entryComponents: [CreateCertificateComponent, WarningDialogComponent, EditSkillComponent, CreateProjectComponent,],
 })
 export class HomeModule {}
