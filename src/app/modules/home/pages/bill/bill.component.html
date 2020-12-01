@@ -1,23 +1,23 @@
 <h1>FACTURACION</h1>
 <div id="main-container">
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">FECHA DE COMPRA</th>
-    <th scope="col">DIRECCION DE ENVIO</th>
-    <th scope="col">PAIS</th>
-    <th scope="col">CIUDAD</th>
-  </tr>
-  </thead>
-  <tbody>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">FECHA DE COMPRA</th>
+      <th scope="col">DIRECCION DE ENVIO</th>
+      <th scope="col">PAIS</th>
+      <th scope="col">CIUDAD</th>
+    </tr>
+    </thead>
+    <tbody>
 
-  <tr *ngFor="let bill of listBill">
+    <tr *ngFor="let bill of listBill">
 
-    <td>{{bill.buyDate}}</td>
-    <td>{{bill.billingAddress}}</td>
-    <td>{{bill.country}}</td>
-    <td>{{bill.city}}</td>
-  </tr>
-  </tbody>
-</table>
+      <td>{{ bill.buyDate | date: "dd-MM-yyyy" }}</td>
+      <td>{{bill.billingAddress}}</td>
+      <td>{{bill.country}}</td>
+      <td>{{bill.city}}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>

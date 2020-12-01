@@ -1,1 +1,29 @@
-<p>card works!</p>
+<h1>Datos de tarjeta</h1>
+
+<button class="butom" >
+  <span>+</span>
+</button>
+
+<div id="main-container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">NOMBRE DE LA TARJETA</th>
+      <th scope="col">NUMERO DE TARJETA</th>
+      <th scope="col">FECHA DE EXPIRACION </th>
+      <th scope="col">EDITAR</th>
+      <th scope="col">ELIMINAR </th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let card of listCard">
+      <td>{{card.cardName}}</td>
+      <td>{{card.cardNumber}}</td>
+      <td>{{card.expirationMonth}}/{{card.expirationYear}}</td>
+      <td>    <button class="bto1" >EDITAR</button></td>
+      <td>    <button class="bto" >ELIMINAR</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
