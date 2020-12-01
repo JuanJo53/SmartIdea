@@ -39,6 +39,7 @@ import { EditProjectComponent } from '../components/dialogs/edit-project/edit-pr
 import { UserrequesteComponent } from './pages/userrequeste/userrequeste.component';
 import { PaymentPlanBuyComponent } from './pages/paymentPlanBuy/paymentPlanBuy.component';
 import { PaymentPlanComponent } from './pages/paymentPlan/paymentPlan.component';
+import { MatTableModule } from '@angular/material/table';
 import { CreateCardComponent } from '../components/dialogs/create-card/create-card.component';
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import { CreateCardComponent } from '../components/dialogs/create-card/create-ca
     MatIconModule,
     MatBadgeModule,
     MatMenuModule,
+    MatTableModule,
     ImageUploadModule.forRoot(),
   ],
   entryComponents: [
