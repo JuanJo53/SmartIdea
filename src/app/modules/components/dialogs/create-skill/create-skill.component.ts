@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators } from "@angular/forms";
-import {ActivatedRoute} from "@angular/router";
-import {MatDialogRef} from "@angular/material/dialog";
-import {SkillService} from "../../../../services/user_services/skill.service";
-import {Skill} from "../../../../models/skill.model";
+import {FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {ActivatedRoute} from '@angular/router';
+import {MatDialogRef} from '@angular/material/dialog';
+import {SkillService} from '../../../../services/user_services/skill.service';
+import {Skill} from '../../../../models/skill.model';
 
 @Component({
   selector: 'app-create-skill',

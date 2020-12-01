@@ -1,0 +1,41 @@
+<h1 mat-dialog-title>Nuevo proyecto</h1>
+<form [formGroup]="formProject" (ngSubmit)="saveproject()">
+  <mat-dialog-content>
+
+    <mat-form-field  >
+      <mat-label class="omrs-input-label" >Titulo</mat-label
+      ><input
+      matInput
+      placeholder="Titulo"
+      formControlName="projectTitle"
+      required
+    />
+    </mat-form-field>
+    <mat-form-field  >
+      <mat-label class="omrs-input-label">description</mat-label
+      ><input
+      matInput
+      placeholder="description"
+      formControlName="description"
+      required
+    />
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">benefits </mat-label
+      ><input
+      matInput
+      placeholder="benefits"
+      formControlName="benefits"
+      required
+    />
+    </mat-form-field>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+    <button mat-button mat-raised-button color="warn" (click)="close()">Cancelar</button>
+  </mat-dialog-actions>
+</form>

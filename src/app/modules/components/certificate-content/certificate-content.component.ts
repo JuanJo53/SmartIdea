@@ -17,8 +17,6 @@ export class CertificateContentComponent implements OnInit {
 
   form: FormGroup;
 
-  // certificate: Certificate;
-
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,

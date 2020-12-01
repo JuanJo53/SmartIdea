@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {IProjects} from '../../models/projects.model';
+import {Skill} from '../../models/skill.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,5 +18,12 @@ export class ProjectsService {
 
   getProject(id: number) {
     return this.http.get<IProjects>(`http://localhost:8080/user/1/projects/${id}`);
+  }
+
+  postnewproject(project: IProjects) {
+    return this.http.post('http://localhost:8080/user/1/projects', project);
+  }
+  updateproject(project: IProjects, id: number){
+    return this.http.put(`http://localhost:8080/user/1/projects/${id}`, project);
   }
 }

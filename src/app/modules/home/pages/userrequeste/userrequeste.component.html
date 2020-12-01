@@ -1,0 +1,23 @@
+<h1>Usuarios que quieren afiliarse </h1>
+<div id="main-container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">UserName</th>
+      <th scope="col">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let user of listuser">
+
+      <td>{{user.name}}</td>
+      <td>{{user.surname}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

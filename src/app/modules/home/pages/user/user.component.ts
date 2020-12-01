@@ -8,6 +8,12 @@ import {CreateSkillComponent} from "../../../components/dialogs/create-skill/cre
 import {ActivatedRoute} from "@angular/router";
 import {WarningDialogComponent} from "../../../components/dialogs/warning-dialog/warning-dialog.component";
 import {EditSkillComponent} from "../../../components/dialogs/edit-skill/edit-skill.component";
+// import {COMMA, ENTER} from '@angular/cdk/keycodes';
+// import {FormControl} from '@angular/forms';
+// import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
+// import {MatChipInputEvent} from '@angular/material/chips';
+// import {Observable} from 'rxjs';
+// import {map, startWith} from 'rxjs/operators';
 export interface DialogData {
   skillName: string;
 }
@@ -24,6 +30,7 @@ export class UserComponent implements OnInit {
   skillName: string;
   skillId: number;
   status: number;
+  image: string;
   constructor(private activatedRoute: ActivatedRoute, private service: UserService,public dialog: MatDialog,private serviceSkill: SkillService) { }
 
   ngOnInit(): void {
@@ -53,9 +60,8 @@ export class UserComponent implements OnInit {
       if (result) {
         let skill : Skill={skillId:0, skillName: "", status: 0};
         this.serviceSkill.delete(idskill,skill).subscribe();
+        location.reload()
       }
-
-      window.location.reload()
     });
 
     this.ngOnInit();
@@ -63,7 +69,7 @@ export class UserComponent implements OnInit {
   createSkill(): void{
 
       const dialogRef = this.dialog.open(CreateSkillComponent, {
-        width: '500px',
+        width: '600px',
         data: {
           skillId: this.skillId,
           skillName: this.skillName,
@@ -101,8 +107,31 @@ export class UserComponent implements OnInit {
 
     this.service.updateProfile(user1)
       .subscribe(
-        success => alert("Done"),
         error => alert(error)
       );
+    this.ngOnInit()
+  }
+  onUploadFinish(event) {
+    console.log(event.src)
+      this.image=event.src
+  }
+  updateimage(){
+    if (this.image!=null){
+    let user1:User = {
+      name: this.user.name,
+      surname: this.user.surname,
+      username: this.user.username,
+      email: this.user.email,
+      description: this.user.description,
+      image: this.image,
+      cellphone: this.user.cellphone
+    };
+      this.service.updateImage(user1)
+        .subscribe(
+          error => alert(error)
+        );
+      location.reload()
+    }
+
   }
 }

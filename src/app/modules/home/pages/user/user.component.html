@@ -1,4 +1,16 @@
 <div>
+  <img src="{{user.image}}" alt="" >
+  <image-upload
+    (uploadFinished)="onUploadFinish($event)"
+    [max]="1" [extensions]="['jpeg','png']"
+    buttonCaption="Editar Foto"
+    dropBoxMessage=""
+    style="color: #673ab7;"
+  ></image-upload>
+  <button class="button" (click)="updateimage()" *ngIf="this.image!=null">Subir Foto de perfil</button>
+</div>
+<div>
+  <br>
   <label>First Name</label>
   <input type="text" [(ngModel)]="user.name" />
   <label >Last Name</label>
@@ -9,8 +21,6 @@
   <input type="text" [(ngModel)]="user.email"  />
   <label >Description</label>
   <input type="text" [(ngModel)]="user.description"  />
-  <label >Image</label>
-  <input type="text" [(ngModel)]="user.image" />
   <label >Cellphone</label>
   <input type="text" [(ngModel)]="user.cellphone" />
 
@@ -37,3 +47,29 @@
     </tr>
     </tbody>
   </table>
+
+<!--<mat-form-field class="example-chip-list">-->
+<!--  <mat-chip-list #chipList aria-label="Fruit selection">-->
+<!--    <mat-chip-->
+<!--      *ngFor="let fruit of fruits"-->
+<!--      [selectable]="selectable"-->
+<!--      [removable]="removable"-->
+<!--      (removed)="remove(fruit)">-->
+<!--      {{fruit}}-->
+<!--      <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>-->
+<!--    </mat-chip>-->
+<!--    <input-->
+<!--      placeholder="New fruit..."-->
+<!--      #fruitInput-->
+<!--      [formControl]="fruitCtrl"-->
+<!--      [matAutocomplete]="auto"-->
+<!--      [matChipInputFor]="chipList"-->
+<!--      [matChipInputSeparatorKeyCodes]="separatorKeysCodes"-->
+<!--      (matChipInputTokenEnd)="add($event)">-->
+<!--  </mat-chip-list>-->
+<!--  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">-->
+<!--    <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">-->
+<!--      {{fruit}}-->
+<!--    </mat-option>-->
+<!--  </mat-autocomplete>-->
+<!--</mat-form-field>-->

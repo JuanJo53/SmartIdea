@@ -1,0 +1,24 @@
+<h1>Revisión del Pedido</h1>
+
+<section class="container">
+
+  <div class="contentPlan" *ngFor="let paymentPlan of listPaymentPlan">
+    <h2 class="text">Plan :{{paymentPlan.plan}}</h2>
+    <h2 class="text">Descripción :{{paymentPlan.description}}</h2>
+  </div>
+
+  <div class ="contentCard" *ngFor=" let card of listCard">
+    <h2 class="text">Tarjeta :{{card.cardNumber}}</h2>
+  </div>
+
+  <div class ="contentBill" *ngFor=" let bill of listBill">
+    <h2 class="text">Fecha :{{bill.buyDate}}</h2>
+  </div>
+
+  <div class="contentPlan" *ngFor="let paymentPlan of listPaymentPlan">
+    <h2 class="text">Total a Pagar :{{paymentPlan.cost}}</h2>
+  </div>
+
+  <button type= "button" class="CancelButton">Cancelar</button>
+  <button type= "button" class="PayButton">Pagar</button>
+</section>

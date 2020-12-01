@@ -1,0 +1,90 @@
+.container{
+  margin: 0 auto;
+  width: 60%;
+  text-align: center;
+  aling-items: center;
+  justify-content: center;
+  border:1px solid black;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px 0px black;
+  height: 435px;
+  box-sizing: border-box;
+}
+h1{
+  font-weight: bold;
+  margin-top: 60px;
+  font-size:50px;
+  text-align: center;
+  margin-bottom:60px ;
+}
+.contentPlan{
+  text-align: left;
+  margin: 20px 60px;
+}
+.contentPlan>h2{
+  font-size:25px;
+  font-weight: bold;
+}
+.contentPlan>text{
+  font-size:25px;
+}
+.contentCard{
+  margin: 25px 60px;
+  text-align: left;
+}
+.contentCard>h2{
+  font-size:25px;
+  font-weight: bold;
+}
+.contentCard>text{
+  font-size:25px;
+}
+.contentBill{
+  margin: 25px 60px;
+  text-align: left;
+}
+.contentBill>h2{
+  font-size:25px;
+  font-weight: bold;
+}
+.contentBill>text{
+  font-size:25px;
+}
+
+.CancelButton{
+  margin-top: 45px;
+  margin-left: 140px;
+  float: left;
+  display: inline-block;
+  width: 150px;
+  padding:10px;
+  background: #2c8992;
+  text-decoration: none;
+  color: white;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 600;
+
+}
+.CancelButton:hover{
+  background-color: #4bc9d7;
+}
+.PayButton{
+  margin-top:45px;
+  margin-right: 140px;
+  float: right;
+  display: inline-block;
+  width: 150px;
+  padding: 10px;
+  background: #2c8992;
+  text-decoration: none;
+  color: white;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 600;
+}
+.PayButton:hover{
+  background-color: #4bc9d7;
+}
