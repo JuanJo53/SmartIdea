@@ -67,7 +67,9 @@
                   <p>{{ notification.message }}</p>
                   <a
                     (click)="viewNotification(notification.notificationId)"
-                    href=""
+                    routerLink="/user/referencesbyId/{{
+                      notification.projectId
+                    }}"
                     >proyecto</a
                   ><br />
                   <span>{{ notification.date | date: "dd-MM-yyyy" }}</span>
