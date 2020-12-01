@@ -39,7 +39,7 @@ import { EditProjectComponent } from '../components/dialogs/edit-project/edit-pr
 import { UserrequesteComponent } from './pages/userrequeste/userrequeste.component';
 import { PaymentPlanBuyComponent } from './pages/paymentPlanBuy/paymentPlanBuy.component';
 import { PaymentPlanComponent } from './pages/paymentPlan/paymentPlan.component';
-
+import { CreateCardComponent } from '../components/dialogs/create-card/create-card.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -67,6 +67,7 @@ import { PaymentPlanComponent } from './pages/paymentPlan/paymentPlan.component'
     UserrequesteComponent,
     PaymentPlanBuyComponent,
     PaymentPlanComponent,
+    CreateCardComponent,
   ],
   imports: [
     CommonModule,
@@ -94,6 +95,7 @@ import { PaymentPlanComponent } from './pages/paymentPlan/paymentPlan.component'
     EditSkillComponent,
     CreateProjectComponent,
     EditProjectComponent,
+    CreateCardComponent,
   ],
 })
 export class HomeModule {}
