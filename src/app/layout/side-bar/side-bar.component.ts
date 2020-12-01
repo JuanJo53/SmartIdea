@@ -18,12 +18,20 @@ export class SideBarComponent implements OnInit {
     );
   notifications: Notification[] = [];
   notificationCount: number;
+  showNotification: boolean;
   constructor(
     private notificationService: NotificationService,
     private breakpointObserver: BreakpointObserver
   ) {}
   ngOnInit(): void {
     this.fecthNotifications();
+  }
+  viewNotification(id: number): void {
+    this.notificationService
+      .markSeenNotification(1, id)
+      .subscribe((notification) => {
+        console.log(notification);
+      });
   }
   fecthNotifications(): void {
     this.notificationService

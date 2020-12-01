@@ -15,14 +15,24 @@
   top: 0;
   z-index: 1;
 }
-.notification-icon {
-  margin: 10px;
+.notification-wrapper {
   position: relative;
   padding: 8px 15px;
   float: right;
   border-radius: 5px;
 }
-.notification-content {
+.notification-wrapper .notification-btn {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.notification-wrapper .notification-btn:hover {
+  color: royalblue;
+  padding: 1px;
+  background-color: #ffffff;
+  border-radius: 500px;
+}
+.notification-wrapper .notification-content {
   position: absolute;
   top: 40px;
   right: 5px;
@@ -30,6 +40,25 @@
   height: 200px;
   background-color: whitesmoke;
   z-index: 300;
+}
+
+.notification-wrapper .notification-header {
+  padding: 10px;
+  color: #ffffff;
+  background-color: royalblue;
+}
+
+.notification-wrapper .notification-header .notify-info {
+  display: inline-block;
+  width: 90%;
+  text-align: center;
+  font-weight: 500;
+}
+.notify-info {
+  margin: 10px;
+}
+.notify-info span {
+  color: rgb(148, 150, 151);
 }
 .header-row {
   width: 100%;
