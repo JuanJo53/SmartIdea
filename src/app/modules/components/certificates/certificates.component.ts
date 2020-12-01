@@ -55,7 +55,6 @@ export class CertificatesComponent implements OnInit {
   fecthCertificates(): void {
     this.certificateService.getAllCertificates().subscribe((certificates) => {
       this.certificates = certificates;
-      console.table(certificates);
     });
   }
 }

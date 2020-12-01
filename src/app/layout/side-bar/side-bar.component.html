@@ -46,18 +46,29 @@
       <div class="row between-xs middle-xs header-row">
         <span>Smart Idea</span>
         <div class="notification-icon">
-          <button mat-icon-button [matMenuTriggerFor]="notifications">
-            <mat-icon matBadge="9" matBadgeColor="warn">notifications</mat-icon>
+          <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
+            <mat-icon [matBadge]="notificationCount" matBadgeColor="warn"
+              >notifications</mat-icon
+            >
           </button>
-          <mat-menu #notifications="matMenu" class="notification-content">
-            <a mat-menu-item focus>
-              <mat-icon>group_add</mat-icon>
-              <span>Un usuario quiere unirse a un proyecto tuyo</span>
-            </a>
-            <a mat-menu-item disabled>
-              <mat-icon>group_add</mat-icon>
-              <span>Un usuario quiere unirse a un proyecto tuyo</span>
-            </a>
+          <mat-menu #notificationMenu="matMenu" class="notification-content">
+            <div
+              class="notification-item"
+              *ngFor="let notification of notifications"
+            >
+              <div *ngIf="notification.status === 2">
+                <a mat-menu-item>
+                  <mat-icon>group_add</mat-icon>
+                  <span>Un usuario quiere unirse a un proyecto tuyo</span>
+                </a>
+              </div>
+              <div *ngIf="notification.status === 3">
+                <a mat-menu-item disabled>
+                  <mat-icon>group_add</mat-icon>
+                  <span>Un usuario quiere unirse a un proyecto tuyo</span>
+                </a>
+              </div>
+            </div>
           </mat-menu>
         </div>
       </div>
