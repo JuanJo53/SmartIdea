@@ -1,0 +1,89 @@
+<h1 mat-dialog-title>Nueva tarjeta de credito</h1>
+
+<form [formGroup]="formCard" (ngSubmit)="savecard()">
+  <mat-dialog-content>
+
+    <mat-form-field  >
+      <mat-label class="omrs-input-label" >Nombre de tarjeta</mat-label
+      ><input
+      matInput
+      type="text"
+      placeholder="Nombre de tarjeta"
+      formControlName="cardName"
+      required
+    />
+    </mat-form-field>
+
+
+
+    <mat-form-field  >
+      <mat-label class="omrs-input-label">Numero de tarjeta</mat-label
+      ><input
+      matInput
+      type="number"
+      placeholder="Numero de tarjeta"
+      formControlName="cardNumber"
+      required
+    />
+    </mat-form-field>
+
+
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">Año de Expiracion</mat-label
+      ><input
+      matInput
+      type="number"
+      placeholder="Año de Expiracion "
+      formControlName="expirationYear"
+      required
+    />
+    </mat-form-field>
+
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">Mes de Expiracion</mat-label
+      ><input
+      matInput
+      type="number"
+      placeholder="Mes de Expiracion "
+      formControlName="expirationMonth"
+      required
+    />
+    </mat-form-field>
+
+
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">CVC</mat-label
+      ><input
+      matInput
+      type="number"
+      placeholder="CVC"
+      formControlName="cvc"
+      required
+    />
+    </mat-form-field>
+
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">Fecha de creacion</mat-label
+      ><input
+      matInput
+      type="date"
+      placeholder="Fecha de creacion"
+      formControlName="creationDate"
+      required
+    />
+    </mat-form-field>
+
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+    <button mat-button mat-raised-button color="warn" (click)="close()">Cancelar</button>
+  </mat-dialog-actions>
+</form>
