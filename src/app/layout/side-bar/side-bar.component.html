@@ -57,6 +57,7 @@
               <div
                 class="notification-header"
                 *ngFor="let notification of notifications"
+                (click)="getNotificationDetails(notification.notificationId)"
               >
                 <div id="{{ notification.notificationId }}" class="notify-info">
                   <h4>

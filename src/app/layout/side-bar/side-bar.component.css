@@ -57,8 +57,15 @@
 .notify-info {
   margin: 10px;
 }
+.notify-info:hover {
+  background-color: lightgray;
+  transition-delay: 0.2s;
+}
 .notify-info span {
   color: rgb(148, 150, 151);
+}
+.notify-info span:hover {
+  color: lightgrey;
 }
 .header-row {
   width: 100%;

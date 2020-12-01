@@ -19,8 +19,9 @@ export class NotificationService {
     );
   }
   markSeenNotification(userid: number, notifid: number) {
-    return this.http.get<Notification[]>(
-      apiKey.api + '/user/' + userid + '/notifications/' + notifid
+    return this.http.put(
+      apiKey.api + '/user/' + userid + '/notifications/' + notifid,
+      null
     );
   }
 }

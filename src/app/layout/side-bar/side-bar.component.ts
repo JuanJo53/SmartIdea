@@ -33,6 +33,9 @@ export class SideBarComponent implements OnInit {
         console.log(notification);
       });
   }
+  getNotificationDetails(id: number) {
+    console.log(id);
+  }
   fecthNotifications(): void {
     this.notificationService
       .getUserNotifications(1)
