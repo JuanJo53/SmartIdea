@@ -1,52 +1,75 @@
-<div>
-  <img src="{{user.image}}" alt="" >
-  <image-upload
-    (uploadFinished)="onUploadFinish($event)"
-    [max]="1" [extensions]="['jpeg','png']"
-    buttonCaption="Editar Foto"
-    dropBoxMessage=""
-    style="color: #673ab7;"
-  ></image-upload>
-  <button class="button" (click)="updateimage()" *ngIf="this.image!=null">Subir Foto de perfil</button>
-</div>
-<div>
-  <br>
-  <label>First Name</label>
-  <input type="text" [(ngModel)]="user.name" />
-  <label >Last Name</label>
-  <input type="text" [(ngModel)]="user.surname" />
-  <label >Nick Name</label>
-  <input type="text" [(ngModel)]="user.username"  />
-  <label >Email</label>
-  <input type="text" [(ngModel)]="user.email"  />
-  <label >Description</label>
-  <input type="text" [(ngModel)]="user.description"  />
-  <label >Cellphone</label>
-  <input type="text" [(ngModel)]="user.cellphone" />
+<div class="container">
+  <div>
+    <img src="{{ user.image }}" alt="" />
+    <image-upload
+      (uploadFinished)="onUploadFinish($event)"
+      [max]="1"
+      [extensions]="['jpeg', 'png']"
+      buttonCaption="Editar Foto"
+      dropBoxMessage=""
+      style="color: #673ab7"
+    ></image-upload>
+    <button class="button" (click)="updateimage()" *ngIf="this.image != null">
+      Subir Foto de perfil
+    </button>
+  </div>
+  <div>
+    <br />
+    <label>First Name</label>
+    <input type="text" [(ngModel)]="user.name" />
+    <label>Last Name</label>
+    <input type="text" [(ngModel)]="user.surname" />
+    <label>Nick Name</label>
+    <input type="text" [(ngModel)]="user.username" />
+    <label>Email</label>
+    <input type="text" [(ngModel)]="user.email" />
+    <label>Description</label>
+    <input type="text" [(ngModel)]="user.description" />
+    <label>Cellphone</label>
+    <input type="text" [(ngModel)]="user.cellphone" />
 
-  <button class="button" (click)="update()">Update User</button>
-</div>
+    <button class="button" (click)="update()">Update User</button>
+  </div>
 
-<h1>SKILLS</h1>
-<button class="button"
-        (click)="createSkill()">Add Skill</button>
-  <hr>
+  <h1>SKILLS</h1>
+  <button class="button" (click)="createSkill()">Add Skill</button>
+  <hr />
   <table an>
     <thead>
-    <tr>
-      <th>#</th>
-      <th>Skills</th>
-    </tr>
+      <tr>
+        <th>#</th>
+        <th>Skills</th>
+      </tr>
     </thead>
     <tbody>
-    <tr class="pure-table-odd" *ngFor="let skill of skills" >
-      <td>{{skills.indexOf(skill)+1}}</td>
-      <td><input type="text" value="{{skill.skillName}}" *ngIf="this.editskill">{{skill.skillName}}</td>
-      <button type="button" (click)="deleteSkill(skill.skillId,skill.skillName,skills.indexOf(skill)); ngOnInit();">Eliminar</button>
-      <button type="button" (click)="editSkill(skill.skillId,skill.skillName)">Editar</button>
-    </tr>
+      <tr class="pure-table-odd" *ngFor="let skill of skills">
+        <td>{{ skills.indexOf(skill) + 1 }}</td>
+        <td>
+          <input
+            type="text"
+            value="{{ skill.skillName }}"
+            *ngIf="this.editskill"
+          />{{ skill.skillName }}
+        </td>
+        <button
+          type="button"
+          (click)="
+            deleteSkill(skill.skillId, skill.skillName, skills.indexOf(skill));
+            ngOnInit()
+          "
+        >
+          Eliminar
+        </button>
+        <button
+          type="button"
+          (click)="editSkill(skill.skillId, skill.skillName)"
+        >
+          Editar
+        </button>
+      </tr>
     </tbody>
   </table>
+</div>
 
 <!--<mat-form-field class="example-chip-list">-->
 <!--  <mat-chip-list #chipList aria-label="Fruit selection">-->
