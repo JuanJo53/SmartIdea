@@ -1,26 +1,26 @@
-h1{
+h1 {
   font-weight: bold;
   margin-top: 60px;
-  font-size:50px;
+  font-size: 50px;
   text-align: center;
-  margin-bottom:60px ;
+  margin-bottom: 60px;
 }
-.container{
+.container {
   margin: 0 auto;
   width: 90%;
   text-align: center;
   aling-items: center;
   justify-content: center;
 }
-.flex{
+.flex {
   display: flex;
 }
-.table{
+.table {
   padding: 20px;
   margin: 20px;
   text-align: center;
   color: #343759;
-  border:1px solid black;
+  border: 1px solid black;
   border-radius: 4px;
   box-shadow: 0px 0px 4px 0px black;
   width: 25%;
@@ -28,24 +28,24 @@ h1{
   box-sizing: border-box;
   display: inline-block;
 }
-.table>h2{
+.table > h2 {
   font-weight: bold;
-  margin:20px;
+  margin: 20px;
   display: block;
-  font-size:35px;
+  font-size: 35px;
   margin-bottom: 50px;
 }
-.table>h3{
+.table > h3 {
   display: block;
-  font-size:28px;
+  font-size: 28px;
   margin-bottom: 55px;
 }
-.table>p{
+.table > p {
   display: block;
   font-size: 19px;
   margin-bottom: 35px;
 }
-.PayButton{
+.PayButton {
   display: inline-block;
   width: 150px;
   padding: 12px;
@@ -58,25 +58,25 @@ h1{
   font-weight: 600;
   margin: auto;
 }
-.table:hover{
+.table:hover {
   background-color: #b7b5b5;
-  color: #FFFFFF;
-  transition: .5s all;
+  color: #ffffff;
+  transition: 0.5s all;
   transform: scale(1.1);
   cursor: pointer;
 }
-.PayButton:hover{
+.PayButton:hover {
   background-color: #4bc9d7;
 }
 
 @media (max-width: 1070px) {
-  .table{
-    width:45%;
+  .table {
+    width: 45%;
     margin-bottom: 20px;
   }
 }
-@media(max-width: 600px){
-  .table{
+@media (max-width: 600px) {
+  .table {
     width: 100%;
     margin-bottom: 20px;
   }

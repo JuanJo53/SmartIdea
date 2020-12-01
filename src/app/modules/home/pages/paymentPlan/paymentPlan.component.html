@@ -1,26 +1,11 @@
 <h1>Plan de Pagos</h1>
 
-<section class="container flex" *ngFor="let paymentPlan of listPaymentPlan" >
-
-  <div class="table">
-   <h2 class="text">{{paymentPlan.plan}}</h2>
-      <p class="text">"{{paymentPlan.description}}"</p><br>
-      <h3 class="text">{{paymentPlan.cost}}</h3>
-    <button type= "button" class="PayButton">Pagar</button>
-  </div>
-
-  <div class="table">
-    <h2 class="text">{{paymentPlan.plan}}</h2>
-    <p class="text">"{{paymentPlan.description}}"</p><br>
-    <h3 class="text">{{paymentPlan.cost}}</h3>
-    <button type= "button" class="PayButton">Pagar</button>
-  </div>
-
-  <div class="table">
-    <h2 class="text">{{paymentPlan.plan}}</h2>
-    <p class="text">"{{paymentPlan.description}}"</p><br>
-    <h3 class="text">{{paymentPlan.cost}}</h3>
-    <button type= "button" class="PayButton">Pagar</button>
+<section class="container flex" *ngFor="let paymentPlan of listPaymentPlan">
+  <div class="container flex table">
+    <h2 class="text">{{ paymentPlan.plan }}</h2>
+    <p class="text">"{{ paymentPlan.description }}"</p>
+    <br />
+    <h3 class="text">{{ paymentPlan.cost }}</h3>
+    <button type="button" class="PayButton">Pagar</button>
   </div>
 </section>
-

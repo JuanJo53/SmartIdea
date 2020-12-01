@@ -37,6 +37,8 @@ import { ImageUploadModule } from 'angular2-image-upload';
 import { CreateProjectComponent } from '../components/dialogs/create-project/create-project.component';
 import { EditProjectComponent } from '../components/dialogs/edit-project/edit-project.component';
 import { UserrequesteComponent } from './pages/userrequeste/userrequeste.component';
+import { PaymentPlanBuyComponent } from './pages/paymentPlanBuy/paymentPlanBuy.component';
+import { PaymentPlanComponent } from './pages/paymentPlan/paymentPlan.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { UserrequesteComponent } from './pages/userrequeste/userrequeste.compone
     EditSkillComponent,
     CreateProjectComponent,
     UserrequesteComponent,
+    PaymentPlanBuyComponent,
+    PaymentPlanComponent,
   ],
   imports: [
     CommonModule,
