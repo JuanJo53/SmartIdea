@@ -1,5 +1,5 @@
-<h1 mat-dialog-title>Nuevo proyecto</h1>
-<form [formGroup]="formProject" (ngSubmit)="saveproject()">
+<h1 mat-dialog-title>Edit Skill</h1>
+<form [formGroup]="formProject" (ngSubmit)="updateProject()">
   <mat-dialog-content>
 
     <mat-form-field  >
@@ -9,6 +9,7 @@
       placeholder="Titulo"
       formControlName="projectTitle"
       required
+      ngModel="{{this.data.projectTitle}}"
     />
     </mat-form-field>
     <mat-form-field  >
@@ -18,6 +19,7 @@
       placeholder="description"
       formControlName="description"
       required
+      ngModel="{{this.data.description}}"
     />
     </mat-form-field>
 
@@ -28,10 +30,10 @@
       placeholder="benefits"
       formControlName="benefits"
       required
+      ngModel="{{this.data.benefits}}"
     />
     </mat-form-field>
   </mat-dialog-content>
-
   <mat-dialog-actions>
     <button type="submit" mat-button color="primary" cdkFocusInitial>
       Guardar

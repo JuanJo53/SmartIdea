@@ -13,6 +13,7 @@ import { EditSkillComponent } from './modules/components/dialogs/edit-skill/edit
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
 import {ReactiveFormsModule} from '@angular/forms';
+import { CreateProjectComponent } from './modules/components/dialogs/create-project/create-project.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [

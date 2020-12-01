@@ -33,6 +33,8 @@ import {CreateSkillComponent} from "../components/dialogs/create-skill/create-sk
 import {EditSkillComponent} from "../components/dialogs/edit-skill/edit-skill.component";
 import {ImageUploadModule} from "angular2-image-upload";
 import {CreateProjectComponent} from "../components/dialogs/create-project/create-project.component";
+import {EditProjectComponent} from '../components/dialogs/edit-project/edit-project.component';
+import { UserrequesteComponent } from './pages/userrequeste/userrequeste.component';
 
 @NgModule({
   declarations: [
@@ -51,12 +53,14 @@ import {CreateProjectComponent} from "../components/dialogs/create-project/creat
     CertificatesComponent,
     ReferenceByIdComponent,
     FeedComponent,
+    EditProjectComponent,
     UserComponent,
     CreateCertificateComponent,
     WarningDialogComponent,
     CreateSkillComponent,
     EditSkillComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
+    UserrequesteComponent
   ],
   imports: [
     CommonModule,
@@ -76,6 +80,6 @@ import {CreateProjectComponent} from "../components/dialogs/create-project/creat
     MatIconModule,
     ImageUploadModule.forRoot()
   ],
-  entryComponents: [CreateCertificateComponent, WarningDialogComponent, EditSkillComponent, CreateProjectComponent,],
+  entryComponents: [CreateCertificateComponent, WarningDialogComponent, EditSkillComponent, CreateProjectComponent, EditProjectComponent],
 })
 export class HomeModule {}

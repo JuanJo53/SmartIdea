@@ -14,10 +14,12 @@
           <h3 class="name">{{projects.projectTitle}}</h3>
           <h4 class="title">Descripcion :{{projects.description}}</h4>
           <h5 class="title">Vistas : {{projects.views}}</h5>
+
+          <button type="button" class="boton_personalizado" routerLink="/user/userRequest/{{projects.projectsId}}">Ver solicitudes</button>
         </div>
         <ul class="social">
           <li><button type="button" class="boton_personalizado" routerLink="/user/referencesbyId/{{projects.projectsId}}">Ver Projecto</button></li>
-          <li><button type="button" class="boton_personalizado" (click)="createProject()">editar</button></li>
+          <li><button type="button" class="boton_personalizado" (click)="editprojct(projects)">editar</button></li>
         </ul>
       </div>
     </div>

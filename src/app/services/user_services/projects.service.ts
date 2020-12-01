@@ -21,6 +21,9 @@ export class ProjectsService {
   }
 
   postnewproject(project: IProjects) {
-    return this.http.post('http://localhost:8080/user/1/projects',project);
+    return this.http.post('http://localhost:8080/user/1/projects', project);
+  }
+  updateproject(project: IProjects, id: number){
+    return this.http.put(`http://localhost:8080/user/1/projects/${id}`, project);
   }
 }

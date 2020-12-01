@@ -15,6 +15,7 @@ import {UserComponent} from "./modules/home/pages/user/user.component";
 import { PaymentPlanComponent } from './modules/home/pages/paymentPlan/paymentPlan.component';
 import { PaymentPlanBuyComponent } from './modules/home/pages/paymentPlanBuy/paymentPlanBuy.component';
 import { OrderReviewComponent } from './modules/home/pages/orderReview/orderReview.component';
+import {UserrequesteComponent} from './modules/home/pages/userrequeste/userrequeste.component';
 
 const routes: Routes = [
   {
@@ -77,6 +78,10 @@ const routes: Routes = [
         path: 'orderReview',
         component: OrderReviewComponent,
       },
+      {
+        path: 'userRequest/:id',
+        component: UserrequesteComponent,
+      }
     ],
   },
 ];

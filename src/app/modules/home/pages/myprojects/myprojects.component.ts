@@ -6,8 +6,13 @@ import {CreateProjectComponent} from '../../../components/dialogs/create-project
 import {MatDialog} from '@angular/material/dialog';
 import {ActivatedRoute} from '@angular/router';
 import {WarningDialogComponent} from '../../../components/dialogs/warning-dialog/warning-dialog.component';
+import {EditProjectComponent} from '../../../components/dialogs/edit-project/edit-project.component';
 
-
+export interface DialogData {
+  projectTitle: string;
+  description: string;
+  benefits: string;
+}
 @Component({
   selector: 'app-myprojects',
   templateUrl: './myprojects.component.html',
@@ -39,6 +44,22 @@ export class MyprojectsComponent implements OnInit {
     });
 
 
+  }
+  editprojct(project: IProjects): void{
+    const dialogRef = this.dialog.open(EditProjectComponent, {
+      width: '500px',
+      data: {
+        idproject: project.projectsId,
+        projectTitle: project.projectTitle,
+        description: project.description,
+        benefits: project.benefits,
+        status: project.status
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+
+      this.ngOnInit();
+    });
   }
 
 }

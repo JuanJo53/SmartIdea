@@ -1,0 +1,35 @@
+#main-container
+{
+  margin: 30px auto;
+  width: 500px;
+}
+th,td
+{
+  border: solid 1px black;
+  padding: 15px;
+}
+thead
+{
+  background: #673AB6 ;
+  border-bottom: #7367F0;
+  color: white;
+}
+tr:nth-child(even)
+{
+  background-color: #dddddd;
+}
+tr:hover{
+  background-color: #673AB6;
+  color: white;
+}
+table{
+  background-color: white;
+  text-align: left;
+  border-collapse: collapse;
+  width: 100%;
+}
+h1
+{font-size:2.2em;
+  margin: 10px auto;
+  color:black;
+  text-align:center;}
