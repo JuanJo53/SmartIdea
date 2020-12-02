@@ -55,13 +55,21 @@
   text-align: center;
   font-weight: 500;
 }
-.notify-info {
+.notify-info-unread {
   margin: 10px;
 }
-.notify-info:hover {
+.visibility-project {
+  width: 100%;
+  margin-left: 5px;
+}
+.notify-info {
+  margin: 10px;
+  background-color: lightgray;
+}
+.notify-info-unread:hover {
   background-color: lightgray;
   transition: 0.5s all;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 .notify-info span {
   color: rgb(148, 150, 151);

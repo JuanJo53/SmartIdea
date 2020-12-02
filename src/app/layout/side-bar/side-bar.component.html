@@ -62,21 +62,26 @@
                 <div
                   *ngIf="notification.status === 2"
                   id="{{ notification.notificationId }}"
-                  class="notify-info"
+                  class="notify-info-unread"
                 >
                   <h4>
                     <strong>{{ notification.title }}</strong>
                     <span><mat-icon>group_add</mat-icon></span>
                   </h4>
                   <p>{{ notification.message }}</p>
-                  <a
-                    (click)="viewNotification(notification.notificationId)"
-                    routerLink="/user/referencesbyId/{{
-                      notification.projectId
-                    }}"
-                    >proyecto</a
-                  ><br />
-                  <span>{{ notification.date | date: "dd-MM-yyyy" }}</span>
+                  <div class="visibility-project row middle-xs">
+                    <a
+                      class="col-xs-6"
+                      (click)="viewNotification(notification.notificationId)"
+                      routerLink="/user/referencesbyId/{{
+                        notification.projectId
+                      }}"
+                      >Mirar proyecto</a
+                    >
+                    <span class="col-xs-4">No visto</span>
+                    <mat-icon class="col-xs-1">visibility_off</mat-icon>
+                  </div>
+                  <span>{{ notification.date | date: "medium" }}</span>
                 </div>
                 <div
                   *ngIf="notification.status === 3"
@@ -88,14 +93,19 @@
                     <span><mat-icon>group_add</mat-icon></span>
                   </h4>
                   <p>{{ notification.message }}</p>
-                  <a
-                    (click)="viewNotification(notification.notificationId)"
-                    routerLink="/user/referencesbyId/{{
-                      notification.projectId
-                    }}"
-                    >proyecto</a
-                  ><br />
-                  <span>{{ notification.date | date: "dd-MM-yyyy" }}</span>
+                  <div class="visibility-project row middle-xs">
+                    <a
+                      class="col-xs-7"
+                      (click)="viewNotification(notification.notificationId)"
+                      routerLink="/user/referencesbyId/{{
+                        notification.projectId
+                      }}"
+                      >Mirarproyecto</a
+                    >
+                    <span class="col-xs-2">Visto</span>
+                    <mat-icon class="col-xs">visibility</mat-icon>
+                  </div>
+                  <span>{{ notification.date | date: "medium" }}</span>
                 </div>
                 <mat-divider></mat-divider>
               </div>
