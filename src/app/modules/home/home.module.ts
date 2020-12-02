@@ -42,6 +42,7 @@ import { PaymentPlanComponent } from './pages/paymentPlan/paymentPlan.component'
 import { OrderReviewComponent } from './pages/orderReview/orderReview.component';
 import { MatTableModule } from '@angular/material/table';
 import { CreateCardComponent } from '../components/dialogs/create-card/create-card.component';
+import { CreditCardPipe } from 'src/app/shared/credit-card.pipe';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { CreateCardComponent } from '../components/dialogs/create-card/create-ca
     PaymentPlanComponent,
     OrderReviewComponent,
     CreateCardComponent,
+    CreditCardPipe,
   ],
   imports: [
     CommonModule,

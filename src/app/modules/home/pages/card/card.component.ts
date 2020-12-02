@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform } from '@angular/core';
 import { Card } from '../../../../models/card.model';
 import { CardService } from '../../../../services/user_services/card.service';
 import { CreateCardComponent } from '../../../components/dialogs/create-card/create-card.component';
