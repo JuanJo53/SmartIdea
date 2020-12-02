@@ -58,4 +58,25 @@ export class CreateProjectComponent implements OnInit {
       });
     this.onNoClick();
   }
+  onUploadFinish(event) {
+    console.log(event)
+  }
+  customStyle = {
+    selectButton: {
+      "color": "white",
+      "background-color": "#673ab7",
+    },
+    clearButton: {
+      "color": "white",
+      "background-color": "red",
+    },
+    layout: {
+      "background-color": "",
+      "color": "",
+      "font-size": "15px",
+    },
+    previewPanel: {
+      "background-color": "#f2f2f2",
+    }
+  };
 }

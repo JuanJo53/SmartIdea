@@ -62,10 +62,13 @@ td{
 }
 
 
-img-ul-button {
-  box-shadow: 2px 2px 4px 0 rgb(0 0 0);
-  color: #673ab7;
+.customClass {
+  background-color: #dd3;
+  border-radius: 5px;
+  margin:5px;
+  width: 500px;
 }
+
 
 
 

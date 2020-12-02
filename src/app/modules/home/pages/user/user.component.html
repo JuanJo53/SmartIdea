@@ -1,15 +1,15 @@
 <div class="container">
   <div>
-    <img src="{{ user.image }}" alt="" />
+    <img src="{{ user?.image }}" alt="" width="150" height="150" />
     <image-upload
+      [style]="customStyle"
       (uploadFinished)="onUploadFinish($event)"
       [max]="1"
       [extensions]="['jpeg', 'png']"
-      buttonCaption="Editar Foto"
+      buttonCaption="Subir Foto"
       dropBoxMessage=""
-      style="color: #673ab7"
     ></image-upload>
-    <button class="button" (click)="updateimage()" *ngIf="this.image != null">
+    <button class="button" (click)="updateimage();" *ngIf="this.image != null">
       Subir Foto de perfil
     </button>
   </div>

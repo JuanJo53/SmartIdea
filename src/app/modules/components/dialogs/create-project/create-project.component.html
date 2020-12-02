@@ -30,8 +30,9 @@
       required
     />
     </mat-form-field>
-  </mat-dialog-content>
 
+  </mat-dialog-content>
+  <image-upload [style]="customStyle" (uploadFinished)="onUploadFinish($event)"></image-upload>
   <mat-dialog-actions>
     <button type="submit" mat-button color="primary" cdkFocusInitial>
       Guardar

@@ -77,7 +77,6 @@ export class UserComponent implements OnInit {
         },
       });
       dialogRef.afterClosed().subscribe((result) => {
-
         this.ngOnInit();
       });
 
@@ -110,10 +109,10 @@ export class UserComponent implements OnInit {
         error => alert(error)
       );
     this.ngOnInit()
+
   }
   onUploadFinish(event) {
-    console.log(event.src)
-      this.image=event.src
+    this.image=event.src
   }
   updateimage(){
     if (this.image!=null){
@@ -126,12 +125,32 @@ export class UserComponent implements OnInit {
       image: this.image,
       cellphone: this.user.cellphone
     };
-      this.service.updateImage(user1)
+    this.service.updateImage(user1)
         .subscribe(
           error => alert(error)
         );
-      location.reload()
     }
+    location.reload()
 
   }
+
+  customStyle = {
+    selectButton: {
+      "color": "white",
+      "background-color": "#673ab7",
+    },
+    clearButton: {
+      "color": "white",
+      "background-color": "red",
+    },
+    layout: {
+      "background-color": "",
+      "color": "",
+      "font-size": "15px",
+    },
+    previewPanel: {
+      "background-color": "#f2f2f2",
+    }
+  };
+
 }
