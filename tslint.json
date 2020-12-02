@@ -3,6 +3,7 @@
   "rulesDirectory": [
     "codelyzer"
   ],
+
   "rules": {
     "align": {
       "options": [
