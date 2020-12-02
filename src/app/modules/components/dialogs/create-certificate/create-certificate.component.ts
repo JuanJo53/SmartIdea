@@ -36,7 +36,7 @@ export class CreateCertificateComponent implements OnInit {
       certificateName: ['', [Validators.required]],
       company: ['', [Validators.required]],
       expeditionDate: ['', [Validators.required]],
-      expirationDate: ['', [Validators.required]],
+      expirationDate: [''],
       credentialId: ['', [Validators.required]],
       credentialURL: ['', [Validators.required]],
     });
@@ -47,7 +47,7 @@ export class CreateCertificateComponent implements OnInit {
       console.log(cert);
       this.createCertificate(cert);
     }
-    window.location.reload();
+    this.dialogRef.close();
   }
 
   createCertificate(newCertificate: certificateRequest): void {

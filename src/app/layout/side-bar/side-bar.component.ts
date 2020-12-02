@@ -26,7 +26,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
     private breakpointObserver: BreakpointObserver
   ) {}
   ngOnInit(): void {
-    this.intervalId = setInterval(() => this.fecthNotifications(), 10000);
+    this.intervalId = setInterval(() => this.fecthNotifications(), 1000000);
     this.fecthNotifications();
   }
   ngOnDestroy(): void {
@@ -49,7 +49,6 @@ export class SideBarComponent implements OnInit, OnDestroy {
         this.notifications = notifications;
         this.notificationCount = this.notifications.length;
         console.log(this.notificationCount);
-        console.table(notifications);
       });
   }
 }

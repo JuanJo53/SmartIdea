@@ -1,6 +1,13 @@
 import { CertificateService } from './../../../services/user_services/certificate.service';
 import { Certificate } from './../../../models/certificate.model';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  OnDestroy,
+} from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { certificateRequest } from 'src/app/models/certificateRequest.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -12,7 +19,7 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './certificate-content.component.html',
   styleUrls: ['./certificate-content.component.css'],
 })
-export class CertificateContentComponent implements OnInit {
+export class CertificateContentComponent implements OnInit, OnDestroy {
   @Input() certificate: Certificate;
 
   form: FormGroup;
@@ -24,6 +31,7 @@ export class CertificateContentComponent implements OnInit {
     public dialog: MatDialog
   ) {}
   edit = false;
+  destroyed = false;
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       const id = params.id;
@@ -32,6 +40,10 @@ export class CertificateContentComponent implements OnInit {
         this.fetchCertificate(id);
       }
     });
+  }
+  ngOnDestroy(): void {
+    this.destroyed = true;
+    console.log('Component destroyed');
   }
   cancel() {
     this.edit = false;
@@ -61,7 +73,6 @@ export class CertificateContentComponent implements OnInit {
       this.updateCertificate(id, cert);
     }
     this.cancel();
-    window.location.reload();
   }
   updateCertificate(id: number, updateCertificate: certificateRequest): void {
     this.certificatesService
@@ -73,9 +84,9 @@ export class CertificateContentComponent implements OnInit {
   deleteCertificate(id: number): void {
     const dialogRef = this.dialog.open(WarningDialogComponent, {
       width: '500px',
-      data:{
-        message: "¿Esta seguro que desea eliminar el certificado?",
-      }
+      data: {
+        message: '¿Esta seguro que desea eliminar el certificado?',
+      },
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
@@ -84,9 +95,9 @@ export class CertificateContentComponent implements OnInit {
         this.certificatesService.deleteCertificate(id).subscribe((rta) => {
           console.log(rta);
         });
-        window.location.reload();
         console.log('Deleted');
       }
+      this.ngOnDestroy();
     });
   }
 }

@@ -1,4 +1,4 @@
-<div *ngIf="certificate">
+<div *ngIf="certificate && !destroyed">
   <mat-card class="cert-card" *ngIf="!edit; else elseBlock">
     <mat-card-header>
       <mat-card-title>

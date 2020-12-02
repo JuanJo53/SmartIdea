@@ -33,6 +33,7 @@ export class CertificatesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log('OnInit excecuted');
     this.fecthCertificates();
   }
   createCertificate(): void {
@@ -50,6 +51,7 @@ export class CertificatesComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
       this.certificateName = result;
+      this.ngOnInit();
     });
   }
   fecthCertificates(): void {
