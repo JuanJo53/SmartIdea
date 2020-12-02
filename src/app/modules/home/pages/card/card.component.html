@@ -1,29 +1,42 @@
 <h1>Datos de tarjeta</h1>
 
-<button class="butom" >
+<button class="butom" (click)="createCard()">
   <span>+</span>
 </button>
 
-<div id="main-container">
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">NOMBRE DE LA TARJETA</th>
-      <th scope="col">NUMERO DE TARJETA</th>
-      <th scope="col">FECHA DE EXPIRACION </th>
-      <th scope="col">EDITAR</th>
-      <th scope="col">ELIMINAR </th>
-    </tr>
-    </thead>
-    <tbody>
-
-    <tr *ngFor="let card of listCard">
-      <td>{{card.cardName}}</td>
-      <td>{{card.cardNumber}}</td>
-      <td>{{card.expirationMonth}}/{{card.expirationYear}}</td>
-      <td>    <button class="bto1" >EDITAR</button></td>
-      <td>    <button class="bto" >ELIMINAR</button></td>
-    </tr>
-    </tbody>
+<div class="container">
+  <table
+    mat-table
+    matSort
+    [dataSource]="listCard"
+    class="table mat-elevation-z8"
+  >
+    <ng-container matColumnDef="Nombre">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let card">{{ card.cardName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Numero">
+      <th mat-header-cell *matHeaderCellDef>Numero</th>
+      <td mat-cell *matCellDef="let card">{{ card.cardNumber }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Expiracion">
+      <th mat-header-cell *matHeaderCellDef>Mes/Año Expiracion</th>
+      <td mat-cell *matCellDef="let card">
+        {{ card.expirationMonth }}/{{ card.expirationYear }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="id_card">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button class="action-button" mat-mini-fab>
+          <span><mat-icon>edit</mat-icon> </span>
+        </button>
+        <button class="action-button" mat-mini-fab color="warn">
+          <span><mat-icon>delete</mat-icon> </span>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>

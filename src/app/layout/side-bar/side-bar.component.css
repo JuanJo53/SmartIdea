@@ -31,6 +31,7 @@
   padding: 1px;
   background-color: #ffffff;
   border-radius: 500px;
+  transition: 0.5s all;
 }
 .notification-wrapper .notification-content {
   position: absolute;
@@ -59,13 +60,11 @@
 }
 .notify-info:hover {
   background-color: lightgray;
-  transition-delay: 0.2s;
+  transition: 0.5s all;
+  transform: scale(1.05);
 }
 .notify-info span {
   color: rgb(148, 150, 151);
-}
-.notify-info span:hover {
-  color: lightgrey;
 }
 .header-row {
   width: 100%;

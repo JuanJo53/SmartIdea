@@ -40,6 +40,8 @@ import { UserrequesteComponent } from './pages/userrequeste/userrequeste.compone
 import { PaymentPlanBuyComponent } from './pages/paymentPlanBuy/paymentPlanBuy.component';
 import { PaymentPlanComponent } from './pages/paymentPlan/paymentPlan.component';
 import { OrderReviewComponent } from './pages/orderReview/orderReview.component';
+import { MatTableModule } from '@angular/material/table';
+import { CreateCardComponent } from '../components/dialogs/create-card/create-card.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +71,7 @@ import { OrderReviewComponent } from './pages/orderReview/orderReview.component'
     PaymentPlanBuyComponent,
     PaymentPlanComponent,
     OrderReviewComponent,
+    CreateCardComponent,
   ],
   imports: [
     CommonModule,
@@ -88,6 +91,7 @@ import { OrderReviewComponent } from './pages/orderReview/orderReview.component'
     MatIconModule,
     MatBadgeModule,
     MatMenuModule,
+    MatTableModule,
     ImageUploadModule.forRoot(),
   ],
   entryComponents: [
@@ -96,6 +100,7 @@ import { OrderReviewComponent } from './pages/orderReview/orderReview.component'
     EditSkillComponent,
     CreateProjectComponent,
     EditProjectComponent,
+    CreateCardComponent,
   ],
 })
 export class HomeModule {}

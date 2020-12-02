@@ -12,7 +12,5 @@ export class BillService {
   getAllBill(){
     return this.http.get<Bill[]>('http://localhost:8080/user/1/bill');
   }
-  getProject(id: number) {
-    return this.http.get<Bill>(`http://localhost:8080/user/1/projects/${id}`);
-  }
+
 }
