@@ -10,6 +10,7 @@ tr:hover {
   transition: 0.5s all;
 }
 table {
+  margin-top: 80px;
   background-color: white;
   border-collapse: collapse;
   width: 100%;
@@ -33,6 +34,7 @@ h1 {
   bottom: 0;
   position: absolute;
   margin-right: 1050px;
+  margin-top: 10px;
   margin-bottom: 500px;
   border: none;
   outline: none;
