@@ -1,23 +1,41 @@
 <h1>FACTURACION</h1>
-<div id="main-container">
-  <table class="table">
-    <thead>
-    <tr>
-      <th scope="col">FECHA DE COMPRA</th>
-      <th scope="col">DIRECCION DE ENVIO</th>
-      <th scope="col">PAIS</th>
-      <th scope="col">CIUDAD</th>
-    </tr>
-    </thead>
-    <tbody>
-
-    <tr *ngFor="let bill of listBill">
-
-      <td>{{ bill.buyDate | date: "dd-MM-yyyy" }}</td>
-      <td>{{bill.billingAddress}}</td>
-      <td>{{bill.country}}</td>
-      <td>{{bill.city}}</td>
-    </tr>
-    </tbody>
+<div class="container">
+  <table
+    mat-table
+    matSort
+    [dataSource]="listBill"
+    class="table mat-elevation-z8"
+    class="table"
+  >
+    <ng-container matColumnDef="Fecha">
+      <th mat-header-cell *matHeaderCellDef>Fecha</th>
+      <td mat-cell *matCellDef="let bill">{{ bill.buyDate }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Proyecto">
+      <th mat-header-cell *matHeaderCellDef>Proyecto</th>
+      <td mat-cell *matCellDef="let bill">{{ bill.billingAddress }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Plan">
+      <th mat-header-cell *matHeaderCellDef>Plan</th>
+      <td mat-cell *matCellDef="let bill">
+        {{ bill.country }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="Total">
+      <th mat-header-cell *matHeaderCellDef>Total</th>
+      <td mat-cell *matCellDef="let bill">
+        {{ bill.city }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="id_card">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button class="action-button" mat-mini-fab>
+          <span><mat-icon>details</mat-icon> </span>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 </div>
