@@ -39,8 +39,10 @@ import { EditProjectComponent } from '../components/dialogs/edit-project/edit-pr
 import { UserrequesteComponent } from './pages/userrequeste/userrequeste.component';
 import { PaymentPlanBuyComponent } from './pages/paymentPlanBuy/paymentPlanBuy.component';
 import { PaymentPlanComponent } from './pages/paymentPlan/paymentPlan.component';
+import { OrderReviewComponent } from './pages/orderReview/orderReview.component';
 import { MatTableModule } from '@angular/material/table';
 import { CreateCardComponent } from '../components/dialogs/create-card/create-card.component';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -68,6 +70,7 @@ import { CreateCardComponent } from '../components/dialogs/create-card/create-ca
     UserrequesteComponent,
     PaymentPlanBuyComponent,
     PaymentPlanComponent,
+    OrderReviewComponent,
     CreateCardComponent,
   ],
   imports: [

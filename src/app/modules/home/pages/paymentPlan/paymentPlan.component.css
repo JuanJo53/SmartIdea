@@ -6,11 +6,11 @@ h1 {
   margin-bottom: 60px;
 }
 .container {
-  margin: 0 auto;
   width: 90%;
-  text-align: center;
-  aling-items: center;
+  margin: 0 auto;
   justify-content: center;
+  aling-items: center;
+  text-align: center;
 }
 .flex {
   display: flex;
@@ -52,7 +52,7 @@ h1 {
   background: #2c8992;
   text-decoration: none;
   color: white;
-  border-radius: 100px;
+  border-radius: 70px;
   text-align: center;
   font-size: 19px;
   font-weight: 600;
