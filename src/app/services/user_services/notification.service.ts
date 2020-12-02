@@ -14,7 +14,7 @@ export class NotificationService {
     );
   }
   getNotificationDetail(userid: number, notifid: number) {
-    return this.http.get<Notification[]>(
+    return this.http.get<Notification>(
       apiKey.api + '/user/' + userid + '/notifications/' + notifid
     );
   }

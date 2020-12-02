@@ -19,6 +19,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
     );
   intervalId: number;
   notifications: Notification[] = [];
+  detailedNotification: Notification;
   notificationCount: number;
   showNotification: boolean;
   logo: string = 'assets/images/logo.JPG';
@@ -41,6 +42,12 @@ export class SideBarComponent implements OnInit, OnDestroy {
       });
   }
   getNotificationDetails(id: number) {
+    this.notificationService
+      .getNotificationDetail(1, id)
+      .subscribe((notification) => {
+        this.detailedNotification = notification;
+        console.log(this.detailedNotification);
+      });
     console.log(id);
   }
   fecthNotifications() {
