@@ -4,8 +4,7 @@ import { CardService } from '../../../../services/user_services/card.service';
 import { CreateCardComponent } from '../../../components/dialogs/create-card/create-card.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { ProjectsService } from '../../../../services/user_services/projects.service';
-import { CreateProjectComponent } from '../../../components/dialogs/create-project/create-project.component';
+import {EditCardComponent} from '../../../components/dialogs/edit-card/edit-card.component';
 
 @Component({
   selector: 'app-card',
@@ -36,6 +35,24 @@ export class CardComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
+      this.ngOnInit();
+    });
+  }
+  editcard(card: Card): void{
+    const dialogRef = this.dialog.open(EditCardComponent, {
+      width: '500px',
+      data: {
+        cardId: card.cardId,
+        cardName: card.cardName,
+        cardNumber: card.cardNumber,
+        expirationYear: card.expirationYear,
+        expirationMonth: card.expirationMonth,
+        cvc: card.cvc,
+        creationDate: card.creationDate,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+
       this.ngOnInit();
     });
   }

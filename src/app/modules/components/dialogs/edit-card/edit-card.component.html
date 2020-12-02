@@ -1,0 +1,64 @@
+<h1 mat-dialog-title>Edit Card</h1>
+<form [formGroup]="formCard" (ngSubmit)="updateCard()">
+  <mat-dialog-content>
+
+    <mat-form-field  >
+      <mat-label class="omrs-input-label" >Nombre de tarjeta</mat-label
+      ><input
+      matInput
+      type="text"
+      placeholder="Nombre de tarjeta"
+      formControlName="cardName"
+      required
+      ngModel="{{this.data.cardName}}"
+    />
+    </mat-form-field>
+
+    <mat-form-field  >
+      <mat-label class="omrs-input-label">Numero de tarjeta</mat-label
+      ><input
+      matInput
+      type="number"
+      placeholder="Numero de tarjeta"
+      formControlName="cardNumber"
+      required
+      ngModel="{{this.data.cardNumber}}"
+    />
+    </mat-form-field>
+
+
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">Año de Expiracion</mat-label
+      ><input
+      matInput
+      type="number"
+      placeholder="Año de Expiracion "
+      formControlName="expirationYear"
+      required
+      ngModel="{{this.data.expirationYear}}"
+    />
+    </mat-form-field>
+
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">Mes de Expiracion</mat-label
+      ><input
+      matInput
+      type="number"
+      placeholder="Mes de Expiracion "
+      formControlName="expirationMonth"
+      required
+      ngModel="{{this.data.expirationMonth}}"
+    />
+    </mat-form-field>
+
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+    <button mat-button mat-raised-button color="warn" (click)="close()">Cancelar</button>
+  </mat-dialog-actions>
+</form>

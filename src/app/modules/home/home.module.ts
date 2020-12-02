@@ -43,6 +43,7 @@ import { OrderReviewComponent } from './pages/orderReview/orderReview.component'
 import { MatTableModule } from '@angular/material/table';
 import { CreateCardComponent } from '../components/dialogs/create-card/create-card.component';
 import { CreditCardPipe } from 'src/app/shared/credit-card.pipe';
+import { EditCardComponent } from '../components/dialogs/edit-card/edit-card.component';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { CreditCardPipe } from 'src/app/shared/credit-card.pipe';
     OrderReviewComponent,
     CreateCardComponent,
     CreditCardPipe,
+    EditCardComponent,
   ],
   imports: [
     CommonModule,
@@ -103,6 +105,7 @@ import { CreditCardPipe } from 'src/app/shared/credit-card.pipe';
     CreateProjectComponent,
     EditProjectComponent,
     CreateCardComponent,
+    EditCardComponent,
   ],
 })
 export class HomeModule {}
