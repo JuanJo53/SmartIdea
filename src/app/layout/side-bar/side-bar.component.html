@@ -7,7 +7,7 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false"
   >
-    <mat-toolbar>Perfil</mat-toolbar>
+    <div class="sidebar-logo"><img [src]="logo" alt="SmartIdea-Logo" /></div>
     <mat-nav-list>
       <a mat-list-item routerLink="/user/profile" routerLinkActive="active"
         >Perfil</a
@@ -100,7 +100,7 @@
                       routerLink="/user/referencesbyId/{{
                         notification.projectId
                       }}"
-                      >Mirarproyecto</a
+                      >Mirar proyecto</a
                     >
                     <span class="col-xs-2">Visto</span>
                     <mat-icon class="col-xs">visibility</mat-icon>

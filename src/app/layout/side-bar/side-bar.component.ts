@@ -21,6 +21,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
   notifications: Notification[] = [];
   notificationCount: number;
   showNotification: boolean;
+  logo: string = 'assets/images/logo.JPG';
   constructor(
     private notificationService: NotificationService,
     private breakpointObserver: BreakpointObserver
