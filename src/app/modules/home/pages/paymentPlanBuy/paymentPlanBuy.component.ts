@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { PaymentPlanService } from '../../../../services/user_services/paymentPlan.service';
-import { PaymentPlan } from '../../../../models/paymentPlan.model';
-import {ActivatedRoute} from '@angular/router';
+import {PaymentPlanService} from '../../../../services/user_services/paymentPlan.service';
+import {PaymentPlan} from '../../../../models/paymentPlan.model';
+import {Card} from '../../../../models/card.model';
 
 @Component({
-  selector: 'app-paymentplanbuy',
-  templateUrl: './PaymentPlanBuy.component.html',
-  styleUrls: ['./PaymentPlanBuy.component.css'],
+  selector: 'app-paymentPlanBuy',
+  templateUrl: './paymentPlanBuy.component.html',
+  styleUrls: ['./paymentPlanBuy.component.css']
 })
 export class PaymentPlanBuyComponent implements OnInit {
   listPaymentPlan: PaymentPlan;
-  constructor(private service: PaymentPlanService, private activatedRoute: ActivatedRoute) { }
 
+  constructor(private service: PaymentPlanService) { }
   ngOnInit(): void {
     this.loadlist();
   }
