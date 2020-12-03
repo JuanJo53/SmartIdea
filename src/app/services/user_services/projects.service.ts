@@ -32,11 +32,11 @@ export class ProjectsService {
     //return 'si se puso ';
   }
   rejectuser(id: number, iduser: number, project: IProjects){
-    return this.http.put<number>(`http://localhost:8080/user/2/projects/3/reject`, project);
+    return this.http.put<number>(`http://localhost:8080/user/${iduser}/projects/${id}/reject`, project);
     //return 'si se puso ';
   }
   aceptuser(id: number, iduser: number, project: IProjects){
-    return this.http.put<number>(`http://localhost:8080/user/2/projects/3/acept`, project);
+    return this.http.put<number>(`http://localhost:8080/user/${iduser}/projects/${id}/acept`, project);
     //return 'si se puso ';
   }
 }
