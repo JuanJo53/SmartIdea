@@ -9,24 +9,35 @@ import { certificateRequest } from '../../models/certificateRequest.model';
 export class CertificateService {
   constructor(private http: HttpClient) {}
 
-  getAllCertificates() {
-    return this.http.get<Certificate[]>(apiKey.api + '/user/1/certificates');
-  }
-  getCertificate(id: number) {
-    return this.http.get<Certificate>(
-      apiKey.api + `/user/1/certificates/${id}`
+  getAllCertificates(userid: number) {
+    return this.http.get<Certificate[]>(
+      apiKey.api + `/user/${userid}/certificates`
     );
   }
-  postNewCertificate(certificate: certificateRequest) {
-    return this.http.post(apiKey.api + '/user/1/certificates', certificate);
+  getCertificate(userid: number, id: number) {
+    return this.http.get<Certificate>(
+      apiKey.api + `/user/${userid}/certificates/${id}`
+    );
   }
-  updateCertificate(id: number, certificate: certificateRequest) {
-    return this.http.put(
-      apiKey.api + `/user/1/certificates/${id}`,
+  postNewCertificate(userid: number, certificate: certificateRequest) {
+    return this.http.post(
+      apiKey.api + `/user/${userid}/certificates`,
       certificate
     );
   }
-  deleteCertificate(id: number) {
-    return this.http.delete(apiKey.api + `/user/1/certificates/${id}`);
+  updateCertificate(
+    userid: number,
+    projectid: number,
+    certificate: certificateRequest
+  ) {
+    return this.http.put(
+      apiKey.api + `/user/${userid}/certificates/${projectid}`,
+      certificate
+    );
+  }
+  deleteCertificate(userid: number, projectid: number) {
+    return this.http.delete(
+      apiKey.api + `/user/${userid}/certificates/${projectid}`
+    );
   }
 }

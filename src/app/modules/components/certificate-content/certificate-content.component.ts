@@ -23,6 +23,7 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
   @Input() certificate: Certificate;
 
   form: FormGroup;
+  userId: number = 1;
 
   constructor(
     private fromBuilder: FormBuilder,
@@ -61,9 +62,11 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
     });
   }
   fetchCertificate(id: number): void {
-    this.certificatesService.getCertificate(id).subscribe((certificate) => {
-      this.certificate = certificate;
-    });
+    this.certificatesService
+      .getCertificate(this.userId, id)
+      .subscribe((certificate) => {
+        this.certificate = certificate;
+      });
   }
   saveCertificate(event: Event, id: number): void {
     event.preventDefault();
@@ -76,7 +79,7 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
   }
   updateCertificate(id: number, updateCertificate: certificateRequest): void {
     this.certificatesService
-      .updateCertificate(id, updateCertificate)
+      .updateCertificate(1, id, updateCertificate)
       .subscribe((certificate) => {
         console.log(certificate);
       });
@@ -92,9 +95,11 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
       console.log('The dialog was closed');
       console.log(result);
       if (result) {
-        this.certificatesService.deleteCertificate(id).subscribe((rta) => {
-          console.log(rta);
-        });
+        this.certificatesService
+          .deleteCertificate(this.userId, id)
+          .subscribe((rta) => {
+            console.log(rta);
+          });
         console.log('Deleted');
       }
       this.ngOnDestroy();

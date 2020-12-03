@@ -17,6 +17,7 @@ import { DialogData } from '../../certificates/certificates.component';
 })
 export class CreateCertificateComponent implements OnInit {
   form: FormGroup;
+  userId: number = 1;
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -52,7 +53,7 @@ export class CreateCertificateComponent implements OnInit {
 
   createCertificate(newCertificate: certificateRequest): void {
     this.certificatesService
-      .postNewCertificate(newCertificate)
+      .postNewCertificate(this.userId, newCertificate)
       .subscribe((certificate) => {
         console.log(certificate);
       });

@@ -24,7 +24,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
   user: User;
   intervalId: number;
   notifications: Notification[] = [];
-
+  userId: number = 1;
   notificationCount: number = 0;
   showNotification: boolean;
   logo: string = 'assets/images/logo.JPG';
@@ -45,7 +45,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
   }
   viewNotification(id: number): void {
     this.notificationService
-      .markSeenNotification(1, id)
+      .markSeenNotification(this.userId, id)
       .subscribe((notification) => {
         console.log(notification);
       });
@@ -69,7 +69,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
   fecthNotifications(): void {
     this.notificationCount = 0;
     this.notificationService
-      .getUserNotifications(1)
+      .getUserNotifications(this.userId)
       .subscribe((notifications) => {
         this.notifications = notifications;
         this.notifications.forEach((notif) => {
