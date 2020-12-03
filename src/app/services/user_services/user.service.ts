@@ -19,7 +19,7 @@ export class UserService {
   }
 
   updateImage(image: User){
-    return this.http.put<User>('http://localhost:8080/users/1/image',image)
+    return this.http.put<User>('http://localhost:8080/users/1/image',image);
   }
 
   getAlluserrequest(idproject: number){

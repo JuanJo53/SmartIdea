@@ -29,7 +29,7 @@ export class UserrequesteComponent implements OnInit {
   aceptar( iduser: number ,proyect: IProjects): void{
 
     const id = this.activatedRoute.snapshot.params.id;
-    this.servi.aceptuser(id, 2 , proyect).subscribe((projects) => {
+    this.servi.aceptuser(id, iduser , proyect).subscribe((projects) => {
       console.log(projects);
     });
     window.alert("logrado");
@@ -37,7 +37,7 @@ export class UserrequesteComponent implements OnInit {
   reject( iduser: number ,proyect: IProjects): void{
 
     const id = this.activatedRoute.snapshot.params.id;
-    this.servi.rejectuser(id, 2 , proyect).subscribe((projects) => {
+    this.servi.rejectuser(id, iduser , proyect).subscribe((projects) => {
       console.log(projects);
     });
     window.alert("logrado");
