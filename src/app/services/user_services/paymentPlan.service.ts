@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {PaymentPlan} from '../../models/paymentPlan.model';
+import {IProjects} from '../../models/projects.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,9 @@ export class PaymentPlanService {
   getAllPaymentPlan(){
     return this.http.get<PaymentPlan[]>('http://localhost:8080/paymentPlan');
   }
+
   getPaymentPlan(id: number) {
-    return this.http.get<PaymentPlan>(`http://localhost:8080/paymentPlan/3/${id}`);
+    return this.http.get<PaymentPlan>(`http://localhost:8080/paymentPlan/${id}`);
   }
 
 }
-

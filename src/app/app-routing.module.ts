@@ -82,7 +82,7 @@ const routes: Routes = [
         component: PaymentPlanBuyComponent,
       },
       {
-        path: 'paymentPlanBuy/:Id',
+        path: 'paymentPlanBuy/:id',
         component: PaymentPlanBuyComponent,
       },
       {
@@ -90,7 +90,7 @@ const routes: Routes = [
         component: OrderReviewComponent,
       },
       {
-        path: 'orderReview/:Id',
+        path: 'orderReview/:id',
         component: OrderReviewComponent,
       },
       {
