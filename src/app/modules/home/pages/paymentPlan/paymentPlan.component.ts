@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { PaymentPlanService } from '../../../../services/user_services/paymentPlan.service';
-import { PaymentPlan } from '../../../../models/paymentPlan.model';
-import {ActivatedRoute} from '@angular/router';
-import {MatDialog} from '@angular/material/dialog';
+import {PaymentPlanService} from '../../../../services/user_services/paymentPlan.service';
+import {PaymentPlan} from '../../../../models/paymentPlan.model';
 
 @Component({
-  selector: 'app-paymentplan',
+  selector: 'app-paymentPlan',
   templateUrl: './paymentPlan.component.html',
-  styleUrls: ['./paymentPlan.component.css'],
+  styleUrls: ['./paymentPlan.component.css']
 })
 export class PaymentPlanComponent implements OnInit {
   listPaymentPlan: PaymentPlan;
-  constructor(private service: PaymentPlanService, private activatedRoute: ActivatedRoute, public dialog: MatDialog) { }
 
+  constructor(private service: PaymentPlanService) { }
   ngOnInit(): void {
     this.loadlist();
   }
@@ -20,5 +18,5 @@ export class PaymentPlanComponent implements OnInit {
     this.service.getAllPaymentPlan().subscribe(data => {
       this.listPaymentPlan = data;
     });
- }
+  }
 }
