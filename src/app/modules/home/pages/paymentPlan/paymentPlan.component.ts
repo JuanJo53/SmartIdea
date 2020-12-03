@@ -8,12 +8,14 @@ import {PaymentPlan} from '../../../../models/paymentPlan.model';
   styleUrls: ['./paymentPlan.component.css']
 })
 export class PaymentPlanComponent implements OnInit {
-  listPaymentPlan: PaymentPlan;
+  listPaymentPlan: PaymentPlan[];
 
   constructor(private service: PaymentPlanService) { }
+
   ngOnInit(): void {
     this.loadlist();
   }
+
   loadlist(){
     this.service.getAllPaymentPlan().subscribe(data => {
       this.listPaymentPlan = data;

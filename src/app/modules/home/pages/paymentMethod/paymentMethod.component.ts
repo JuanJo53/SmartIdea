@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PaymentMethodService} from '../../../../services/user_services/paymentMethod.service';
 import {Card} from '../../../../models/card.model';
+import {CardService} from '../../../../services/user_services/card.service';
 
 @Component({
   selector: 'app-paymentMethod',
@@ -10,12 +10,12 @@ import {Card} from '../../../../models/card.model';
 export class PaymentMethodComponent implements OnInit {
   listCard: Card[];
 
-  constructor(private service: PaymentMethodService) { }
+  constructor(private service: CardService) { }
   ngOnInit(): void {
     this.loadlist();
   }
   loadlist(){
-    this.service.getAllPaymentMethod().subscribe(data => {
+    this.service.getAllCard().subscribe(data => {
       this.listCard = data;
     });
   }

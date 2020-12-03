@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PaymentPlanService} from '../../../../services/user_services/paymentPlan.service';
 import {PaymentPlan} from '../../../../models/paymentPlan.model';
-import {Card} from '../../../../models/card.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-paymentPlanBuy',
@@ -9,15 +9,22 @@ import {Card} from '../../../../models/card.model';
   styleUrls: ['./paymentPlanBuy.component.css']
 })
 export class PaymentPlanBuyComponent implements OnInit {
-  listPaymentPlan: PaymentPlan;
+  paymentplan: PaymentPlan;
 
-  constructor(private service: PaymentPlanService) { }
+  constructor(private service: PaymentPlanService, private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
-    this.loadlist();
+    this.loadpaymentplan();
   }
-  loadlist(){
-    this.service.getAllPaymentPlan().subscribe(data => {
-      this.listPaymentPlan = data;
-    });
+
+  loadpaymentplan(){
+    const id = this.activatedRoute.snapshot.params.id;
+    this.service.getPaymentPlan(id).subscribe(
+      data => {
+        this.paymentplan = data;
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }

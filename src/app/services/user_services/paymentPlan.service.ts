@@ -7,9 +7,13 @@ import {PaymentPlan} from '../../models/paymentPlan.model';
 })
 export class PaymentPlanService {
 
-  constructor(private http: HttpClient) {}
-  getAllPaymentPlan() {
-    return this.http.get<PaymentPlan>('http://localhost:8080/paymentPlan/2');
+  constructor(private http: HttpClient) { }
+  getAllPaymentPlan(){
+    return this.http.get<PaymentPlan[]>('http://localhost:8080/paymentPlan');
   }
+  getPaymentPlan(id: number) {
+    return this.http.get<PaymentPlan>(`http://localhost:8080/paymentPlan/3/${id}`);
+  }
+
 }
 
