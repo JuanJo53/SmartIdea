@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {OrderReviewService} from '../../../../services/user_services/orderReview.service';
 import {Card} from '../../../../models/card.model';
 import { ActivatedRoute } from '@angular/router';
 import {PaymentPlanService} from '../../../../services/user_services/paymentPlan.service';
+import {CardService} from '../../../../services/user_services/card.service';
 
 @Component({
   selector: 'app-orderReview',
@@ -10,9 +10,9 @@ import {PaymentPlanService} from '../../../../services/user_services/paymentPlan
   styleUrls: ['./orderReview.component.css']
 })
 export class OrderReviewComponent implements OnInit {
-  listCard: Card;
+  card: Card;
 
-  constructor(private service: OrderReviewService, private activatedRoute: ActivatedRoute) { }
+  constructor(private service: CardService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loadcard();
@@ -21,7 +21,7 @@ export class OrderReviewComponent implements OnInit {
     const id = this.activatedRoute.snapshot.params.id;
     this.service.getCard(id).subscribe(
       data => {
-        this.listCard = data;
+        this.card = data;
       },
       err => {
         console.log(err);
