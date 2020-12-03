@@ -42,9 +42,8 @@ export class UserComponent implements OnInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   tagCtrl = new FormControl();
   filteredTags: Observable<string[]>;
-  tags: string[];
-  allTags: string[];
-  general: Tag[];
+  tags: Tag[]=[];
+  allTags: Tag[]=[];
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
@@ -62,18 +61,13 @@ export class UserComponent implements OnInit {
     private serviceSkill: SkillService,
     private tagSerive: TagsService
   ) {
-    this.filteredTags = this.tagCtrl.valueChanges.pipe(
-      startWith(null),
-      map((tag: string | null) =>
-        tag ? this._filter(tag) : this.allTags.slice()
-      )
-    );
   }
 
   ngOnInit(): void {
     this.loadprofile();
     this.loadSkillList();
     this.loadtagList();
+    this.loadtagUser();
   }
 
   loadSkillList(): Skill[] {
@@ -82,16 +76,19 @@ export class UserComponent implements OnInit {
     });
     return this.skills;
   }
-  loadtagList(): Tag[] {
-    this.tagSerive.gettags().subscribe((data) => {
-      this.general = data;
-      data.map((value) => {
-        console.log(value.nameTags);
-        this.allTags.push(value.nameTags);
-      });
+  loadtagUser(): Tag[] {
+    this.tagSerive.gettaguser().subscribe((data) => {
+      this.tags = data;
     });
 
-    return this.general;
+    return this.tags;
+  }
+  loadtagList(): Tag[] {
+    this.tagSerive.gettags().subscribe((data) => {
+      this.allTags = data;
+    });
+
+    return this.allTags;
   }
   loadprofile() {
     this.service.getUserDeatails().subscribe((data) => {
@@ -113,7 +110,6 @@ export class UserComponent implements OnInit {
         location.reload();
       }
     });
-
     this.ngOnInit();
   }
   createSkill(): void {
@@ -153,9 +149,11 @@ export class UserComponent implements OnInit {
     this.service.updateProfile(user1).subscribe((error) => alert(error));
     this.ngOnInit();
   }
+
   onUploadFinish(event) {
     this.image = event.src;
   }
+
   updateimage() {
     if (this.image != null) {
       let user1: User = {
@@ -176,10 +174,19 @@ export class UserComponent implements OnInit {
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
-
+    let tag:Tag;
     // Add our fruit
+    tag={
+      tagId:0,
+      nameTags:value.trim(),
+      verified:1,
+      status:1,
+    }
     if ((value || '').trim()) {
-      this.tags.push(value.trim());
+      this.tags.push(tag);
+      this.tagSerive.posttag(tag).subscribe((tag) => {
+        console.log(tag);
+      });
     }
 
     // Reset the input value
@@ -190,7 +197,7 @@ export class UserComponent implements OnInit {
     this.tagCtrl.setValue(null);
   }
 
-  remove(tag: string): void {
+  remove(tag: Tag): void {
     const index = this.tags.indexOf(tag);
 
     if (index >= 0) {
@@ -198,19 +205,19 @@ export class UserComponent implements OnInit {
     }
   }
 
-  selected(event: MatAutocompleteSelectedEvent): void {
-    this.tags.push(event.option.viewValue);
-    this.tagInput.nativeElement.value = '';
-    this.tagCtrl.setValue(null);
-  }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.allTags.filter(
-      (tag) => tag.toLowerCase().indexOf(filterValue) === 0
-    );
-  }
+  // selected(event: MatAutocompleteSelectedEvent): void {
+  //   this.tags.push(event.option.viewValue);
+  //   this.tagInput.nativeElement.value = '';
+  //   this.tagCtrl.setValue(null);
+  // }
+  //
+  // private _filter(value: string): string[] {
+  //   const filterValue = value.toLowerCase();
+  //
+  //   return this.allTags.filter(
+  //     (tag) => tag.toLowerCase().indexOf(filterValue) === 0
+  //   );
+  // }
 
   customStyle = {
     selectButton: {
