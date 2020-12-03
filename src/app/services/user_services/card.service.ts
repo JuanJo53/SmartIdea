@@ -17,7 +17,7 @@ export class CardService {
     return this.http.post('http://localhost:8080/user/1/card', card);
   }
   updatecard(card: Card, id: number){
-    return this.http.put(`http://localhost:8080/user/1/card/${id}`, card);
+    return this.http.put(`http://localhost:8080/user/1/card/1/${id}`, card);
   }
 }
 

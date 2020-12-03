@@ -1,0 +1,59 @@
+<h1 mat-dialog-title>Nueva tarjeta de credito</h1>
+
+<form [formGroup]="formData" (ngSubmit)="savedata()">
+  <mat-dialog-content>
+
+    <mat-form-field  >
+      <mat-label class="omrs-input-label" >Fecha de Compra</mat-label
+      ><input
+      matInput
+      type="date"
+      placeholder="Fecha de Compra"
+      formControlName="cardName"
+      required
+    />
+    </mat-form-field>
+
+    <mat-form-field  >
+      <mat-label class="omrs-input-label">Direccion de envio</mat-label
+      ><input
+      matInput
+      type="text"
+      placeholder="Direccion de envio"
+      formControlName="billingAddress"
+      required
+    />
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">Pais</mat-label
+      ><input
+      matInput
+      type="text"
+      placeholder="Pais "
+      formControlName="country"
+      required
+    />
+    </mat-form-field>
+
+
+    <mat-form-field >
+      <mat-label class="omrs-input-label">Ciudad</mat-label
+      ><input
+      matInput
+      type="text"
+      placeholder="Ciudad"
+      formControlName="city"
+      required
+    />
+    </mat-form-field>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+    <button mat-button mat-raised-button color="warn" (click)="close()">Cancelar</button>
+  </mat-dialog-actions>
+</form>
