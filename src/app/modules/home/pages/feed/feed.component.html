@@ -25,10 +25,11 @@
       <!-- Start Button buying -->
       <button
         class="btn"
+        (click)="viewProject(projects.projectsId)"
         routerLink="/user/referencesbyId/{{ projects.projectsId }}"
       >
         <!-- 		the Price -->
-        <span class="price">Vistas:{{ projects.views }} </span>
+        <span class="price">Vistas: {{ projects.views }} </span>
         <span class="buy">ver proyecto</span>
       </button>
       <!-- End Button buying -->

@@ -36,7 +36,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
     public dialog: MatDialog
   ) {}
   ngOnInit(): void {
-    this.intervalId = setInterval(() => this.fecthNotifications(), 1000000);
+    this.intervalId = setInterval(() => this.fecthNotifications(), 20000);
     this.fecthNotifications();
     this.getimage();
   }
@@ -78,6 +78,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
           }
         });
       });
+    console.log('Notifications fetched');
   }
   getimage() {
     this.userService.getUserDeatails().subscribe((data) => {

@@ -1,31 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import {ProjectsService} from '../../../../services/user_services/projects.service';
-import {IProjects} from '../../../../models/projects.model';
+import { ProjectsService } from '../../../../services/user_services/projects.service';
+import { IProjects } from '../../../../models/projects.model';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.css']
+  styleUrls: ['./feed.component.css'],
 })
 export class FeedComponent implements OnInit {
   listProjects: IProjects[];
+  projectDetails: IProjects[];
   clicked = false;
-  constructor(private service: ProjectsService) { }
+  constructor(private service: ProjectsService) {}
 
   ngOnInit(): void {
     this.loadlist();
   }
-  loadlist(){
-    this.service.getAllProjectsfeed().subscribe(data => {
+  loadlist() {
+    this.service.getAllProjectsfeed().subscribe((data) => {
       this.listProjects = data;
     });
   }
 
-  afilarse(idproyect: number , iduser:number,proyect: IProjects): void{
-    this.service.afiliarproyect(idproyect,iduser ,proyect).subscribe((projects) => {
-      console.log(projects);
-    });
-    window.alert("logrado");
+  afilarse(idproyect: number, iduser: number, proyect: IProjects): void {
+    this.service
+      .afiliarproyect(idproyect, iduser, proyect)
+      .subscribe((projects) => {
+        console.log(projects);
+      });
+    window.alert('logrado');
   }
-
+  viewProject(projectId: number): void {
+    this.projectDetails = this.listProjects.filter(
+      (project) => project.projectsId == projectId
+    );
+    this.service
+      .viewProject(1, this.projectDetails[0], projectId)
+      .subscribe((project) => {
+        console.log('View increased in poject with id: ' + projectId);
+        console.log(project);
+      });
+    console.log('VIEW');
+  }
 }
