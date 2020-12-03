@@ -29,9 +29,9 @@ export class CreateCardComponent implements OnInit {
     this.edit = false;
   }
   ngOnInit(): void {
-    this.editCard();
+    this.editcard();
   }
-  editCard(): void {
+  editcard(): void {
     this.edit = true;
     this.formCard = this.fromBuilder.group({
       cardName: ['', [Validators.required]],

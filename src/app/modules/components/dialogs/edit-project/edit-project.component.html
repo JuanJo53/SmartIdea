@@ -36,9 +36,11 @@
   </mat-dialog-content>
   <image-upload [style]="customStyle" (uploadFinished)="onUploadFinish($event)"></image-upload>
   <mat-dialog-actions>
+
     <button type="submit" mat-button color="primary" cdkFocusInitial>
       Guardar
     </button>
+
     <button mat-button mat-raised-button color="warn" (click)="close()">Cancelar</button>
   </mat-dialog-actions>
 </form>
