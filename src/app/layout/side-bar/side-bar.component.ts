@@ -20,7 +20,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
   intervalId: number;
   notifications: Notification[] = [];
   detailedNotification: Notification;
-  notificationCount: number;
+  notificationCount: number = 0;
   showNotification: boolean;
   logo: string = 'assets/images/logo.JPG';
   constructor(
@@ -55,7 +55,11 @@ export class SideBarComponent implements OnInit, OnDestroy {
       .getUserNotifications(1)
       .subscribe((notifications) => {
         this.notifications = notifications;
-        this.notificationCount = this.notifications.length;
+        this.notifications.forEach((notif) => {
+          if (notif.status === 2) {
+            this.notificationCount++;
+          }
+        });
         console.log(this.notificationCount);
       });
   }
