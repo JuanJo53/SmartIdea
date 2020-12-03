@@ -1,28 +1,35 @@
 <div class="container">
-
-  <h1>Proyectos en los que trabaje</h1>
+  <h1><strong>Proyectos en los que trabaje</strong></h1>
 
   <div class="row">
-
-
-    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let projects of listProjects">
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3"
+      *ngFor="let projects of listProjects"
+    >
       <div class="our-team">
-
         <div class="picture">
-          <img class="img-fluid" src="https://es.unesco.org/youth/toptips/user/pages/images/home-feature-two_mobile.png">
+          <img
+            class="img-fluid"
+            src="https://es.unesco.org/youth/toptips/user/pages/images/home-feature-two_mobile.png"
+          />
         </div>
         <div class="team-content">
-          <h3 class="name">{{projects.projectTitle}}</h3>
-          <h4 class="title">Descripcion :{{projects.description}}</h4>
-          <h5 class="title">Vistas : {{projects.views}}</h5>
+          <h3 class="name">{{ projects.projectTitle }}</h3>
+          <h4 class="title">Descripcion :{{ projects.description }}</h4>
+          <h5 class="title">Vistas : {{ projects.views }}</h5>
         </div>
         <ul class="social">
-          <li><button type="button" class="boton_personalizado" routerLink="/user/referencesbyId/{{projects.projectsId}}">Ver Projecto</button></li>
+          <li>
+            <button
+              type="button"
+              class="boton_personalizado"
+              routerLink="/user/referencesbyId/{{ projects.projectsId }}"
+            >
+              Ver Projecto
+            </button>
+          </li>
         </ul>
       </div>
     </div>
-
   </div>
-
 </div>
-

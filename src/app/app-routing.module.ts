@@ -1,3 +1,4 @@
+import { SignupComponent } from './modules/home/pages/signup/signup.component';
 import { CertificateContentComponent } from './modules/components/certificate-content/certificate-content.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,13 +10,13 @@ import { CertificateComponent } from './modules/home/pages/certificate/certifica
 import { LoginComponent } from './modules/home/pages/login/login.component';
 import { MyprojectsComponent } from './modules/home/pages/myprojects/myprojects.component';
 import { ReferencesComponent } from './modules/home/pages/references/references.component';
-import {ReferenceByIdComponent} from './modules/home/pages/reference-by-id/reference-by-id.component';
-import {FeedComponent} from './modules/home/pages/feed/feed.component';
-import {UserComponent} from "./modules/home/pages/user/user.component";
+import { ReferenceByIdComponent } from './modules/home/pages/reference-by-id/reference-by-id.component';
+import { FeedComponent } from './modules/home/pages/feed/feed.component';
+import { UserComponent } from './modules/home/pages/user/user.component';
 import { PaymentPlanComponent } from './modules/home/pages/paymentPlan/paymentPlan.component';
 import { PaymentPlanBuyComponent } from './modules/home/pages/paymentPlanBuy/paymentPlanBuy.component';
 import { OrderReviewComponent } from './modules/home/pages/orderReview/orderReview.component';
-import {UserrequesteComponent} from './modules/home/pages/userrequeste/userrequeste.component';
+import { UserrequesteComponent } from './modules/home/pages/userrequeste/userrequeste.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
   },
   {
     path: 'user',
@@ -81,7 +86,7 @@ const routes: Routes = [
       {
         path: 'userRequest/:id',
         component: UserrequesteComponent,
-      }
+      },
     ],
   },
 ];
