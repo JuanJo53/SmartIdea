@@ -58,6 +58,10 @@ const routes: Routes = [
         component: CardComponent,
       },
       {
+        path: 'cards/:id',
+        component: CardComponent,
+      },
+      {
         path: 'bill',
         component: BillComponent,
       },
