@@ -51,8 +51,8 @@ export class SideBarComponent implements OnInit, OnDestroy {
       });
   }
   getNotificationDetails(id: number): void {
-    console.log('Notify id clicked: ' + id.toString());
     this.openDialog(id);
+    console.log('Notify id clicked: ' + id.toString());
   }
   openDialog(id: number): void {
     const dialogRef = this.dialog.open(NotificationDetailsComponent, {

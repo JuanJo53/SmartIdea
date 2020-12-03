@@ -2,53 +2,50 @@
   <!-- Start	Product details -->
   <div class="product-details">
     <!-- 	Product Name -->
-    <h1>{{projects.projectTitle}}</h1>
+    <h1>{{ projects.projectTitle }}</h1>
     <!-- 		<span class="hint new">New</span> -->
     <!-- 		<span class="hint free-shipping">Free Shipping</span> -->
     <!-- 		the Product rating -->
     <span class="hint-star star">
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star" aria-hidden="true"></i>
-		<i class="fa fa-star-half-o" aria-hidden="true"></i>
-		<i class="fa fa-star-o" aria-hidden="true"></i>
-
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star" aria-hidden="true"></i>
+      <i class="fa fa-star-half-o" aria-hidden="true"></i>
+      <i class="fa fa-star-o" aria-hidden="true"></i>
     </span>
     <!-- The most important information about the product -->
-    <p class="information">" {{projects.description}} "</p>
+    <p class="information">" {{ projects.description }} "</p>
 
     <!-- 		Control -->
     <div class="control">
-
-
-      <button class="btn"  (click)="afilarse(projects.projectsId,1,projects)">
+      <button class="btn" (click)="afilarse(projects.projectsId, 1, projects)">
         <span class="buy">Afiliarze</span>
       </button>
-      <br><br>
+      <br /><br />
       <!-- Start Button buying -->
-      <button class="btn" routerLink="/user/referencesbyId/{{projects.projectsId}}">
+      <button
+        class="btn"
+        routerLink="/user/referencesbyId/{{ projects.projectsId }}"
+      >
         <!-- 		the Price -->
-        <span class="price" >Vistas:{{projects.views}} </span>
+        <span class="price">Vistas:{{ projects.views }} </span>
         <span class="buy">ver proyecto</span>
       </button>
       <!-- End Button buying -->
-
     </div>
-
   </div>
   <div class="product-image">
-    <img src="https://es.unesco.org/youth/toptips/user/pages/images/home-feature-two_mobile.png" alt="Omar Dsoky">
+    <img
+      src="https://es.unesco.org/youth/toptips/user/pages/images/home-feature-two_mobile.png"
+      alt="Omar Dsoky"
+    />
 
     <!-- 	product Information-->
     <div class="info">
       <h2>Los beneficios</h2>
       <ul>
-        <li>{{projects.benefits}}</li>
+        <li>{{ projects.benefits }}</li>
       </ul>
     </div>
   </div>
-
-
 </div>
-
-
