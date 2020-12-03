@@ -19,4 +19,9 @@ export class FeedComponent implements OnInit {
       this.listProjects = data;
     });
   }
+  afilarse(idproyect: number , proyect: IProjects): void{
+    window.alert(this.service.afiliarproyect(idproyect, proyect));
+    this.ngOnInit();
+  }
+
 }

@@ -26,4 +26,11 @@ export class ProjectsService {
   updateproject(project: IProjects, id: number){
     return this.http.put(`http://localhost:8080/user/1/projects/${id}`, project);
   }
+
+  afiliarproyect(id: number, project: IProjects){
+    this.http.post<IProjects>('http://localhost:8080/user/2/projects/3/recuest', project);
+    return 'si se puso ';
+  }
+
+
 }

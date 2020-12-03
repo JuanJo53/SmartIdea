@@ -1,1 +1,10 @@
 <h1>Método de Pago</h1>
+
+<section class="container flex" *ngFor="let card of listCard">
+  <div class="table">
+    <h2 class="text">{{ card.cardNumber }}</h2>
+    <p class="text">"{{ card.cardName }}"</p>
+    <br/>
+    <button type="button" class="SelectionButton" routerLink="/user/orderReview/{{card.cardId}}">Seleccionar</button>
+  </div>
+</section>

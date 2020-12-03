@@ -48,6 +48,8 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NotificationDetailsComponent } from '../components/dialogs/notification-details/notification-details.component';
+import { PaymentMethodComponent } from './pages/paymentMethod/paymentMethod.component';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -81,6 +83,7 @@ import { NotificationDetailsComponent } from '../components/dialogs/notification
     EditCardComponent,
     SignupComponent,
     NotificationDetailsComponent,
+    PaymentMethodComponent,
   ],
   imports: [
     CommonModule,
