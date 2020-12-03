@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ElementRef, ViewChild } from '@angular/core';
 import {UserService} from "../../../../services/user_services/user.service";
 import {User} from "../../../../models/user.model";
 import {Skill} from "../../../../models/skill.model";
@@ -8,12 +8,15 @@ import {CreateSkillComponent} from "../../../components/dialogs/create-skill/cre
 import {ActivatedRoute} from "@angular/router";
 import {WarningDialogComponent} from "../../../components/dialogs/warning-dialog/warning-dialog.component";
 import {EditSkillComponent} from "../../../components/dialogs/edit-skill/edit-skill.component";
-// import {COMMA, ENTER} from '@angular/cdk/keycodes';
-// import {FormControl} from '@angular/forms';
-// import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
-// import {MatChipInputEvent} from '@angular/material/chips';
-// import {Observable} from 'rxjs';
-// import {map, startWith} from 'rxjs/operators';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {FormControl} from '@angular/forms';
+import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
+import {MatChipInputEvent} from '@angular/material/chips';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import {Tag} from "../../../../models/tag.model";
+import {TagsService} from "../../../../services/user_services/tags.service";
+import {strict} from "assert";
 export interface DialogData {
   skillName: string;
 }
@@ -24,6 +27,19 @@ export interface DialogData {
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  visible = true;
+  selectable = true;
+  removable = true;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  tagCtrl = new FormControl();
+  filteredTags: Observable<string[]>;
+  tags: string[];
+  allTags: string[];
+  general: Tag[];
+  @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
+
+
   editskill: boolean;
   user: User;
   skills: Skill[];
@@ -31,11 +47,16 @@ export class UserComponent implements OnInit {
   skillId: number;
   status: number;
   image: string;
-  constructor(private activatedRoute: ActivatedRoute, private service: UserService,public dialog: MatDialog,private serviceSkill: SkillService) { }
+  constructor(private activatedRoute: ActivatedRoute, private service: UserService,public dialog: MatDialog,private serviceSkill: SkillService, private tagSerive: TagsService) {
+    this.filteredTags = this.tagCtrl.valueChanges.pipe(
+      startWith(null),
+      map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
+  }
 
   ngOnInit(): void {
     this.loadprofile();
     this.loadSkillList();
+    this.loadtagList();
   }
 
   loadSkillList(): Skill[]{
@@ -43,6 +64,18 @@ export class UserComponent implements OnInit {
       this.skills = data;
     });
     return this.skills;
+  }
+  loadtagList(): Tag[]{
+    this.tagSerive.gettags().subscribe(data => {
+      this.general=data;
+      data.map(value => {
+        console.log(value.nameTags)
+        this.allTags.push(value.nameTags)
+      })
+
+    });
+
+    return this.general;
   }
   loadprofile(){
     this.service.getUserDeatails().subscribe(data=>{
@@ -94,7 +127,8 @@ export class UserComponent implements OnInit {
 
   }
   update() {
-    let user1:User = {
+    let user1: User = {
+      userId: this.user.userId,
       name: this.user.name,
       surname: this.user.surname,
       username: this.user.username,
@@ -117,6 +151,7 @@ export class UserComponent implements OnInit {
   updateimage(){
     if (this.image!=null){
     let user1:User = {
+      userId: this.user.userId,
       name: this.user.name,
       surname: this.user.surname,
       username: this.user.username,
@@ -133,6 +168,48 @@ export class UserComponent implements OnInit {
     location.reload()
 
   }
+
+
+  add(event: MatChipInputEvent): void {
+    const input = event.input;
+    const value = event.value;
+
+    // Add our fruit
+    if ((value || '').trim()) {
+      this.tags.push(value.trim());
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+
+    this.tagCtrl.setValue(null);
+  }
+
+  remove(tag: string): void {
+    const index = this.tags.indexOf(tag);
+
+    if (index >= 0) {
+      this.tags.splice(index, 1);
+    }
+  }
+
+  selected(event: MatAutocompleteSelectedEvent): void {
+    this.tags.push(event.option.viewValue);
+    this.tagInput.nativeElement.value = '';
+    this.tagCtrl.setValue(null);
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.allTags.filter(tag => tag.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+
+
+
 
   customStyle = {
     selectButton: {
