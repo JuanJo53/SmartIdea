@@ -1,4 +1,3 @@
-import { LoginComponent } from './modules/home/pages/login/login.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 

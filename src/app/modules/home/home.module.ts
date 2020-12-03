@@ -47,6 +47,7 @@ import { EditCardComponent } from '../components/dialogs/edit-card/edit-card.com
 import { SignupComponent } from './pages/signup/signup.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { NotificationDetailsComponent } from '../components/dialogs/notification-details/notification-details.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -79,6 +80,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     CreditCardPipe,
     EditCardComponent,
     SignupComponent,
+    NotificationDetailsComponent,
   ],
   imports: [
     CommonModule,

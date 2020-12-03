@@ -1,12 +1,13 @@
+import { NotificationDetailsComponent } from './../../modules/components/dialogs/notification-details/notification-details.component';
 import { Notification } from '../../models/notification.model';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { NotificationService } from 'src/app/services/user_services/notification.service';
-import { interval, Subscription } from 'rxjs';
-import {UserService} from "../../services/user_services/user.service";
-import {User} from "../../models/user.model";
+import { UserService } from '../../services/user_services/user.service';
+import { User } from '../../models/user.model';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-side-bar',
@@ -23,19 +24,21 @@ export class SideBarComponent implements OnInit, OnDestroy {
   user: User;
   intervalId: number;
   notifications: Notification[] = [];
-  detailedNotification: Notification;
+
   notificationCount: number = 0;
   showNotification: boolean;
   logo: string = 'assets/images/logo.JPG';
+
   constructor(
     private notificationService: NotificationService,
     private breakpointObserver: BreakpointObserver,
-    private userService:UserService,
+    private userService: UserService,
+    public dialog: MatDialog
   ) {}
   ngOnInit(): void {
     this.intervalId = setInterval(() => this.fecthNotifications(), 1000000);
     this.fecthNotifications();
-    this.getimage()
+    this.getimage();
   }
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
@@ -47,16 +50,24 @@ export class SideBarComponent implements OnInit, OnDestroy {
         console.log(notification);
       });
   }
-  getNotificationDetails(id: number) {
-    this.notificationService
-      .getNotificationDetail(1, id)
-      .subscribe((notification) => {
-        this.detailedNotification = notification;
-        console.log(this.detailedNotification);
-      });
-    console.log(id);
+  getNotificationDetails(id: number): void {
+    console.log('Notify id clicked: ' + id.toString());
+    this.openDialog(id);
   }
-  fecthNotifications() {
+  openDialog(id: number): void {
+    const dialogRef = this.dialog.open(NotificationDetailsComponent, {
+      width: '500px',
+      data: {
+        notificationId: id,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.ngOnInit();
+    });
+  }
+  fecthNotifications(): void {
+    this.notificationCount = 0;
     this.notificationService
       .getUserNotifications(1)
       .subscribe((notifications) => {
@@ -66,11 +77,10 @@ export class SideBarComponent implements OnInit, OnDestroy {
             this.notificationCount++;
           }
         });
-        console.log(this.notificationCount);
       });
   }
-  getimage(){
-    this.userService.getUserDeatails().subscribe(data=>{
+  getimage() {
+    this.userService.getUserDeatails().subscribe((data) => {
       this.user = data;
     });
   }
