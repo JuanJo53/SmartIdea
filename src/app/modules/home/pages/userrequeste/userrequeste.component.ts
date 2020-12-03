@@ -10,6 +10,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class UserrequesteComponent implements OnInit {
   listuser: User[];
+  displayedColumns: string[] = ['Nombre', 'Numero', 'Expiracion', 'id_card'
+  ];
 
   constructor(private service: UserService, private activatedRoute: ActivatedRoute) { }
 

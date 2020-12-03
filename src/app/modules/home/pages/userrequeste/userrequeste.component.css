@@ -1,35 +1,35 @@
-#main-container
-{
-  margin: 30px auto;
-  width: 500px;
-}
-th,td
-{
-  border: solid 1px black;
+th {
   padding: 15px;
-}
-thead
-{
-  background: #673AB6 ;
-  border-bottom: #7367F0;
+  background: #673ab6;
+  border-bottom: #7367f0;
   color: white;
 }
-tr:nth-child(even)
-{
-  background-color: #dddddd;
-}
-tr:hover{
-  background-color: #673AB6;
+tr:hover {
+  background-color: #7367f0;
   color: white;
+  transition: 0.5s all;
 }
-table{
+table {
+  margin-top: 80px;
+  background-color: white;
+  border-collapse: collapse;
+  width: 100%;
+}
+h1 {
+  font-size: 2.2em;
+  margin: 10px auto;
+  color: black;
+  text-align: center;
+}
+table {
   background-color: white;
   text-align: left;
   border-collapse: collapse;
   width: 100%;
 }
-h1
-{font-size:2.2em;
+h1 {
+  font-size: 2.2em;
   margin: 10px auto;
-  color:black;
-  text-align:center;}
+  color: black;
+  text-align: center;
+}

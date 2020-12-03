@@ -20,10 +20,15 @@
     <!-- 		Control -->
     <div class="control">
 
+
+      <button class="btn"  (click)="afilarse(projects.projectsId,projects)">
+        <span class="buy">Afiliarze</span>
+      </button>
+      <br><br>
       <!-- Start Button buying -->
       <button class="btn" routerLink="/user/referencesbyId/{{projects.projectsId}}">
         <!-- 		the Price -->
-        <span class="price">Vistas:{{projects.views}} </span>
+        <span class="price" >Vistas:{{projects.views}} </span>
         <span class="buy">ver proyecto</span>
       </button>
       <!-- End Button buying -->
