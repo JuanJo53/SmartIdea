@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {User} from '../../../../models/user.model';
 import {UserService} from '../../../../services/user_services/user.service';
 import {ActivatedRoute} from '@angular/router';
+import {IProjects} from '../../../../models/projects.model';
+import {ProjectsService} from '../../../../services/user_services/projects.service';
 
 @Component({
   selector: 'app-userrequeste',
@@ -13,7 +15,7 @@ export class UserrequesteComponent implements OnInit {
   displayedColumns: string[] = ['Nombre', 'Numero', 'Expiracion', 'id_card'
   ];
 
-  constructor(private service: UserService, private activatedRoute: ActivatedRoute) { }
+  constructor(private service: UserService, private activatedRoute: ActivatedRoute , private servi: ProjectsService) { }
 
   ngOnInit(): void {
     this.loadlist();
@@ -23,5 +25,21 @@ export class UserrequesteComponent implements OnInit {
     this.service.getAlluserrequest(id).subscribe(data => {
       this.listuser = data;
     });
+  }
+  aceptar( iduser: number ,proyect: IProjects): void{
+
+    const id = this.activatedRoute.snapshot.params.id;
+    this.servi.aceptuser(id, 2 , proyect).subscribe((projects) => {
+      console.log(projects);
+    });
+    window.alert("logrado");
+  }
+  reject( iduser: number ,proyect: IProjects): void{
+
+    const id = this.activatedRoute.snapshot.params.id;
+    this.servi.rejectuser(id, 2 , proyect).subscribe((projects) => {
+      console.log(projects);
+    });
+    window.alert("logrado");
   }
 }

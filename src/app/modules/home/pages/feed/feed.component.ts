@@ -9,6 +9,7 @@ import {IProjects} from '../../../../models/projects.model';
 })
 export class FeedComponent implements OnInit {
   listProjects: IProjects[];
+  clicked = false;
   constructor(private service: ProjectsService) { }
 
   ngOnInit(): void {
@@ -19,9 +20,12 @@ export class FeedComponent implements OnInit {
       this.listProjects = data;
     });
   }
-  afilarse(idproyect: number , proyect: IProjects): void{
-    window.alert(this.service.afiliarproyect(idproyect, proyect));
-    this.ngOnInit();
+
+  afilarse(idproyect: number , iduser:number,proyect: IProjects): void{
+    this.service.afiliarproyect(idproyect,iduser ,proyect).subscribe((projects) => {
+      console.log(projects);
+    });
+    window.alert("logrado");
   }
 
 }

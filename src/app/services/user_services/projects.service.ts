@@ -27,10 +27,16 @@ export class ProjectsService {
     return this.http.put(`http://localhost:8080/user/1/projects/${id}`, project);
   }
 
-  afiliarproyect(id: number, project: IProjects){
-    this.http.post<IProjects>('http://localhost:8080/user/2/projects/3/recuest', project);
-    return 'si se puso ';
+  afiliarproyect(id: number, iduser: number, project: IProjects){
+    return this.http.post<IProjects>(`http://localhost:8080/user/${iduser}/projects/${id}/recuest`, project);
+    //return 'si se puso ';
   }
-
-
+  rejectuser(id: number, iduser: number, project: IProjects){
+    return this.http.put<number>(`http://localhost:8080/user/${iduser}/projects/${id}/reject`, project);
+    //return 'si se puso ';
+  }
+  aceptuser(id: number, iduser: number, project: IProjects){
+    return this.http.put<number>(`http://localhost:8080/user/${iduser}/projects/${id}/acept`, project);
+    //return 'si se puso ';
+  }
 }
