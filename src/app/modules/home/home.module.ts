@@ -45,7 +45,8 @@ import { CreateCardComponent } from '../components/dialogs/create-card/create-ca
 import { CreditCardPipe } from 'src/app/shared/credit-card.pipe';
 import { EditCardComponent } from '../components/dialogs/edit-card/edit-card.component';
 import { SignupComponent } from './pages/signup/signup.component';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -98,6 +99,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     MatBadgeModule,
     MatMenuModule,
     MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     ImageUploadModule.forRoot(),
   ],
   entryComponents: [

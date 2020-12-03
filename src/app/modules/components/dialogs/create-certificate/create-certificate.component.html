@@ -22,23 +22,25 @@
       /> </mat-form-field
     ><br />
     <mat-form-field>
-      <mat-label>Fecha de expedicion: </mat-label
-      ><input
+      <mat-label>Fecha de expedicion: </mat-label>
+      <input
         matInput
-        type="date"
-        placeholder="Fecha de expedicion"
+        [matDatepicker]="picker2"
         formControlName="expeditionDate"
         required
       />
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Fecha de expiracion: </mat-label
-      ><input
+      <mat-label>Fecha de expiracion: </mat-label>
+      <input
         matInput
-        type="date"
-        placeholder="Fecha de expiracion"
+        [matDatepicker]="picker3"
         formControlName="expirationDate"
       />
+      <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
     </mat-form-field>
     <mat-form-field class="form">
       <mat-label>Credential ID:</mat-label
