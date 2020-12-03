@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {Skill} from "../../models/skill.model";
-import apiKey from "../apiKey";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({

@@ -29,7 +29,7 @@ export class MyprojectsComponent implements OnInit {
     this.service.getAllProjects().subscribe(data => {
       this.listProjects = data;
     });
-}
+  }
   createProject(): void{
 
     const dialogRef = this.dialog.open(CreateProjectComponent, {

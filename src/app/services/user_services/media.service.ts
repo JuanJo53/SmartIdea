@@ -10,7 +10,7 @@ export class MediaService {
   constructor(private http: HttpClient) { }
 
   getmedia(idproject: number){
-    return this.http.get<Media>(`http://localhost:8080/projects/${idproject}/media`);
+    return this.http.get<Media[]>(`http://localhost:8080/projects/${idproject}/media`);
   }
 
   postmedia(idproject: number, media: Media){
