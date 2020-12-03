@@ -7,7 +7,9 @@
 .sidenav {
   width: 200px;
 }
-
+.unseen-icon {
+  color: rgb(148, 150, 151);
+}
 .sidenav .mat-toolbar {
   background: inherit;
 }
