@@ -16,6 +16,7 @@ import { PaymentPlanComponent } from './modules/home/pages/paymentPlan/paymentPl
 import { PaymentPlanBuyComponent } from './modules/home/pages/paymentPlanBuy/paymentPlanBuy.component';
 import { OrderReviewComponent } from './modules/home/pages/orderReview/orderReview.component';
 import {UserrequesteComponent} from './modules/home/pages/userrequeste/userrequeste.component';
+import {PaymentMethodComponent} from './modules/home/pages/paymentMethod/paymentMethod.component';
 
 const routes: Routes = [
   {
@@ -81,6 +82,10 @@ const routes: Routes = [
       {
         path: 'userRequest/:id',
         component: UserrequesteComponent,
+      },
+      {
+        path: 'paymentMethod',
+        component: PaymentMethodComponent,
       }
     ],
   },

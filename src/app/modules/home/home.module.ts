@@ -44,6 +44,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CreateCardComponent } from '../components/dialogs/create-card/create-card.component';
 import { CreditCardPipe } from 'src/app/shared/credit-card.pipe';
 import { EditCardComponent } from '../components/dialogs/edit-card/edit-card.component';
+import { PaymentMethodComponent} from './pages/paymentMethod/paymentMethod.component';
 
 @NgModule({
   declarations: [
@@ -76,6 +77,7 @@ import { EditCardComponent } from '../components/dialogs/edit-card/edit-card.com
     CreateCardComponent,
     CreditCardPipe,
     EditCardComponent,
+    PaymentMethodComponent,
   ],
   imports: [
     CommonModule,

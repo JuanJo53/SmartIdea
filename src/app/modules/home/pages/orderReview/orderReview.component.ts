@@ -11,6 +11,7 @@ import {Card} from '../../../../models/card.model';
 })
 export class OrderReviewComponent implements OnInit {
   listCard: Card[];
+
   constructor(private service: OrderReviewService) { }
   ngOnInit(): void {
     this.loadlist();

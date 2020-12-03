@@ -6,11 +6,11 @@ h1 {
   margin-bottom: 60px;
 }
 .container {
-  width: 90%;
   margin: 0 auto;
-  justify-content: center;
-  aling-items: center;
+  width: 90%;
   text-align: center;
+  aling-items: center;
+  justify-content: center;
 }
 .flex {
   display: flex;
@@ -26,7 +26,6 @@ h1 {
   width: 25%;
   height: 400px;
   box-sizing: border-box;
-  display: inline-block;
 }
 .table > h2 {
   font-weight: bold;
