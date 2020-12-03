@@ -5,6 +5,9 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { NotificationService } from 'src/app/services/user_services/notification.service';
 import { interval, Subscription } from 'rxjs';
+import {UserService} from "../../services/user_services/user.service";
+import {User} from "../../models/user.model";
+
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
@@ -17,17 +20,20 @@ export class SideBarComponent implements OnInit, OnDestroy {
       map((result) => result.matches),
       shareReplay()
     );
+  user: User;
   intervalId: number;
   notifications: Notification[] = [];
   notificationCount: number;
   showNotification: boolean;
   constructor(
     private notificationService: NotificationService,
-    private breakpointObserver: BreakpointObserver
+    private breakpointObserver: BreakpointObserver,
+    private userService:UserService,
   ) {}
   ngOnInit(): void {
     this.intervalId = setInterval(() => this.fecthNotifications(), 1000000);
     this.fecthNotifications();
+    this.getimage()
   }
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
@@ -50,5 +56,10 @@ export class SideBarComponent implements OnInit, OnDestroy {
         this.notificationCount = this.notifications.length;
         console.log(this.notificationCount);
       });
+  }
+  getimage(){
+    this.userService.getUserDeatails().subscribe(data=>{
+      this.user = data;
+    });
   }
 }

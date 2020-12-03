@@ -7,7 +7,9 @@ input[type=text], select {
   border-radius: 4px;
   box-sizing: border-box;
 }
-
+img {
+  border-radius: 50%;
+}
 input[type=submit] {
   width: 100%;
   background-color: #4CAF50;

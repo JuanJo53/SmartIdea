@@ -29,7 +29,9 @@
   </div>
   <div class="row">
     <div class="column" *ngFor="let images of media">
-      <img src="{{images.url}}" alt="">
+      <a target="_blank" href="{{images?.url}}">
+        <img src="{{images?.url}}" alt="" style="width:150px">
+      </a>
     </div>
   </div>
 </div>
