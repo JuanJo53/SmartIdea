@@ -12,7 +12,13 @@ export class TagsService {
   gettags(){
     return this.http.get<Tag[]>('http://localhost:8080/tags');
   }
-  posttag(iduser: number, tag: Tag){
-    return this.http.post<Tag>(`http://localhost:8080/tags/user/${iduser}`,tag)
+  posttag(tag: Tag){
+    return this.http.post('http://localhost:8080/tags/user/1',tag)
+  }
+  gettaguser(){
+    return this.http.get<Tag[]>('http://localhost:8080/tags/user/1');
+  }
+  deleteusertag(tagid: number, userid: number){
+    return this.http.delete(`http://localhost:8080/tags/${tagid}/user/${userid}`)
   }
 }
