@@ -1,37 +1,49 @@
 <div class="container">
-  <img [src]="logo" alt="SmartIdea-logo" />
-  <h1><strong>Bienvenido a Smart Idea</strong></h1>
-  <h4>Una plataforma para que pueda desarrollar y publicar sus proyectos.</h4>
-  <mat-card class="login-card">
-    <form [formGroup]="form" (ngSubmit)="login()">
-      <mat-form-field class="form-input">
-        <mat-label>Correo Electronico</mat-label>
-        <input
-          matInput
-          formControlName="correo"
-          placeholder="Correo Electronico"
-          [(ngModel)]="userLogin.correo"
-          required
-        />
-      </mat-form-field>
-      <mat-form-field class="form-input">
-        <mat-label>Contraseña</mat-label>
-        <input
-          matInput
-          formControlName="contrasenia"
-          placeholder="Contraseña"
-          [(ngModel)]="userLogin.contrasenia"
-          required
-        />
-      </mat-form-field>
-      <button
-        (click)="login()"
-        mat-raised-button
-        color="primary"
-        class="form__button"
-      >
-        INGRESAR
-      </button>
-    </form>
-  </mat-card>
+  <div class="login-container">
+    <div class="login-header">
+      <img [src]="logo" alt="SmartIdea-logo" />
+      <h1><strong>Bienvenido a Smart Idea</strong></h1>
+      <h4>
+        Una plataforma para que pueda desarrollar y publicar sus proyectos.
+      </h4>
+    </div>
+    <div class="row center-xs">
+      <mat-card class="login-card">
+        <form [formGroup]="form" (ngSubmit)="login()">
+          <mat-icon>account_circle</mat-icon>
+          <mat-form-field class="form-input">
+            <mat-label>Correo Electronico</mat-label>
+            <input
+              matInput
+              formControlName="correo"
+              placeholder="Correo Electronico"
+              required
+            /> </mat-form-field
+          ><br />
+          <mat-icon>lock</mat-icon>
+          <mat-form-field class="form-input">
+            <mat-label>Contraseña</mat-label>
+            <input
+              matInput
+              formControlName="contrasenia"
+              placeholder="Contraseña"
+              required
+              type="password"
+            />
+          </mat-form-field>
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="form__button"
+          >
+            INGRESAR
+          </button>
+          <span> ¿No tienes una cuenta? </span>
+          <a routerLink="/signup">Registrarse</a>
+          <mat-icon>person_add</mat-icon>
+        </form>
+      </mat-card>
+    </div>
+  </div>
 </div>

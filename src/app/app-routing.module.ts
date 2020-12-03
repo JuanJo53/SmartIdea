@@ -21,7 +21,8 @@ import { UserrequesteComponent } from './modules/home/pages/userrequeste/userreq
 const routes: Routes = [
   {
     path: '',
-    component: MainComponent,
+    redirectTo: '/user/feed',
+    pathMatch: 'full',
   },
   {
     path: 'login',

@@ -1,1 +1,85 @@
-<p>signup works!</p>
+<div class="container">
+  <div class="signup-container">
+    <div class="signup-header">
+      <img [src]="logo" alt="SmartIdea-logo" />
+      <h1><strong>Registrarse</strong></h1>
+    </div>
+    <div class="row center-xs">
+      <mat-card class="signup-card">
+        <form [formGroup]="form" (ngSubmit)="signup()">
+          <div class="row">
+            <div class="col-xs">
+              <mat-form-field class="form-input">
+                <mat-label>Nombres</mat-label>
+                <input
+                  matInput
+                  formControlName="name"
+                  placeholder="Ejemplo Nombres"
+                  required
+                /> </mat-form-field
+              ><br />
+              <mat-form-field class="form-input">
+                <mat-label>Apellidos</mat-label>
+                <input
+                  matInput
+                  formControlName="surname"
+                  placeholder="Ejemplo Apellidos"
+                  required
+                /> </mat-form-field
+              ><br />
+              <mat-form-field class="form-input">
+                <mat-label>Nombre de Usuario</mat-label>
+                <input
+                  matInput
+                  formControlName="username"
+                  placeholder="@usuario"
+                  required
+                /> </mat-form-field
+              ><br />
+            </div>
+            <div class="col-xs">
+              <mat-form-field class="form-input">
+                <mat-label>Correo Electronico</mat-label>
+                <input
+                  matInput
+                  formControlName="correo"
+                  placeholder="Correo Electronico"
+                  required
+                /> </mat-form-field
+              ><br />
+              <mat-form-field class="form-input">
+                <mat-label>Contraseña</mat-label>
+                <input
+                  matInput
+                  formControlName="contrasenia"
+                  required
+                  type="password"
+                />
+              </mat-form-field>
+              <mat-form-field class="form-input">
+                <mat-label>Confirmar Contraseña</mat-label>
+                <input
+                  matInput
+                  formControlName="confContrasenia"
+                  required
+                  type="password"
+                />
+              </mat-form-field>
+            </div>
+          </div>
+          <button
+            type="submit"
+            mat-raised-button
+            color="primary"
+            class="form__button"
+          >
+            REGISTRAR</button
+          ><br />
+          <span> ¿Ya tienes una cuenta? </span>
+          <a routerLink="/login">Iniciar Secion</a>
+          <mat-icon>person</mat-icon>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

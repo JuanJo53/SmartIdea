@@ -1,8 +1,22 @@
 .login-card {
-  max-width: 700px;
+  max-width: 600px;
   margin: 20px;
   padding: 30px;
+  align-self: center;
+}
+.login-container {
+  box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 5em auto;
+  width: 600px;
 }
 .form-input {
   width: 90%;
+}
+.login-header {
+  margin: 15px;
+  text-align: center;
 }

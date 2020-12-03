@@ -8,7 +8,6 @@ import { UserLogin } from 'src/app/models/login.model';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  @Input() userLogin: UserLogin;
   logo: string = 'assets/images/logo.JPG';
   form: FormGroup;
   constructor(private fromBuilder: FormBuilder) {}
@@ -19,5 +18,7 @@ export class LoginComponent implements OnInit {
       contrasenia: ['', [Validators.required]],
     });
   }
-  login(): void {}
+  login(): void {
+    console.log('LOGIN');
+  }
 }
