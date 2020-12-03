@@ -2,10 +2,12 @@
 
 <section class="container flex" *ngFor="let paymentPlan of listPaymentPlan">
   <div class="table">
+    <!-- Payment plan information -->
     <h2 class="text">{{ paymentPlan.plan }}</h2>
     <p class="text">"{{ paymentPlan.description }}"</p>
     <br/>
     <h3 class="text">{{ paymentPlan.cost }}</h3>
-    <button type="button" class="PayButton" routerLink="/user/paymentPlanBuy/{{paymentPlan.paymentPlanId}}">Pagar</button>
+    <!-- Button to choose a payment plan -->
+    <button type="button" class="PayButton" routerLink="/user/paymentPlanBuy/{{paymentPlan.paymentPlanId}}">Seleccionar</button>
   </div>
 </section>

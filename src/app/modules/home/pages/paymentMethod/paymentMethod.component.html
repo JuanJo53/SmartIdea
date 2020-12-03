@@ -2,9 +2,11 @@
 
 <section class="container flex" *ngFor="let card of listCard">
   <div class="table">
+    <!-- Card Information -->
     <h2 class="text">Tarjeta:{{ card.cardNumber }}</h2>
     <h2 class="text">Nombre:{{ card.cardName }}</h2>
     <h2 class="text">Fecha de Caducidad:{{ card.expirationMonth }}/{{ card.expirationYear }}</h2>
+    <!-- button to select the card to use-->
     <button type="button" class="SelectButton" routerLink="/user/orderReview/{{card.cardId}}">Seleccionar</button>
   </div>
 </section>

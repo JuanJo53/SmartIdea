@@ -1,14 +1,19 @@
 <h1>Revisión del Pedido</h1>
 
 <section class="container">
-
+  <!-- Payment plan Information -->
 
   <div class ="contentCard" *ngFor=" let card of listCard">
+    <!-- Card Information -->
     <h2 class="text">Tarjeta:{{ card?.cardNumber }}</h2>
     <h2 class="text">Nombre:{{ card?.cardName }}</h2>
     <h2 class="text">Fecha de Caducidad:{{ card?.expirationMonth }}/{{ card?.expirationYear }}</h2>
   </div>
-  <button type= "button" class="CancelButton">Cancelar</button>
 
-  <button type= "button" class="PayButton">Pagar</button>
+  <!--Information about the amount to pay-->
+
+  <!--Button to cancel  the form -->
+  <button type= "button" class="CancelButton">Cancelar</button>
+  <!--Button to continue with the form -->
+  <button type= "button" class="PayButton">Siguiente</button>
 </section>
