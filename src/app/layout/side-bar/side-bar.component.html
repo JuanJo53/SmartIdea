@@ -46,8 +46,9 @@
       <div class="row between-xs middle-xs header-row">
         <span>Smart Idea</span>
         <a routerLink="/user/profile"
-          ><img src="{{ user?.image }}" alt="Avatar" class="avatar"
-        /></a>
+          ><img src="{{ user?.image }}" alt="Avatar" class="avatar" />
+          <span class="username">{{ user.username }}</span>
+        </a>
         <div class="notification-wrapper">
           <div class="notification-btn">
             <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
