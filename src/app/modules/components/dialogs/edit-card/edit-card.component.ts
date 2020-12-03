@@ -67,5 +67,4 @@ export class EditCardComponent implements OnInit {
       });
     this.onNoClick();
   }
-
 }
