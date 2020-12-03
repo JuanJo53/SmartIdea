@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {MatDialogRef} from '@angular/material/dialog';
 import {IProjects} from '../../../../models/projects.model';
 import {ProjectsService} from '../../../../services/user_services/projects.service';
+import {MediaService} from "../../../../services/user_services/media.service";
 
 @Component({
   selector: 'app-create-project',
@@ -12,10 +13,12 @@ import {ProjectsService} from '../../../../services/user_services/projects.servi
 })
 export class CreateProjectComponent implements OnInit {
   formProject: FormGroup;
+
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
     private projectService: ProjectsService,
+    private mediaService: MediaService,
     public dialogRef: MatDialogRef<CreateProjectComponent>
   ){}
 
@@ -31,7 +34,9 @@ export class CreateProjectComponent implements OnInit {
   }
   ngOnInit(): void {
     this.editproject();
+
   }
+
   editproject(): void {
     this.edit = true;
     this.formProject = this.fromBuilder.group({
@@ -42,12 +47,15 @@ export class CreateProjectComponent implements OnInit {
       benefits: ['', [Validators.required]],
     });
   }
+
   saveproject(): void {
     if (this.formProject.valid) {
       const cert = this.formProject.value;
       console.log(cert);
       this.createproject(cert);
     }
+
+
   }
 
   createproject(projects: IProjects): void {
@@ -57,26 +65,8 @@ export class CreateProjectComponent implements OnInit {
         console.log(projects);
       });
     this.onNoClick();
+
   }
-  onUploadFinish(event) {
-    console.log(event)
-  }
-  customStyle = {
-    selectButton: {
-      "color": "white",
-      "background-color": "#673ab7",
-    },
-    clearButton: {
-      "color": "white",
-      "background-color": "red",
-    },
-    layout: {
-      "background-color": "",
-      "color": "",
-      "font-size": "15px",
-    },
-    previewPanel: {
-      "background-color": "#f2f2f2",
-    }
-  };
+
+
 }

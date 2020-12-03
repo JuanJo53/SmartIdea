@@ -5,6 +5,9 @@ import {IProjects} from '../../../../models/projects.model';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 import {ProjectsService} from '../../../../services/user_services/projects.service';
 import {Skill} from '../../../../models/skill.model';
+import {Media} from "../../../../models/media.model";
+import {FileHolder} from "angular2-image-upload";
+import {MediaService} from "../../../../services/user_services/media.service";
 
 @Component({
   selector: 'app-edit-project',
@@ -12,13 +15,15 @@ import {Skill} from '../../../../models/skill.model';
   styleUrls: ['./edit-project.component.css']
 })
 export class EditProjectComponent implements OnInit {
-
+  images: FileHolder[]=[];
+  listProjects: IProjects[];
   formProject: FormGroup;
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
     public dialogRef: MatDialogRef<EditProjectComponent>,
     private projectService: ProjectsService,
+    private mediaService: MediaService,
     @Inject(MAT_DIALOG_DATA) public data: {
       idproject: number,
       projectTitle: string,
@@ -29,6 +34,7 @@ export class EditProjectComponent implements OnInit {
 
   ) { }
   edit = false;
+
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -56,6 +62,7 @@ export class EditProjectComponent implements OnInit {
       console.log(cert);
       this.update(this.data.idproject, cert);
     }
+    this.eachUpload(this.data.idproject);
   }
 
   update(idproject: number, project: IProjects): void {
@@ -66,5 +73,38 @@ export class EditProjectComponent implements OnInit {
       });
     this.onNoClick();
   }
+  onUploadFinish(event) {
+    this.images.push(event);
 
+  }
+  eachUpload(idproject:number){
+
+    this.images.forEach(value => {
+      this.uploadimages(idproject,{title: value.file.name,url: value.src,type:1});
+      console.log('logrado')
+    });
+  }
+  uploadimages(idproject:number,media: Media){
+    this.mediaService.postmedia(idproject,media).subscribe((media)=>{
+      console.log(media)
+    });
+  }
+  customStyle = {
+    selectButton: {
+      "color": "white",
+      "background-color": "#673ab7",
+    },
+    clearButton: {
+      "color": "white",
+      "background-color": "red",
+    },
+    layout: {
+      "background-color": "",
+      "color": "",
+      "font-size": "15px",
+    },
+    previewPanel: {
+      "background-color": "#f2f2f2",
+    }
+  };
 }
