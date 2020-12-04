@@ -2,14 +2,16 @@
 
 <section class="container">
   <!-- Payment plan Information -->
-  <div class="contentPlan" *ngFor="let paymentPlan of paymentPlan">
-    <h2 class="text">Plan :{{paymentPlan?.plan}}</h2>
-  </div>
-  <div class ="contentCard" >
+
+  <div class ="content" >
     <!-- Card Information -->
-    <h2 class="text">Tarjeta:{{ card?.cardNumber }}</h2>
-    <h2 class="text">Nombre de la Tarjeta:{{ card?.cardName }}</h2>
-    <h2 class="text">Fecha de Caducidad:{{ card?.expirationMonth }}/{{ card?.expirationYear }}</h2>
+    <h2 class="text">Tarjeta:{{ card?.cardNumber | creditcard}}</h2>
+    <h2 class="text">Proyecto:{{ project?.projectTitle }}</h2>
+    <h2 class="text">Plan :{{ paymentPlan?.plan }}</h2>
+    <h2 class="text">Direccion:{{ bill?.billingAddress}}</h2>
+    <h2 class="text">Pais:{{ bill?.country }}</h2>
+    <h2 class="text">Ciudad :{{ bill?.city }}</h2>
+
   </div>
 
   <!--Information about the amount to pay-->

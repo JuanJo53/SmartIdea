@@ -16,5 +16,9 @@ export class BillService {
   postnewbill(bill: Bill) {
     return this.http.post('http://localhost:8080/user/1/projects/1/paymentplan/1/1', bill);
   }
+  getBill(){
+    return this.http.get<Bill>('http://localhost:8080/user/1/bill');
+  }
+
 
 }

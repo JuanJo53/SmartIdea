@@ -1,0 +1,33 @@
+<h1>DETALLES DE LA FACTURA</h1>
+
+<section class="container">
+  <div class="contentPlan" *ngFor="let paymentPlan of paymentPlan">
+    <h2 class="text">Plan :{{paymentPlan?.plan}}</h2>
+  </div>
+
+  <div class="contentProyects" *ngFor="let projects  of projects">
+    <h2 class="text">Proyecto:{{projects?.projectTitle}}</h2>
+  </div>
+
+
+  <div class="contentBill" *ngFor="let bill  of bill">
+    <h2 class="text">Fecha de compra :{{bill?.buyDate}}</h2>
+    <h2 class="text">Direccion :{{bill?.billingAddress}}</h2>
+    <h2 class="text">Pais :{{bill?.country}}</h2>
+    <h2 class="text">Ciudad:{{bill?.city}}</h2>
+
+  </div>
+
+  <div class ="contentCard"  *ngFor="let card  of card">
+    <!-- Card Information -->
+    <h2 class="text">Tarjeta:{{ card?.cardNumber }}</h2>
+    <h2 class="text">Nombre de la Tarjeta:{{ card?.cardName }}</h2>
+
+  </div>
+
+  <!--Information about the amount to pay-->
+  <div class="contentPlan" >
+    <h2 class="text">Total  :{{paymentPlan?.cost}} Bs.</h2>
+  </div>
+
+</section>
