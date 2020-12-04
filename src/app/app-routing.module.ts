@@ -78,7 +78,7 @@ const routes: Routes = [
         component: UserComponent,
       },
       {
-        path: 'paymentPlan',
+        path: 'project/:id',
         component: PaymentPlanComponent,
       },
       {
