@@ -8,6 +8,7 @@ import { NotificationService } from 'src/app/services/user_services/notification
 import { UserService } from '../../services/user_services/user.service';
 import { User } from '../../models/user.model';
 import { MatDialog } from '@angular/material/dialog';
+import {LoginComponent} from "../../modules/home/pages/login/login.component";
 
 @Component({
   selector: 'app-side-bar',
@@ -24,28 +25,30 @@ export class SideBarComponent implements OnInit, OnDestroy {
   user: User;
   intervalId: any;
   notifications: Notification[] = [];
-  userId: number = 1;
   notificationCount: number = 0;
   showNotification: boolean;
+  iduser: string;
   logo: string = 'assets/images/logo.JPG';
 
   constructor(
     private notificationService: NotificationService,
     private breakpointObserver: BreakpointObserver,
     private userService: UserService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
   ) {}
   ngOnInit(): void {
     this.intervalId = setInterval(() => this.fecthNotifications(), 20000);
     this.fecthNotifications();
     this.getimage();
+    this.iduser = localStorage.getItem('userId');
+    console.log(localStorage)
   }
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
   }
   viewNotification(id: number): void {
     this.notificationService
-      .markSeenNotification(this.userId, id)
+      .markSeenNotification(parseInt(this.iduser), id)
       .subscribe((notification) => {
         console.log(notification);
       });
@@ -56,7 +59,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
   }
   openDialog(id: number): void {
     const dialogRef = this.dialog.open(NotificationDetailsComponent, {
-      width: '500px',
+      width: '700px',
       data: {
         notificationId: id,
       },
@@ -70,7 +73,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
   fecthNotifications(): void {
     this.notificationCount = 0;
     this.notificationService
-      .getUserNotifications(this.userId)
+      .getUserNotifications(parseInt(this.iduser))
       .subscribe((notifications) => {
         this.notifications = notifications;
         this.notifications.forEach((notif) => {
@@ -82,8 +85,25 @@ export class SideBarComponent implements OnInit, OnDestroy {
     console.log('Notifications fetched');
   }
   getimage() {
-    this.userService.getUserDeatails().subscribe((data) => {
+    var iduser= parseInt(localStorage.getItem('userId'));
+    this.userService.getUserDeatails(iduser).subscribe((data) => {
       this.user = data;
+    });
+  }
+  logout() {
+    localStorage.removeItem("email");
+    localStorage.removeItem("userId");
+    alert('Logout')
+    console.log(localStorage)
+    this.ngOnInit()
+  }
+  login(){
+    const dialogref= this.dialog.open(LoginComponent,{
+      width: '500px',
+    });
+    dialogref.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed');
+      this.ngOnInit();
     });
   }
 }

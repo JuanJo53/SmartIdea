@@ -10,9 +10,9 @@ import {ProjectsService} from '../../../../services/user_services/projects.servi
 import {BillService} from '../../../../services/user_services/bill.service';
 
 @Component({
-  selector: 'app-orderReview',
-  templateUrl: './orderReview.component.html',
-  styleUrls: ['./orderReview.component.css']
+  selector: 'app-orderreview',
+  templateUrl: './orderreview.component.html',
+  styleUrls: ['./orderreview.component.css']
 })
 export class OrderReviewComponent implements OnInit {
   card: Card;
@@ -20,7 +20,7 @@ export class OrderReviewComponent implements OnInit {
   project: IProjects;
   bill: Bill;
 
-  constructor(private service: CardService, private paymentPlanService:PaymentPlanService, private projectService: ProjectsService,private billService: BillService,private activatedRoute: ActivatedRoute) { }
+  constructor(private service: CardService, private paymentPlanService: PaymentPlanService, private projectService: ProjectsService, private billService: BillService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loadcard();
@@ -32,10 +32,11 @@ export class OrderReviewComponent implements OnInit {
   loadcard(){
     const id = this.activatedRoute.snapshot.params.id;
     this.service.getCard(id).subscribe(
-      data => {
+      (data) => {
         this.card = data;
+        console.log(data);
       },
-      err => {
+      (err) => {
         console.log(err);
       }
     );

@@ -10,19 +10,22 @@ import {IProjects} from '../../models/projects.model';
 export class UserService {
 
   constructor(private http: HttpClient) {}
-  getUserDeatails() {
-    return this.http.get<User>('http://localhost:8080/users/1');
+  getUserDeatails(iduser:number) {
+    return this.http.get<User>(`http://localhost:8080/users/${iduser}`);
   }
 
-  updateProfile(user: User){
-    return this.http.put<User>('http://localhost:8080/users/1',user);
+  updateProfile(iduser:number,user: User){
+    return this.http.put<User>(`http://localhost:8080/users/${iduser}`,user);
   }
 
-  updateImage(image: User){
-    return this.http.put<User>('http://localhost:8080/users/1/image',image);
+  updateImage(iduser:number,image: User){
+    return this.http.put<User>(`http://localhost:8080/users/${iduser}/image`,image);
   }
 
   getAlluserrequest(idproject: number){
     return this.http.get<User[]>(`http://localhost:8080/user/${idproject}/user-request`);
+  }
+  loginclient(user: User){
+    return this.http.post<User>('http://localhost:8080/users/login',user)
   }
 }

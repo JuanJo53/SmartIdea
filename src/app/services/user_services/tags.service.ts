@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpParams} from "@angular/common/http";
 import {Tag} from "../../models/tag.model";
 
 @Injectable({
@@ -12,13 +12,16 @@ export class TagsService {
   gettags(){
     return this.http.get<Tag[]>('http://localhost:8080/tags');
   }
-  posttag(tag: Tag){
-    return this.http.post('http://localhost:8080/tags/user/1',tag)
+  posttag(iduser:number,tag: Tag){
+    return this.http.post(`http://localhost:8080/tags/user/${iduser}`,tag)
   }
-  gettaguser(){
-    return this.http.get<Tag[]>('http://localhost:8080/tags/user/1');
+  gettaguser(iduser:number){
+    return this.http.get<Tag[]>(`http://localhost:8080/tags/user/${iduser}`);
   }
   deleteusertag(tagid: number, userid: number){
-    return this.http.delete(`http://localhost:8080/tags/${tagid}/user/${userid}`)
+    let httpParams = new HttpParams().set('aaa', '111');
+    httpParams.set('bbb', '222');
+    let options = { params: httpParams };
+    return this.http.delete(`http://localhost:8080/tags/${tagid}/user/${userid}`,options)
   }
 }

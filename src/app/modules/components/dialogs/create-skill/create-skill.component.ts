@@ -49,11 +49,13 @@ export class CreateSkillComponent implements OnInit {
   }
 
   createSkill(skill: Skill): void {
+    var iduser= parseInt(localStorage.getItem('userId'));
     this.skillService
-      .postnewskill(skill)
+      .postnewskill(iduser,skill)
       .subscribe((skill) => {
         console.log(skill);
       });
     this.onNoClick();
   }
+
 }

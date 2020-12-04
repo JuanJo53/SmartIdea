@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../../../../services/user_services/projects.service';
 import { IProjects } from '../../../../models/projects.model';
+import {Media} from "../../../../models/media.model";
+import {ReferencesService} from "../../../../services/user_services/references.service";
+import {MediaService} from "../../../../services/user_services/media.service";
 
 @Component({
   selector: 'app-feed',
@@ -11,8 +14,8 @@ export class FeedComponent implements OnInit {
   listProjects: IProjects[];
   projectDetails: IProjects[];
   clicked = false;
-  constructor(private service: ProjectsService) {}
-
+  constructor(private service: ProjectsService, private mediaService: MediaService) {}
+  media: Media[];
   ngOnInit(): void {
     this.loadlist();
   }
@@ -42,4 +45,5 @@ export class FeedComponent implements OnInit {
       });
     console.log('VIEW');
   }
+
 }
