@@ -1,20 +1,21 @@
 <h1>Revision de Pedido</h1>
 <section class="container">
   <div class="content">
-    <h2 class="text"><strong>Proyecto:</strong>{{ project?.projectTitle }}</h2>
+    <h2 class="text"><strong>Proyecto: </strong>{{ project?.projectTitle }}</h2>
     <!--Purchase information according to the selected payment plan -->
-    <h2 class="text"><strong>Plan :</strong>{{ paymentplan?.plan }}</h2>
-    <h2 class="text"><strong>Tarjeta:</strong>{{ card?.cardNumber }}</h2>
+    <h2 class="text"><strong>Plan: </strong>{{ paymentplan?.plan }}</h2>
+    <h2 class="text"><strong>Tarjeta: </strong>{{ card?.cardNumber }}</h2>
     <h2 class="text">
-      <strong>Duración de la publicidad :</strong
+      <strong>Duración de la publicidad: </strong
       >{{ paymentplan?.duration }} Mes (es)
     </h2>
     <h2 class="text">
-      <strong>Total a Pagar :</strong>{{ paymentplan?.cost }} Bs.
+      <strong>Total a Pagar: </strong>{{ paymentplan?.cost }} Bs.
     </h2>
 
     <button type="button" class="SelectButton" (click)="newBill()">
       Pagar
     </button>
+    <mat-divider></mat-divider>
   </div>
 </section>

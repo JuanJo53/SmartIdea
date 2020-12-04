@@ -1,4 +1,4 @@
-h1{
+h1 {
   font-weight: bold;
   margin-top: 60px;
   font-size: 50px;
@@ -15,7 +15,7 @@ h1{
 .flex {
   display: flex;
 }
-.content{
+.content {
   padding: 20px;
   text-align: center;
   color: #343759;
@@ -27,8 +27,7 @@ h1{
   box-sizing: border-box;
   margin: 20px 60px;
 }
-.content> h2 {
-  font-weight: bold;
+.content > h2 {
   margin: 20px;
   display: block;
   font-size: 21px;
@@ -36,7 +35,7 @@ h1{
 }
 .SelectButton {
   margin-top: 30px;
-  margin-right:215px;
+  margin-right: 215px;
   float: right;
   display: inline-block;
   width: 100px;
