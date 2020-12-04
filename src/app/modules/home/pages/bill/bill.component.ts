@@ -18,12 +18,13 @@ export class BillComponent implements OnInit {
     'Total',
     'id_card',
   ];
+  userId: number = parseInt(localStorage.getItem('userId'));
   constructor(private service: BillService, public dialog: MatDialog) {}
   ngOnInit(): void {
     this.loadlist();
   }
   loadlist() {
-    this.service.getAllBill().subscribe((data) => {
+    this.service.getAllBill(this.userId).subscribe((data) => {
       this.listBill = data;
     });
   }
