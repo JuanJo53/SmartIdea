@@ -5,7 +5,7 @@ import { CreateCardComponent } from '../../../components/dialogs/create-card/cre
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { EditCardComponent } from '../../../components/dialogs/edit-card/edit-card.component';
-
+import {WarningDialogComponent} from '../../../components/dialogs/warning-dialog/warning-dialog.component';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -54,5 +54,28 @@ export class CardComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       this.ngOnInit();
     });
+
+    deleteCard(id: number): void {
+      var iduser= parseInt(localStorage.getItem('userId'));
+      const dialogRef = this.dialog.open(WarningDialogComponent, {
+        width: '500px',
+        data: {
+          message: '¿Esta seguro que desea eliminar el certificado?',
+        },
+      });
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log('The dialog was closed');
+        console.log(result);
+        if (result) {
+          this.cardService
+            .deleteCard(iduser, id)
+            .subscribe((rta) => {
+              console.log(rta);
+            });
+          console.log('Deleted');
+        }
+        this.ngOnDestroy();
+      });
+    }
   }
 }
