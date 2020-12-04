@@ -49,17 +49,15 @@ export class OrderReviewComponent implements OnInit {
     const idpr = this.activatedRoute.snapshot.params.id;
     this.projectsService.getProject(idpr, iduser).subscribe((data) => {
       console.log(data);
+    this.projectsService.getProject(idpr,iduser).subscribe((data) => {
       this.project = data;
     });
   }
-
-  loadpaymentplan() {
+  loadpaymentplan(){
     const idp = this.activatedRoute.snapshot.params.id;
     this.paymentPlanService.getPaymentPlan(idp).subscribe((data) => {
       console.log(data);
       this.paymentplan = data;
     });
   }
-
-
 }

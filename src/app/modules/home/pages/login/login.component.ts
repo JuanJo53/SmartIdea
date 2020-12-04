@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {UserService} from "../../../../services/user_services/user.service";
 import {User} from "../../../../models/user.model";
-import {MatDialogRef} from "@angular/material/dialog";
+import {MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {NotificationDetailsComponent} from "../../../components/dialogs/notification-details/notification-details.component";
+import {SignupComponent} from "../signup/signup.component";
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginComponent implements OnInit {
   logo: string = 'assets/images/logo.JPG';
   form: FormGroup;
   clienReturn: User;
-  constructor(private fromBuilder: FormBuilder,private userService: UserService, public dialogRef: MatDialogRef<LoginComponent>) {}
+  constructor(private fromBuilder: FormBuilder,private userService: UserService, public dialogRef: MatDialogRef<LoginComponent>, public dialog: MatDialog) {}
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -53,6 +55,14 @@ export class LoginComponent implements OnInit {
     });
   this.onNoClick()
   }
+  signup(){
 
+    const dialogRef = this.dialog.open(SignupComponent, {
+      width: '700px',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.ngOnInit();
+    });
+  }
 
 }
