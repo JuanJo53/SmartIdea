@@ -15,19 +15,39 @@
       <a mat-list-item routerLink="/user/feed" routerLinkActive="active"
         >Feed</a
       >
-      <a *ngIf="this.iduser!=null" mat-list-item routerLink="/user/myprojects" routerLinkActive="active"
+      <a
+        *ngIf="this.iduser != null"
+        mat-list-item
+        routerLink="/user/myprojects"
+        routerLinkActive="active"
         >Mis Proyectos</a
       >
-      <a *ngIf="this.iduser!=null"  mat-list-item routerLink="/user/certificate" routerLinkActive="active"
+      <a
+        *ngIf="this.iduser != null"
+        mat-list-item
+        routerLink="/user/certificate"
+        routerLinkActive="active"
         >Certificados</a
       >
-      <a *ngIf="this.iduser!=null"  mat-list-item routerLink="/user/cards" routerLinkActive="active"
+      <a
+        *ngIf="this.iduser != null"
+        mat-list-item
+        routerLink="/user/cards"
+        routerLinkActive="active"
         >Tarjetas de Credito</a
       >
-      <a *ngIf="this.iduser!=null"  mat-list-item routerLink="/user/bill" routerLinkActive="active"
+      <a
+        *ngIf="this.iduser != null"
+        mat-list-item
+        routerLink="/user/bill"
+        routerLinkActive="active"
         >Facturacion</a
       >
-      <a *ngIf="this.iduser!=null"  mat-list-item routerLink="/user/references" routerLinkActive="active"
+      <a
+        *ngIf="this.iduser != null"
+        mat-list-item
+        routerLink="/user/references"
+        routerLinkActive="active"
         >Referencias</a
       >
     </mat-nav-list>
@@ -45,20 +65,17 @@
       </button>
       <div class="row between-xs middle-xs header-row">
         <span>Smart Idea</span>
-        <a *ngIf="this.iduser==null" (click)="login()">
+        <button mat-button *ngIf="this.iduser == null" (click)="login()">
           LogIn
-
-        </a>
-        <a *ngIf="this.iduser!=null" (click)="logout()">
+        </button>
+        <button mat-button *ngIf="this.iduser != null" (click)="logout()">
           LogOut
-        </a>
-        <a routerLink="/user/profile"
-        *ngIf="this.iduser!=null"
-        >
+        </button>
+        <a routerLink="/user/profile" *ngIf="this.iduser != null">
           <img src="{{ user?.image }}" alt="Avatar" class="avatar" />
           <span class="user-name">{{ user?.username }}</span>
         </a>
-        <div class="notification-wrapper" *ngIf="this.iduser!=null">
+        <div class="notification-wrapper" *ngIf="this.iduser != null">
           <div class="notification-btn">
             <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
               <mat-icon [matBadge]="notificationCount" matBadgeColor="warn"
@@ -68,7 +85,6 @@
 
             <mat-menu #notificationMenu="matMenu" class="notification-content">
               <div
-
                 class="notification-header"
                 *ngFor="let notification of notifications"
                 (click)="getNotificationDetails(notification.notificationId)"

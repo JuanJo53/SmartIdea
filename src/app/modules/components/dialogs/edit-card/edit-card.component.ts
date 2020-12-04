@@ -12,6 +12,7 @@ import { Card } from '../../../../models/card.model';
 })
 export class EditCardComponent implements OnInit {
   formCard: FormGroup;
+  userId: number = parseInt(localStorage.getItem('userId'));
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -63,7 +64,7 @@ export class EditCardComponent implements OnInit {
     }
   }
   update(cardId: number, card: Card): void {
-    this.cardService.updatecard(card, cardId).subscribe((card) => {
+    this.cardService.updatecard(this.userId, card, cardId).subscribe((card) => {
       console.log(card);
     });
     this.onNoClick();

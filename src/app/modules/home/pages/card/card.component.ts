@@ -14,6 +14,7 @@ import {WarningDialogComponent} from '../../../components/dialogs/warning-dialog
 export class CardComponent implements OnInit {
   listCard: Card[];
   displayedColumns: string[] = ['Nombre', 'Numero', 'Expiracion', 'id_card'];
+  userId: number = parseInt(localStorage.getItem('userId'));
   constructor(
     private service: CardService,
     private activatedRoute: ActivatedRoute,
@@ -23,7 +24,7 @@ export class CardComponent implements OnInit {
     this.loadlist();
   }
   loadlist() {
-    this.service.getAllCard().subscribe((data) => {
+    this.service.getAllCard(this.userId).subscribe((data) => {
       this.listCard = data;
     });
   }
