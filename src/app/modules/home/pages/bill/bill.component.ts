@@ -21,6 +21,7 @@ export class BillComponent implements OnInit {
   }
   loadlist() {
     this.service.getAllBill().subscribe((data) => {
+      console.log(data);
       this.listBill = data;
     });
   }

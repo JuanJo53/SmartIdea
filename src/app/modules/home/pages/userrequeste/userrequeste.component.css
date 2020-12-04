@@ -33,3 +33,7 @@ h1 {
   color: black;
   text-align: center;
 }
+.action-button {
+  margin-left: 15px;
+  margin-right: 15px;
+}
