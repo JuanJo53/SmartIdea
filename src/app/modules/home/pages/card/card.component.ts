@@ -1,19 +1,19 @@
-import {Component, EventEmitter, Input, OnInit, Output, OnDestroy,} from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Card } from '../../../../models/card.model';
 import { CardService } from '../../../../services/user_services/card.service';
 import { CreateCardComponent } from '../../../components/dialogs/create-card/create-card.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { EditCardComponent } from '../../../components/dialogs/edit-card/edit-card.component';
-import {WarningDialogComponent} from '../../../components/dialogs/warning-dialog/warning-dialog.component';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import { WarningDialogComponent } from '../../../components/dialogs/warning-dialog/warning-dialog.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css'],
 })
-export class CardComponent implements OnInit, OnDestroy {
+export class CardComponent implements OnInit {
   listCard: Card[];
   displayedColumns: string[] = ['Nombre', 'Numero', 'Expiracion', 'id_card'];
   form: FormGroup;
@@ -24,18 +24,11 @@ export class CardComponent implements OnInit, OnDestroy {
     private activatedRoute: ActivatedRoute,
     public dialog: MatDialog
   ) {}
-  edit = false;
-  destroyed = false;
+
   ngOnInit(): void {
     this.loadlist();
   }
-  ngOnDestroy(): void {
-    this.destroyed = true;
-    console.log('Component destroyed');
-  }
-  cancel() {
-    this.edit = false;
-  }
+
   loadlist() {
     this.cardService.getAllCard(this.userId).subscribe((data) => {
       this.listCard = data;
@@ -69,7 +62,8 @@ export class CardComponent implements OnInit, OnDestroy {
     });
   }
   deleteCard(id: number): void {
-    const dialogRef= this.dialog.open(WarningDialogComponent, {
+    var iduser = parseInt(localStorage.getItem('userId'));
+    const dialogRef = this.dialog.open(WarningDialogComponent, {
       width: '500px',
       data: {
         message: '¿Esta seguro que desea eliminar el certificado?',
@@ -79,14 +73,12 @@ export class CardComponent implements OnInit, OnDestroy {
       console.log('The dialog was closed');
       console.log(result);
       if (result) {
-        this.cardService
-          .deleteCard(this.userId,id)
-          .subscribe((rta) => {
-            console.log(rta);
-          });
+        this.cardService.deleteCard(this.userId, id).subscribe((rta) => {
+          console.log(rta);
+        });
         console.log('Deleted');
       }
-      this.ngOnDestroy();
+      // this.ngOnDestroy();
     });
   }
 }

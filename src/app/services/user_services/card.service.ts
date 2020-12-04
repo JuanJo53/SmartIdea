@@ -26,7 +26,6 @@ export class CardService {
     );
   }
   deleteCard(userid: number, id: number) {
-    return this.http.delete(apiKey.api + `/user/${userid}/card/${id}`
-    );
+    return this.http.delete(apiKey.api + `/user/${userid}/card/${id}`);
   }
 }

@@ -24,7 +24,7 @@ export class ReferenceByIdComponent implements OnInit {
     this.loadproject();
     this.loadmedia();
   }
-  loadproject() {
+  loadproject(): void {
     const id = this.activatedRoute.snapshot.params.id;
     this.service.getProject(this.userId, id).subscribe(
       (data) => {
@@ -35,7 +35,7 @@ export class ReferenceByIdComponent implements OnInit {
       }
     );
   }
-  loadmedia() {
+  loadmedia(): void {
     const idpr = this.activatedRoute.snapshot.params.id;
     this.mediaService.getmedia(idpr).subscribe((data) => {
       this.media = data;

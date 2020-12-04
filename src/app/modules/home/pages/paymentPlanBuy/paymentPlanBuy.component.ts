@@ -13,6 +13,7 @@ import { ProjectsService } from '../../../../services/user_services/projects.ser
 export class PaymentPlanBuyComponent implements OnInit {
   paymentplan: PaymentPlan;
   project: IProjects;
+  id = this.activatedRoute.snapshot.params.id;
   constructor(
     private service: PaymentPlanService,
     private projectService: ProjectsService,
@@ -24,7 +25,8 @@ export class PaymentPlanBuyComponent implements OnInit {
   }
 
   loadpaymentplan() {
-    const id = this.activatedRoute.snapshot.params.id;
+    const id = this.activatedRoute.snapshot.params.pid;
+    console.log('PaymentPlan ID: ' + id);
     this.service.getPaymentPlan(id).subscribe(
       (data) => {
         this.paymentplan = data;
@@ -39,7 +41,7 @@ export class PaymentPlanBuyComponent implements OnInit {
     var iduser = parseInt(localStorage.getItem('userId'));
     const idpr = this.activatedRoute.snapshot.params.id;
     this.projectService.getProject(idpr, iduser).subscribe((data) => {
-     console.log(data);
+      console.log(data);
       this.project = data;
     });
   }

@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class PaymentPlanComponent implements OnInit {
   listPaymentPlan: PaymentPlan[];
 
+  projectid = this.activatedRoute.snapshot.params.id;
   constructor(
     private service: PaymentPlanService,
     private activatedRoute: ActivatedRoute
@@ -21,8 +22,7 @@ export class PaymentPlanComponent implements OnInit {
   }
 
   loadlist() {
-    const id = this.activatedRoute.snapshot.params.id;
-    console.log('Project id: ' + id);
+    console.log('Project id: ' + this.projectid);
     this.service.getAllPaymentPlan().subscribe((data) => {
       this.listPaymentPlan = data;
     });
