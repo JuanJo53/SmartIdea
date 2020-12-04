@@ -14,9 +14,12 @@
     </h2>
     <!-- button to select the card to use-->
     <button
+      id="{{ card.cardId }}"
       type="button"
       class="SelectButton"
-      routerLink="/user/orderReview/{{ card.cardId }}"
+      routerLink="/user/project/{{ this.projectid }}/paymentPlanBuy/{{
+        this.paymentid
+      }}/orderReview/{{ card.cardId }}"
     >
       Seleccionar
     </button>

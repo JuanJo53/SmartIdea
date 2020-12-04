@@ -12,9 +12,15 @@ export class BillService {
   getAllBill(userid: number) {
     return this.http.get<Bill[]>(`http://localhost:8080/user/${userid}/bill`);
   }
-  postnewbill(userid: number, bill: Bill) {
+  postnewbill(
+    userid: number,
+    projectid: number,
+    paymentplanid: number,
+    cardid: number,
+    bill: Bill
+  ) {
     return this.http.post(
-      `http://localhost:8080/user/${userid}/projects/1/paymentplan/1/1`,
+      `http://localhost:8080/user/${userid}/projects/${projectid}/paymentplan/${paymentplanid}/${cardid}`,
       bill
     );
   }

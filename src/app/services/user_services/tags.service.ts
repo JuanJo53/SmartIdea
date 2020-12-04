@@ -18,6 +18,9 @@ export class TagsService {
   gettaguser(iduser:number){
     return this.http.get<Tag[]>(`http://localhost:8080/tags/user/${iduser}`);
   }
+  addusertotag(iduser:number,tag:Tag){
+    return this.http.post(`http://localhost:8080/tags/user/${iduser}/add`,tag)
+  }
   deleteusertag(tagid: number, userid: number){
     let httpParams = new HttpParams().set('aaa', '111');
     httpParams.set('bbb', '222');

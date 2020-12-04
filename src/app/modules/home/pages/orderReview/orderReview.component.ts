@@ -1,3 +1,5 @@
+import { Bill } from './../../../../models/bill.model';
+import { BillService } from './../../../../services/user_services/bill.service';
 import { Component, OnInit } from '@angular/core';
 import { Card } from '../../../../models/card.model';
 import { ActivatedRoute } from '@angular/router';
@@ -13,28 +15,36 @@ import { ProjectsService } from '../../../../services/user_services/projects.ser
   styleUrls: ['./orderReview.component.css'],
 })
 export class OrderReviewComponent implements OnInit {
+  bill: Bill;
   paymentplan: PaymentPlan;
   card: Card;
   project: IProjects;
   userId: number = parseInt(localStorage.getItem('userId'));
+  projectid = this.activatedRoute.snapshot.params.id;
+  paymentid = this.activatedRoute.snapshot.params.pid;
+  cardid = this.activatedRoute.snapshot.params.cid;
   constructor(
     private service: CardService,
     private activatedRoute: ActivatedRoute,
     private projectsService: ProjectsService,
-    private paymentPlanService: PaymentPlanService
+    private paymentPlanService: PaymentPlanService,
+    private billService: BillService
   ) {}
 
   ngOnInit(): void {
+    console.log(this.projectid);
+    console.log(this.paymentid);
+    console.log(this.cardid);
     this.loadcard();
     this.loadpaymentplan();
+    this.loadproject();
   }
 
   loadcard() {
-    const id = this.activatedRoute.snapshot.params.id;
-    this.service.getCard(this.userId, id).subscribe(
+    this.service.getCard(this.userId, this.cardid).subscribe(
       (data) => {
         this.card = data;
-        console.log(data);
+        console.log('CARD: ' + this.card);
       },
       (err) => {
         console.log(err);
@@ -44,9 +54,30 @@ export class OrderReviewComponent implements OnInit {
 
   loadpaymentplan() {
     const id = this.activatedRoute.snapshot.params.id;
-    this.paymentPlanService.getPaymentPlan(id).subscribe((data) => {
-      console.log(data);
+    this.paymentPlanService.getPaymentPlan(this.paymentid).subscribe((data) => {
       this.paymentplan = data;
+      console.log('PLAN: ' + this.paymentplan);
     });
+  }
+  loadproject() {
+    this.projectsService
+      .getProject(this.projectid, this.userId)
+      .subscribe((data) => {
+        this.project = data;
+        console.log('PROJECT: ' + this.project);
+      });
+  }
+  newBill() {
+    this.billService
+      .postnewbill(
+        this.userId,
+        this.projectid,
+        this.paymentid,
+        this.cardid,
+        this.bill
+      )
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 }

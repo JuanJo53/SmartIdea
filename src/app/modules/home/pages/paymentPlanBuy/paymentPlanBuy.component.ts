@@ -13,7 +13,8 @@ import { ProjectsService } from '../../../../services/user_services/projects.ser
 export class PaymentPlanBuyComponent implements OnInit {
   paymentplan: PaymentPlan;
   project: IProjects;
-  id = this.activatedRoute.snapshot.params.id;
+  projectid = this.activatedRoute.snapshot.params.id;
+  paymentid = this.activatedRoute.snapshot.params.pid;
   constructor(
     private service: PaymentPlanService,
     private projectService: ProjectsService,

@@ -58,7 +58,7 @@ export class UserComponent implements OnInit {
   ) {
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
       startWith(null),
-      map((tag: Tag | null) => tag.nameTags ? this._filter(tag.nameTags) : this.allTags.slice()));
+      map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
   }
 
   ngOnInit(): void {
@@ -215,13 +215,16 @@ export class UserComponent implements OnInit {
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
+    var iduser = parseInt(localStorage.getItem('userId'));
     let tag:Tag={
-        tagId: 0,
+        tagId: event.option.value.tagId,
         nameTags: event.option.viewValue,
-        verified: 1,
-        status: 1,
+        verified: event.option.value.verified,
+        status: event.option.value.status,
     }
+    console.log(tag)
     this.tags.push(tag);
+    this.tagSerive.addusertotag(iduser,tag).subscribe(value => console.log('added'))
     this.tagInput.nativeElement.value = '';
     this.tagCtrl.setValue(null);
   }
@@ -229,9 +232,14 @@ export class UserComponent implements OnInit {
   private _filter(value: string): Tag[] {
     const filterValue = value.toLowerCase();
     console.log(value)
-    return this.allTags.filter(tag => tag.nameTags.toLowerCase().indexOf(filterValue) === 0);
+    let listfliter:Tag[]=[];
+    this.allTags.filter(value1 => {
+      if( value1.nameTags.toLowerCase().indexOf(filterValue) === 0){
+        listfliter.push(value1)
+      }
+    })
+    return listfliter;
   }
-
 
   customStyle = {
     selectButton: {
