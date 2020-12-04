@@ -1,3 +1,4 @@
+import { BillRequest } from './../../models/billRequest.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProjects } from '../../models/projects.model';
@@ -17,7 +18,7 @@ export class BillService {
     projectid: number,
     paymentplanid: number,
     cardid: number,
-    bill: Bill
+    bill: BillRequest
   ) {
     return this.http.post(
       `http://localhost:8080/user/${userid}/projects/${projectid}/paymentplan/${paymentplanid}/${cardid}`,

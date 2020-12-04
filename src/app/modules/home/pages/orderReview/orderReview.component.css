@@ -23,7 +23,7 @@ h1 {
   border-radius: 4px;
   box-shadow: 0px 0px 4px 0px black;
   width: 75%;
-  height: 400px;
+  height: 700px;
   box-sizing: border-box;
   margin: 20px 60px;
 }
@@ -35,9 +35,6 @@ h1 {
 }
 .SelectButton {
   margin-top: 30px;
-  margin-right: 215px;
-  float: right;
-  display: inline-block;
   width: 100px;
   padding: 10px;
   background: #7a29b1;
