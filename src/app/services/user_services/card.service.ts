@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Card} from '../../models/card.model';
 import apiKey from '../apiKey';
-import {IProjects} from '../../models/projects.model';
 @Injectable({
   providedIn: 'root',
 })
@@ -23,8 +22,10 @@ export class CardService {
   updatecard(card: Card, id: number){
     return this.http.put(`http://localhost:8080/user/1/card/1/${id}`, card);
   }
-  deleteCard(id: number) {
-    return this.http.delete(apiKey.api + `/user/1/card/${id}`);
+  deleteCard(userid: number, id: number) {
+    return this.http.delete(
+      apiKey.api + `/user/${userid}/card/${id}`
+    )
   }
 }
 
