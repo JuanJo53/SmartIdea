@@ -34,12 +34,7 @@
           <span><mat-icon>edit</mat-icon> </span>
         </button>
 
-        <ng-container matColumnDef="id_card">
-      <th mat-header-cell *matHeaderCellDef>="Acciones"</th>
-      <td mat-cell *matCellDef="let card">
-      <button class="action-button" mat-mini-fab (click)="deleteCard(card)" color="warm" >
-        <span><mat-icon>delete</mat-icon> </span>
-      </button>
+
 
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
