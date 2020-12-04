@@ -35,7 +35,6 @@ export class PaymentPlanBuyComponent implements OnInit {
       }
     );
   }
-
   loadproject() {
     const idpr = this.activatedRoute.snapshot.params.id;
     this.projectService.getProject(idpr).subscribe((data) => {

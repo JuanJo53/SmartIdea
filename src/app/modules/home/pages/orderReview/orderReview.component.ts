@@ -41,16 +41,16 @@ export class OrderReviewComponent implements OnInit {
     );
   }
 
-  loadpaymentplan() {
-    const idp = this.activatedRoute.snapshot.params.id;
-    this.paymentPlanService.getPaymentPlan(idp).subscribe((data) => {
+  loadpaymentplan(){
+    const idpp = this.activatedRoute.snapshot.params.id;
+    this.paymentPlanService.getPaymentPlan(idpp).subscribe(data=>{
       this.paymentPlan = data;
-  });
+    });
   }
-
-  loadproject() {
+  loadproject()
+  {
     const idpr = this.activatedRoute.snapshot.params.id;
-    this.projectService.getProject(idpr).subscribe((data) => {
+    this.projectService.getProject(idpr).subscribe(data=>{
       this.project = data;
     });
   }
