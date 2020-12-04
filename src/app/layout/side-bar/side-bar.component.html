@@ -68,6 +68,7 @@
 
             <mat-menu #notificationMenu="matMenu" class="notification-content">
               <div
+
                 class="notification-header"
                 *ngFor="let notification of notifications"
                 (click)="getNotificationDetails(notification.notificationId)"
