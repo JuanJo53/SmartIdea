@@ -37,25 +37,31 @@ export class SideBarComponent implements OnInit, OnDestroy {
     public dialog: MatDialog,
   ) {}
   ngOnInit(): void {
-    this.intervalId = setInterval(() => this.fecthNotifications(), 20000);
-    this.fecthNotifications();
     this.getimage();
     this.iduser = localStorage.getItem('userId');
-    console.log(localStorage)
+    if (this.iduser!=null) {
+      this.intervalId = setInterval(() => this.fecthNotifications(), 20000);
+      this.fecthNotifications();
+    }
   }
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
   }
   viewNotification(id: number): void {
-    this.notificationService
-      .markSeenNotification(parseInt(this.iduser), id)
-      .subscribe((notification) => {
-        console.log(notification);
-      });
+    if (this.iduser!=null){
+      this.notificationService
+        .markSeenNotification(parseInt(this.iduser), id)
+        .subscribe((notification) => {
+          console.log(notification);
+        });
+    }
+
   }
   getNotificationDetails(id: number): void {
-    this.openDialog(id);
-    console.log('Notify id clicked: ' + id.toString());
+    if (this.iduser!=null){
+      this.openDialog(id);
+      console.log('Notify id clicked: ' + id.toString());
+    }
   }
   openDialog(id: number): void {
     const dialogRef = this.dialog.open(NotificationDetailsComponent, {
@@ -71,18 +77,22 @@ export class SideBarComponent implements OnInit, OnDestroy {
     });
   }
   fecthNotifications(): void {
-    this.notificationCount = 0;
-    this.notificationService
-      .getUserNotifications(parseInt(this.iduser))
-      .subscribe((notifications) => {
-        this.notifications = notifications;
-        this.notifications.forEach((notif) => {
-          if (notif.status === 2) {
-            this.notificationCount++;
-          }
+    var iduser= parseInt(localStorage.getItem('userId'))
+      this.notificationCount = 0;
+      this.notificationService
+        .getUserNotifications(iduser)
+        .subscribe((notifications) => {
+          this.notifications = notifications;
+          this.notifications.forEach((notif) => {
+            if (notif.status === 2) {
+              this.notificationCount++;
+            }
+          });
         });
-      });
-    console.log('Notifications fetched');
+
+      console.log('Notifications fetched');
+
+
   }
   getimage() {
     var iduser= parseInt(localStorage.getItem('userId'));
@@ -95,6 +105,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
     localStorage.removeItem("userId");
     alert('Logout')
     console.log(localStorage)
+    location.replace('/user/feed')
     this.ngOnInit()
   }
   login(){
