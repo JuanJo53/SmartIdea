@@ -78,6 +78,10 @@ const routes: Routes = [
         component: UserComponent,
       },
       {
+        path: 'paymentPlan/:id',
+        component: PaymentPlanComponent,
+      },
+      {
         path: 'project/:id',
         component: PaymentPlanComponent,
       },

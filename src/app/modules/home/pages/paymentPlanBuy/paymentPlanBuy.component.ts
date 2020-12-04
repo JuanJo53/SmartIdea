@@ -12,8 +12,7 @@ import {ProjectsService} from '../../../../services/user_services/projects.servi
 })
 export class PaymentPlanBuyComponent implements OnInit {
   paymentplan: PaymentPlan;
-  project: IProjects[];
-
+  project: IProjects;
   constructor(private service: PaymentPlanService,private projectService: ProjectsService , private activatedRoute: ActivatedRoute) { }
   ngOnInit(): void {
     this.loadpaymentplan();
@@ -34,7 +33,7 @@ export class PaymentPlanBuyComponent implements OnInit {
 
   loadproject(){
     const idpr = this.activatedRoute.snapshot.params.id;
-    this.projectService.getAllProjects().subscribe(data=>{
+    this.projectService.getProject(idpr).subscribe(data=>{
       this.project= data;
     });
   }

@@ -3,15 +3,16 @@
 
   <h1>Comprar Publicidad</h1>
 
-  <div class="content" *ngFor="let projects of project">
+  <div class="content" >
     <h2 class="text">Proyecto:{{project?.projectTitle}}</h2>
   </div>
-  <div class="content" *ngFor="let paymentPlan of paymentplan">
+
+  <div class="content">
     <!--Purchase information according to the selected payment plan -->
-    <h2 class="text">Plan :{{paymentPlan?.plan}}</h2>
-    <h2 class="text">Descripcion :{{paymentPlan?.description}}</h2>
-    <h2 class="text">Costo :{{paymentPlan?.cost}}</h2>
-    <h2 class="text">Duracion de la publicidad :{{paymentPlan?.duration}}</h2>
+    <h2 class="text">Plan :{{paymentplan?.plan}}</h2>
+    <h2 class="text">Descripcion :{{paymentplan?.description}}</h2>
+    <h2 class="text">Costo :{{paymentplan?.cost}}</h2>
+    <h2 class="text">Duracion de la publicidad :{{paymentplan?.duration}}</h2>
   </div>
 
   <div class="table">
