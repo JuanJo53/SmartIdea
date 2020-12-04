@@ -1,9 +1,3 @@
-// import {COMMA, ENTER} from '@angular/cdk/keycodes';
-// import {FormControl} from '@angular/forms';
-// import {MatAutocompleteSelectedEvent, MatAutocomplete} from '@angular/material/autocomplete';
-// import {MatChipInputEvent} from '@angular/material/chips';
-// import {Observable} from 'rxjs';
-// import {map, startWith} from 'rxjs/operators';
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { UserService } from '../../../../services/user_services/user.service';
 import { User } from '../../../../models/user.model';
@@ -42,7 +36,7 @@ export class UserComponent implements OnInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   displayedColumns: string[] = ['#', 'Habilidades', 'id_card'];
   tagCtrl = new FormControl();
-  filteredTags: Observable<string[]>;
+  filteredTags: Observable<Tag[]>;
   tags: Tag[] = [];
   allTags: Tag[] = [];
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
@@ -61,7 +55,11 @@ export class UserComponent implements OnInit {
     public dialog: MatDialog,
     private serviceSkill: SkillService,
     private tagSerive: TagsService
-  ) {}
+  ) {
+    this.filteredTags = this.tagCtrl.valueChanges.pipe(
+      startWith(null),
+      map((tag: Tag | null) => tag.nameTags ? this._filter(tag.nameTags) : this.allTags.slice()));
+  }
 
   ngOnInit(): void {
     this.loadprofile();
@@ -216,19 +214,24 @@ export class UserComponent implements OnInit {
 
   }
 
-  // selected(event: MatAutocompleteSelectedEvent): void {
-  //   this.tags.push(event.option.viewValue);
-  //   this.tagInput.nativeElement.value = '';
-  //   this.tagCtrl.setValue(null);
-  // }
-  //
-  // private _filter(value: string): string[] {
-  //   const filterValue = value.toLowerCase();
-  //
-  //   return this.allTags.filter(
-  //     (tag) => tag.toLowerCase().indexOf(filterValue) === 0
-  //   );
-  // }
+  selected(event: MatAutocompleteSelectedEvent): void {
+    let tag:Tag={
+        tagId: 0,
+        nameTags: event.option.viewValue,
+        verified: 1,
+        status: 1,
+    }
+    this.tags.push(tag);
+    this.tagInput.nativeElement.value = '';
+    this.tagCtrl.setValue(null);
+  }
+
+  private _filter(value: string): Tag[] {
+    const filterValue = value.toLowerCase();
+    console.log(value)
+    return this.allTags.filter(tag => tag.nameTags.toLowerCase().indexOf(filterValue) === 0);
+  }
+
 
   customStyle = {
     selectButton: {

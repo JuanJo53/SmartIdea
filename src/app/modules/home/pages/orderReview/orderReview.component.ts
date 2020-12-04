@@ -43,6 +43,7 @@ export class OrderReviewComponent implements OnInit {
       }
     );
   }
+<<<<<<< HEAD
   loadpaymentplan(){
     const id = this.activatedRoute.snapshot.params.id;
     this.paymentPlanService.getPaymentPlan(id).subscribe((data) => {
@@ -50,6 +51,15 @@ export class OrderReviewComponent implements OnInit {
       this.paymentplan = data;
     });
   }
+=======
+    loadpaymentplan(){
+      const id = this.activatedRoute.snapshot.params.id;
+      this.paymentPlanService.getPaymentPlan(id).subscribe((data) => {
+        console.log(data);
+        this.paymentplan = data;
+      });
+    }
+>>>>>>> fb788ea67c0b172721aebda2680a871db85f494d
 
 
 }

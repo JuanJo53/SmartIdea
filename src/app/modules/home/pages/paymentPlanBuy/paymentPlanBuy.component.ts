@@ -39,6 +39,7 @@ export class PaymentPlanBuyComponent implements OnInit {
     var iduser = parseInt(localStorage.getItem('userId'));
     const idpr = this.activatedRoute.snapshot.params.id;
     this.projectService.getProject(idpr, iduser).subscribe((data) => {
+     console.log(data);
       this.project = data;
     });
   }

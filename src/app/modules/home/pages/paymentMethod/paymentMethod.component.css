@@ -40,7 +40,7 @@ h1 {
   display: inline-block;
   width: 130px;
   padding: 10px;
-  background: #2c8992;
+  background: #7a29b1;
   text-decoration: none;
   color: white;
   border-radius: 100px;
@@ -49,14 +49,11 @@ h1 {
   font-weight: 600;
 }
 .table:hover {
-  background-color: #b7b5b5;
+  background-color: #cdcbcb;
   color: #ffffff;
-  transition: 0.5s all;
-  transform: scale(1.1);
-  cursor: pointer;
 }
 .SelectButton:hover {
-  background-color: #4bc9d7;
+  background-color: #aa53e2;
 }
 
 @media (max-width: 1070px) {
