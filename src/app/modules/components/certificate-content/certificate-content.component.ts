@@ -23,7 +23,7 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
   @Input() certificate: Certificate;
 
   form: FormGroup;
-  userId: number = 1;
+  // userId: number = 1;
 
   constructor(
     private fromBuilder: FormBuilder,
@@ -62,8 +62,9 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
     });
   }
   fetchCertificate(id: number): void {
+    var iduser= parseInt(localStorage.getItem('userId'));
     this.certificatesService
-      .getCertificate(this.userId, id)
+      .getCertificate(iduser, id)
       .subscribe((certificate) => {
         this.certificate = certificate;
       });
@@ -85,6 +86,7 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
       });
   }
   deleteCertificate(id: number): void {
+    var iduser= parseInt(localStorage.getItem('userId'));
     const dialogRef = this.dialog.open(WarningDialogComponent, {
       width: '500px',
       data: {
@@ -96,7 +98,7 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
       console.log(result);
       if (result) {
         this.certificatesService
-          .deleteCertificate(this.userId, id)
+          .deleteCertificate(iduser, id)
           .subscribe((rta) => {
             console.log(rta);
           });
