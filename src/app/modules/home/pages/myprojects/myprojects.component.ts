@@ -26,7 +26,8 @@ export class MyprojectsComponent implements OnInit {
     this.loadlist();
   }
   loadlist(){
-    this.service.getAllProjects().subscribe(data => {
+    var iduser = parseInt(localStorage.getItem('userId'));
+    this.service.getAllProjects(iduser).subscribe(data => {
       this.listProjects = data;
     });
   }

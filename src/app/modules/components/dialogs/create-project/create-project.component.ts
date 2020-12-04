@@ -59,8 +59,10 @@ export class CreateProjectComponent implements OnInit {
   }
 
   createproject(projects: IProjects): void {
+
+    var iduser = parseInt(localStorage.getItem('userId'));
     this.projectService
-      .postnewproject (projects)
+      .postnewproject (projects,iduser)
       .subscribe((projects) => {
         console.log(projects);
       });

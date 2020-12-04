@@ -66,8 +66,9 @@ export class EditProjectComponent implements OnInit {
   }
 
   update(idproject: number, project: IProjects): void {
+    var iduser = parseInt(localStorage.getItem('userId'));
     this.projectService
-      .updateproject(project, idproject)
+      .updateproject(project, idproject,iduser)
       .subscribe((project) => {
         console.log(project);
       });

@@ -9,8 +9,8 @@ import { Skill } from '../../models/skill.model';
 export class ProjectsService {
   constructor(private http: HttpClient) {}
 
-  getAllProjects() {
-    return this.http.get<IProjects[]>('http://localhost:8080/user/list/1');
+  getAllProjects(iduser: number) {
+    return this.http.get<IProjects[]>(`http://localhost:8080/user/list/${iduser}`);
   }
   getAllProjectsfeed() {
     return this.http.get<IProjects[]>(
@@ -18,18 +18,18 @@ export class ProjectsService {
     );
   }
 
-  getProject(id: number) {
+  getProject(id: number, iduser: number) {
     return this.http.get<IProjects>(
-      `http://localhost:8080/user/1/projects/${id}`
+      `http://localhost:8080/user/${iduser}/projects/${id}`
     );
   }
 
-  postnewproject(project: IProjects) {
-    return this.http.post('http://localhost:8080/user/1/projects', project);
+  postnewproject(project: IProjects , iduser: number) {
+    return this.http.post(`http://localhost:8080/user/${iduser}/projects`, project);
   }
-  updateproject(project: IProjects, id: number) {
+  updateproject(project: IProjects, id: number, iduser: number) {
     return this.http.put(
-      `http://localhost:8080/user/1/projects/${id}`,
+      `http://localhost:8080/user/${iduser}/projects/${id}`,
       project
     );
   }
