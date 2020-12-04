@@ -30,73 +30,80 @@
 
     <button class="button" (click)="update()">Update User</button>
   </div>
+<div>
+  <div>
+    <h1>SKILLS</h1>
+    <button class="button" (click)="createSkill()">Add Skill</button>
+    <hr />
+    <table mat-table matSort [dataSource]="skills" class="table mat-elevation-z8">
+      <ng-container matColumnDef="#">
+        <th mat-header-cell *matHeaderCellDef>#</th>
+        <td mat-cell *matCellDef="let skill">{{ skills.indexOf(skill) + 1 }}</td>
+      </ng-container>
+      <ng-container matColumnDef="Habilidades">
+        <th mat-header-cell *matHeaderCellDef>Habilidades</th>
+        <td mat-cell *matCellDef="let skill">
+          {{ skill.skillName }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="id_card">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let skill">
+          <button
+            class="action-button"
+            mat-mini-fab
+            (click)="editSkill(skill.skillId, skill.skillName)"
+          >
+            <span><mat-icon>edit</mat-icon> </span>
+          </button>
 
-  <h1>SKILLS</h1>
-  <button class="button" (click)="createSkill()">Add Skill</button>
-  <hr />
-  <table mat-table matSort [dataSource]="skills" class="table mat-elevation-z8">
-    <ng-container matColumnDef="#">
-      <th mat-header-cell *matHeaderCellDef>#</th>
-      <td mat-cell *matCellDef="let skill">{{ skills.indexOf(skill) + 1 }}</td>
-    </ng-container>
-    <ng-container matColumnDef="Habilidades">
-      <th mat-header-cell *matHeaderCellDef>Habilidades</th>
-      <td mat-cell *matCellDef="let skill">
-        {{ skill.skillName }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="id_card">
-      <th mat-header-cell *matHeaderCellDef>Acciones</th>
-      <td mat-cell *matCellDef="let skill">
-        <button
-          class="action-button"
-          mat-mini-fab
-          (click)="editSkill(skill.skillId, skill.skillName)"
-        >
-          <span><mat-icon>edit</mat-icon> </span>
-        </button>
-
-        <button
-          class="action-button"
-          mat-mini-fab
-          color="warn"
-          (click)="
+          <button
+            class="action-button"
+            mat-mini-fab
+            color="warn"
+            (click)="
             deleteSkill(skill.skillId, skill.skillName, skills.indexOf(skill))
           "
+          >
+            <span><mat-icon>delete</mat-icon> </span>
+          </button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <br />
+  </div>
+  <div>
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip
+          *ngFor="let tag of tags"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(tag)"
         >
-          <span><mat-icon>delete</mat-icon> </span>
-        </button>
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-  <br />
-  <mat-form-field class="example-chip-list">
-    <mat-chip-list #chipList aria-label="Fruit selection">
-      <mat-chip
-        *ngFor="let tag of tags"
-        [selectable]="selectable"
-        [removable]="removable"
-        (removed)="remove(tag)"
-      >
-        {{ tag.nameTags }}
-        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-      </mat-chip>
-      <input
-        placeholder="New Tag..."
-        #tagInput
-        [formControl]="tagCtrl"
-        [matChipInputFor]="chipList"
-        [matAutocomplete]="auto"
-        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-        (matChipInputTokenEnd)="add($event)"
-      />
-    </mat-chip-list>
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-          <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
-            {{tag.nameTags}}
-          </mat-option>
-        </mat-autocomplete>
-  </mat-form-field>
+          {{ tag.nameTags }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="New Tag..."
+          #tagInput
+          [formControl]="tagCtrl"
+          [matChipInputFor]="chipList"
+          [matAutocomplete]="auto"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+          {{tag.nameTags}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</div>
+
+
 </div>

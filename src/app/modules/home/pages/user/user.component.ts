@@ -58,7 +58,7 @@ export class UserComponent implements OnInit {
   ) {
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
       startWith(null),
-      map((tag: Tag | null) => tag.nameTags ? this._filter(tag.nameTags) : this.allTags.slice()));
+      map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
   }
 
   ngOnInit(): void {
@@ -229,7 +229,13 @@ export class UserComponent implements OnInit {
   private _filter(value: string): Tag[] {
     const filterValue = value.toLowerCase();
     console.log(value)
-    return this.allTags.filter(tag => tag.nameTags.toLowerCase().indexOf(filterValue) === 0);
+    let listfliter:Tag[]=[];
+    this.allTags.filter(value1 => {
+      if( value1.nameTags.toLowerCase().indexOf(filterValue) === 0){
+        listfliter.push(value1)
+      }
+    })
+    return listfliter;
   }
 
 
