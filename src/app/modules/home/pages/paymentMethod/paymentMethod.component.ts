@@ -14,7 +14,7 @@ export class PaymentMethodComponent implements OnInit {
   ngOnInit(): void {
     this.loadlist();
   }
-  loadlist() {
+  loadlist(): void {
     this.service.getAllCard(this.userId).subscribe((data) => {
       this.listCard = data;
     });

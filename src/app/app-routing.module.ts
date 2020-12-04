@@ -84,15 +84,22 @@ const routes: Routes = [
       {
         path: 'project/:id',
         component: PaymentPlanComponent,
+        children: [
+          {
+            path: 'paymentMethod/:id',
+            component: PaymentMethodComponent,
+          },
+          {
+            path: 'paymentPlanBuy',
+            component: PaymentPlanBuyComponent,
+          },
+          {
+            path: 'paymentPlanBuy/:id',
+            component: PaymentPlanBuyComponent,
+          },
+        ],
       },
-      {
-        path: 'paymentPlanBuy',
-        component: PaymentPlanBuyComponent,
-      },
-      {
-        path: 'paymentPlanBuy/:id',
-        component: PaymentPlanBuyComponent,
-      },
+
       {
         path: 'orderReview',
         component: OrderReviewComponent,
@@ -104,10 +111,6 @@ const routes: Routes = [
       {
         path: 'userRequest/:id',
         component: UserrequesteComponent,
-      },
-      {
-        path: 'paymentMethod',
-        component: PaymentMethodComponent,
       },
     ],
   },

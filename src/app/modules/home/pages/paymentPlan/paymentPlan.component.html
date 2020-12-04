@@ -5,9 +5,17 @@
     <!-- Payment plan information -->
     <h2 class="text">{{ paymentPlan.plan }}</h2>
     <p class="text">"{{ paymentPlan.description }}"</p>
-    <br/>
+    <br />
     <h3 class="text">{{ paymentPlan.cost }}</h3>
     <!-- Button to choose a payment plan -->
-    <button type="button" class="PayButton" routerLink="/user/paymentPlanBuy/{{paymentPlan.paymentPlanId}}">Seleccionar</button>
+    <button
+      type="button"
+      class="PayButton"
+      routerLink="/user/project/{{ this.id }}/paymentPlanBuy/{{
+        paymentPlan.paymentPlanId
+      }}"
+    >
+      Seleccionar
+    </button>
   </div>
 </section>
