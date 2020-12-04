@@ -1,8 +1,7 @@
-
 <section class="container">
-
   <h1>Comprar Publicidad</h1>
 
+<<<<<<< HEAD
   <div class="content" >
     <h2 class="text">Proyecto:{{project?.projectTitle}}</h2>
   </div>
@@ -14,11 +13,30 @@
     <h2 class="text">Costo :{{paymentplan?.cost}}</h2>
     <h2 class="text">Duracion de la publicidad :{{paymentplan?.duration}}</h2>
   </div>
+=======
+  <h2 class="text"><Strong>Proyecto: </Strong>{{ project?.projectTitle }}</h2>
+  <!--Purchase information according to the selected payment plan -->
+  <h2 class="text"><strong>Plan: </strong>{{ paymentplan?.plan }}</h2>
+  <h2 class="text">
+    <strong>Descripcion: </strong>{{ paymentplan?.description }}
+  </h2>
+  <h2 class="text"><strong>Costo: </strong>{{ paymentplan?.cost }}</h2>
+  <h2 class="text">
+    <strong>Duracion de la publicidad: </strong>{{ paymentplan?.duration }} mes
+    (es)
+  </h2>
+>>>>>>> 5c9c1faab7225c50a6f53727a368eac8e00796c7
 
   <div class="table">
-   <!-- Button to select the card and make the purchase-->
-      <p>Usar tarjeta de crédito</p><br>
-    <button type="button" class="SelectButton" routerLink="/user/paymentMethod/">Seleccionar</button>
+    <!-- Button to select the card and make the purchase-->
+    <p>Usar tarjeta de crédito</p>
+    <br />
+    <button
+      type="button"
+      class="SelectButton"
+      routerLink="/user/paymentMethod/"
+    >
+      Seleccionar
+    </button>
   </div>
 </section>
-

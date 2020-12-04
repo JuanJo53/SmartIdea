@@ -1,0 +1,26 @@
+<h1><strong>Detalles de Factura</strong></h1>
+<mat-dialog-content
+  ><h3 *ngIf="this.data.projectTitle">
+    <strong>Proyecto: </strong>{{ this.data.projectTitle }}
+  </h3>
+  <h4 *ngIf="this.data.paymentPlanName">
+    <strong>Plan Comprado: </strong>{{ this.data.paymentPlanName }}
+  </h4>
+  <h4 *ngIf="this.data.billingAddress">
+    <strong>Direccion de Factura: </strong>{{ this.data.billingAddress }}
+  </h4>
+  <h4 *ngIf="this.data.country">
+    <strong>Pais: </strong>{{ this.data.country }}
+  </h4>
+  <h4 *ngIf="this.data.city"><strong>Ciudad: </strong>{{ this.data.city }}</h4>
+  <span *ngIf="this.data.buyDate"
+    ><strong>Fecha y hora de compra: </strong
+    >{{ this.data.buyDate | date: "medium" }}</span
+  >
+  <h4 *ngIf="this.data.paymentPlanCost">
+    <strong>Monto total: </strong>{{ this.data.paymentPlanCost }} $
+  </h4>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">close</button>
+</mat-dialog-actions>
