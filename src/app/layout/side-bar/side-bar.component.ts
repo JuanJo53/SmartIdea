@@ -22,7 +22,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
       shareReplay()
     );
   user: User;
-  intervalId: number;
+  intervalId: any;
   notifications: Notification[] = [];
   userId: number = 1;
   notificationCount: number = 0;
@@ -63,6 +63,7 @@ export class SideBarComponent implements OnInit, OnDestroy {
     });
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
+      this.viewNotification(id);
       this.ngOnInit();
     });
   }

@@ -50,8 +50,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { NotificationDetailsComponent } from '../components/dialogs/notification-details/notification-details.component';
 import { PaymentMethodComponent } from './pages/paymentMethod/paymentMethod.component';
 import { CreateDataComponent } from '../components/dialogs/create-data/create-data.component';
-import {MatChipsModule} from '@angular/material/chips';
-import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { BillDetailComponent } from '../components/dialogs/bill-detail/bill-detail.component';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -87,6 +88,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     NotificationDetailsComponent,
     PaymentMethodComponent,
     CreateDataComponent,
+    BillDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -111,7 +113,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     MatNativeDateModule,
     ImageUploadModule.forRoot(),
     MatChipsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
   ],
   entryComponents: [
     CreateCertificateComponent,
