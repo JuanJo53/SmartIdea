@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Edit Area</h1>
+<form [formGroup]="formArea" (ngSubmit)="editarea()">
+  <mat-dialog-content class="example-full-width">
+    <mat-form-field>
+      <mat-label>Skill </mat-label
+      ><input
+      matInput
+      formControlName="areaName"
+      ngModel="{{this.data.areaname}}"
+    />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+    <button mat-button mat-raised-button color="warn" (click)="close()">Cancelar</button>
+  </mat-dialog-actions>
+</form>
