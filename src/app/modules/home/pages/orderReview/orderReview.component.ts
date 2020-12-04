@@ -5,31 +5,34 @@ import {PaymentPlanService} from '../../../../services/user_services/paymentPlan
 import {CardService} from '../../../../services/user_services/card.service';
 import {PaymentPlan} from '../../../../models/paymentPlan.model';
 import {IProjects} from '../../../../models/projects.model';
-import {Bill} from '../../../../models/bill.model';
 import {ProjectsService} from '../../../../services/user_services/projects.service';
-import {BillService} from '../../../../services/user_services/bill.service';
 
 @Component({
-  selector: 'app-orderreview',
-  templateUrl: './orderreview.component.html',
-  styleUrls: ['./orderreview.component.css']
+  selector: 'app-orderReview',
+  templateUrl: './orderReview.component.html',
+  styleUrls: ['./orderReview.component.css']
 })
-export class OrderReviewComponent implements OnInit {
-  card: Card;
-  paymentPlan: PaymentPlan;
-  project: IProjects;
-  bill: Bill;
 
-  constructor(private service: CardService, private paymentPlanService: PaymentPlanService, private projectService: ProjectsService, private billService: BillService, private activatedRoute: ActivatedRoute) { }
+export class OrderReviewComponent implements OnInit {
+  paymentplan: PaymentPlan;
+  card: Card;
+  project:IProjects;
+  constructor(
+    private service: CardService,
+    private activatedRoute: ActivatedRoute,
+    private projectsService: ProjectsService,
+    private paymentPlanService:PaymentPlanService,
+  ) {}
 
   ngOnInit(): void {
+
     this.loadcard();
-    this.loadpaymentplan();
     this.loadproject();
-    this.loadbill();
+    this.loadpaymentplan();
 
   }
-  loadcard(){
+
+  loadcard() {
     const id = this.activatedRoute.snapshot.params.id;
     this.service.getCard(id).subscribe(
       (data) => {
@@ -41,27 +44,20 @@ export class OrderReviewComponent implements OnInit {
       }
     );
   }
-
-  loadpaymentplan(){
-    const idpp = this.activatedRoute.snapshot.params.id;
-    this.paymentPlanService.getPaymentPlan(idpp).subscribe(data=>{
-      this.paymentPlan = data;
-    });
-  }
-  loadproject()
-  {
+  loadproject() {
     const idpr = this.activatedRoute.snapshot.params.id;
-    this.projectService.getProject(idpr).subscribe(data=>{
+    this.projectsService.getProject(idpr).subscribe((data) => {
+      console.log(data);
       this.project = data;
     });
   }
-
-  loadbill()
-  {
-   /* const idbib= this.activatedRoute.snapshot.params.id;
-    this.billService.getBill(idbi).subscribe(data=>{
-      this.bill= data;
-    });*/
+  loadpaymentplan() {
+    const idp = this.activatedRoute.snapshot.params.id;
+    this.paymentPlanService.getPaymentPlan(idp).subscribe((data) => {
+      console.log(data);
+      this.paymentplan = data;
+    });
   }
+
 
 }
