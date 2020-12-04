@@ -16,13 +16,15 @@ import {ProjectsService} from '../../../../services/user_services/projects.servi
 export class OrderReviewComponent implements OnInit {
   paymentplan: PaymentPlan;
   card: Card;
-  project:IProjects;
+  project: IProjects;
+
   constructor(
     private service: CardService,
     private activatedRoute: ActivatedRoute,
     private projectsService: ProjectsService,
-    private paymentPlanService:PaymentPlanService,
-  ) {}
+    private paymentPlanService: PaymentPlanService,
+  ) {
+  }
 
   ngOnInit(): void {
 
@@ -43,23 +45,12 @@ export class OrderReviewComponent implements OnInit {
       }
     );
   }
-<<<<<<< HEAD
-  loadpaymentplan(){
+
+  loadpaymentplan() {
     const id = this.activatedRoute.snapshot.params.id;
     this.paymentPlanService.getPaymentPlan(id).subscribe((data) => {
       console.log(data);
       this.paymentplan = data;
     });
   }
-=======
-    loadpaymentplan(){
-      const id = this.activatedRoute.snapshot.params.id;
-      this.paymentPlanService.getPaymentPlan(id).subscribe((data) => {
-        console.log(data);
-        this.paymentplan = data;
-      });
-    }
->>>>>>> fb788ea67c0b172721aebda2680a871db85f494d
-
-
 }
