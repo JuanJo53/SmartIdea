@@ -27,7 +27,6 @@ export class OrderReviewComponent implements OnInit {
   ngOnInit(): void {
 
     this.loadcard();
-    this.loadproject();
     this.loadpaymentplan();
 
   }
@@ -44,20 +43,13 @@ export class OrderReviewComponent implements OnInit {
       }
     );
   }
-  loadproject() {
-    var iduser = parseInt(localStorage.getItem('userId'));
-    const idpr = this.activatedRoute.snapshot.params.id;
-    this.projectsService.getProject(idpr, iduser).subscribe((data) => {
-      console.log(data);
-    this.projectsService.getProject(idpr,iduser).subscribe((data) => {
-      this.project = data;
-    });
-  }
-  loadpaymentplan(){
-    const idp = this.activatedRoute.snapshot.params.id;
-    this.paymentPlanService.getPaymentPlan(idp).subscribe((data) => {
-      console.log(data);
-      this.paymentplan = data;
-    });
-  }
+    loadpaymentplan(){
+      const id = this.activatedRoute.snapshot.params.id;
+      this.paymentPlanService.getPaymentPlan(id).subscribe((data) => {
+        console.log(data);
+        this.paymentplan = data;
+      });
+    }
+
+
 }
