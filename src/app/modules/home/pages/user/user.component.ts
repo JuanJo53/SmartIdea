@@ -40,10 +40,11 @@ export class UserComponent implements OnInit {
   selectable = true;
   removable = true;
   separatorKeysCodes: number[] = [ENTER, COMMA];
+  displayedColumns: string[] = ['#', 'Habilidades', 'id_card'];
   tagCtrl = new FormControl();
   filteredTags: Observable<string[]>;
-  tags: Tag[]=[];
-  allTags: Tag[]=[];
+  tags: Tag[] = [];
+  allTags: Tag[] = [];
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
@@ -60,8 +61,7 @@ export class UserComponent implements OnInit {
     public dialog: MatDialog,
     private serviceSkill: SkillService,
     private tagSerive: TagsService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.loadprofile();
@@ -174,14 +174,14 @@ export class UserComponent implements OnInit {
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
-    let tag:Tag;
+    let tag: Tag;
     // Add our fruit
-    tag={
-      tagId:0,
-      nameTags:value.trim(),
-      verified:1,
-      status:1,
-    }
+    tag = {
+      tagId: 0,
+      nameTags: value.trim(),
+      verified: 1,
+      status: 1,
+    };
     if ((value || '').trim()) {
       this.tags.push(tag);
       this.tagSerive.posttag(tag).subscribe((tag) => {

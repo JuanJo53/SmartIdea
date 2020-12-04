@@ -9,7 +9,7 @@
       buttonCaption="Subir Foto"
       dropBoxMessage=""
     ></image-upload>
-    <button class="button" (click)="updateimage();" *ngIf="this.image != null">
+    <button class="button" (click)="updateimage()" *ngIf="this.image != null">
       Subir Foto de perfil
     </button>
   </div>
@@ -34,69 +34,71 @@
   <h1>SKILLS</h1>
   <button class="button" (click)="createSkill()">Add Skill</button>
   <hr />
-  <table an>
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Skills</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="pure-table-odd" *ngFor="let skill of skills">
-        <td>{{ skills.indexOf(skill) + 1 }}</td>
-        <td>
-          <input
-            type="text"
-            value="{{ skill.skillName }}"
-            *ngIf="this.editskill"
-          />{{ skill.skillName }}
-        </td>
+  <table mat-table matSort [dataSource]="skills" class="table mat-elevation-z8">
+    <ng-container matColumnDef="#">
+      <th mat-header-cell *matHeaderCellDef>#</th>
+      <td mat-cell *matCellDef="let skill">{{ skills.indexOf(skill) + 1 }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Habilidades">
+      <th mat-header-cell *matHeaderCellDef>Habilidades</th>
+      <td mat-cell *matCellDef="let skill">
+        {{ skill.skillName }}
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="id_card">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let skill">
         <button
-          type="button"
-          (click)="
-            deleteSkill(skill.skillId, skill.skillName, skills.indexOf(skill));
-            ngOnInit()
-          "
-        >
-          Eliminar
-        </button>
-        <button
-          type="button"
+          class="action-button"
+          mat-mini-fab
           (click)="editSkill(skill.skillId, skill.skillName)"
         >
-          Editar
+          <span><mat-icon>edit</mat-icon> </span>
         </button>
-      </tr>
-    </tbody>
+
+        <button
+          class="action-button"
+          mat-mini-fab
+          color="warn"
+          (click)="
+            deleteSkill(skill.skillId, skill.skillName, skills.indexOf(skill))
+          "
+        >
+          <span><mat-icon>delete</mat-icon> </span>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
+  <br />
   <mat-form-field class="example-chip-list">
     <mat-chip-list #chipList aria-label="Fruit selection">
       <mat-chip
         *ngFor="let tag of tags"
         [selectable]="selectable"
         [removable]="removable"
-        (removed)="remove(tag)">
-        {{tag.nameTags}}
+        (removed)="remove(tag)"
+      >
+        {{ tag.nameTags }}
         <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
       </mat-chip>
       <input
         placeholder="New Tag..."
         #tagInput
         [formControl]="tagCtrl"
-
         [matChipInputFor]="chipList"
         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-        (matChipInputTokenEnd)="add($event)">
+        (matChipInputTokenEnd)="add($event)"
+      />
     </mat-chip-list>
 
-<!--    [matAutocomplete]="auto"-->
+    <!--    [matAutocomplete]="auto"-->
 
-<!--    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">-->
-<!--      <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">-->
-<!--        {{tag}}-->
-<!--      </mat-option>-->
-<!--    </mat-autocomplete>-->
+    <!--    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">-->
+    <!--      <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">-->
+    <!--        {{tag}}-->
+    <!--      </mat-option>-->
+    <!--    </mat-autocomplete>-->
   </mat-form-field>
 </div>
-
-
