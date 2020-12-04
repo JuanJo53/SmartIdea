@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Nueva Area</h1>
+
+<form [formGroup]="formArea" (ngSubmit)="savearea()">
+  <mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Skill </mat-label
+      ><input
+      matInput
+      placeholder="Area"
+      formControlName="areaName"
+      required
+    />
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button type="submit" mat-button color="primary" cdkFocusInitial>
+      Guardar
+    </button>
+    <button mat-button mat-raised-button color="warn" (click)="onNoClick()">Cancelar</button>
+  </mat-dialog-actions>
+</form>

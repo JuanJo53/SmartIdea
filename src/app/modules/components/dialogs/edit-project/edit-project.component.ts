@@ -2,12 +2,17 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {IProjects} from '../../../../models/projects.model';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import {ProjectsService} from '../../../../services/user_services/projects.service';
 import {Skill} from '../../../../models/skill.model';
 import {Media} from "../../../../models/media.model";
 import {FileHolder} from "angular2-image-upload";
 import {MediaService} from "../../../../services/user_services/media.service";
+import {Area} from '../../../../models/area.model';
+import {AreaService} from '../../../../services/user_services/area.service';
+import {CreateProjectComponent} from '../create-project/create-project.component';
+import {AreacreateDialogComponent} from '../areacreate-dialog/areacreate-dialog.component';
+import {AreaeditDialogComponent} from '../areaedit-dialog/areaedit-dialog.component';
 
 @Component({
   selector: 'app-edit-project',
@@ -15,8 +20,10 @@ import {MediaService} from "../../../../services/user_services/media.service";
   styleUrls: ['./edit-project.component.css']
 })
 export class EditProjectComponent implements OnInit {
+  displayedColumns: string[] = ['#', 'Area', 'id_card'];
   images: FileHolder[]=[];
   listProjects: IProjects[];
+  listArea: Area[];
   formProject: FormGroup;
   constructor(
     private fromBuilder: FormBuilder,
@@ -24,6 +31,8 @@ export class EditProjectComponent implements OnInit {
     public dialogRef: MatDialogRef<EditProjectComponent>,
     private projectService: ProjectsService,
     private mediaService: MediaService,
+    private areaService: AreaService,
+    private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA) public data: {
       idproject: number,
       projectTitle: string,
@@ -46,6 +55,8 @@ export class EditProjectComponent implements OnInit {
   }
   ngOnInit(): void {
     this.editProject();
+    this.listarea();
+    console.log(this.listArea);
   }
   editProject(): void {
     this.edit = true;
@@ -56,6 +67,41 @@ export class EditProjectComponent implements OnInit {
       status: [1, [Validators.required]],
     });
   }
+  listarea(): void{
+    console.log(this.data.idproject);
+    this.areaService.getarea(this.data.idproject).subscribe(data => {
+      console.log(data);
+      this.listArea = data;
+    });
+    /*.subscribe((data) => {
+      this.listProjects = data;
+    });*/
+  }
+  areacreate():void{
+    const dialogRef = this.dialog.open(AreacreateDialogComponent, {
+      width: '500px',
+      data: {
+        idproject : this.data.idproject
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+
+      this.ngOnInit();
+    });
+  }
+  areaedit(idarea :number, name:string):void{
+    const dialogRef = this.dialog.open(AreaeditDialogComponent, {
+      width: '500px',
+      data: {
+        idareas : idarea,
+        areaname : name
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+
+      this.ngOnInit();
+    });
+  }
   updateProject(): void {
     if (this.formProject.valid) {
       const cert = this.formProject.value;
@@ -64,7 +110,19 @@ export class EditProjectComponent implements OnInit {
     }
     this.eachUpload(this.data.idproject);
   }
-
+  areaDelet(idarea :number, name:string){
+    let area:Area={
+      areaId: null,
+      areaName : name,
+      status: 0,
+    };
+    this.areaService
+      .editarea(idarea,area)
+      .subscribe((area) => {
+        console.log(area);
+      });
+    this.onNoClick();
+  }
   update(idproject: number, project: IProjects): void {
     var iduser = parseInt(localStorage.getItem('userId'));
     this.projectService

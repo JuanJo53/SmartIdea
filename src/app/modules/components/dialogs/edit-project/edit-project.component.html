@@ -35,6 +35,30 @@
     </mat-form-field>
   </mat-dialog-content>
   <image-upload [style]="customStyle" (uploadFinished)="onUploadFinish($event)"></image-upload>
+
+  <h1>Area</h1>
+  <button class="button" (click)="areacreate()">Add Area</button>
+  <hr />
+  <div *ngFor="let area of listArea">
+    {{area.areaId}}     {{area.nameArea}}
+    <button
+    class="action-button"
+
+    (click)="areaedit(area.areaId, area.nameArea)"
+    mat-mini-fab
+  >
+    <span><mat-icon>supervised_user_circle</mat-icon> </span>
+  </button>
+    <button
+      color="warn"
+      mat-mini-fab
+      (click)="areaDelet(area.areaId, area.nameArea)"
+    >
+      <span><mat-icon>delete</mat-icon> </span>
+    </button>
+  </div>
+
+
   <mat-dialog-actions>
 
     <button type="submit" mat-button color="primary" cdkFocusInitial>
@@ -43,4 +67,6 @@
 
     <button mat-button mat-raised-button color="warn" (click)="close()">Cancelar</button>
   </mat-dialog-actions>
+
+
 </form>
