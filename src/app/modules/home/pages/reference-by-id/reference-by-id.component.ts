@@ -4,6 +4,8 @@ import { ActivatedRoute } from '@angular/router';
 import { ReferencesService } from '../../../../services/user_services/references.service';
 import { MediaService } from '../../../../services/user_services/media.service';
 import { Media } from '../../../../models/media.model';
+import {Area} from '../../../../models/area.model';
+import {AreaService} from '../../../../services/user_services/area.service';
 
 @Component({
   selector: 'app-reference-by-id',
@@ -13,16 +15,31 @@ import { Media } from '../../../../models/media.model';
 export class ReferenceByIdComponent implements OnInit {
   project: IProjects;
   media: Media[];
+  listArea: Area[];
   userId: number = parseInt(localStorage.getItem('userId'));
   constructor(
     private service: ReferencesService,
     private mediaService: MediaService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private areaService: AreaService
   ) {}
 
   ngOnInit(): void {
     this.loadproject();
     this.loadmedia();
+    this.listarea();
+  }
+
+  listarea(): void{
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log(id);
+    this.areaService.getarea(id).subscribe(data => {
+      console.log(data);
+      this.listArea = data;
+    });
+    /*.subscribe((data) => {
+      this.listProjects = data;
+    });*/
   }
   loadproject(): void {
     const id = this.activatedRoute.snapshot.params.id;
