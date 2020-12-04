@@ -58,7 +58,7 @@ const routes: Routes = [
         component: CardComponent,
       },
       {
-        path: 'cards/:id',
+        path: 'card/:id',
         component: CardComponent,
       },
       {

@@ -3,6 +3,7 @@ import {Card} from '../../../../models/card.model';
 import { ActivatedRoute } from '@angular/router';
 import {PaymentPlanService} from '../../../../services/user_services/paymentPlan.service';
 import {CardService} from '../../../../services/user_services/card.service';
+import {PaymentPlan} from '../../../../models/paymentPlan.model';
 
 @Component({
   selector: 'app-orderReview',
@@ -11,11 +12,13 @@ import {CardService} from '../../../../services/user_services/card.service';
 })
 export class OrderReviewComponent implements OnInit {
   card: Card;
+  paymentPlan: PaymentPlan;
 
-  constructor(private service: CardService, private activatedRoute: ActivatedRoute) { }
+  constructor(private service: CardService, private paymentPlanService:PaymentPlanService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.loadcard();
+    this.loadpaymentplan();
   }
   loadcard(){
     const id = this.activatedRoute.snapshot.params.id;
@@ -27,5 +30,12 @@ export class OrderReviewComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  loadpaymentplan(){
+    const idpp = this.activatedRoute.snapshot.params.id;
+    this.paymentPlanService.getPaymentPlan(idpp).subscribe(data=>{
+      this.paymentPlan = data;
+    });
   }
 }

@@ -8,6 +8,7 @@ import { Skill } from '../../models/skill.model';
 })
 export class ProjectsService {
   constructor(private http: HttpClient) {}
+
   getAllProjects() {
     return this.http.get<IProjects[]>('http://localhost:8080/user/list/1');
   }
