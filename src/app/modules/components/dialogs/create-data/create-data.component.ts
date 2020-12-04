@@ -12,7 +12,6 @@ import { Bill } from '../../../../models/bill.model';
 })
 export class CreateDataComponent implements OnInit {
   formData: FormGroup;
-  userId: number = parseInt(localStorage.getItem('userId'));
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -51,9 +50,11 @@ export class CreateDataComponent implements OnInit {
   }
 
   createbill(bill: Bill): void {
-    this.billService.postnewbill(this.userId, bill).subscribe((bill) => {
-      console.log(bill);
-    });
-    this.onNoClick();
+    // this.billService
+    //   .postnewbill(bill)
+    //   .subscribe((bill) => {
+    //     console.log(bill);
+    //   });
+    // this.onNoClick();
   }
 }

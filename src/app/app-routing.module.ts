@@ -78,10 +78,6 @@ const routes: Routes = [
         component: UserComponent,
       },
       {
-        path: 'paymentPlan/:id',
-        component: PaymentPlanComponent,
-      },
-      {
         path: 'project',
         children: [
           {
@@ -96,15 +92,11 @@ const routes: Routes = [
             path: ':id/paymentPlanBuy/:pid/paymentMethod',
             component: PaymentMethodComponent,
           },
+          {
+            path: ':id/paymentPlanBuy/:pid/orderReview/:cid',
+            component: OrderReviewComponent,
+          },
         ],
-      },
-      {
-        path: 'orderReview',
-        component: OrderReviewComponent,
-      },
-      {
-        path: 'orderReview/:id',
-        component: OrderReviewComponent,
       },
       {
         path: 'userRequest/:id',

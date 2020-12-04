@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Card } from '../../../../models/card.model';
 import { CardService } from '../../../../services/user_services/card.service';
 
@@ -10,7 +11,12 @@ import { CardService } from '../../../../services/user_services/card.service';
 export class PaymentMethodComponent implements OnInit {
   listCard: Card[];
   userId: number = parseInt(localStorage.getItem('userId'));
-  constructor(private service: CardService) {}
+  projectid = this.activatedRoute.snapshot.params.id;
+  paymentid = this.activatedRoute.snapshot.params.pid;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private service: CardService
+  ) {}
   ngOnInit(): void {
     this.loadlist();
   }
