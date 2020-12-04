@@ -71,13 +71,15 @@ export class UserComponent implements OnInit {
   }
 
   loadSkillList(): Skill[] {
-    this.serviceSkill.getSkills().subscribe((data) => {
+    var iduser= parseInt(localStorage.getItem('userId'));
+    this.serviceSkill.getSkills(iduser).subscribe((data) => {
       this.skills = data;
     });
     return this.skills;
   }
   loadtagUser(): Tag[] {
-    this.tagSerive.gettaguser().subscribe((data) => {
+    var iduser= parseInt(localStorage.getItem('userId'));
+    this.tagSerive.gettaguser(iduser).subscribe((data) => {
       this.tags = data;
     });
 
@@ -91,7 +93,8 @@ export class UserComponent implements OnInit {
     return this.allTags;
   }
   loadprofile() {
-    this.service.getUserDeatails().subscribe((data) => {
+    var iduser= localStorage.getItem('userId')
+    this.service.getUserDeatails(parseInt(iduser)).subscribe((data) => {
       this.user = data;
     });
   }
@@ -135,18 +138,20 @@ export class UserComponent implements OnInit {
     });
   }
   update() {
+    var iduser= localStorage.getItem('userId')
     let user1: User = {
       userId: this.user.userId,
       name: this.user.name,
       surname: this.user.surname,
       username: this.user.username,
       email: this.user.email,
+      password: this.user.password,
       description: this.user.description,
       image: this.user.image,
       cellphone: this.user.cellphone,
     };
 
-    this.service.updateProfile(user1).subscribe((error) => alert(error));
+    this.service.updateProfile(parseInt(iduser),user1).subscribe((error) => alert(error));
     this.ngOnInit();
   }
 
@@ -155,6 +160,7 @@ export class UserComponent implements OnInit {
   }
 
   updateimage() {
+    var iduser= localStorage.getItem('userId')
     if (this.image != null) {
       let user1: User = {
         userId: this.user.userId,
@@ -162,16 +168,18 @@ export class UserComponent implements OnInit {
         surname: this.user.surname,
         username: this.user.username,
         email: this.user.email,
+        password: this.user.password,
         description: this.user.description,
         image: this.image,
         cellphone: this.user.cellphone,
       };
-      this.service.updateImage(user1).subscribe((error) => alert(error));
+      this.service.updateImage(parseInt(iduser),user1).subscribe((error) => alert(error));
     }
     location.reload();
   }
 
   add(event: MatChipInputEvent): void {
+    var iduser= parseInt(localStorage.getItem('userId'));
     const input = event.input;
     const value = event.value;
     let tag: Tag;
@@ -184,7 +192,7 @@ export class UserComponent implements OnInit {
     };
     if ((value || '').trim()) {
       this.tags.push(tag);
-      this.tagSerive.posttag(tag).subscribe((tag) => {
+      this.tagSerive.posttag(iduser,tag).subscribe((tag) => {
         console.log(tag);
       });
     }
@@ -202,7 +210,10 @@ export class UserComponent implements OnInit {
 
     if (index >= 0) {
       this.tags.splice(index, 1);
+      console.log(tag.tagId)
+      this.tagSerive.deleteusertag(tag.tagId,1).subscribe((tag) => console.log('Delete successful') );
     }
+
   }
 
   // selected(event: MatAutocompleteSelectedEvent): void {

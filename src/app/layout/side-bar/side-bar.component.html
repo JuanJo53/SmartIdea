@@ -15,19 +15,19 @@
       <a mat-list-item routerLink="/user/feed" routerLinkActive="active"
         >Feed</a
       >
-      <a mat-list-item routerLink="/user/myprojects" routerLinkActive="active"
+      <a *ngIf="this.iduser!=null" mat-list-item routerLink="/user/myprojects" routerLinkActive="active"
         >Mis Proyectos</a
       >
-      <a mat-list-item routerLink="/user/certificate" routerLinkActive="active"
+      <a *ngIf="this.iduser!=null"  mat-list-item routerLink="/user/certificate" routerLinkActive="active"
         >Certificados</a
       >
-      <a mat-list-item routerLink="/user/cards" routerLinkActive="active"
+      <a *ngIf="this.iduser!=null"  mat-list-item routerLink="/user/cards" routerLinkActive="active"
         >Tarjetas de Credito</a
       >
-      <a mat-list-item routerLink="/user/bill" routerLinkActive="active"
+      <a *ngIf="this.iduser!=null"  mat-list-item routerLink="/user/bill" routerLinkActive="active"
         >Facturacion</a
       >
-      <a mat-list-item routerLink="/user/references" routerLinkActive="active"
+      <a *ngIf="this.iduser!=null"  mat-list-item routerLink="/user/references" routerLinkActive="active"
         >Referencias</a
       >
     </mat-nav-list>
@@ -45,11 +45,20 @@
       </button>
       <div class="row between-xs middle-xs header-row">
         <span>Smart Idea</span>
-        <a routerLink="/user/profile">
+        <a *ngIf="this.iduser==null" (click)="login()">
+          LogIn
+
+        </a>
+        <a *ngIf="this.iduser!=null" (click)="logout()">
+          LogOut
+        </a>
+        <a routerLink="/user/profile"
+        *ngIf="this.iduser!=null"
+        >
           <img src="{{ user?.image }}" alt="Avatar" class="avatar" />
           <span class="user-name">{{ user?.username }}</span>
         </a>
-        <div class="notification-wrapper">
+        <div class="notification-wrapper" *ngIf="this.iduser!=null">
           <div class="notification-btn">
             <button mat-icon-button [matMenuTriggerFor]="notificationMenu">
               <mat-icon [matBadge]="notificationCount" matBadgeColor="warn"

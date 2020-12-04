@@ -8,11 +8,11 @@ import {HttpClient} from "@angular/common/http";
 export class SkillService {
   constructor(private http: HttpClient) { }
 
-  getSkills(){
-    return this.http.get<Skill[]>('http://localhost:8080/skills/userskills/1');
+  getSkills(iduser: number){
+    return this.http.get<Skill[]>(`http://localhost:8080/skills/userskills/${iduser}`);
   }
-  postnewskill(skill: Skill) {
-    return this.http.post('http://localhost:8080/skills/userSkill/1', skill);
+  postnewskill(iduser:number,skill: Skill) {
+    return this.http.post(`http://localhost:8080/skills/userSkill/${iduser}`, skill);
   }
   delete( idskill: number, skill: Skill){
     return this.http.put(`http://localhost:8080/skills/userSkill/${idskill}`,skill);
