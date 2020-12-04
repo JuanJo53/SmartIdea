@@ -27,11 +27,22 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="column" *ngFor="let images of media">
-      <a target="_blank" href="{{images?.url}}">
-        <img src="{{images?.url}}" alt="" style="width:150px">
-      </a>
-    </div>
+</div>
+
+<div class="row">
+  <div class="column" *ngFor="let images of media">
+    <a target="_blank" href="{{images?.url}}">
+      <img src="{{images?.url}}" alt="" style="width:150px">
+    </a>
   </div>
+</div>
+
+<div>
+  <h1>Area</h1>
+  <hr />
+  <div *ngFor="let area of listArea">
+    {{area.areaId}}     {{area.nameArea}}
+  </div>
+
+
 </div>

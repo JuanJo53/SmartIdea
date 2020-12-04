@@ -43,14 +43,22 @@ export class LoginComponent implements OnInit {
     console.log(user);
 
     this.userService.loginclient(user).subscribe((data) => {
+
+      alert(data);
       if (data != null) {
         this.clienReturn = data;
-        alert('Bienvenido ' + this.clienReturn.username);
-        localStorage.setItem('email', this.clienReturn.email);
-        localStorage.setItem('userId', this.clienReturn.userId + '');
-        console.log(localStorage);
-        console.log('Login');
+        if(this.clienReturn.username!=null){
+          alert('Bienvenido ' + this.clienReturn.username);
+          localStorage.setItem('email', this.clienReturn.email);
+          localStorage.setItem('userId', this.clienReturn.userId + '');
+          console.log(localStorage);
+          console.log('Login');
+        }else{
+          alert("no es un usuario");
+          localStorage.clear();
+        }
       } else {
+        alert("no es un usuario");
         // this.contador++;
         // if (this.contador>3) {
         //   this.snackBar.open('No puede ingresar al sistema', '', {duration: 2000,});
