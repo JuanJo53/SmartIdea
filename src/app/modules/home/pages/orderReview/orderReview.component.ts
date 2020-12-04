@@ -47,12 +47,8 @@ export class OrderReviewComponent implements OnInit {
   loadproject() {
     var iduser = parseInt(localStorage.getItem('userId'));
     const idpr = this.activatedRoute.snapshot.params.id;
-<<<<<<< HEAD
-    this.projectsService.getProject(idpr).subscribe((data) => {
-      console.log(data);
-=======
-    this.projectService.getProject(idpr,iduser).subscribe((data) => {
->>>>>>> b6a247b8139dc1e6869e0d361ac8b349d4e5c223
+
+    this.projectsService.getProject(idpr,iduser).subscribe((data) => {
       this.project = data;
     });
   }

@@ -10,6 +10,10 @@ import {IProjects} from '../../models/projects.model';
 export class UserService {
 
   constructor(private http: HttpClient) {}
+
+  postuser(user: User){
+    return this.http.post(`http://localhost:8080/users`,user)
+  }
   getUserDeatails(iduser:number) {
     return this.http.get<User>(`http://localhost:8080/users/${iduser}`);
   }

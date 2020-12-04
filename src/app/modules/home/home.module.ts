@@ -124,6 +124,8 @@ import { BillDetailComponent } from '../components/dialogs/bill-detail/bill-deta
     CreateCardComponent,
     EditCardComponent,
     CreateDataComponent,
+    SignupComponent,
+    LoginComponent,
   ],
 })
 export class HomeModule {}
