@@ -52,8 +52,9 @@ export class CreateCertificateComponent implements OnInit {
   }
 
   createCertificate(newCertificate: certificateRequest): void {
+    var iduser = parseInt(localStorage.getItem('userId'));
     this.certificatesService
-      .postNewCertificate(this.userId, newCertificate)
+      .postNewCertificate(iduser, newCertificate)
       .subscribe((certificate) => {
         console.log(certificate);
       });

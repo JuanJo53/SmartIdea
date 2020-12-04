@@ -55,7 +55,8 @@ export class CertificatesComponent implements OnInit {
     });
   }
   fecthCertificates(): void {
-    var iduser= parseInt(localStorage.getItem('userId'));
+    var iduser = parseInt(localStorage.getItem('userId'));
+    console.log(iduser);
     this.certificateService
       .getAllCertificates(iduser)
       .subscribe((certificates) => {
