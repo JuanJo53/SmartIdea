@@ -132,7 +132,7 @@ import {AreaeditDialogComponent} from '../components/dialogs/areaedit-dialog/are
     SignupComponent,
     LoginComponent,
     AreacreateDialogComponent,
-    AreaeditDialogComponent
+    AreaeditDialogComponent,
   ],
 })
 export class HomeModule {}
