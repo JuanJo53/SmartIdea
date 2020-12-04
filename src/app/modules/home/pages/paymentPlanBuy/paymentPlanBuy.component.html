@@ -1,17 +1,11 @@
+<h1>Comprar Publicidad</h1>
 <section class="container">
-  <h1>Comprar Publicidad</h1>
-
-  <div class="content">
-    <h2 class="text">Proyecto:{{ project?.projectTitle }}</h2>
-  </div>
-
-  <div class="content">
+    <h2 class="text"><strong>Proyecto: </strong>{{ project?.projectTitle }}</h2>
     <!--Purchase information according to the selected payment plan -->
-    <h2 class="text">Plan :{{ paymentplan?.plan }}</h2>
-    <h2 class="text">Descripcion :{{ paymentplan?.description }}</h2>
-    <h2 class="text">Costo :{{ paymentplan?.cost }}</h2>
-    <h2 class="text">Duracion de la publicidad :{{ paymentplan?.duration }}</h2>
-  </div>
+    <h2 class="text"><strong>Plan: </strong>{{ paymentplan?.plan }}</h2>
+    <h2 class="text"><strong>Descripción: </strong>{{ paymentplan?.description }}</h2>
+    <h2 class="text"><strong>Costo: </strong>{{ paymentplan?.cost }} Bs.</h2>
+    <h2 class="text"><strong>Duración de la Publicidad: </strong>{{ paymentplan?.duration }} Mes (es)</h2>
 
   <div class="table">
     <!-- Button to select the card and make the purchase-->

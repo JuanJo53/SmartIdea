@@ -19,7 +19,7 @@ h1 {
   padding: 20px;
   margin: 20px;
   text-align: center;
-  color: #343759;
+  color: #5a5072;
   border: 1px solid black;
   border-radius: 4px;
   box-shadow: 0px 0px 4px 0px black;
@@ -48,7 +48,7 @@ h1 {
   display: inline-block;
   width: 150px;
   padding: 12px;
-  background: #2c8992;
+  background: #7a29b1;
   text-decoration: none;
   color: white;
   border-radius: 70px;
@@ -65,7 +65,7 @@ h1 {
   cursor: pointer;
 }
 .PayButton:hover {
-  background-color: #4bc9d7;
+  background-color:#aa53e2;
 }
 
 @media (max-width: 1070px) {
