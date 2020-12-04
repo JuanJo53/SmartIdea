@@ -82,24 +82,22 @@ const routes: Routes = [
         component: PaymentPlanComponent,
       },
       {
-        path: 'project/:id',
-        component: PaymentPlanComponent,
+        path: 'project',
         children: [
           {
-            path: 'paymentMethod/:id',
+            path: ':id',
+            component: PaymentPlanComponent,
+          },
+          {
+            path: ':id/paymentPlanBuy/:pid',
+            component: PaymentPlanBuyComponent,
+          },
+          {
+            path: ':id/paymentPlanBuy/:pid/paymentMethod',
             component: PaymentMethodComponent,
-          },
-          {
-            path: 'paymentPlanBuy',
-            component: PaymentPlanBuyComponent,
-          },
-          {
-            path: 'paymentPlanBuy/:id',
-            component: PaymentPlanBuyComponent,
           },
         ],
       },
-
       {
         path: 'orderReview',
         component: OrderReviewComponent,

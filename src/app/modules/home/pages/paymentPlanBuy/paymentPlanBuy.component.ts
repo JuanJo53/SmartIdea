@@ -36,8 +36,6 @@ export class PaymentPlanBuyComponent implements OnInit {
         console.log(err);
       }
     );
-
-    console.log(this.paymentplan.paymentPlanId);
   }
   loadproject() {
     var iduser = parseInt(localStorage.getItem('userId'));
