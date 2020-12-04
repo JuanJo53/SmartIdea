@@ -53,6 +53,9 @@ import { CreateDataComponent } from '../components/dialogs/create-data/create-da
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BillDetailComponent } from '../components/dialogs/bill-detail/bill-detail.component';
+import {AreacreateDialogComponent} from '../components/dialogs/areacreate-dialog/areacreate-dialog.component';
+import {AreaeditDialogComponent} from '../components/dialogs/areaedit-dialog/areaedit-dialog.component';
+
 @NgModule({
   declarations: [
     HomeComponent,
@@ -89,6 +92,8 @@ import { BillDetailComponent } from '../components/dialogs/bill-detail/bill-deta
     PaymentMethodComponent,
     CreateDataComponent,
     BillDetailComponent,
+    AreacreateDialogComponent,
+    AreaeditDialogComponent
   ],
   imports: [
     CommonModule,
@@ -126,6 +131,8 @@ import { BillDetailComponent } from '../components/dialogs/bill-detail/bill-deta
     CreateDataComponent,
     SignupComponent,
     LoginComponent,
+    AreacreateDialogComponent,
+    AreaeditDialogComponent
   ],
 })
 export class HomeModule {}
