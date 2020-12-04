@@ -26,7 +26,7 @@ export class CertificatesComponent implements OnInit {
   credentialId: string;
   credentialURL: string;
   expirationDate: string;
-  // userId: number = 1;
+  userId: number = parseInt(localStorage.getItem('userId'));
   constructor(
     public dialog: MatDialog,
     private certificateService: CertificateService
@@ -55,9 +55,8 @@ export class CertificatesComponent implements OnInit {
     });
   }
   fecthCertificates(): void {
-    var iduser= parseInt(localStorage.getItem('userId'));
     this.certificateService
-      .getAllCertificates(iduser)
+      .getAllCertificates(this.userId)
       .subscribe((certificates) => {
         this.certificates = certificates;
       });

@@ -1,0 +1,71 @@
+h1{
+  font-weight: bold;
+  margin-top: 60px;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.container {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  aling-items: center;
+  justify-content: center;
+}
+.flex {
+  display: flex;
+}
+.content{
+  padding: 20px;
+  text-align: center;
+  color: #343759;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px 0px black;
+  width: 75%;
+  height: 400px;
+  box-sizing: border-box;
+  margin: 20px 60px;
+}
+.content> h2 {
+  font-weight: bold;
+  margin: 20px;
+  display: block;
+  font-size: 21px;
+  text-align: left;
+}
+.SelectButton {
+  margin-top: 30px;
+  margin-right:215px;
+  float: right;
+  display: inline-block;
+  width: 100px;
+  padding: 10px;
+  background: #7a29b1;
+  text-decoration: none;
+  color: white;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 600;
+}
+.table:hover {
+  background-color: #cdcbcb;
+  color: #ffffff;
+}
+.SelectButton:hover {
+  background-color: #aa53e2;
+}
+
+@media (max-width: 1070px) {
+  .table {
+    width: 45%;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .table {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
