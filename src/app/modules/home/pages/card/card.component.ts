@@ -62,11 +62,10 @@ export class CardComponent implements OnInit {
     });
   }
   deleteCard(id: number): void {
-    var iduser = parseInt(localStorage.getItem('userId'));
     const dialogRef = this.dialog.open(WarningDialogComponent, {
       width: '500px',
       data: {
-        message: '¿Esta seguro que desea eliminar el certificado?',
+        message: '¿Esta seguro que desea eliminar la tarjeta de crédito?',
       },
     });
     dialogRef.afterClosed().subscribe((result) => {

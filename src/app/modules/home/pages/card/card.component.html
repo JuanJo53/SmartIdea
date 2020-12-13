@@ -33,12 +33,9 @@
         <button class="action-button" mat-mini-fab (click)="editcard(card)">
           <span><mat-icon>edit</mat-icon> </span>
         </button>
+
         <button
-          class="action-button"
-          mat-mini-fab
-          (click)="deleteCard(card)"
-          color="warn"
-        >
+          class="action-button" mat-mini-fab (click)="deleteCard(card.cardId)" color="warn">
           <span><mat-icon>delete</mat-icon> </span>
         </button>
       </td>
