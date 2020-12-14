@@ -23,7 +23,7 @@ h1 {
   border-radius: 4px;
   box-shadow: 0px 0px 4px 0px black;
   width: 75%;
-  height: 700px;
+  height: 650px;
   box-sizing: border-box;
   margin: 20px 60px;
 }
@@ -34,8 +34,21 @@ h1 {
   text-align: left;
 }
 .SelectButton {
-  margin-top: 30px;
+  margin-top: 130px;
   width: 100px;
+  padding: 10px;
+  background: #7a29b1;
+  text-decoration: none;
+  color: white;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 19px;
+  font-weight: 600;
+}
+.SelectButton2 {
+  position: absolute;
+  margin: 20px 60px;
+  width: 350px;
   padding: 10px;
   background: #7a29b1;
   text-decoration: none;
