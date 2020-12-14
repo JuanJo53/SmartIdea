@@ -4,10 +4,6 @@ import {Skill} from "../../../../models/skill.model";
 import {ActivatedRoute} from "@angular/router";
 import {SkillService} from "../../../../services/user_services/skill.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-
-
-
-
 @Component({
   selector: 'app-edit-skill',
   templateUrl: './edit-skill.component.html',

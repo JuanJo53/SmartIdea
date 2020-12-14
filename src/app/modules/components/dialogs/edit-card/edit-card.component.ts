@@ -25,7 +25,6 @@ export class EditCardComponent implements OnInit {
       cardName: string;
       expirationYear: number;
       expirationMonth: number;
-      expirationDate: string;
       cvc: number;
     }
   ) {}
@@ -51,7 +50,6 @@ export class EditCardComponent implements OnInit {
       expirationYear: ['', [Validators.required]],
       expirationMonth: ['', [Validators.required]],
       cvc: ['', [Validators.required]],
-      creationDate: ['', [Validators.required]],
     });
   }
   updateCard(): void {
