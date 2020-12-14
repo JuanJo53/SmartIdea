@@ -9,16 +9,23 @@
       <strong>Duración de la publicidad: </strong
       >{{ paymentplan?.duration }} Mes (es)
     </h2>
-    
+    <h2 class="text"><strong>Direccion de Factura: </strong>{{bill?.billingAddress}}</h2>
+    <h2 class="text"><strong>País: </strong>{{bill?.country}}</h2>
+    <h2 class="text"><strong>Ciudad: </strong>{{bill?.city}}</h2>
      <h2 class="text"> <strong>Total a Pagar: </strong>{{ paymentplan?.cost }} Bs.</h2>
 
+    <mat-divider></mat-divider>
     <button
-      id="{{bill.billId}}"
+      type="button"
+      class="SelectButton2">
+      Agregar datos para la factura
+    </button>
+
+    <button
       type="button"
       class="SelectButton"
       (click)="newBill()">
       Pagar
     </button>
-    <mat-divider></mat-divider>
   </div>
 </section>
