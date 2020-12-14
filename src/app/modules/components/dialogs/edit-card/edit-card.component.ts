@@ -25,6 +25,7 @@ export class EditCardComponent implements OnInit {
       cardName: string;
       expirationYear: number;
       expirationMonth: number;
+      expirationDate: string;
       cvc: number;
     }
   ) {}
@@ -44,7 +45,6 @@ export class EditCardComponent implements OnInit {
   editCard(): void {
     this.edit = true;
     this.formCard = this.fromBuilder.group({
-      cardId: [0, [Validators.required]],
       cardName: ['', [Validators.required]],
       cardNumber: ['', [Validators.required]],
       expirationYear: ['', [Validators.required]],
@@ -54,9 +54,9 @@ export class EditCardComponent implements OnInit {
   }
   updateCard(): void {
     if (this.formCard.valid) {
-      const cert = this.formCard.value;
-      console.log(cert);
-      this.update(this.data.cardId, cert);
+      const card = this.formCard.value;
+      console.log(card);
+      this.update(this.data.cardId, card);
     } else {
       console.log('NOT VALID');
     }

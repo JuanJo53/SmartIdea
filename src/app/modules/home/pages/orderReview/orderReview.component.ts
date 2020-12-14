@@ -38,6 +38,7 @@ export class OrderReviewComponent implements OnInit {
     this.loadcard();
     this.loadpaymentplan();
     this.loadproject();
+    this.newBill();
   }
 
   loadcard() {
