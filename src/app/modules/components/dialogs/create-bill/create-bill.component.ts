@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { BillService } from '../../../../services/user_services/bill.service';
 import { Bill } from '../../../../models/bill.model';
+import {Card} from '../../../../models/card.model';
 
 
 @Component({
@@ -49,8 +50,7 @@ export class CreateBillComponent implements OnInit {
       this.createbill(cert);
     }
   }
-
-  createbill(bill: Bill): void {
+   createbill(bill: Bill): void {
     // this.billService
     //   .postnewbill(bill)
     //   .subscribe((bill) => {

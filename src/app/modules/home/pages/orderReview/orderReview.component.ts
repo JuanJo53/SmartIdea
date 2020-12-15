@@ -8,6 +8,11 @@ import { CardService } from '../../../../services/user_services/card.service';
 import { PaymentPlan } from '../../../../models/paymentPlan.model';
 import { IProjects } from '../../../../models/projects.model';
 import { ProjectsService } from '../../../../services/user_services/projects.service';
+import { CreateBillComponent } from '../../../components/dialogs/create-bill/create-bill.component';
+import {CreateCardComponent} from '../../../components/dialogs/create-card/create-card.component';
+import {MatDialog} from '@angular/material/dialog';
+import {FormBuilder} from '@angular/forms';
+
 
 @Component({
   selector: 'app-orderReview',
@@ -28,7 +33,8 @@ export class OrderReviewComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private projectsService: ProjectsService,
     private paymentPlanService: PaymentPlanService,
-    private billService: BillService
+    private billService: BillService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -67,6 +73,17 @@ export class OrderReviewComponent implements OnInit {
         this.project = data;
         console.log('PROJECT: ' + this.project);
       });
+  }
+  createBill(): void {
+    const dialogRef = this.dialog.open(CreateBillComponent, {
+      width: '500px',
+      data: {
+        status: 1,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      this.ngOnInit();
+    });
   }
   newBill() {
     this.billService
