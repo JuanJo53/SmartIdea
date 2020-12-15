@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { CardService } from '../../../../services/user_services/card.service';
 import { Card } from '../../../../models/card.model';
 
@@ -12,12 +12,14 @@ import { Card } from '../../../../models/card.model';
 })
 export class EditCardComponent implements OnInit {
   formCard: FormGroup;
+  listCard: Card[];
   userId: number = parseInt(localStorage.getItem('userId'));
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
     public dialogRef: MatDialogRef<EditCardComponent>,
     private cardService: CardService,
+    /*private dialog: MatDialog,*/
     @Inject(MAT_DIALOG_DATA)
     public data: {
       cardId: number;
@@ -25,7 +27,6 @@ export class EditCardComponent implements OnInit {
       cardName: string;
       expirationYear: number;
       expirationMonth: number;
-      expirationDate: string;
       cvc: number;
     }
   ) {}
@@ -62,7 +63,10 @@ export class EditCardComponent implements OnInit {
     }
   }
   update(cardId: number, card: Card): void {
-    this.cardService.updatecard(this.userId, card, cardId).subscribe((card) => {
+    var iduser = parseInt(localStorage.getItem('userId'));
+    this.cardService
+      .updatecard( card, cardId, iduser)
+      .subscribe((card) => {
       console.log(card);
     });
     this.onNoClick();

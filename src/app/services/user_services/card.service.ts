@@ -19,7 +19,7 @@ export class CardService {
   postnewcard(userid: number, card: Card) {
     return this.http.post(`http://localhost:8080/user/${userid}/card`, card);
   }
-  updatecard(userid: number, card: Card, id: number) {
+  updatecard(card: Card, id: number,userid: number) {
     return this.http.put(
       `http://localhost:8080/user/${userid}/card/1/${id}`,
       card

@@ -15,7 +15,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CardComponent implements OnInit {
   listCard: Card[];
-  displayedColumns: string[] = ['Nombre', 'Numero', 'Expiracion', 'id_card'];
+  displayedColumns: string[] = ['Nombre', 'Numero', 'Expiracion','CVC', 'id_card'];
   form: FormGroup;
   userId: number = parseInt(localStorage.getItem('userId'));
   constructor(

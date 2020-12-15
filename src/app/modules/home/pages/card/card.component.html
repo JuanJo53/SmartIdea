@@ -27,6 +27,13 @@
         {{ card.expirationMonth }}/{{ card.expirationYear }}
       </td>
     </ng-container>
+    <ng-container matColumnDef="CVC">
+      <th mat-header-cell *matHeaderCellDef>CVC</th>
+      <td mat-cell *matCellDef="let card">
+        {{ card.cvc }}
+      </td>
+    </ng-container>
+
     <ng-container matColumnDef="id_card">
       <th mat-header-cell *matHeaderCellDef>Acciones</th>
       <td mat-cell *matCellDef="let card">
