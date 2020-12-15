@@ -5,18 +5,19 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { BillService } from '../../../../services/user_services/bill.service';
 import { Bill } from '../../../../models/bill.model';
 
+
 @Component({
-  selector: 'app-create-data',
-  templateUrl: './create-data.component.html',
-  styleUrls: ['./create-data.component.css'],
+  selector: 'app-create-bill',
+  templateUrl: './create-bill.component.html',
+  styleUrls: ['./create-bill.component.css'],
 })
-export class CreateDataComponent implements OnInit {
-  formData: FormGroup;
+export class CreateBillComponent implements OnInit {
+  formBill: FormGroup;
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
     private billService: BillService,
-    public dialogRef: MatDialogRef<CreateDataComponent>
+    public dialogRef: MatDialogRef<CreateBillComponent>
   ) {}
   edit = false;
   onNoClick(): void {
@@ -33,7 +34,7 @@ export class CreateDataComponent implements OnInit {
   }
   editBill(): void {
     this.edit = true;
-    this.formData = this.fromBuilder.group({
+    this.formBill = this.fromBuilder.group({
       billId: [0, [Validators.required]],
       buyDate: ['', [Validators.required]],
       billingAddress: ['', [Validators.required]],
@@ -41,9 +42,9 @@ export class CreateDataComponent implements OnInit {
       city: ['', [Validators.required]],
     });
   }
-  savedata(): void {
-    if (this.formData.valid) {
-      const cert = this.formData.value;
+  savebill(): void {
+    if (this.formBill.valid) {
+      const cert = this.formBill.value;
       console.log(cert);
       this.createbill(cert);
     }

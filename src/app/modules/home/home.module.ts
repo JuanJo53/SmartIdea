@@ -49,12 +49,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NotificationDetailsComponent } from '../components/dialogs/notification-details/notification-details.component';
 import { PaymentMethodComponent } from './pages/paymentMethod/paymentMethod.component';
-import { CreateDataComponent } from '../components/dialogs/create-data/create-data.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { BillDetailComponent } from '../components/dialogs/bill-detail/bill-detail.component';
 import {AreacreateDialogComponent} from '../components/dialogs/areacreate-dialog/areacreate-dialog.component';
 import {AreaeditDialogComponent} from '../components/dialogs/areaedit-dialog/areaedit-dialog.component';
+import { CreateBillComponent } from '../components/dialogs/create-bill/create-bill.component';
 
 @NgModule({
   declarations: [
@@ -90,10 +90,10 @@ import {AreaeditDialogComponent} from '../components/dialogs/areaedit-dialog/are
     SignupComponent,
     NotificationDetailsComponent,
     PaymentMethodComponent,
-    CreateDataComponent,
     BillDetailComponent,
     AreacreateDialogComponent,
-    AreaeditDialogComponent
+    AreaeditDialogComponent,
+    CreateBillComponent,
   ],
   imports: [
     CommonModule,
@@ -128,11 +128,11 @@ import {AreaeditDialogComponent} from '../components/dialogs/areaedit-dialog/are
     EditProjectComponent,
     CreateCardComponent,
     EditCardComponent,
-    CreateDataComponent,
     SignupComponent,
     LoginComponent,
     AreacreateDialogComponent,
     AreaeditDialogComponent,
+    CreateBillComponent,
   ],
 })
 export class HomeModule {}
