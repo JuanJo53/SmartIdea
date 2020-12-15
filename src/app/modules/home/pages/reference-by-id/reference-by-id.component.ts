@@ -6,6 +6,7 @@ import { MediaService } from '../../../../services/user_services/media.service';
 import { Media } from '../../../../models/media.model';
 import {Area} from '../../../../models/area.model';
 import {AreaService} from '../../../../services/user_services/area.service';
+import {Tag} from "../../../../models/tag.model";
 
 @Component({
   selector: 'app-reference-by-id',
@@ -16,6 +17,7 @@ export class ReferenceByIdComponent implements OnInit {
   project: IProjects;
   media: Media[];
   listArea: Area[];
+  listTags: Tag[];
   userId: number = parseInt(localStorage.getItem('userId'));
   constructor(
     private service: ReferencesService,
@@ -57,5 +59,14 @@ export class ReferenceByIdComponent implements OnInit {
     this.mediaService.getmedia(idpr).subscribe((data) => {
       this.media = data;
     });
+  }
+
+  listag(){
+    // const id = this.activatedRoute.snapshot.params.id;
+    // console.log(id);
+    // this.areaService.getarea(id).subscribe(data => {
+    //   console.log(data);
+    //   this.listArea = data;
+    // });
   }
 }

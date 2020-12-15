@@ -1,5 +1,5 @@
 export interface Area {
   areaId: number;
-  areaName: string;
+  nameArea: string;
   status: number;
 }

@@ -31,10 +31,10 @@ export class AreaeditDialogComponent implements OnInit {
       console.log(cert);
       let area:Area={
         areaId: null,
-        areaName : this.formArea.value.areaName,
+        nameArea : this.formArea.value.areaName,
         status: 1,
       };
-      console.log(area.areaName);
+      console.log(area.nameArea);
       this.updateArea(area);
     }
   }

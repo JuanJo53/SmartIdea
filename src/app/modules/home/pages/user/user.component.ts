@@ -149,8 +149,8 @@ export class UserComponent implements OnInit {
       cellphone: this.user.cellphone,
     };
 
-    this.service.updateProfile(parseInt(iduser),user1).subscribe((error) => alert(error));
-    this.ngOnInit();
+    this.service.updateProfile(parseInt(iduser),user1).subscribe();
+    // this.ngOnInit();
   }
 
   onUploadFinish(event) {
@@ -171,7 +171,7 @@ export class UserComponent implements OnInit {
         image: this.image,
         cellphone: this.user.cellphone,
       };
-      this.service.updateImage(parseInt(iduser),user1).subscribe((error) => alert(error));
+      this.service.updateImage(parseInt(iduser),user1).subscribe();
     }
     location.reload();
   }

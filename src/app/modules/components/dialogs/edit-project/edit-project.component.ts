@@ -113,7 +113,7 @@ export class EditProjectComponent implements OnInit {
   areaDelet(idarea :number, name:string){
     let area:Area={
       areaId: null,
-      areaName : name,
+      nameArea : name,
       status: 0,
     };
     this.areaService
