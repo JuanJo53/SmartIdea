@@ -55,6 +55,7 @@ export class CardComponent implements OnInit {
         cardNumber: card.cardNumber,
         expirationYear: card.expirationYear,
         expirationMonth: card.expirationMonth,
+      //  cvc: card.cvc,
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
