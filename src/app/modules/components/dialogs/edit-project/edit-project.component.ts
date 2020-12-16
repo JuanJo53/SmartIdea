@@ -1,5 +1,5 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {IProjects} from '../../../../models/projects.model';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
@@ -17,6 +17,13 @@ import {CreateSkillComponent} from '../create-skill/create-skill.component';
 import {EditSkillComponent} from '../edit-skill/edit-skill.component';
 import {WarningDialogComponent} from '../warning-dialog/warning-dialog.component';
 import {SkillService} from '../../../../services/user_services/skill.service';
+import {Tag} from "../../../../models/tag.model";
+import {MatAutocomplete, MatAutocompleteSelectedEvent} from "@angular/material/autocomplete";
+import {MatChipInputEvent} from "@angular/material/chips";
+import {map, startWith} from "rxjs/operators";
+import {COMMA, ENTER} from "@angular/cdk/keycodes";
+import {Observable} from "rxjs";
+import {TagsService} from "../../../../services/user_services/tags.service";
 
 @Component({
   selector: 'app-edit-project',
@@ -24,6 +31,17 @@ import {SkillService} from '../../../../services/user_services/skill.service';
   styleUrls: ['./edit-project.component.css']
 })
 export class EditProjectComponent implements OnInit {
+  visible = true;
+  selectable = true;
+  removable = true;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  displayedColumnsTag: string[] = ['#', 'Habilidades', 'id_card'];
+  tagCtrl = new FormControl();
+  filteredTags: Observable<Tag[]>;
+  tags: Tag[] = [];
+  allTags: Tag[] = [];
+  @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -33,6 +51,7 @@ export class EditProjectComponent implements OnInit {
     private areaService: AreaService,
     private serviceSkill: SkillService,
     private dialog: MatDialog,
+    private tagSerive: TagsService,
     @Inject(MAT_DIALOG_DATA) public data: {
       idproject: number,
       projectTitle: string,
@@ -41,7 +60,9 @@ export class EditProjectComponent implements OnInit {
       status: number
     }
 
-  ) { }
+  ) {    this.filteredTags = this.tagCtrl.valueChanges.pipe(
+    startWith(null),
+    map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice())); }
   displayedColumns: string[] = ['#', 'Area', 'id_card'];
   images: FileHolder[] = [];
   listProjects: IProjects[];
@@ -84,6 +105,8 @@ export class EditProjectComponent implements OnInit {
     this.editProject();
     this.listarea();
     this.loadSkillList();
+    this.loadtagList();
+    this.loadtagProject();
     console.log(this.listArea);
   }
   editProject(): void {
@@ -126,12 +149,12 @@ export class EditProjectComponent implements OnInit {
       this.ngOnInit();
     });
   }
-  areaedit(idarea: number, name: string): void{
+  areaedit(idarea: number, areaName: string): void{
     const dialogRef = this.dialog.open(AreaeditDialogComponent, {
       width: '500px',
       data: {
         idareas : idarea,
-        areaName : name
+        nameArea : areaName
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
@@ -229,5 +252,81 @@ export class EditProjectComponent implements OnInit {
       console.log(media);
     });
   }
+  loadtagList(): Tag[] {
+    this.tagSerive.gettags().subscribe((data) => {
+      this.allTags = data;
+    });
 
+    return this.allTags;
+  }
+  loadtagProject(): Tag[] {
+    this.tagSerive.gettagproject(this.data.idproject).subscribe((data) => {
+      this.tags = data;
+    });
+
+    return this.tags;
+  }
+  add(event: MatChipInputEvent): void {
+    var iduser= parseInt(localStorage.getItem('userId'));
+    const input = event.input;
+    const value = event.value;
+    let tag: Tag;
+    // Add our fruit
+    tag = {
+      tagId: 0,
+      nameTags: value.trim(),
+      verified: 1,
+      status: 1,
+    };
+    if ((value || '').trim()) {
+      this.tags.push(tag);
+      this.tagSerive.posttag(iduser,tag).subscribe((tag) => {
+        console.log(tag);
+      });
+    }
+
+    // Reset the input value
+    if (input) {
+      input.value = '';
+    }
+
+    this.tagCtrl.setValue(null);
+  }
+
+  remove(tag: Tag): void {
+    const index = this.tags.indexOf(tag);
+
+    if (index >= 0) {
+      this.tags.splice(index, 1);
+      console.log(tag.tagId)
+      this.tagSerive.deleteprojecttotag(tag.tagId,this.data.idproject).subscribe((tag) => console.log('Delete successful') );
+    }
+
+  }
+  selected(event: MatAutocompleteSelectedEvent): void {
+
+    let tag:Tag={
+      tagId: event.option.value.tagId,
+      nameTags: event.option.viewValue,
+      verified: event.option.value.verified,
+      status: event.option.value.status,
+    }
+    console.log(tag)
+    this.tags.push(tag);
+    this.tagSerive.addprojecttotag(this.data.idproject,tag).subscribe(value => console.log('added'))
+    this.tagInput.nativeElement.value = '';
+    this.tagCtrl.setValue(null);
+  }
+
+  private _filter(value: string): Tag[] {
+    const filterValue = value.toLowerCase();
+    console.log(value)
+    let listfliter:Tag[]=[];
+    this.allTags.filter(value1 => {
+      if( value1.nameTags.toLowerCase().indexOf(filterValue) === 0){
+        listfliter.push(value1)
+      }
+    })
+    return listfliter;
+  }
 }

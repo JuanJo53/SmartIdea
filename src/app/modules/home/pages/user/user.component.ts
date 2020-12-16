@@ -208,12 +208,13 @@ export class UserComponent implements OnInit {
   }
 
   remove(tag: Tag): void {
+    var iduser = parseInt(localStorage.getItem('userId'));
     const index = this.tags.indexOf(tag);
 
     if (index >= 0) {
       this.tags.splice(index, 1);
       console.log(tag.tagId)
-      this.tagSerive.deleteusertag(tag.tagId,1).subscribe((tag) => console.log('Delete successful') );
+      this.tagSerive.deleteusertag(tag.tagId,iduser).subscribe((tag) => console.log('Delete successful') );
     }
 
   }

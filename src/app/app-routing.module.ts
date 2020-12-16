@@ -19,6 +19,7 @@ import { OrderReviewComponent } from './modules/home/pages/orderReview/orderRevi
 import { UserrequesteComponent } from './modules/home/pages/userrequeste/userrequeste.component';
 import { PaymentMethodComponent } from './modules/home/pages/paymentMethod/paymentMethod.component';
 import {ProjectPreviewOwnerComponent} from "./modules/home/pages/project-preview-owner/project-preview-owner.component";
+import {UserInProjectComponent} from "./modules/home/pages/user-in-project/user-in-project.component";
 
 const routes: Routes = [
   {
@@ -100,6 +101,10 @@ const routes: Routes = [
           {
             path: ':id/paymentPlanBuy/:pid/orderReview/:cid',
             component: OrderReviewComponent,
+          },
+          {
+            path: 'users/:idproject',
+            component: UserInProjectComponent,
           },
         ],
       },

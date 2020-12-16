@@ -35,6 +35,35 @@
     </mat-form-field>
   </mat-dialog-content>
   <image-upload [style]="customStyle" (uploadFinished)="onUploadFinish($event)"></image-upload>
+  <div>
+    <mat-form-field class="example-chip-list">
+      <mat-chip-list #chipList aria-label="Tag selection">
+        <mat-chip
+          *ngFor="let tag of tags"
+          [selectable]="selectable"
+          [removable]="removable"
+          (removed)="remove(tag)"
+        >
+          {{ tag.nameTags }}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input
+          placeholder="New Tag..."
+          #tagInput
+          [formControl]="tagCtrl"
+          [matChipInputFor]="chipList"
+          [matAutocomplete]="auto"
+          [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+          (matChipInputTokenEnd)="add($event)"
+        />
+      </mat-chip-list>
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+        <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+          {{tag.nameTags}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
   <table border="1">
 
     <tbody>
@@ -91,6 +120,8 @@
         </div>
       </div>
       </th>
+
+
     </tr>
 
     </tbody>

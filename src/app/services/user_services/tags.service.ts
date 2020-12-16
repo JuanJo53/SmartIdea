@@ -18,6 +18,18 @@ export class TagsService {
   gettaguser(iduser:number){
     return this.http.get<Tag[]>(`http://localhost:8080/tags/user/${iduser}`);
   }
+  gettagproject(idproject:number){
+    return this.http.get<Tag[]>(`http://localhost:8080/tags/projects/${idproject}`);
+  }
+  addprojecttotag(idproject:number,tag:Tag){
+    return this.http.post(`http://localhost:8080/tags/projects/${idproject}`,tag)
+  }
+  deleteprojecttotag(tagid: number, projectid: number){
+    let httpParams = new HttpParams().set('aaa', '111');
+    httpParams.set('bbb', '222');
+    let options = { params: httpParams };
+    return this.http.delete(`http://localhost:8080/tags/${tagid}/project/${projectid}`,options)
+  }
   addusertotag(iduser:number,tag:Tag){
     return this.http.post(`http://localhost:8080/tags/user/${iduser}/add`,tag)
   }
