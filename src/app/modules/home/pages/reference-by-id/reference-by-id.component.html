@@ -36,14 +36,45 @@
     </a>
   </div>
 </div>
+<div style="text-align:center;">
+  <TABLE style="margin: 0 auto;" >
+    <TR>
+   <TD>
+     <div class="wrapper">
+      <div class="card">
+        <div class="front">
+          <h1>Area</h1>
+        </div>
+        <div class="right">
+          <ul *ngFor="let area of listArea">
+            <li>{{listArea.indexOf(area)+1}}     {{area.nameArea}}</li>
+          </ul>
+        </div>
+      </div>
 
-<div>
-  <h1>Area</h1>
-  <hr />
-  <div *ngFor="let area of listArea">
-    {{area.areaId}}     {{area.nameArea}}
-  </div>
+    </div>
+    </TD>
+      <TD>
+        <div class="wrapper">
+      <div class="card">
+        <div class="front">
+          <h1>Skill</h1>
+        </div>
+        <div class="right">
+          <ul *ngFor="let skill of skills">
+            <li>{{skills.indexOf(skill)+1}}     {{skill.skillName}}</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    </TD>
+    </TR>
+
+  </TABLE>
+
 </div>
+
 <mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
   <mat-chip *ngFor="let chip of listTags" selected>
     {{chip.nameTags}}

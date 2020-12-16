@@ -45,7 +45,7 @@ export class AreacreateDialogComponent implements OnInit {
     this.edit = true;
     this.formArea = this.fromBuilder.group({
       AreaId: [0, [Validators.required]],
-      areaName: ['', [Validators.required]],
+      nameArea: ['', [Validators.required]],
       status: [0, [Validators.required]],
     });
   }

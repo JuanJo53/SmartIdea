@@ -44,7 +44,7 @@
         <button class="button" (click)="areacreate()">Add Area</button>
         <hr />
         <div *ngFor="let area of listArea">
-          {{listArea.indexOf(area)}}     {{area.nameArea}}
+          {{listArea.indexOf(area)+1}}     {{area.nameArea}}
           <button
             class="action-button"
 
@@ -70,7 +70,7 @@
         <button class="button" (click)="createSkill(data.idproject)">Add Skill</button>
         <hr />
         <div *ngFor="let skill of skills">
-          {{skills.indexOf(skill)}}     {{skill.skillName}}
+          {{skills.indexOf(skill)+1}}     {{skill.skillName}}
           <button
             class="action-button"
             (click)="editSkill(skill.skillId, skill.skillName)"

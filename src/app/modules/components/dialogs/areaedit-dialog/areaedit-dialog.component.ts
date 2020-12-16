@@ -17,10 +17,16 @@ export class AreaeditDialogComponent implements OnInit {
               private route: ActivatedRoute,
               public dialogRef: MatDialogRef<AreaeditDialogComponent>,
               @Inject(MAT_DIALOG_DATA)public data: { idareas: number,
-                areaname: string}) { }
+                nameArea: string}) { }
   edit = false;
   onNoClick(): void {
     this.dialogRef.close();
+  }
+  close(){
+    this.onNoClick();
+  }
+  cancel() {
+    this.edit = false;
   }
   ngOnInit(): void {
     this.editArea();
@@ -28,19 +34,19 @@ export class AreaeditDialogComponent implements OnInit {
   editarea(): void{
     if (this.formArea.valid) {
       const cert = this.formArea.value;
-      console.log(cert);
+      console.log(cert,"hoalsdsadas");
       let area:Area={
         areaId: null,
-        nameArea : this.formArea.value.areaName,
+        nameArea : this.formArea.value.nameArea,
         status: 1,
       };
-      console.log(area.nameArea);
+      console.log(area.nameArea,"probando");
       this.updateArea(area);
     }
   }
   updateArea(area: Area): void {
     this.areaservise
-      .editarea(this.data.idareas,area)
+      .editarea(this.data.idareas, area)
       .subscribe((area) => {
         console.log(area);
       });
@@ -50,11 +56,9 @@ export class AreaeditDialogComponent implements OnInit {
     this.edit = true;
     this.formArea = this.fromBuilder.group({
       AreaId: [0, [Validators.required]],
-      areaName: ['', [Validators.required]],
+      nameArea: ['', [Validators.required]],
       status: [0, [Validators.required]],
     });
   }
-  close(){
-    this.onNoClick();
-  }
+
 }

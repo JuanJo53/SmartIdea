@@ -131,7 +131,7 @@ export class EditProjectComponent implements OnInit {
       width: '500px',
       data: {
         idareas : idarea,
-        areaname : name
+        areaName : name
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
