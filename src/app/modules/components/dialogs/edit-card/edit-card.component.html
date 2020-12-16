@@ -49,17 +49,23 @@
         ngModel="{{ this.data.expirationMonth }}"
       />
     </mat-form-field>
+
+
     <mat-form-field>
       <mat-label class="omrs-input-label">CVC</mat-label
       ><input
-        matInput
-        type="number"
-        placeholder="Mes de Expiracion "
-        formControlName="expirationMonth"
-        required
-        ngModel="{{ this.data.cvc }}"
-      />
+      matInput
+      type="number"
+      placeholder="cvc "
+      formControlName="cvc"
+      required
+      ngModel="{{ this.data.cvc }}"
+    />
     </mat-form-field>
+
+
+
+
   </mat-dialog-content>
   <mat-dialog-actions>
     <button type="submit" mat-button color="primary" cdkFocusInitial>

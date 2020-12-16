@@ -37,9 +37,9 @@ export class CreateCardComponent implements OnInit {
     this.formCard = this.fromBuilder.group({
       cardName: ['', [Validators.required]],
       cardNumber: ['', [Validators.required, Validators.max(2147483647)]],
-      expirationYear: ['', [Validators.required]],
-      expirationMonth: ['', [Validators.required]],
-      cvc: ['', [Validators.required]],
+      expirationYear: ['', [Validators.required, Validators.min(2020)]],
+      expirationMonth: ['', [Validators.required, Validators.max(12), Validators.min(1)]],
+      cvc: ['', [Validators.required, Validators.max(9999)]],
       creationDate: ['', [Validators.required]],
     });
   }

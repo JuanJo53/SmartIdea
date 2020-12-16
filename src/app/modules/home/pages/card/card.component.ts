@@ -8,6 +8,7 @@ import { EditCardComponent } from '../../../components/dialogs/edit-card/edit-ca
 import { WarningDialogComponent } from '../../../components/dialogs/warning-dialog/warning-dialog.component';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
+
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
@@ -15,7 +16,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CardComponent implements OnInit {
   listCard: Card[];
-  displayedColumns: string[] = ['Nombre', 'Numero', 'Expiracion','CVC', 'id_card'];
+  displayedColumns: string[] = [
+    'Nombre',
+    'Numero',
+    'Expiracion',
+    'CVC',
+    'id_card',
+  ];
   form: FormGroup;
   userId: number = parseInt(localStorage.getItem('userId'));
   constructor(
@@ -55,6 +62,7 @@ export class CardComponent implements OnInit {
         cardNumber: card.cardNumber,
         expirationYear: card.expirationYear,
         expirationMonth: card.expirationMonth,
+        cvc: card.cvc,
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
