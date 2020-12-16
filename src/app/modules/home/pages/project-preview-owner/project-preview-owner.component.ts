@@ -1,42 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { IProjects } from '../../../../models/projects.model';
-import { ActivatedRoute } from '@angular/router';
-import { ReferencesService } from '../../../../services/user_services/references.service';
-import { MediaService } from '../../../../services/user_services/media.service';
-import { Media } from '../../../../models/media.model';
-import {Area} from '../../../../models/area.model';
-import {AreaService} from '../../../../services/user_services/area.service';
+import {ReferencesService} from "../../../../services/user_services/references.service";
+import {MediaService} from "../../../../services/user_services/media.service";
+import {ActivatedRoute} from "@angular/router";
+import {AreaService} from "../../../../services/user_services/area.service";
+import {IProjects} from "../../../../models/projects.model";
+import {Media} from "../../../../models/media.model";
+import {Area} from "../../../../models/area.model";
 import {Tag} from "../../../../models/tag.model";
-import {Skill} from '../../../../models/skill.model';
-import {SkillService} from '../../../../services/user_services/skill.service';
 
 @Component({
-  selector: 'app-reference-by-id',
-  templateUrl: './reference-by-id.component.html',
-  styleUrls: ['./reference-by-id.component.css'],
+  selector: 'app-project-preview-owner',
+  templateUrl: './project-preview-owner.component.html',
+  styleUrls: ['./project-preview-owner.component.css']
 })
-export class ReferenceByIdComponent implements OnInit {
+export class ProjectPreviewOwnerComponent implements OnInit {
   project: IProjects;
   media: Media[];
   listArea: Area[];
   listTags: Tag[];
-  skills: Skill[];
   userId: number = parseInt(localStorage.getItem('userId'));
   constructor(
     private service: ReferencesService,
     private mediaService: MediaService,
     private activatedRoute: ActivatedRoute,
-    private areaService: AreaService,
+    private areaService: AreaService
+  ) { }
 
-    private serviceSkill: SkillService,
-
-  ) {}
 
   ngOnInit(): void {
     this.loadproject();
     this.loadmedia();
     this.listarea();
-    this.loadSkillList();
   }
 
   listarea(): void{
@@ -60,14 +54,6 @@ export class ReferenceByIdComponent implements OnInit {
         console.log(err);
       }
     );
-  }
-  loadSkillList(): Skill[] {
-    const id = this.activatedRoute.snapshot.params.id;
-    console.log(id);
-    this.serviceSkill.getSkillsproject(id).subscribe((data) => {
-      this.skills = data;
-    });
-    return this.skills;
   }
   loadmedia(): void {
     const idpr = this.activatedRoute.snapshot.params.id;

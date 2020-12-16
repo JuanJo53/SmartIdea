@@ -19,7 +19,7 @@ export class EditCardComponent implements OnInit {
     private route: ActivatedRoute,
     public dialogRef: MatDialogRef<EditCardComponent>,
     private cardService: CardService,
-    /*private dialog: MatDialog,*/
+    private dialog: MatDialog,
     @Inject(MAT_DIALOG_DATA)
     public data: {
       cardId: number;
@@ -58,8 +58,6 @@ export class EditCardComponent implements OnInit {
       const card = this.formCard.value;
       console.log(card);
       this.update(this.data.cardId, card);
-    } else {
-      console.log('NOT VALID');
     }
   }
   update(cardId: number, card: Card): void {
