@@ -15,6 +15,8 @@
       <img *ngIf="media.length==0"
         class="img-fluid img-thumbnail"
         src="https://es.unesco.org/youth/toptips/user/pages/images/home-feature-two_mobile.png"
+           width="500px"
+           height="500px"
       />
     </div>
     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -84,39 +86,5 @@
     {{chip.nameTags}}
   </mat-chip>
 </mat-chip-list>
-  </mat-grid-tile>
-</mat-grid-list>
-
-
-<mat-grid-list cols="2" rowHeight="2:1">
-
-
-  <mat-grid-tile>
-    <mat-grid-tile-header>
-      <h1>Areas</h1>
-    </mat-grid-tile-header>
-    <table id="customers">
-      <tr>
-        <th>#</th>
-        <th>Area</th>
-      </tr>
-      <tr *ngFor="let area of listArea">
-        <td>{{listArea.indexOf(area)+1}}</td>
-        <td>{{area.nameArea}}</td>
-      </tr>
-    </table>
-  </mat-grid-tile>
-
-  <mat-grid-tile>
-    <mat-grid-tile-header>
-      <h1>Tags</h1>
-    </mat-grid-tile-header>
-    <mat-chip-list class="mat-chip-list-stacked" >
-      <mat-chip *ngFor="let tag of listTags" selected>
-        {{tag.nameTags}}
-      </mat-chip>
-    </mat-chip-list>
-  </mat-grid-tile>
-</mat-grid-list>
 
 
