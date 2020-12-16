@@ -55,6 +55,9 @@ import { BillDetailComponent } from '../components/dialogs/bill-detail/bill-deta
 import {AreacreateDialogComponent} from '../components/dialogs/areacreate-dialog/areacreate-dialog.component';
 import {AreaeditDialogComponent} from '../components/dialogs/areaedit-dialog/areaedit-dialog.component';
 import { CreateBillComponent } from '../components/dialogs/create-bill/create-bill.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { UserInProjectComponent } from './pages/user-in-project/user-in-project.component';
+import { ProjectPreviewOwnerComponent } from './pages/project-preview-owner/project-preview-owner.component';
 
 @NgModule({
   declarations: [
@@ -94,6 +97,8 @@ import { CreateBillComponent } from '../components/dialogs/create-bill/create-bi
     AreacreateDialogComponent,
     AreaeditDialogComponent,
     CreateBillComponent,
+    UserInProjectComponent,
+    ProjectPreviewOwnerComponent,
   ],
   imports: [
     CommonModule,
@@ -119,6 +124,7 @@ import { CreateBillComponent } from '../components/dialogs/create-bill/create-bi
     ImageUploadModule.forRoot(),
     MatChipsModule,
     MatAutocompleteModule,
+    MatGridListModule,
   ],
   entryComponents: [
     CreateCertificateComponent,

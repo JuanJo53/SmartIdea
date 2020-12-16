@@ -18,6 +18,7 @@ import { PaymentPlanBuyComponent } from './modules/home/pages/paymentPlanBuy/pay
 import { OrderReviewComponent } from './modules/home/pages/orderReview/orderReview.component';
 import { UserrequesteComponent } from './modules/home/pages/userrequeste/userrequeste.component';
 import { PaymentMethodComponent } from './modules/home/pages/paymentMethod/paymentMethod.component';
+import {ProjectPreviewOwnerComponent} from "./modules/home/pages/project-preview-owner/project-preview-owner.component";
 
 const routes: Routes = [
   {
@@ -72,6 +73,10 @@ const routes: Routes = [
       {
         path: 'referencesbyId/:id',
         component: ReferenceByIdComponent,
+      },
+      {
+        path: 'projectsOwner/:id',
+        component: ProjectPreviewOwnerComponent,
       },
       {
         path: 'profile',
