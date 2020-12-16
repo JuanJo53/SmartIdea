@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectsService } from '../../../../services/user_services/projects.service';
 import { IProjects } from '../../../../models/projects.model';
-import {Media} from "../../../../models/media.model";
-import {ReferencesService} from "../../../../services/user_services/references.service";
-import {MediaService} from "../../../../services/user_services/media.service";
+import {Media} from '../../../../models/media.model';
+import {ReferencesService} from '../../../../services/user_services/references.service';
+import {MediaService} from '../../../../services/user_services/media.service';
 
 @Component({
   selector: 'app-feed',
@@ -25,7 +25,9 @@ export class FeedComponent implements OnInit {
     });
   }
 
-  afilarse(idproyect: number, iduser: number, proyect: IProjects): void {
+  afilarse(idproyect: number, proyect: IProjects): void {
+
+    const iduser = parseInt(localStorage.getItem('userId'));
     this.service
       .afiliarproyect(idproyect, iduser, proyect)
       .subscribe((projects) => {
@@ -33,12 +35,15 @@ export class FeedComponent implements OnInit {
       });
     window.alert('logrado');
   }
+
   viewProject(projectId: number): void {
+
+    const iduser = parseInt(localStorage.getItem('userId'));
     this.projectDetails = this.listProjects.filter(
       (project) => project.projectsId == projectId
     );
     this.service
-      .viewProject(1, this.projectDetails[0], projectId)
+      .viewProject(iduser, this.projectDetails[0], projectId)
       .subscribe((project) => {
         console.log('View increased in poject with id: ' + projectId);
         console.log(project);
@@ -46,4 +51,11 @@ export class FeedComponent implements OnInit {
     console.log('VIEW');
   }
 
+conexion(projectId: number): void{
+
+  var iduser = parseInt(localStorage.getItem('userId'));
+  this.service.yaexiste(projectId, iduser).subscribe(value => {
+    console.log(value)
+  return value});
+}
 }

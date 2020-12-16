@@ -20,4 +20,12 @@ export class SkillService {
   updateskill( idskill: number, skill: Skill){
     return this.http.put(`http://localhost:8080/skills/userSkill/update/${idskill}`,skill);
   }
+
+
+  getSkillsproject(idproject: number){
+    return this.http.get<Skill[]>(`http://localhost:8080/skills/projectkills/${idproject}`);
+  }
+  postnewskillproject(idproject:number,skill: Skill) {
+    return this.http.post(`http://localhost:8080/skills/projectSkill/${idproject}`, skill);
+}
 }

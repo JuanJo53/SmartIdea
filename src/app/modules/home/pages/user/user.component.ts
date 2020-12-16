@@ -113,7 +113,9 @@ export class UserComponent implements OnInit {
     });
     this.ngOnInit();
   }
+
   createSkill(): void {
+    localStorage.setItem('editproyecte', String(1));
     const dialogRef = this.dialog.open(CreateSkillComponent, {
       width: '600px',
       data: {
@@ -126,6 +128,8 @@ export class UserComponent implements OnInit {
       this.ngOnInit();
     });
   }
+
+
   editSkill(skillid: number, skillName: string) {
     const dialogRef = this.dialog.open(EditSkillComponent, {
       width: '500px',

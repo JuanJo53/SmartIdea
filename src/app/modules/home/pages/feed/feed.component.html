@@ -1,6 +1,6 @@
 <div id="container" *ngFor="let projects of listProjects">
   <!-- Start	Product details -->
-  <div class="product-details">
+  <div class="product-details" >
     <!-- 	Product Name -->
     <h1>{{ projects.projectTitle }}</h1>
     <!-- 		<span class="hint new">New</span> -->
@@ -18,7 +18,7 @@
 
     <!-- 		Control -->
     <div class="control">
-      <button class="btn" (click)="afilarse(projects.projectsId, 1, projects)">
+      <button class="btn" (click)="afilarse(projects.projectsId, projects)" >
         <span class="buy">Afiliarze</span>
       </button>
       <br /><br />

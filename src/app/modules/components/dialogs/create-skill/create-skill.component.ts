@@ -13,6 +13,7 @@ import {Skill} from '../../../../models/skill.model';
 
 export class CreateSkillComponent implements OnInit {
   formSkill: FormGroup;
+
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -41,20 +42,34 @@ export class CreateSkillComponent implements OnInit {
     });
   }
   saveSkill(): void {
+
+    let edit = parseInt(localStorage.getItem('editproyecte'));
+    console.log( edit);
     if (this.formSkill.valid) {
       const cert = this.formSkill.value;
       console.log(cert);
-      this.createSkill(cert);
+      this.createSkill(cert,edit);
     }
   }
 
-  createSkill(skill: Skill): void {
-    var iduser= parseInt(localStorage.getItem('userId'));
-    this.skillService
-      .postnewskill(iduser,skill)
-      .subscribe((skill) => {
+  createSkill(skill: Skill, edit: number): void {
+    if (edit == 0){
+      let idprojet = parseInt(localStorage.getItem('idprojecte'));
+      console.log("bien ahi");
+      this.skillService.postnewskillproject(idprojet,skill).subscribe((skill) => {
         console.log(skill);
       });
+
+    }else{
+      console.log("user");
+      let iduser = parseInt(localStorage.getItem('userId'));
+      this.skillService
+        .postnewskill(iduser, skill)
+        .subscribe((skill) => {
+          console.log(skill);
+        });
+    }
+
     this.onNoClick();
   }
 

@@ -48,7 +48,7 @@ export class MyprojectsComponent implements OnInit {
   }
   editprojct(project: IProjects): void{
     const dialogRef = this.dialog.open(EditProjectComponent, {
-      width: '500px',
+      width: '1000px',
       data: {
         idproject: project.projectsId,
         projectTitle: project.projectTitle,

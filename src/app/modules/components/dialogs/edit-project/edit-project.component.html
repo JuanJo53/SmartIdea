@@ -35,28 +35,69 @@
     </mat-form-field>
   </mat-dialog-content>
   <image-upload [style]="customStyle" (uploadFinished)="onUploadFinish($event)"></image-upload>
+  <table border="1">
 
-  <h1>Area</h1>
-  <button class="button" (click)="areacreate()">Add Area</button>
-  <hr />
-  <div *ngFor="let area of listArea">
-    {{area.areaId}}     {{area.nameArea}}
-    <button
-    class="action-button"
+    <tbody>
+    <tr>
+      <th><div>
+        <h1>Area</h1>
+        <button class="button" (click)="areacreate()">Add Area</button>
+        <hr />
+        <div *ngFor="let area of listArea">
+          {{listArea.indexOf(area)}}     {{area.nameArea}}
+          <button
+            class="action-button"
 
-    (click)="areaedit(area.areaId, area.nameArea)"
-    mat-mini-fab
-  >
-    <span><mat-icon>supervised_user_circle</mat-icon> </span>
-  </button>
-    <button
-      color="warn"
-      mat-mini-fab
-      (click)="areaDelet(area.areaId, area.nameArea)"
-    >
-      <span><mat-icon>delete</mat-icon> </span>
-    </button>
-  </div>
+            (click)="areaedit(area.areaId, area.nameArea)"
+            mat-mini-fab
+          >
+            <span><mat-icon>supervised_user_circle</mat-icon> </span>
+          </button>
+          <button
+            color="warn"
+            mat-mini-fab
+            (click)="areaDelet(area.areaId, area.nameArea)"
+          >
+            <span><mat-icon>delete</mat-icon> </span>
+          </button>
+
+        </div>
+      </div>
+      </th>
+      <th>
+        <div>
+        <h1>SKILLS</h1>
+        <button class="button" (click)="createSkill(data.idproject)">Add Skill</button>
+        <hr />
+        <div *ngFor="let skill of skills">
+          {{skills.indexOf(skill)}}     {{skill.skillName}}
+          <button
+            class="action-button"
+            (click)="editSkill(skill.skillId, skill.skillName)"
+            mat-mini-fab
+          >
+            <span><mat-icon>supervised_user_circle</mat-icon> </span>
+          </button>
+          <button
+            color="warn"
+            mat-mini-fab
+            (click)="
+            deleteSkill(skill.skillId, skill.skillName, skills.indexOf(skill))
+          "
+          >
+            <span><mat-icon>delete</mat-icon> </span>
+          </button>
+
+        </div>
+      </div>
+      </th>
+    </tr>
+
+    </tbody>
+  </table>
+
+
+
 
 
   <mat-dialog-actions>
