@@ -1,0 +1,35 @@
+th {
+  padding: 15px;
+  background: #673ab6;
+  border-bottom: #7367f0;
+  color: white;
+}
+tr:hover {
+  background-color: #7367f0;
+  color: white;
+  transition: 0.5s all;
+}
+table {
+  margin-top: 80px;
+  background-color: white;
+  border-collapse: collapse;
+  width: 100%;
+}
+h1 {
+  font-size: 2.2em;
+  margin: 10px auto;
+  color: black;
+  text-align: center;
+}
+table {
+  background-color: white;
+  text-align: left;
+  border-collapse: collapse;
+  width: 100%;
+}
+h1 {
+  font-size: 2.2em;
+  margin: 10px auto;
+  color: black;
+  text-align: center;
+}

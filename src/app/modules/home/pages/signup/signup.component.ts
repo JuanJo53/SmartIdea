@@ -40,7 +40,8 @@ export class SignupComponent implements OnInit {
         password: this.form.value.contrasenia,
         description: null,
         image: null,
-        cellphone: null
+        cellphone: null,
+        status: 0,
       }
       this.userService.postuser(user).subscribe(value =>{
         console.log('Registrado con exito!')

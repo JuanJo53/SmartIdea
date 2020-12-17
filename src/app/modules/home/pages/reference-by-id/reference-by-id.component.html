@@ -12,7 +12,7 @@
         class="img-fluid img-thumbnail"
         src="{{media[0].url}}"
       />
-      <img *ngIf="media.length==0"
+      <img *ngIf="media.length<1"
         class="img-fluid img-thumbnail"
         src="https://es.unesco.org/youth/toptips/user/pages/images/home-feature-two_mobile.png"
            width="500px"
@@ -28,8 +28,10 @@
           <h5 class="title">
             <b>Fecha de creación : </b
             >{{ project?.createDate | date: "longDate" }}
+
           </h5>
         </div>
+        <button mat-raised-button color="primary" routerLink="/user/project/users/{{project?.projectsId}}" >Participantes</button>
       </div>
     </div>
   </div>

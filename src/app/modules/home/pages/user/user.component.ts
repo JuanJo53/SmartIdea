@@ -151,6 +151,7 @@ export class UserComponent implements OnInit {
       description: this.user.description,
       image: this.user.image,
       cellphone: this.user.cellphone,
+      status:0,
     };
 
     this.service.updateProfile(parseInt(iduser),user1).subscribe();
@@ -174,6 +175,7 @@ export class UserComponent implements OnInit {
         description: this.user.description,
         image: this.image,
         cellphone: this.user.cellphone,
+        status:0,
       };
       this.service.updateImage(parseInt(iduser),user1).subscribe();
     }

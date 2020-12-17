@@ -8,4 +8,5 @@ export interface User {
   description: string;
   image: string;
   cellphone: string;
+  status: number;
 }

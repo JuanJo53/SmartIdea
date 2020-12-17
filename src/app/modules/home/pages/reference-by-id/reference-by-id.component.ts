@@ -22,6 +22,7 @@ export class ReferenceByIdComponent implements OnInit {
   listTags: Tag[];
   skills: Skill[];
   userId: number = parseInt(localStorage.getItem('userId'));
+
   constructor(
     private service: ReferencesService,
     private mediaService: MediaService,

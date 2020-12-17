@@ -29,7 +29,7 @@
             >{{ project?.createDate | date: "longDate" }}
           </h5>
         </div>
-        <button mat-raised-button color="primary">Participantes</button>
+        <button mat-raised-button color="primary" routerLink="/user/project/users/{{project?.projectsId}}">Participantes</button>
       </div>
 
     </div>
@@ -38,9 +38,9 @@
 
 
 <mat-grid-list cols="4" >
-  <button mat-raised-button color="primary">
-    Administrar fotos
-  </button>
+<!--  <button mat-raised-button color="primary">-->
+<!--    Administrar fotos-->
+<!--  </button>-->
   <mat-grid-tile *ngFor="let images of media">
     <a   (click)="debugBase64(images?.url)">
       <img src="{{images?.url}}" alt="" style="width:150px">
