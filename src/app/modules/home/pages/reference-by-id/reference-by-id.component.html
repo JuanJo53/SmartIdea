@@ -43,49 +43,40 @@
   </div>
 </div>
 
-<div style="text-align:center;">
-  <TABLE style="margin: 0 auto;" >
-    <TR>
-   <TD>
-     <div class="wrapper">
-      <div class="card">
-        <div class="front">
-          <h1>Area</h1>
-        </div>
-        <div class="right">
-          <ul *ngFor="let area of listArea">
-            <li>{{listArea.indexOf(area)+1}}     {{area.nameArea}}</li>
-          </ul>
-        </div>
-      </div>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
 
+<div class="card-grid" style="text-align:center;">
+  <a class="card" href="#">
+    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)"></div>
+    <div class="card__content">
+      <p class="card__category">Area</p>
+      <h3 class="card__heading">Areas del proyecto </h3>
+      <ul class="card__category"*ngFor="let area of listArea">
+        <li class="card__category">{{listArea.indexOf(area)+1}}     {{area.nameArea}}</li>
+      </ul>
     </div>
-    </TD>
-      <TD>
-        <div class="wrapper">
-      <div class="card">
-        <div class="front">
-          <h1>Skill</h1>
-        </div>
-        <div class="right">
-          <ul *ngFor="let skill of skills">
-            <li>{{skills.indexOf(skill)+1}}     {{skill.skillName}}</li>
-          </ul>
-        </div>
-      </div>
-
+  </a>
+  <a class="card" href="#">
+    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557187666-4fd70cf76254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+    <div class="card__content">
+      <p class="card__category">Category</p>
+      <h3 class="card__heading">Example Card Heading</h3>
+      <ul class="card__category" *ngFor="let skill of skills" >
+        <li class="card__category">{{skills.indexOf(skill)+1}}     {{skill.skillName}}</li>
+      </ul>
     </div>
-    </TD>
-    </TR>
-
-  </TABLE>
-
+  </a>
+  <a class="card" href="#">
+    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557004396-66e4174d7bf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+    <div class="card__content">
+      <p class="card__category">tags</p>
+      <h3 class="card__heading">Tags del proyecto</h3>
+      <ul class="card__category" *ngFor="let tags of listTags" >
+        <li class="card__category"> * {{listTags.indexOf(tags)+1}}     {{tags.nameTags}}</li>
+      </ul>
+    </div>
+  </a>
 </div>
 
-<mat-chip-list class="mat-chip-list-stacked" aria-label="Color selection">
-  <mat-chip *ngFor="let chip of listTags" selected>
-    {{chip.nameTags}}
-  </mat-chip>
-</mat-chip-list>
 
 
