@@ -23,8 +23,8 @@ h1 {
   border: 1px solid black;
   border-radius: 4px;
   box-shadow: 0px 0px 4px 0px black;
-  width: 25%;
-  height: 400px;
+  width: 85%;
+  height: 410px;
   box-sizing: border-box;
 }
 .table > h2 {
@@ -80,4 +80,3 @@ h1 {
     margin-bottom: 20px;
   }
 }
-

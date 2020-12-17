@@ -1,6 +1,9 @@
 <h1>Plan de Pagos</h1>
 
-<section class="container flex" *ngFor="let paymentPlan of listPaymentPlan">
+<section class="container flex" >
+         <div class="row">
+           <div class="col-md-4 pb-2"
+                *ngFor="let paymentPlan of listPaymentPlan">
   <div class="table">
     <!-- Payment plan information -->
     <h2 class="text">{{ paymentPlan.plan }}</h2>
@@ -18,4 +21,6 @@
       Seleccionar
     </button>
       </div>
+           </div>
+         </div>
 </section>
