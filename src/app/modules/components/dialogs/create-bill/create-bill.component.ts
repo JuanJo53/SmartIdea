@@ -24,8 +24,8 @@ export class CreateBillComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  close() {
-    this.dialogRef.close(false);
+  close(bill:Bill) {
+    this.dialogRef.close(bill);
   }
   cancel() {
     this.edit = false;
@@ -36,8 +36,6 @@ export class CreateBillComponent implements OnInit {
   editBill(): void {
     this.edit = true;
     this.formBill = this.fromBuilder.group({
-      billId: [0, [Validators.required]],
-      buyDate: ['', [Validators.required]],
       billingAddress: ['', [Validators.required]],
       country: ['', [Validators.required]],
       city: ['', [Validators.required]],
@@ -45,17 +43,22 @@ export class CreateBillComponent implements OnInit {
   }
   savebill(): void {
     if (this.formBill.valid) {
-      const cert = this.formBill.value;
+      let cert:Bill ={billId: null,
+        userId: null,
+        paymentPlanId: null,
+        cardId: null,
+        projectsId: null,
+        buyDate: null,
+        billingAddress: this.formBill.value.billingAddress,
+        country: this.formBill.value.country,
+        city: this.formBill.value.city,
+        projectTitle: null,
+        paymentPlanName: null,
+        paymentPlanCost: null,
+      } 
       console.log(cert);
-      this.createbill(cert);
+      this.close(cert);
     }
-  }
-   createbill(bill: Bill): void {
-    // this.billService
-    //   .postnewbill(bill)
-    //   .subscribe((bill) => {
-    //     console.log(bill);
-    //   });
-    // this.onNoClick();
+
   }
 }

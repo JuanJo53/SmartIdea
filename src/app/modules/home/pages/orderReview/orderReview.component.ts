@@ -44,7 +44,7 @@ export class OrderReviewComponent implements OnInit {
     this.loadcard();
     this.loadpaymentplan();
     this.loadproject();
-    this.newBill();
+
   }
 
   loadcard() {
@@ -82,7 +82,14 @@ export class OrderReviewComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+  
+      console.log(result);
+      this.bill=result
+      console.log(this.bill);
+     //this.bill.billingAddress=result.billingAddress;
+     //this.bill.country=result.country;
+     //this.bill.city=result.city;
+   
     });
   }
   newBill() {
@@ -96,6 +103,7 @@ export class OrderReviewComponent implements OnInit {
       )
       .subscribe((data) => {
         console.log(data);
+       // window.alert('Pago realizado');
       });
   }
 }
