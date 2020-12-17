@@ -33,6 +33,7 @@ export class UserrequesteComponent implements OnInit {
       console.log(projects);
     });
     window.alert("logrado");
+    this.ngOnInit();
   }
   reject( iduser: number ,proyect: IProjects): void{
 
