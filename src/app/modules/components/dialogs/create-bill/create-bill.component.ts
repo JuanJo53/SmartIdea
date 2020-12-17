@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { BillService } from '../../../../services/user_services/bill.service';
-import { Bill } from '../../../../models/bill.model';
+import { Bill} from '../../../../models/bill.model';
+import {BillRequest} from '../../../../models/billRequest.model';
 import {Card} from '../../../../models/card.model';
 
 
@@ -38,7 +39,7 @@ export class CreateBillComponent implements OnInit {
     this.formBill = this.fromBuilder.group({
       billId: [0, [Validators.required]],
       buyDate: ['', [Validators.required]],
-      billingAddress: ['', [Validators.required]],
+      billingAddress: [''],
       country: ['', [Validators.required]],
       city: ['', [Validators.required]],
     });
@@ -58,4 +59,5 @@ export class CreateBillComponent implements OnInit {
     //   });
     // this.onNoClick();
   }
+
 }

@@ -20,7 +20,6 @@ export class CardComponent implements OnInit {
     'Nombre',
     'Numero',
     'Expiracion',
-    'CVC',
     'id_card',
   ];
   form: FormGroup;
@@ -52,17 +51,12 @@ export class CardComponent implements OnInit {
       this.ngOnInit();
     });
   }
-  editcard(card: Card): void {
-    console.log('CARDS:' + card.cvc);
+  editcard(card: number): void {
+    console.log('CARDS:' + card);
     const dialogRef = this.dialog.open(EditCardComponent, {
       width: '500px',
       data: {
-        cardId: card.cardId,
-        cardName: card.cardName,
-        cardNumber: card.cardNumber,
-        expirationYear: card.expirationYear,
-        expirationMonth: card.expirationMonth,
-        cvc: card.cvc,
+        cardId: card
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
@@ -85,6 +79,7 @@ export class CardComponent implements OnInit {
         });
         console.log('Deleted');
       }
+      location.reload();
       // this.ngOnDestroy();
     });
   }

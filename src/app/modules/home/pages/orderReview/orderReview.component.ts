@@ -28,6 +28,7 @@ export class OrderReviewComponent implements OnInit {
   projectid = this.activatedRoute.snapshot.params.id;
   paymentid = this.activatedRoute.snapshot.params.pid;
   cardid = this.activatedRoute.snapshot.params.cid;
+  billid = this.activatedRoute.snapshot.params.bid;
   constructor(
     private service: CardService,
     private activatedRoute: ActivatedRoute,
@@ -41,6 +42,7 @@ export class OrderReviewComponent implements OnInit {
     console.log(this.projectid);
     console.log(this.paymentid);
     console.log(this.cardid);
+    console.log(this.billid);
     this.loadcard();
     this.loadpaymentplan();
     this.loadproject();
