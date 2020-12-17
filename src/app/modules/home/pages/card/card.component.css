@@ -1,8 +1,28 @@
-h3 {
+h1{
+  font-weight: bold;
+  margin-top: 60px;
+  font-size: 50px;
   text-align: center;
+  margin-bottom: 60px;
+}
+.container>h2 {
+  padding-left: 5px;
+  text-align: left;
+}
+.container{
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  aling-items: center;
+  justify-content: center;
+}
+.buttonAdd{
+  text-align: left;
+  margin-bottom: 25px;
+
 }
 .our-team {
-  padding: 10px 0 20px;
+  padding: 20px 0 40px;
   margin-bottom: 50px;
   background-color: #f7f5ec;
   text-align: center;
@@ -20,8 +40,9 @@ h3 {
   z-index: -1;
 }
 .our-team:hover  {
-
-  transform: translateY(-3%);
+  transition: 0.5s all;
+  transform: scale(1.1);
+  cursor: pointer;
 }
 .our-team .title {
   display: block;

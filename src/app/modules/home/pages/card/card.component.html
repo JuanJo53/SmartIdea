@@ -1,8 +1,12 @@
+<h1><strong>Datos de Tarjeta</strong></h1>
+
 <div class="container">
-  <h1><strong>Datos de Tarjeta</strong></h1>
+
+  <div class="buttonAdd">
   <button (click)="createCard()" mat-fab color="primary">
     <mat-icon>add_icon</mat-icon>
   </button>
+  </div>
 
   <div class="row">
     <div
@@ -17,9 +21,10 @@
           />
         </div>
         <div class="team-content">
-          <h3 class="name">Nombre de la Tarjeta :{{ card.cardName }}</h3>
-          <h4 class="title">Numero : {{ card.cardNumber | creditcard }}</h4>
-          <h4 class="title">Mes/Año de expiracion : {{ card.expirationMonth }}/{{ card.expirationYear }}</h4>
+          <h2 class="title"><strong>Tarjeta :</strong>{{ card.cardName }}</h2>
+          <h2 class="title"><strong>Número :</strong> {{ card.cardNumber | creditcard }}</h2>
+          <h2 class="title"><strong>Expiración:</strong> {{ card.expirationMonth }}/{{ card.expirationYear }}</h2>
+
           <a
             (click)="editcard(card.cardId)"
             mat-button
