@@ -9,6 +9,7 @@ import {AreaService} from '../../../../services/user_services/area.service';
 import {Tag} from "../../../../models/tag.model";
 import {Skill} from '../../../../models/skill.model';
 import {SkillService} from '../../../../services/user_services/skill.service';
+import {TagsService} from '../../../../services/user_services/tags.service';
 
 @Component({
   selector: 'app-reference-by-id',
@@ -29,6 +30,7 @@ export class ReferenceByIdComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private areaService: AreaService,
     private serviceSkill: SkillService,
+    private tagservise: TagsService,
 
   ) {}
 
@@ -37,6 +39,7 @@ export class ReferenceByIdComponent implements OnInit {
     this.loadmedia();
     this.listarea();
     this.loadSkillList();
+    this.listag();
   }
 
   listarea(): void{
@@ -77,16 +80,14 @@ export class ReferenceByIdComponent implements OnInit {
   }
   debugBase64(base64URL){
     let win = window.open();
-    win.document.write('<img src="' + base64URL  + '" width="1000" height="1000"></img>');
+    win.document.write('<img src="' + base64URL  + '" width="500" height="500"></img>');
   }
 
   listag(){
-    //falta tag project
-    // const id = this.activatedRoute.snapshot.params.id;
-    // console.log(id);
-    // this.areaService.getarea(id).subscribe(data => {
-    //   console.log(data);
-    //   this.listArea = data;
-    // });
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log(id);
+    this.tagservise.gettagproject(id).subscribe((data) => {
+      this.listTags = data;
+    });
   }
 }

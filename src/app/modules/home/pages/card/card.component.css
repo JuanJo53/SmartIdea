@@ -1,44 +1,85 @@
-th {
-  padding: 15px;
-  background: #673ab6;
-  border-bottom: #7367f0;
-  color: white;
-}
-tr:hover {
-  background-color: #7367f0;
-  color: white;
-  transition: 0.5s all;
-}
-table {
-  background-color: white;
-  border-collapse: collapse;
-  width: 100%;
-}
-h1 {
-  font-size: 2.2em;
-  margin: 10px auto;
-  color: black;
+h1{
+  font-weight: bold;
+  margin-top: 60px;
+  font-size: 50px;
   text-align: center;
+  margin-bottom: 60px;
 }
-.action-button {
-  margin-left: 15px;
-  margin-right: 15px;
+.container>h2 {
+  padding-left: 5px;
+  text-align: left;
 }
-.butom {
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  background: #673ab6;
-  right: 0;
-  bottom: 0;
+.container{
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  aling-items: center;
+  justify-content: center;
+}
+.buttonAdd{
+  text-align: left;
+  margin-bottom: 25px;
+
+}
+.our-team {
+  padding: 20px 0 40px;
+  margin-bottom: 50px;
+  background-color: #f7f5ec;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.our-team .picture::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 70%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.our-team:hover  {
+  transition: 0.5s all;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.our-team .title {
+  display: block;
+  font-size: 15px;
+  color: #4e5052;
+  text-transform: capitalize;
+}
+
+.our-team .social {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #1369ce;
   position: absolute;
-  margin-right: 1050px;
-  margin-top: 10px;
-  margin-bottom: 500px;
-  border: none;
-  outline: none;
-  color: #fff;
-  font-size: 36px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: 0.5s;
+  bottom: -100px;
+  left: 0;
+  transition: all 0.5s ease 0s;
+}
+
+.our-team:hover .social {
+  bottom: 0;
+}
+
+.our-team .social li {
+  display: inline-block;
+}
+
+.our-team .social li a {
+  display: block;
+  padding: 10px;
+  font-size: 17px;
+  color: white;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+}
+
+.our-team .social li a:hover {
+  color: #1369ce;
+  background-color: #f7f5ec;
 }

@@ -14,6 +14,7 @@ export class EditCardComponent implements OnInit {
   formCard: FormGroup;
   listCard: Card[];
   userId: number = parseInt(localStorage.getItem('userId'));
+  card: Card;
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -23,11 +24,6 @@ export class EditCardComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
     public data: {
       cardId: number;
-      cardNumber: number;
-      cardName: string;
-      expirationYear: number;
-      expirationMonth: number;
-      cvc: number;
     }
   ) {}
   edit = false;
@@ -42,6 +38,7 @@ export class EditCardComponent implements OnInit {
   }
   ngOnInit(): void {
     this.editCard();
+    this.getCardRequest();
   }
   editCard(): void {
     this.edit = true;
@@ -55,7 +52,15 @@ export class EditCardComponent implements OnInit {
   }
   updateCard(): void {
     if (this.formCard.valid) {
-      const card = this.formCard.value;
+      let card: Card = {
+        cardId:0,
+        cardName:this.formCard.value.cardName,
+        cardNumber: this.formCard.value.cardNumber,
+        expirationYear:this.formCard.value.expirationYear,
+        expirationMonth:this.formCard.value.expirationMonth,
+        cvc:this.formCard.value.cvc,
+        creationDate:null,
+      }
       console.log(card);
       this.update(this.data.cardId, card);
     }
@@ -68,5 +73,11 @@ export class EditCardComponent implements OnInit {
       console.log(card);
     });
     this.onNoClick();
+  }
+  getCardRequest(){
+    var iduser = parseInt(localStorage.getItem('userId'));
+    this.cardService.getCard(iduser,this.data.cardId).subscribe(value =>{
+      this.card=value;
+    } );
   }
 }
