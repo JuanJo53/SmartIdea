@@ -49,31 +49,31 @@
 
 <div class="card-grid" style="text-align:center;">
   <a class="card" href="#">
-    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)"></div>
+    <div class="card__background" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbpRc9hnmMcG93mHbUFh45JV9Iuedx4dWK9g&usqp=CAU)"></div>
     <div class="card__content">
-      <p class="card__category">Area</p>
-      <h3 class="card__heading">Areas del proyecto </h3>
-      <ul class="card__category"*ngFor="let area of listArea">
+      <p class="card__category" style="color: #eeeeee" >Area</p>
+      <h3 class="card__heading" style="color: #eeeeee">Areas del proyecto </h3>
+      <ul  style="color: #eeeeee" *ngFor="let area of listArea">
         <li class="card__category">{{listArea.indexOf(area)+1}}     {{area.nameArea}}</li>
       </ul>
     </div>
   </a>
   <a class="card" href="#">
-    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557187666-4fd70cf76254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+    <div class="card__background" style="background-image: url(https://image.shutterstock.com/image-photo/project-manager-updating-tasks-milestones-260nw-734184223.jpg)"></div>
     <div class="card__content">
-      <p class="card__category">Category</p>
-      <h3 class="card__heading">Example Card Heading</h3>
-      <ul class="card__category" *ngFor="let skill of skills" >
+      <p class="card__category" style="color: #eeeeee">Skill</p>
+      <h3 class="card__heading" style="color: #eeeeee">Skill de proyecto</h3>
+      <ul style="color: #eeeeee" *ngFor="let skill of skills" >
         <li class="card__category">{{skills.indexOf(skill)+1}}     {{skill.skillName}}</li>
       </ul>
     </div>
   </a>
   <a class="card" href="#">
-    <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557004396-66e4174d7bf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
+    <div class="card__background" style="background-image: url(https://blog.hotmart.com/blog/2019/09/BLOG_tags-para-youtube-670x419.png)"></div>
     <div class="card__content">
-      <p class="card__category">tags</p>
-      <h3 class="card__heading">Tags del proyecto</h3>
-      <ul class="card__category" *ngFor="let tags of listTags" >
+      <p class="card__category" style="color: #eeeeee">tags</p>
+      <h3 class="card__heading" style="color: #eeeeee">Tags del proyecto</h3>
+      <ul style="color: #eeeeee" *ngFor="let tags of listTags" >
         <li class="card__category"> * {{listTags.indexOf(tags)+1}}     {{tags.nameTags}}</li>
       </ul>
     </div>
