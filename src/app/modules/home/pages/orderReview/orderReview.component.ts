@@ -84,14 +84,14 @@ export class OrderReviewComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
-  
+
       console.log(result);
-      this.bill=result
+      this.bill=result;
       console.log(this.bill);
      //this.bill.billingAddress=result.billingAddress;
      //this.bill.country=result.country;
      //this.bill.city=result.city;
-   
+
     });
   }
   newBill() {
