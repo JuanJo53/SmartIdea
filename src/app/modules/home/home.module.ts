@@ -59,6 +59,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { UserInProjectComponent } from './pages/user-in-project/user-in-project.component';
 import { ProjectPreviewOwnerComponent } from './pages/project-preview-owner/project-preview-owner.component';
 import { SearchPipe } from './pages/search.pipe';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -127,6 +128,7 @@ import { SearchPipe } from './pages/search.pipe';
     MatChipsModule,
     MatAutocompleteModule,
     MatGridListModule,
+    MatSelectModule
   ],
   entryComponents: [
     CreateCertificateComponent,

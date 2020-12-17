@@ -27,7 +27,6 @@ export class ReferenceByIdComponent implements OnInit {
     private mediaService: MediaService,
     private activatedRoute: ActivatedRoute,
     private areaService: AreaService,
-
     private serviceSkill: SkillService,
 
   ) {}

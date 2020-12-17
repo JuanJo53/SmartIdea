@@ -7,6 +7,8 @@ import {IProjects} from "../../../../models/projects.model";
 import {Media} from "../../../../models/media.model";
 import {Area} from "../../../../models/area.model";
 import {Tag} from "../../../../models/tag.model";
+import {Skill} from '../../../../models/skill.model';
+import {SkillService} from '../../../../services/user_services/skill.service';
 
 @Component({
   selector: 'app-project-preview-owner',
@@ -18,12 +20,15 @@ export class ProjectPreviewOwnerComponent implements OnInit {
   media: Media[];
   listArea: Area[];
   listTags: Tag[];
+
+  skills: Skill[];
   userId: number = parseInt(localStorage.getItem('userId'));
   constructor(
     private service: ReferencesService,
     private mediaService: MediaService,
     private activatedRoute: ActivatedRoute,
-    private areaService: AreaService
+    private areaService: AreaService,
+  private serviceSkill: SkillService,
   ) { }
 
 
@@ -31,6 +36,7 @@ export class ProjectPreviewOwnerComponent implements OnInit {
     this.loadproject();
     this.loadmedia();
     this.listarea();
+    this.loadSkillList();
   }
 
   listarea(): void{
@@ -43,6 +49,14 @@ export class ProjectPreviewOwnerComponent implements OnInit {
     /*.subscribe((data) => {
       this.listProjects = data;
     });*/
+  }
+  loadSkillList(): Skill[] {
+    const id = this.activatedRoute.snapshot.params.id;
+    console.log(id);
+    this.serviceSkill.getSkillsproject(id).subscribe((data) => {
+      this.skills = data;
+    });
+    return this.skills;
   }
   loadproject(): void {
     const id = this.activatedRoute.snapshot.params.id;
@@ -63,7 +77,7 @@ export class ProjectPreviewOwnerComponent implements OnInit {
   }
   debugBase64(base64URL){
     let win = window.open();
-    win.document.write('<img src="' + base64URL  + '" width="1000" height="1000"></img>');
+    win.document.write('<img src="' + base64URL  + '" width="500" height="500"></img>');
   }
 
   listag(){

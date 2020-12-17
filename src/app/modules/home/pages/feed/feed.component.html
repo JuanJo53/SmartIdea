@@ -2,7 +2,22 @@
   <input type="text" class="form-control" name="filterProject" placeholder="Search..." [(ngModel)]="filterProject">
 
 </div>
-<div id="container" *ngFor="let projects of listProjects | search:filterProject ">
+<div>
+  <form [formGroup]="form">
+    <h4>Tags</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>Buscar por Tag</mat-label>
+      <mat-select [formControl]="TagControl" name="tag">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let tag of listtag" [value]="tag.nameTags" (click)="updatellsit(tag.tagId)">
+          {{tag.nameTags}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+</div>
+
+<div id="container" *ngFor="let projects of listProjects | search:filterProject">
   <!-- Start	Product details -->
   <div class="product-details" >
     <!-- 	Product Name -->

@@ -4,6 +4,9 @@ import { IProjects } from '../../../../models/projects.model';
 import {Media} from '../../../../models/media.model';
 import {ReferencesService} from '../../../../services/user_services/references.service';
 import {MediaService} from '../../../../services/user_services/media.service';
+import {FormControl, FormGroup} from '@angular/forms';
+import {TagsService} from '../../../../services/user_services/tags.service';
+import {Tag} from '../../../../models/tag.model';
 
 @Component({
   selector: 'app-feed',
@@ -11,21 +14,38 @@ import {MediaService} from '../../../../services/user_services/media.service';
   styleUrls: ['./feed.component.css'],
 })
 export class FeedComponent implements OnInit {
+
+  public events: string[] = [];
+  public source: Array<string> = ['Albania', 'Andorra', 'Armenia', 'Austria', 'Azerbaijan'];
+  public data: Array<string>;
   listProjects: IProjects[];
   projectDetails: IProjects[];
+  listtag: Tag[];
   clicked = false;
   filterProject = '';
-  constructor(private service: ProjectsService, private mediaService: MediaService) {}
+  form: FormGroup;
+  TagControl = new FormControl();
+  constructor(private service: ProjectsService, private mediaService: MediaService, private tagservice: TagsService) {
+    this.form = new FormGroup({
+      tag: this.TagControl,
+    });
+  }
   media: Media[];
   ngOnInit(): void {
     this.loadlist();
+    this.taglist();
   }
   loadlist() {
     this.service.getAllProjectsfeed().subscribe((data) => {
       this.listProjects = data;
     });
   }
+taglist(){
+    this.tagservice.gettags().subscribe(value => {
+     this.listtag = value;
+    });
 
+}
   afilarse(idproyect: number, proyect: IProjects): void {
 
     const iduser = parseInt(localStorage.getItem('userId'));
@@ -51,12 +71,26 @@ export class FeedComponent implements OnInit {
       });
     console.log('VIEW');
   }
-
+  updatellsit(tagId: number): void{
+    const iduser = parseInt(localStorage.getItem('userId'));
+// getProjecttags(id: number, iduser: number)
+    this.service.getProjecttags(tagId, iduser).subscribe((data) => {
+      console.log(data);
+      if ( data.length === 0){
+        window.alert("no hay resultados");
+        this.ngOnInit();
+      }else{
+        this.listProjects = data;
+      }
+    });
+}
 conexion(projectId: number): void{
 
-  var iduser = parseInt(localStorage.getItem('userId'));
+  const iduser = parseInt(localStorage.getItem('userId'));
   this.service.yaexiste(projectId, iduser).subscribe(value => {
-    console.log(value)
-  return value});
+    console.log(value);
+    return value; });
 }
+
+
 }

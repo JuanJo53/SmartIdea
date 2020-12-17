@@ -23,7 +23,11 @@ export class ProjectsService {
       `http://localhost:8080/user/${iduser}/projects/${id}`
     );
   }
-
+  getProjecttags(id: number, iduser: number) {
+    return this.http.get<IProjects[]>(
+      `http://localhost:8080/user/${iduser}/tag/${id}`
+    );
+  }
   postnewproject(project: IProjects , iduser: number) {
     return this.http.post(`http://localhost:8080/user/${iduser}/projects`, project);
   }
