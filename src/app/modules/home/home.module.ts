@@ -58,6 +58,7 @@ import { CreateBillComponent } from '../components/dialogs/create-bill/create-bi
 import {MatGridListModule} from '@angular/material/grid-list';
 import { UserInProjectComponent } from './pages/user-in-project/user-in-project.component';
 import { ProjectPreviewOwnerComponent } from './pages/project-preview-owner/project-preview-owner.component';
+import { SearchPipe } from './pages/search.pipe';
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { ProjectPreviewOwnerComponent } from './pages/project-preview-owner/proj
     CreateBillComponent,
     UserInProjectComponent,
     ProjectPreviewOwnerComponent,
+    SearchPipe,
   ],
   imports: [
     CommonModule,

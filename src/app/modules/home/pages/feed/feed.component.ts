@@ -14,6 +14,7 @@ export class FeedComponent implements OnInit {
   listProjects: IProjects[];
   projectDetails: IProjects[];
   clicked = false;
+  filterProject = '';
   constructor(private service: ProjectsService, private mediaService: MediaService) {}
   media: Media[];
   ngOnInit(): void {
