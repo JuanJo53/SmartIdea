@@ -33,7 +33,7 @@ h1{
   border-radius: 4px;
   box-shadow: 0px 0px 4px 0px black;
   width: 35%;
-  height: 200px;
+  height: 310px;
   box-sizing: border-box;
   display: inline-block;
 }
@@ -47,7 +47,7 @@ h1{
   display: inline-block;
   width: 140px;
   padding: 10px;
-  background: #7a29b1;
+  background: #6930c3;
   text-decoration: none;
   color: white;
   border-radius: 100px;
@@ -57,11 +57,11 @@ h1{
   margin: auto;
 }
 .table:hover{
-  background-color: #bfbdbd;
-  color: #FFFFFF;
+  background-color: rgb(236, 236, 243);
+  color: #5e60ce;
 }
 .SelectButton:hover{
-  background-color: #aa53e2;
+  background-color:#5e60ce;
 }
 
 @media (max-width: 1070px) {
