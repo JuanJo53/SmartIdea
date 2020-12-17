@@ -37,13 +37,9 @@ export class CreateBillComponent implements OnInit {
   editBill(): void {
     this.edit = true;
     this.formBill = this.fromBuilder.group({
-<<<<<<< HEAD
-      billingAddress: ['', [Validators.required]],
-=======
       billId: [0, [Validators.required]],
       buyDate: ['', [Validators.required]],
       billingAddress: [''],
->>>>>>> 281bcfc3c3c46276e23731cccd420133a05df3e9
       country: ['', [Validators.required]],
       city: ['', [Validators.required]],
     });
@@ -62,7 +58,7 @@ export class CreateBillComponent implements OnInit {
         projectTitle: null,
         paymentPlanName: null,
         paymentPlanCost: null,
-      } 
+      }
       console.log(cert);
       this.close(cert);
     }
