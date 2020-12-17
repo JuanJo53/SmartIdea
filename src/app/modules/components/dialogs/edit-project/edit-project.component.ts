@@ -270,7 +270,6 @@ export class EditProjectComponent implements OnInit {
     const input = event.input;
     const value = event.value;
     let tag: Tag;
-    // Add our fruit
     tag = {
       tagId: 0,
       nameTags: value.trim(),

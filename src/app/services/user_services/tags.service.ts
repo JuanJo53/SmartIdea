@@ -25,7 +25,7 @@ export class TagsService {
     return this.http.get<Tag[]>(`http://localhost:8080/tags/projects/${idproject}`);
   }
   addprojecttotag(idproject:number,tag:Tag){
-    return this.http.post(`http://localhost:8080/tags/projects/${idproject}`,tag)
+    return this.http.post(`http://localhost:8080/tags/projects/${idproject}/add`,tag)
   }
   deleteprojecttotag(tagid: number, projectid: number){
     let httpParams = new HttpParams().set('aaa', '111');
