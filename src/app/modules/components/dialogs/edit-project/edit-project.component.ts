@@ -267,7 +267,6 @@ export class EditProjectComponent implements OnInit {
     return this.tags;
   }
   add(event: MatChipInputEvent): void {
-    var iduser= parseInt(localStorage.getItem('userId'));
     const input = event.input;
     const value = event.value;
     let tag: Tag;
@@ -280,7 +279,7 @@ export class EditProjectComponent implements OnInit {
     };
     if ((value || '').trim()) {
       this.tags.push(tag);
-      this.tagSerive.posttag(iduser,tag).subscribe((tag) => {
+      this.tagSerive.posttagproject(this.data.idproject,tag).subscribe((tag) => {
         console.log(tag);
       });
     }

@@ -15,6 +15,9 @@ export class TagsService {
   posttag(iduser:number,tag: Tag){
     return this.http.post(`http://localhost:8080/tags/user/${iduser}`,tag)
   }
+  posttagproject(idproject:number,tag: Tag){
+    return this.http.post(`http://localhost:8080/tags/projects/${idproject}`,tag)
+  }
   gettaguser(iduser:number){
     return this.http.get<Tag[]>(`http://localhost:8080/tags/user/${iduser}`);
   }

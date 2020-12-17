@@ -37,7 +37,7 @@
 
 <div class="row">
   <div class="column" *ngFor="let images of media">
-    <a target="_blank" href="{{images?.url}}">
+    <a target="_blank" (click)="debugBase64(images?.url)">
       <img src="{{images?.url}}" alt="" style="width:150px">
     </a>
   </div>
