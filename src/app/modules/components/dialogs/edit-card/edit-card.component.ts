@@ -43,11 +43,11 @@ export class EditCardComponent implements OnInit {
   editCard(): void {
     this.edit = true;
     this.formCard = this.fromBuilder.group({
-      cardName: ['', [Validators.required]],
-      cardNumber: ['', [Validators.required]],
-      expirationYear: ['', [Validators.required]],
-      expirationMonth: ['', [Validators.required]],
-      cvc: ['', [Validators.required]],
+      cardName: ['', [Validators.required, ]],
+      cardNumber: ['', [Validators.required, Validators.max(9999999999)]],
+      expirationYear: ['', [Validators.required, Validators.min(2020)]],
+      expirationMonth: ['', [Validators.required, Validators.max(12), Validators.min(1)]],
+      cvc: ['', [Validators.required, Validators.max(99999)]],
     });
   }
   updateCard(): void {
