@@ -6,10 +6,11 @@ import { MediaService } from '../../../../services/user_services/media.service';
 import { Media } from '../../../../models/media.model';
 import {Area} from '../../../../models/area.model';
 import {AreaService} from '../../../../services/user_services/area.service';
-import {Tag} from "../../../../models/tag.model";
+import {Tag} from '../../../../models/tag.model';
 import {Skill} from '../../../../models/skill.model';
 import {SkillService} from '../../../../services/user_services/skill.service';
 import {TagsService} from '../../../../services/user_services/tags.service';
+import {ProjectsService} from '../../../../services/user_services/projects.service';
 
 @Component({
   selector: 'app-reference-by-id',
@@ -19,6 +20,7 @@ import {TagsService} from '../../../../services/user_services/tags.service';
 export class ReferenceByIdComponent implements OnInit {
   project: IProjects;
   media: Media[];
+  conex: number;
   listArea: Area[];
   listTags: Tag[];
   skills: Skill[];
@@ -31,6 +33,7 @@ export class ReferenceByIdComponent implements OnInit {
     private areaService: AreaService,
     private serviceSkill: SkillService,
     private tagservise: TagsService,
+    private Projetservse: ProjectsService,
 
   ) {}
 
@@ -40,6 +43,7 @@ export class ReferenceByIdComponent implements OnInit {
     this.listarea();
     this.loadSkillList();
     this.listag();
+    this.conexion();
   }
 
   listarea(): void{
@@ -52,6 +56,17 @@ export class ReferenceByIdComponent implements OnInit {
     /*.subscribe((data) => {
       this.listProjects = data;
     });*/
+  }
+
+  afilarse(idproyect: number, proyect: IProjects): void {
+
+    const iduser = parseInt(localStorage.getItem('userId'));
+    this.Projetservse
+      .afiliarproyect(idproyect, iduser, proyect)
+      .subscribe((projects) => {
+        console.log(projects);
+      });
+    window.alert('logrado');
   }
   loadproject(): void {
     const id = this.activatedRoute.snapshot.params.id;
@@ -79,10 +94,21 @@ export class ReferenceByIdComponent implements OnInit {
     });
   }
   debugBase64(base64URL){
-    let win = window.open();
+    const win = window.open();
     win.document.write('<img src="' + base64URL  + '" width="500" height="500"></img>');
   }
-
+  conexion(): void{
+    const idpr = this.activatedRoute.snapshot.params.id;
+    const iduser = parseInt(localStorage.getItem('userId'));
+    this.Projetservse.yaexiste(idpr, iduser).subscribe((data) => {
+     this.guardardata(data);
+    });
+  }
+guardardata(data: number): void{
+  console.log(data);
+  this.conex = data;
+  console.log(this.conex);
+}
   listag(){
     const id = this.activatedRoute.snapshot.params.id;
     console.log(id);

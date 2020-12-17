@@ -66,7 +66,9 @@ export class ProjectsService {
     );
   }
   yaexiste(idproject: number, iduser: number) {
-    return this.http.get<number>(
+    let var1=this.http.get<number>(
       `http://localhost:8080/user/${iduser}/projectos/${idproject}`);
+    console.log(var1);
+    return var1;
   }
 }

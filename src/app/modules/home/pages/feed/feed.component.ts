@@ -46,16 +46,7 @@ taglist(){
     });
 
 }
-  afilarse(idproyect: number, proyect: IProjects): void {
 
-    const iduser = parseInt(localStorage.getItem('userId'));
-    this.service
-      .afiliarproyect(idproyect, iduser, proyect)
-      .subscribe((projects) => {
-        console.log(projects);
-      });
-    window.alert('logrado');
-  }
 
   viewProject(projectId: number): void {
 
@@ -77,19 +68,12 @@ taglist(){
     this.service.getProjecttags(tagId, iduser).subscribe((data) => {
       console.log(data);
       if ( data.length === 0){
-        window.alert("no hay resultados");
+        window.alert('no hay resultados');
         this.ngOnInit();
       }else{
         this.listProjects = data;
       }
     });
-}
-conexion(projectId: number): void{
-
-  const iduser = parseInt(localStorage.getItem('userId'));
-  this.service.yaexiste(projectId, iduser).subscribe(value => {
-    console.log(value);
-    return value; });
 }
 
 

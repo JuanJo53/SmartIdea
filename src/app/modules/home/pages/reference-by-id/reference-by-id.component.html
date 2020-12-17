@@ -32,6 +32,9 @@
           </h5>
         </div>
         <button mat-raised-button color="primary" routerLink="/user/project/users/{{project?.projectsId}}" >Participantes</button>
+        <button  mat-raised-button color="accent" (click)="afilarse(project?.projectsId, project)" *ngIf="conex===2" >
+          <span class="buy">Afiliarze</span>
+        </button>
       </div>
     </div>
   </div>
