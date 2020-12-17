@@ -1,49 +1,44 @@
-<h1>Datos de tarjeta</h1>
-
-<button (click)="createCard()" mat-fab color="primary">
-  <mat-icon>add_icon</mat-icon>
-</button>
-
 <div class="container">
-  <table
-    mat-table
-    matSort
-    [dataSource]="listCard"
-    class="table mat-elevation-z8"
-  >
-    <ng-container matColumnDef="Nombre">
-      <th mat-header-cell *matHeaderCellDef>Nombre</th>
-      <td mat-cell *matCellDef="let card">{{ card.cardName }}</td>
-    </ng-container>
-    <ng-container matColumnDef="Numero">
-      <th mat-header-cell *matHeaderCellDef>Numero</th>
-      <td mat-cell *matCellDef="let card">
-        {{ card.cardNumber | creditcard }}
-      </td>
-    </ng-container>
-    <ng-container matColumnDef="Expiracion">
-      <th mat-header-cell *matHeaderCellDef>Mes/Año Expiracion</th>
-      <td mat-cell *matCellDef="let card">
-        {{ card.expirationMonth }}/{{ card.expirationYear }}
-      </td>
-    </ng-container>
+  <h1><strong>Datos de Tarjeta</strong></h1>
+  <button (click)="createCard()" mat-fab color="primary">
+    <mat-icon>add_icon</mat-icon>
+  </button>
 
+  <div class="row">
+    <div
+      class="col-12 col-sm-6 col-md-4 col-lg-3"
+      *ngFor="let card of listCard"
+    >
+      <div class="our-team">
+        <div class="picture">
+          <img
+            class="img-fluid"
+            src="https://e00-expansion.uecdn.es/assets/multimedia/imagenes/2017/02/22/14877703903696.jpg"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="name">Nombre de la Tarjeta :{{ card.cardName }}</h3>
+          <h4 class="title">Numero : {{ card.cardNumber | creditcard }}</h4>
+          <h4 class="title">Mes/Año de expiracion : {{ card.expirationMonth }}/{{ card.expirationYear }}</h4>
+          <a
+            (click)="editcard(card.cardId)"
+            mat-button
+            mat-raised-button
+            color="accent"
+          >
+            Editar
+          </a>
 
-    <ng-container matColumnDef="id_card">
-      <th mat-header-cell *matHeaderCellDef>Acciones</th>
-      <td mat-cell *matCellDef="let card">
-        <button class="action-button" mat-mini-fab (click)="editcard(card.cardId)">
-          <span><mat-icon>edit</mat-icon> </span>
-        </button>
+          <button
+            (click)="deleteCard(card.cardId)"
+            mat-button
+            color="warn"
+          >
+            Eliminar
+          </button>
 
-        <button
-          class="action-button" mat-mini-fab (click)="deleteCard(card.cardId)" color="warn">
-          <span><mat-icon>delete</mat-icon> </span>
-        </button>
-      </td>
-    </ng-container>
+        </div>
+      </div>
+    </div>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
-</div>
+  </div>
