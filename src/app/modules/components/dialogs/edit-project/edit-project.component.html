@@ -44,7 +44,9 @@
       <span *ngIf="this.formProject.get('benefits').errors?.minlength">           (Debe tener como mínimo 3 caracteres)         </span>
 
     </mat-form-field>
+
   </mat-dialog-content>
+  <mat-slide-toggle [(ngModel)]="isChecked" formControlName="status"><div *ngIf="isChecked">Público</div><div *ngIf="isChecked==false">Privado</div></mat-slide-toggle>
   <image-upload [style]="customStyle" (uploadFinished)="onUploadFinish($event)"></image-upload>
   <div>
     <mat-form-field class="example-chip-list">

@@ -24,6 +24,7 @@ import {map, startWith} from "rxjs/operators";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {Observable} from "rxjs";
 import {TagsService} from "../../../../services/user_services/tags.service";
+import {Projects} from "@angular/cli/lib/config/schema";
 
 
 
@@ -42,6 +43,7 @@ export class EditProjectComponent implements OnInit {
   filteredTags: Observable<Tag[]>;
   tags: Tag[] = [];
   allTags: Tag[] = [];
+  isChecked : boolean;
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
   constructor(
@@ -64,7 +66,8 @@ export class EditProjectComponent implements OnInit {
 
   ) {    this.filteredTags = this.tagCtrl.valueChanges.pipe(
     startWith(null),
-    map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice())); }
+    map((tag: string | null) => tag ? this._filter(tag) : this.allTags.slice()));
+}
   displayedColumns: string[] = ['#', 'Area', 'id_card'];
   images: FileHolder[] = [];
   listProjects: IProjects[];
@@ -109,7 +112,12 @@ export class EditProjectComponent implements OnInit {
     this.loadSkillList();
     this.loadtagList();
     this.loadtagProject();
-    console.log(this.listArea);
+    if(this.data.status===1){
+      this.isChecked=true;
+    }if(this.data.status===2) {
+      this.isChecked=false;
+    }
+
   }
   editProject(): void {
     this.edit = true;
@@ -170,10 +178,29 @@ export class EditProjectComponent implements OnInit {
     });
   }
   updateProject(): void {
+    var s;
     if (this.formProject.valid) {
-      const cert = this.formProject.value;
+      if(this.isChecked){
+        s=1;
+      }
+      else{
+        s=2;
+      }
+      let cert: IProjects = {
+        projectsId: 0,
+        projectTitle:this.formProject.value.projectTitle,
+        description:this.formProject.value.description,
+        views: 0,
+        benefits:this.formProject.value.benefits,
+        status:s,
+        createDate: null
+
+      }
       console.log(cert);
-      this.update(this.data.idproject, cert);
+      this.update(this.data.idproject, cert)
+
+
+;
     }else{
       window.alert("hay datos vacios");
     }
@@ -268,6 +295,7 @@ export class EditProjectComponent implements OnInit {
 
     return this.allTags;
   }
+
   loadtagProject(): Tag[] {
     this.tagSerive.gettagproject(this.data.idproject).subscribe((data) => {
       this.tags = data;

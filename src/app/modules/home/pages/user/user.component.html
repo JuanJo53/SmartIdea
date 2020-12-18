@@ -45,6 +45,15 @@
       ngModel="{{user?.surname}}"
       />
       </mat-form-field>
+      <span *ngIf="this.formUser.get('surname').errors?.required">
+          (El nombre no puede quedar vacío)
+      </span>
+      <span *ngIf="this.formUser.get('surname').errors?.minlength">
+          (Debe tener como mínimo 3 caracteres)
+      </span>
+      <span *ngIf="this.formUser.get('surname').errors?.pattern">
+          (Debe tener solo letras)
+      </span>
     <br>
       <mat-form-field>
         <mat-label>Nick Name </mat-label
@@ -117,9 +126,8 @@
           (Debe tener solo números)
       </span>
       <div>{{resultado}}</div>
-    <br>
     <mat-dialog-actions>
-    <button type="submit" mat-raised-button color="primary" cdkFocusInitial *ngIf="formUser.valueChanges">
+    <button type="submit" mat-raised-button color="primary" cdkFocusInitial >
       Update user
     </button>
     </mat-dialog-actions>
@@ -149,7 +157,7 @@
             mat-mini-fab
             (click)="editSkill(skill.skillId, skill.skillName)"
           >
-            <span><mat-icon>edit</mat-icon> </span>
+            <span><mat-icon>edit</mat-icon></span>
           </button>
 
           <button

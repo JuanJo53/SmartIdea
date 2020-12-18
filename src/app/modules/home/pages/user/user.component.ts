@@ -50,7 +50,6 @@ export class UserComponent implements OnInit {
   status: number;
   image: string;
   resultado: string;
-  espacios: boolean;
   constructor(
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
@@ -76,13 +75,14 @@ export class UserComponent implements OnInit {
   edituservalidators(){
     this.formUser = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern('^[a-zA-Z \-\']+')]],
-      surname: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      surname: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern('^[a-zA-Z \-\']+')]],
       username: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
       email: ['',[Validators.email]],
       description: ['', [Validators.required, Validators.minLength(10), this.noWhitespaceValidator]],
       cellphone: ['', [Validators.required, Validators.minLength(7), this.noWhitespaceValidator, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]]
     });
   }
+
 
   loadSkillList(): Skill[] {
     var iduser= parseInt(localStorage.getItem('userId'));
@@ -166,14 +166,14 @@ export class UserComponent implements OnInit {
     if (this.formUser.valid) {
       let user1: User = {
         userId: this.user.userId,
-        name: this.formUser.value.name,
-        surname: this.formUser.value.surname,
-        username: this.formUser.value.username,
-        email: this.formUser.value.email,
+        name: this.formUser.value.name.trim(),
+        surname: this.formUser.value.surname.trim(),
+        username: this.formUser.value.username.trim(),
+        email: this.formUser.value.email.trim(),
         password: this.user.password,
-        description: this.formUser.value.description,
+        description: this.formUser.value.description.trim(),
         image: this.user.image,
-        cellphone: this.formUser.value.cellphone,
+        cellphone: this.formUser.value.cellphone.trim(),
         status:0,
       };
       console.log(user1);
@@ -186,8 +186,20 @@ export class UserComponent implements OnInit {
         }
       });
       this.loadprofile();
+      this.formUser.get("name").setValue(this.user.name);
+      this.formUser.get("surname").setValue(this.user.surname);
+      this.formUser.get("username").setValue(this.user.username);
+      this.formUser.get("email").setValue(this.user.email);
+      this.formUser.get("description").setValue(this.user.description);
+      this.formUser.get("cellphone").setValue(this.user.cellphone);
     }else {
       alert("Existen datos vacios")
+      this.formUser.get("name").setValue(this.user.name);
+      this.formUser.get("surname").setValue(this.user.surname);
+      this.formUser.get("username").setValue(this.user.username);
+      this.formUser.get("email").setValue(this.user.email);
+      this.formUser.get("description").setValue(this.user.description);
+      this.formUser.get("cellphone").setValue(this.user.cellphone);
     }
   }
 

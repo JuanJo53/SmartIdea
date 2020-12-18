@@ -60,6 +60,7 @@ import { UserInProjectComponent } from './pages/user-in-project/user-in-project.
 import { ProjectPreviewOwnerComponent } from './pages/project-preview-owner/project-preview-owner.component';
 import { SearchPipe } from './pages/search.pipe';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -103,33 +104,34 @@ import {MatSelectModule} from '@angular/material/select';
     ProjectPreviewOwnerComponent,
     SearchPipe,
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    LayoutModule,
-    MatCardModule,
-    MatDialogModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatDialogModule,
-    MatIconModule,
-    MatBadgeModule,
-    MatMenuModule,
-    MatTableModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    ImageUploadModule.forRoot(),
-    MatChipsModule,
-    MatAutocompleteModule,
-    MatGridListModule,
-    MatSelectModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        LayoutModule,
+        MatCardModule,
+        MatDialogModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        FormsModule,
+        MatDialogModule,
+        MatIconModule,
+        MatBadgeModule,
+        MatMenuModule,
+        MatTableModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        ImageUploadModule.forRoot(),
+        MatChipsModule,
+        MatAutocompleteModule,
+        MatGridListModule,
+        MatSelectModule,
+        MatSlideToggleModule
+    ],
   entryComponents: [
     CreateCertificateComponent,
     WarningDialogComponent,
