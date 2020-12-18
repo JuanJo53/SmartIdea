@@ -73,7 +73,7 @@ taglist(){
     const iduser = parseInt(localStorage.getItem('userId'));
     if(this.busqueda.valid){
       console.log(this.busqueda.value.search);
-      this.service.getProjecssherche(this.busqueda.value.search, iduser).subscribe((data) => {
+      this.service.getProjecssherche(this.busqueda.value.search.trim(), iduser).subscribe((data) => {
         console.log(data);
         if ( data.length === 0){
           window.alert('no hay resultados');
