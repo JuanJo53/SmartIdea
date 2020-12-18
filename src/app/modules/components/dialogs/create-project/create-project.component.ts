@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators } from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {MatDialogRef} from '@angular/material/dialog';
 import {IProjects} from '../../../../models/projects.model';
@@ -42,9 +42,9 @@ export class CreateProjectComponent implements OnInit {
     this.formProject = this.fromBuilder.group({
       projectsId: [0, [Validators.required]],
       status: [1, [Validators.required]],
-      projectTitle: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      benefits: ['', [Validators.required]],
+      projectTitle: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      description: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      benefits: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
     });
   }
 
@@ -53,9 +53,16 @@ export class CreateProjectComponent implements OnInit {
       const cert = this.formProject.value;
       console.log(cert);
       this.createproject(cert);
+    }else{
+      window.alert("hay datos vacios ");
     }
 
 
+  }
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
   }
 
   createproject(projects: IProjects): void {

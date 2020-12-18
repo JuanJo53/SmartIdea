@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AreaService} from '../../../../services/user_services/area.service';
 import {ActivatedRoute} from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
@@ -35,14 +35,24 @@ export class AreaeditDialogComponent implements OnInit {
     if (this.formArea.valid) {
       const cert = this.formArea.value;
       console.log(cert,"hoalsdsadas");
-      let area:Area={
-        areaId: null,
-        nameArea : this.formArea.value.nameArea,
-        status: 1,
-      };
-      console.log(area.nameArea,"probando");
-      this.updateArea(area);
+      if ( this.formArea.value.nameArea.trim().length === 0){
+        window.alert("hay datos vacios");
+      console.log("no se guarda");
+      }else{
+        let area:Area={
+          areaId: null,
+          nameArea : this.formArea.value.nameArea,
+          status: 1,
+        };
+        console.log(area.nameArea,"probando corectos");
+        this.updateArea(area);
+      }
     }
+  }
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
   }
   updateArea(area: Area): void {
     this.areaservise

@@ -8,6 +8,8 @@
       formControlName="skillName"
       ngModel="{{this.data.skillname}}"
     />
+      <span *ngIf="this.formSkill.get('skillName').errors?.required">           (El nombre no puede quedar vacío)         </span>
+      <span *ngIf="this.formSkill.get('skillName').errors?.minlength">           (Debe tener como mínimo 3 caracteres)         </span>
     </mat-form-field>
   </mat-dialog-content>
   <mat-dialog-actions>

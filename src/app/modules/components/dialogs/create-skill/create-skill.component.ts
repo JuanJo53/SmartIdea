@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {MatDialogRef} from '@angular/material/dialog';
 import {SkillService} from '../../../../services/user_services/skill.service';
@@ -48,10 +48,21 @@ export class CreateSkillComponent implements OnInit {
     if (this.formSkill.valid) {
       const cert = this.formSkill.value;
       console.log(cert);
-      this.createSkill(cert,edit);
+      if(cert.skillName.trim().length===0){
+        console.log("no se que paso ");
+        window.alert("hay datos vacios");
+      }else{
+        console.log("si es valido ");
+        this.createSkill(cert,edit);
+      }
+
     }
   }
-
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+  }
   createSkill(skill: Skill, edit: number): void {
     if (edit == 0){
       let idprojet = parseInt(localStorage.getItem('idprojecte'));

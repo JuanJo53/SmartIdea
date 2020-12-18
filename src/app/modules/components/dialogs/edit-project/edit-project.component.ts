@@ -1,5 +1,5 @@
 import {Component, ElementRef, Inject, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {IProjects} from '../../../../models/projects.model';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
@@ -24,6 +24,8 @@ import {map, startWith} from "rxjs/operators";
 import {COMMA, ENTER} from "@angular/cdk/keycodes";
 import {Observable} from "rxjs";
 import {TagsService} from "../../../../services/user_services/tags.service";
+
+
 
 @Component({
   selector: 'app-edit-project',
@@ -112,11 +114,16 @@ export class EditProjectComponent implements OnInit {
   editProject(): void {
     this.edit = true;
     this.formProject = this.fromBuilder.group({
-      projectTitle: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      benefits: ['', [Validators.required]],
-      status: [1, [Validators.required]],
+      projectTitle: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      description: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      benefits: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      status:  [1, [Validators.required]]
     });
+  }
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
   }
   listarea(): void{
     console.log(this.data.idproject);
@@ -167,6 +174,8 @@ export class EditProjectComponent implements OnInit {
       const cert = this.formProject.value;
       console.log(cert);
       this.update(this.data.idproject, cert);
+    }else{
+      window.alert("hay datos vacios");
     }
     this.eachUpload(this.data.idproject);
   }

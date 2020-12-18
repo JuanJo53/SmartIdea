@@ -10,7 +10,10 @@
       formControlName="projectTitle"
       required
       ngModel="{{this.data.projectTitle}}"
-    />
+      />
+      <span *ngIf="this.formProject.get('projectTitle').errors?.required">           (El nombre no puede quedar vacío)         </span>
+      <span *ngIf="this.formProject.get('projectTitle').errors?.minlength">           (Debe tener como mínimo 3 caracteres)         </span>
+
     </mat-form-field>
     <mat-form-field  >
       <mat-label class="omrs-input-label">description</mat-label
@@ -20,7 +23,11 @@
       formControlName="description"
       required
       ngModel="{{this.data.description}}"
-    />
+
+      />
+      <span *ngIf="this.formProject.get('description').errors?.required">           (El nombre no puede quedar vacío)         </span>
+      <span *ngIf="this.formProject.get('description').errors?.minlength">           (Debe tener como mínimo 3 caracteres)         </span>
+
     </mat-form-field>
 
     <mat-form-field >
@@ -31,7 +38,11 @@
       formControlName="benefits"
       required
       ngModel="{{this.data.benefits}}"
+
     />
+      <span *ngIf="this.formProject.get('benefits').errors?.required">           (El nombre no puede quedar vacío)         </span>
+      <span *ngIf="this.formProject.get('benefits').errors?.minlength">           (Debe tener como mínimo 3 caracteres)         </span>
+
     </mat-form-field>
   </mat-dialog-content>
   <image-upload [style]="customStyle" (uploadFinished)="onUploadFinish($event)"></image-upload>

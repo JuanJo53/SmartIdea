@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Skill} from "../../../../models/skill.model";
 import {ActivatedRoute} from "@angular/router";
 import {SkillService} from "../../../../services/user_services/skill.service";
@@ -37,7 +37,7 @@ export class EditSkillComponent implements OnInit {
     this.edit = true;
     this.formSkill = this.fromBuilder.group({
       skillId: [0, [Validators.required]],
-      skillName: ['', [Validators.required]],
+      skillName: ['', [Validators.required, this.noWhitespaceValidator]],
       status: [0, [Validators.required]],
     });
   }
@@ -48,7 +48,11 @@ export class EditSkillComponent implements OnInit {
       this.update(this.data.idskill,cert);
     }
   }
-
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+  }
   update(idskill:number,skill: Skill): void {
     this.skillService
       .updateskill(idskill,skill)

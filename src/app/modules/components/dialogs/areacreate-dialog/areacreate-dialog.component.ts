@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {AreaService} from '../../../../services/user_services/area.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {SkillService} from '../../../../services/user_services/skill.service';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
@@ -18,7 +18,7 @@ export class AreacreateDialogComponent implements OnInit {
               private fromBuilder: FormBuilder,
               private route: ActivatedRoute,
               public dialogRef: MatDialogRef<AreacreateDialogComponent>,
-              @Inject(MAT_DIALOG_DATA)public data:{idproject:number}) { }
+              @Inject(MAT_DIALOG_DATA)public data:{ idproject: number }) { }
   edit = false;
   onNoClick(): void {
     this.dialogRef.close();
@@ -28,9 +28,15 @@ export class AreacreateDialogComponent implements OnInit {
   }
   savearea(): void{
     if (this.formArea.valid) {
-      const cert = this.formArea.value;
-      console.log(cert);
-      this.createArea(cert);
+      if(this.formArea.value.nameArea.trim().length === 0){
+        console.log("NO ES VALIDO");
+        window.alert("hay datos vacios");
+      }else{
+        console.log("esvalido");
+        const cert = this.formArea.value;
+        console.log(cert);
+        this.createArea(cert);
+      }
     }
   }
   createArea(area: Area): void {
@@ -40,6 +46,11 @@ export class AreacreateDialogComponent implements OnInit {
         console.log(area);
       });
     this.onNoClick();
+  }
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
   }
   editArea(): void {
     this.edit = true;
