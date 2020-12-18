@@ -239,7 +239,7 @@ export class UserComponent implements OnInit {
       verified: 1,
       status: 1,
     };
-    if ((value || '').trim()) {
+    if ((value || '').trim() && !this.taagrept(tag)) {
       this.tags.push(tag);
       this.tagSerive.posttag(iduser,tag).subscribe((tag) => {
         console.log(tag);
@@ -253,7 +253,15 @@ export class UserComponent implements OnInit {
 
     this.tagCtrl.setValue(null);
   }
-
+  taagrept(tag): boolean{
+    var x=false;
+    this.tags.map(value => {
+      if(value.nameTags==tag.nameTags){
+        x = true;
+      }
+    })
+    return x;
+  }
   remove(tag: Tag): void {
     var iduser = parseInt(localStorage.getItem('userId'));
     const index = this.tags.indexOf(tag);
@@ -275,10 +283,12 @@ export class UserComponent implements OnInit {
         status: event.option.value.status,
     }
     console.log(tag)
-    this.tags.push(tag);
-    this.tagSerive.addusertotag(iduser,tag).subscribe(value => console.log('added'))
-    this.tagInput.nativeElement.value = '';
-    this.tagCtrl.setValue(null);
+    if (!this.taagrept(tag)) {
+      this.tags.push(tag);
+      this.tagSerive.addusertotag(iduser, tag).subscribe(value => console.log('added'))
+      this.tagInput.nativeElement.value = '';
+      this.tagCtrl.setValue(null);
+    }
   }
 
   private _filter(value: string): Tag[] {

@@ -303,6 +303,15 @@ export class EditProjectComponent implements OnInit {
 
     return this.tags;
   }
+  taagrept(tag): boolean{
+    var x=false;
+    this.tags.map(value => {
+      if(value.nameTags==tag.nameTags){
+        x = true;
+      }
+    })
+    return x;
+  }
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
@@ -313,7 +322,7 @@ export class EditProjectComponent implements OnInit {
       verified: 1,
       status: 1,
     };
-    if ((value || '').trim()) {
+    if ((value || '').trim() && !this.taagrept(tag)) {
       this.tags.push(tag);
       this.tagSerive.posttagproject(this.data.idproject,tag).subscribe((tag) => {
         console.log(tag);
@@ -347,10 +356,13 @@ export class EditProjectComponent implements OnInit {
       status: event.option.value.status,
     }
     console.log(tag)
-    this.tags.push(tag);
-    this.tagSerive.addprojecttotag(this.data.idproject,tag).subscribe(value => console.log('added'))
-    this.tagInput.nativeElement.value = '';
-    this.tagCtrl.setValue(null);
+    if (!this.taagrept(tag)){
+      this.tags.push(tag);
+      this.tagSerive.addprojecttotag(this.data.idproject,tag).subscribe(value => console.log('added'))
+      this.tagInput.nativeElement.value = '';
+      this.tagCtrl.setValue(null);
+    }
+
   }
 
   private _filter(value: string): Tag[] {
