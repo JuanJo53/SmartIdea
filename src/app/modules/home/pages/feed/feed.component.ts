@@ -4,7 +4,7 @@ import { IProjects } from '../../../../models/projects.model';
 import {Media} from '../../../../models/media.model';
 import {ReferencesService} from '../../../../services/user_services/references.service';
 import {MediaService} from '../../../../services/user_services/media.service';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {TagsService} from '../../../../services/user_services/tags.service';
 import {Tag} from '../../../../models/tag.model';
 
@@ -24,8 +24,9 @@ export class FeedComponent implements OnInit {
   clicked = false;
   filterProject = '';
   form: FormGroup;
+  busqueda: FormGroup;
   TagControl = new FormControl();
-  constructor(private service: ProjectsService, private mediaService: MediaService, private tagservice: TagsService) {
+  constructor(private service: ProjectsService, private mediaService: MediaService, private tagservice: TagsService, private formbuilder : FormBuilder) {
     this.form = new FormGroup({
       tag: this.TagControl,
     });
@@ -34,6 +35,7 @@ export class FeedComponent implements OnInit {
   ngOnInit(): void {
     this.loadlist();
     this.taglist();
+    this.funcxx();
   }
   loadlist() {
     this.service.getAllProjectsfeed().subscribe((data) => {
@@ -62,6 +64,27 @@ taglist(){
       });
     console.log('VIEW');
   }
+  funcxx():void{
+    this.busqueda =this.formbuilder.group({
+      search: ['']
+    });
+  }
+  sercher():void{
+    const iduser = parseInt(localStorage.getItem('userId'));
+    if(this.busqueda.valid){
+      console.log(this.busqueda.value.search);
+      this.service.getProjecssherche(this.busqueda.value.search, iduser).subscribe((data) => {
+        console.log(data);
+        if ( data.length === 0){
+          window.alert('no hay resultados');
+          this.ngOnInit();
+        }else{
+          this.listProjects = data;
+        }
+      });
+    }
+  }
+  //var valor = document.getElementById("texto").value;
   updatellsit(tagId: number): void{
     const iduser = parseInt(localStorage.getItem('userId'));
 // getProjecttags(id: number, iduser: number)

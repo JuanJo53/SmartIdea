@@ -3,8 +3,16 @@
 
 <!--</div>-->
 <div>
-  <input type="search" placeholder="Search..." id="textoserche">
+  <form [formGroup]="busqueda" (ngSubmit)="sercher()">
+  <input type="search"
+         class="form-control"
+         placeholder="Search..."
+         id="textoserche"
+         formControlName="search"
 
+  >
+  <button class="btn">Buscar</button>
+  </form>
 </div>
 <div>
   <form [formGroup]="form">

@@ -28,6 +28,11 @@ export class ProjectsService {
       `http://localhost:8080/user/${iduser}/tag/${id}`
     );
   }
+  getProjecssherche(Buscar: string, iduser: number) {
+    return this.http.get<IProjects[]>(
+      `http://localhost:8080/user/1/buscar/${Buscar}`
+    );
+  }
   postnewproject(project: IProjects , iduser: number) {
     return this.http.post(`http://localhost:8080/user/${iduser}/projects`, project);
   }
