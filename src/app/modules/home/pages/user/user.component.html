@@ -46,7 +46,7 @@
       />
       </mat-form-field>
       <span *ngIf="this.formUser.get('surname').errors?.required">
-          (El nombre no puede quedar vacío)
+          (El apellido no puede quedar vacío)
       </span>
       <span *ngIf="this.formUser.get('surname').errors?.minlength">
           (Debe tener como mínimo 3 caracteres)
@@ -66,7 +66,7 @@
       />
       </mat-form-field>
       <span *ngIf="this.formUser.get('username').errors?.required">
-          (El nombre no puede quedar vacío)
+          (El username no puede quedar vacío)
       </span>
       <span *ngIf="this.formUser.get('username').errors?.minlength">
           (Debe tener como mínimo 3 caracteres)

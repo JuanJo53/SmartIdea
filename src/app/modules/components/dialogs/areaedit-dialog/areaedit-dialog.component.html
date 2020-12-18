@@ -9,6 +9,8 @@
       ngModel="{{this.data.nameArea}}"
     />
     </mat-form-field>
+    <span *ngIf="this.formArea.get('skillName').errors?.required">           (El nombre no puede quedar vacío)         </span>
+    <span *ngIf="this.formArea.get('skillName').errors?.minlength">           (Debe tener como mínimo 3 caracteres)         </span>
   </mat-dialog-content>
   <mat-dialog-actions>
     <button type="submit" mat-button color="primary" cdkFocusInitial>

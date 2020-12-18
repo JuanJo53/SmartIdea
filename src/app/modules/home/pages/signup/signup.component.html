@@ -17,7 +17,16 @@
                   placeholder="Ejemplo Nombres"
                   required
                 /> </mat-form-field
-              ><br />
+              > <br />   <span *ngIf="this.form.get('name').errors?.required">
+          (El nombre no puede quedar vacío)
+      </span>
+              <span *ngIf="this.form.get('name').errors?.minlength">
+          (Debe tener como mínimo 3 caracteres)
+      </span>
+              <span *ngIf="this.form.get('name').errors?.pattern">
+          (Debe tener solo letras)
+      </span>
+
               <mat-form-field class="form-input">
                 <mat-label>Apellidos</mat-label>
                 <input
@@ -26,7 +35,15 @@
                   placeholder="Ejemplo Apellidos"
                   required
                 /> </mat-form-field
-              ><br />
+              ><br />     <span *ngIf="this.form.get('surname').errors?.required">
+          (El apellido no puede quedar vacío)
+      </span>
+              <span *ngIf="this.form.get('surname').errors?.minlength">
+          (Debe tener como mínimo 3 caracteres)
+      </span>
+              <span *ngIf="this.form.get('surname').errors?.pattern">
+          (Debe tener solo letras)
+      </span>
               <mat-form-field class="form-input">
                 <mat-label>Nombre de Usuario</mat-label>
                 <input
@@ -35,7 +52,12 @@
                   placeholder="@usuario"
                   required
                 /> </mat-form-field
-              ><br />
+              ><br />      <span *ngIf="this.form.get('username').errors?.required">
+          (El username no puede quedar vacío)
+      </span>
+              <span *ngIf="this.form.get('username').errors?.minlength">
+          (Debe tener como mínimo 3 caracteres)
+      </span>
             </div>
             <div class="col-xs">
               <mat-form-field class="form-input">
@@ -46,7 +68,12 @@
                   placeholder="Correo Electronico"
                   required
                 /> </mat-form-field
-              ><br />
+              ><br />      <span *ngIf="this.form.get('correo').errors?.email">
+          (Correo invalido)
+      </span>
+              <span *ngIf="this.form.get('correo').errors?.minlength">
+          (Debe tener como mínimo 10 caracteres)
+      </span>
               <mat-form-field class="form-input">
                 <mat-label>Contraseña</mat-label>
                 <input
@@ -56,6 +83,9 @@
                   type="password"
                 />
               </mat-form-field>
+              <span *ngIf="this.form.get('contrasenia').errors?.required">
+                (Debe tener como mínimo 8 caracteres)
+              </span>
               <mat-form-field class="form-input">
                 <mat-label>Confirmar Contraseña</mat-label>
                 <input
@@ -65,7 +95,12 @@
                   type="password"
                 />
               </mat-form-field>
+              <span *ngIf="this.form.get('confContrasenia').value!=this.form.get('contrasenia').value">
+                <br>
+                (Las contraseñas no coinciden)
+            </span>
             </div>
+
           </div>
           <button
             type="submit"
