@@ -13,23 +13,118 @@
       Subir Foto de perfil
     </button>
   </div>
-  <div>
-    <br />
-    <label>First Name</label>
-    <input type="text" [(ngModel)]="user.name" />
-    <label>Last Name</label>
-    <input type="text" [(ngModel)]="user.surname" />
-    <label>Nick Name</label>
-    <input type="text" [(ngModel)]="user.username" />
-    <label>Email</label>
-    <input type="text" [(ngModel)]="user.email" />
-    <label>Description</label>
-    <input type="text" [(ngModel)]="user.description" />
-    <label>Cellphone</label>
-    <input type="text" [(ngModel)]="user.cellphone" />
 
-    <button class="button" (click)="update()">Update User</button>
-  </div>
+    <form [formGroup]="formUser" (ngSubmit)="update()">
+      <mat-form-field>
+        <mat-label>First Name </mat-label
+        ><input
+        matInput
+        placeholder="Name"
+        formControlName="name"
+        required
+        ngModel="{{user?.name}}"
+      />
+      </mat-form-field>
+      <span *ngIf="this.formUser.get('name').errors?.required">
+          (El nombre no puede quedar vacío)
+      </span>
+      <span *ngIf="this.formUser.get('name').errors?.minlength">
+          (Debe tener como mínimo 3 caracteres)
+      </span>
+      <span *ngIf="this.formUser.get('name').errors?.pattern">
+          (Debe tener solo letras)
+      </span>
+    <br>
+      <mat-form-field>
+      <mat-label>Last Name </mat-label
+      ><input
+      matInput
+      placeholder="Surname"
+      formControlName="surname"
+      required
+      ngModel="{{user?.surname}}"
+      />
+      </mat-form-field>
+    <br>
+      <mat-form-field>
+        <mat-label>Nick Name </mat-label
+        ><input
+        matInput
+        placeholder="Nickname"
+        formControlName="username"
+        required
+        ngModel="{{user?.username}}"
+      />
+      </mat-form-field>
+      <span *ngIf="this.formUser.get('username').errors?.required">
+          (El nombre no puede quedar vacío)
+      </span>
+      <span *ngIf="this.formUser.get('username').errors?.minlength">
+          (Debe tener como mínimo 3 caracteres)
+      </span>
+    <br>
+    <mat-form-field>
+      <mat-label>Email </mat-label
+      ><input
+      matInput
+      placeholder="Email"
+      formControlName="email"
+      required
+      ngModel="{{user?.email}}"
+    />
+    </mat-form-field>
+      <span *ngIf="this.formUser.get('email').errors?.email">
+          (Correo invalido)
+      </span>
+      <span *ngIf="this.formUser.get('email').errors?.minlength">
+          (Debe tener como mínimo 10 caracteres)
+      </span>
+    <br>
+    <mat-form-field>
+      <mat-label>Description </mat-label
+      ><input
+      matInput
+      placeholder="Description"
+      formControlName="description"
+      required
+      ngModel="{{user?.description}}"
+    />
+    </mat-form-field>
+      <span *ngIf="this.formUser.get('description').errors?.required">
+          (Cellphone no puede quedar vacío)
+      </span>
+      <span *ngIf="this.formUser.get('description').errors?.minlength">
+          (Debe tener como mínimo 10 caracteres)
+      </span>
+    <br>
+    <mat-form-field>
+      <mat-label>Cellphone </mat-label
+      ><input
+      matInput
+      placeholder="Cellphone"
+      formControlName="cellphone"
+      required
+      ngModel="{{user?.cellphone}}"
+    />
+    </mat-form-field>
+      <span *ngIf="this.formUser.get('cellphone').errors?.required">
+          (Cellphone no puede quedar vacío)
+      </span>
+      <span *ngIf="this.formUser.get('cellphone').errors?.minlength">
+          (Debe tener como mínimo 7 numeros)
+      </span>
+      <span *ngIf="this.formUser.get('cellphone').errors?.pattern">
+          (Debe tener solo números)
+      </span>
+      <div>{{resultado}}</div>
+    <br>
+    <mat-dialog-actions>
+    <button type="submit" mat-raised-button color="primary" cdkFocusInitial *ngIf="formUser.valueChanges">
+      Update user
+    </button>
+    </mat-dialog-actions>
+  </form>
+
 <div>
   <div>
     <h1>SKILLS</h1>

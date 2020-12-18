@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from "../../../../services/user_services/user.service";
 import {User} from "../../../../models/user.model";
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
@@ -19,13 +19,18 @@ export class SignupComponent implements OnInit {
   }
   ngOnInit(): void {
     this.form = this.fromBuilder.group({
-      name: ['', [Validators.required]],
-      surname: ['', [Validators.required]],
-      username: ['', [Validators.required]],
+      name: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      surname: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      username: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
       correo: ['', [Validators.required, Validators.email]],
-      contrasenia: ['', [Validators.required]],
+      contrasenia: ['', [Validators.required, Validators.minLength(8), this.noWhitespaceValidator]],
       confContrasenia: ['', [Validators.required]],
     });
+  }
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
   }
   signup(): void {
     console.log('SIGNUP');

@@ -37,9 +37,14 @@ export class CreateSkillComponent implements OnInit {
     this.edit = true;
     this.formSkill = this.fromBuilder.group({
       skillId: [0, [Validators.required]],
-      skillName: ['', [Validators.required]],
+      skillName: ['', [Validators.required,Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
       status: [0, [Validators.required]],
     });
+  }
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
   }
   saveSkill(): void {
 

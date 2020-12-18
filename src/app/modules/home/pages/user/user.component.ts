@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { WarningDialogComponent } from '../../../components/dialogs/warning-dialog/warning-dialog.component';
 import { EditSkillComponent } from '../../../components/dialogs/edit-skill/edit-skill.component';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { FormControl } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {
   MatAutocompleteSelectedEvent,
   MatAutocomplete,
@@ -41,7 +41,7 @@ export class UserComponent implements OnInit {
   allTags: Tag[] = [];
   @ViewChild('tagInput') tagInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
-
+  formUser: FormGroup;
   editskill: boolean;
   user: User;
   skills: Skill[];
@@ -49,12 +49,16 @@ export class UserComponent implements OnInit {
   skillId: number;
   status: number;
   image: string;
+  resultado: string;
+  espacios: boolean;
   constructor(
+    private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private service: UserService,
     public dialog: MatDialog,
     private serviceSkill: SkillService,
     private tagSerive: TagsService
+
   ) {
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
       startWith(null),
@@ -66,6 +70,18 @@ export class UserComponent implements OnInit {
     this.loadSkillList();
     this.loadtagList();
     this.loadtagUser();
+    this.edituservalidators();
+  }
+
+  edituservalidators(){
+    this.formUser = this.formBuilder.group({
+      name: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern('^[a-zA-Z \-\']+')]],
+      surname: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      username: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      email: ['',[Validators.email]],
+      description: ['', [Validators.required, Validators.minLength(10), this.noWhitespaceValidator]],
+      cellphone: ['', [Validators.required, Validators.minLength(7), this.noWhitespaceValidator, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]]
+    });
   }
 
   loadSkillList(): Skill[] {
@@ -125,7 +141,7 @@ export class UserComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+      this.loadSkillList();
     });
   }
 
@@ -136,26 +152,43 @@ export class UserComponent implements OnInit {
       data: { idskill: skillid, skillname: skillName },
     });
     dialogRef.afterClosed().subscribe((result) => {
-      this.ngOnInit();
+      this.loadSkillList();
     });
   }
-  update() {
-    var iduser= localStorage.getItem('userId')
-    let user1: User = {
-      userId: this.user.userId,
-      name: this.user.name,
-      surname: this.user.surname,
-      username: this.user.username,
-      email: this.user.email,
-      password: this.user.password,
-      description: this.user.description,
-      image: this.user.image,
-      cellphone: this.user.cellphone,
-      status:0,
-    };
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+      return isValid ? null : { 'whitespace': true };
 
-    this.service.updateProfile(parseInt(iduser),user1).subscribe();
-    // this.ngOnInit();
+  }
+  update():void {
+    var iduser= localStorage.getItem('userId')
+    if (this.formUser.valid) {
+      let user1: User = {
+        userId: this.user.userId,
+        name: this.formUser.value.name,
+        surname: this.formUser.value.surname,
+        username: this.formUser.value.username,
+        email: this.formUser.value.email,
+        password: this.user.password,
+        description: this.formUser.value.description,
+        image: this.user.image,
+        cellphone: this.formUser.value.cellphone,
+        status:0,
+      };
+      console.log(user1);
+      this.service.updateProfile(parseInt(iduser),user1).subscribe(value => {
+        if (value==null){
+          alert("Username existente")
+          this.formUser.get("username").setValue(this.user.username)
+        }else {
+          alert("Guardado con exito")
+        }
+      });
+      this.loadprofile();
+    }else {
+      alert("Existen datos vacios")
+    }
   }
 
   onUploadFinish(event) {
