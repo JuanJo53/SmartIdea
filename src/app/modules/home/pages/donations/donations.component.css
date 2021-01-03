@@ -1,0 +1,51 @@
+.table>h1{
+  margin-top: 60px;
+  font-weight: bold;
+  font-size:50px;
+  text-align: center;
+  margin-bottom:65px ;
+}
+.table>h2{
+  font-size:25px;
+  text-align: left;
+}
+.table>text{
+  font-size:25px;
+  text-align: center;
+  margin-bottom:60px ;
+}
+.container {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  aling-items: center;
+  justify-content: center;
+}
+.table {
+  padding: 20px;
+  text-align: center;
+  color: #343759;
+  border: 1px solid black;
+  border-radius: 4px;
+  box-shadow: 0px 0px 4px 0px black;
+  width: 75%;
+  height: 255px;
+  box-sizing: border-box;
+  margin: 20px 60px;
+}
+.donationButton{
+  display: inline-block;
+  width: 140px;
+  padding: 10px;
+  background: #6930c3;
+  text-decoration: none;
+  color: white;
+  border-radius: 100px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  margin: auto;
+}
+.donationButton:hover{
+  background-color:#5e60ce;
+}
