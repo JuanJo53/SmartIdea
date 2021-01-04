@@ -61,6 +61,8 @@ import { ProjectPreviewOwnerComponent } from './pages/project-preview-owner/proj
 import { SearchPipe } from './pages/search.pipe';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {DonationsComponent} from './pages/donations/donations.component';
+import {DonationListComponent} from './pages/donationList/donationList.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +105,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     UserInProjectComponent,
     ProjectPreviewOwnerComponent,
     SearchPipe,
+    DonationsComponent,
+    DonationListComponent,
   ],
     imports: [
         CommonModule,

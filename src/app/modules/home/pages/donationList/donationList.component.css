@@ -1,0 +1,49 @@
+h1 {
+  font-weight: bold;
+  margin-top: 60px;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.container {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+  aling-items: center;
+  justify-content: center;
+}
+.table {
+  padding: 20px;
+  margin: 20px;
+  color: #5a5072;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 90%;
+  height: 500px;
+  box-sizing: border-box;
+  background-color: #f6f5f1
+}
+.table > h2 {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+  display: block;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+.table > p {
+  text-align: left;
+  margin: 10px;
+  display: block;
+  font-size: 18px;
+  margin-bottom: 35px;
+}
+.our-team .picture::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 70%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

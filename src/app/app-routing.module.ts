@@ -20,6 +20,8 @@ import { UserrequesteComponent } from './modules/home/pages/userrequeste/userreq
 import { PaymentMethodComponent } from './modules/home/pages/paymentMethod/paymentMethod.component';
 import {ProjectPreviewOwnerComponent} from "./modules/home/pages/project-preview-owner/project-preview-owner.component";
 import {UserInProjectComponent} from "./modules/home/pages/user-in-project/user-in-project.component";
+import {DonationsComponent} from './modules/home/pages/donations/donations.component';
+import {DonationListComponent} from './modules/home/pages/donationList/donationList.component';
 
 const routes: Routes = [
   {
@@ -111,6 +113,14 @@ const routes: Routes = [
       {
         path: 'userRequest/:id',
         component: UserrequesteComponent,
+      },
+      {
+        path: 'donations/:id',
+        component: DonationsComponent,
+      },
+      {
+        path: 'donationList',
+        component: DonationListComponent,
       },
     ],
   },

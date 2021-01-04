@@ -50,6 +50,13 @@
         routerLinkActive="active"
         >Referencias</a
       >
+      <a
+        *ngIf="this.iduser != null"
+        mat-list-item
+        routerLink="/user/donationList"
+        routerLinkActive="active"
+      >Donaciones</a
+      >
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

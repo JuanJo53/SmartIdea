@@ -1,0 +1,24 @@
+<h1 xmlns="http://www.w3.org/1999/html">Lista de Donaciones</h1>
+
+<section class="container">
+  <div class="row">
+    <div class="col-md-4 pb-2" *ngFor="let projects of listProjects">
+
+        <div class="table">
+            <div class="picture">
+              <img
+                class="img-fluid"
+                src="https://cdn.pixabay.com/photo/2016/09/16/09/21/money-1673582_1280.png"
+                width="105" height="105"
+              />
+            </div>
+          <!--Donation information-->
+          <h2 class="text">{{ projects.projectTitle }}</h2>
+          <p class="text"><strong>Descripción: </strong>{{ projects.description }}</p>
+          <p class="text"><strong>Fecha de Donación: </strong>Fecha de donacion</p>
+          <p class="text"><strong>Tarjeta: </strong>nro de tarjeta</p>
+          <p class="text"><strong>Monto donado: </strong>Bs.</p>
+        </div>
+      </div>
+    </div>
+</section>
