@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { CardService } from '../../../../services/user_services/card.service';
@@ -35,11 +35,11 @@ export class CreateCardComponent implements OnInit {
   editcard(): void {
     this.edit = true;
     this.formCard = this.fromBuilder.group({
-      cardName: ['', [Validators.required]],
-      cardNumber: ['', [Validators.required, Validators.max(2147483647)]],
-      expirationYear: ['', [Validators.required, Validators.min(2020)]],
-      expirationMonth: ['', [Validators.required, Validators.max(12), Validators.min(1)]],
-      cvc: ['', [Validators.required, Validators.max(9999)]],
+      cardName: ['', [Validators.required, Validators.minLength(4), this.space]],
+      cardNumber: ['', [Validators.required, Validators.max(2147483647), Validators.min(1000000000), ]],
+      expirationYear: ['', [Validators.required, Validators.min(2021), Validators.max(2025), ]],
+      expirationMonth: ['', [Validators.required, Validators.max(12), Validators.min(1), ]],
+      cvc: ['', [Validators.required, Validators.max(9999), Validators.min(1000), ]],
       creationDate: ['', [Validators.required]],
     });
   }
@@ -48,9 +48,15 @@ export class CreateCardComponent implements OnInit {
       const cert = this.formCard.value;
       console.log(cert);
       this.createcard(cert);
+    }else{
+      window.alert("Error");
     }
   }
-
+  public space(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+  }
   createcard(card: Card): void {
     this.cardService.postnewcard(this.userId, card).subscribe((card) => {
       console.log(card);
