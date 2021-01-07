@@ -1,8 +1,8 @@
-<h1 xmlns="http://www.w3.org/1999/html">Lista de Donaciones</h1>
+<h1>Lista de Donaciones</h1>
 
 <section class="container">
   <div class="row">
-    <div class="col-md-4 pb-2" *ngFor="let projects of listProjects">
+    <div class="col-md-4 pb-2" *ngFor="let listDonation of listDonation ">
 
         <div class="table">
             <div class="picture">
@@ -13,11 +13,11 @@
               />
             </div>
           <!--Donation information-->
-          <h2 class="text">{{ projects.projectTitle }}</h2>
-          <p class="text"><strong>Descripción: </strong>{{ projects.description }}</p>
-          <p class="text"><strong>Fecha de Donación: </strong>Fecha de donacion</p>
-          <p class="text"><strong>Tarjeta: </strong>nro de tarjeta</p>
-          <p class="text"><strong>Monto donado: </strong>Bs.</p>
+          <h2 class="text">{{ listDonation.projectTitle }}</h2>
+          <p class="text"><strong>Descripción: </strong>{{ listDonation.projectDescription}}</p>
+          <p class="text"><strong>Fecha de Donación: </strong>{{listDonation.donationDate | date: "dd/MM/yyyy"}}</p>
+          <p class="text"><strong>Tarjeta: </strong>{{ listDonation.cardNumber| creditcard }}</p>
+          <p class="text"><strong>Monto donado: </strong>{{listDonation.amount}}Bs.</p>
         </div>
       </div>
     </div>

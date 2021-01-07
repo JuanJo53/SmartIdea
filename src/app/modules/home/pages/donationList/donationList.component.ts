@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {ProjectsService} from '../../../../services/user_services/projects.service';
-import {IProjects} from '../../../../models/projects.model';
 import { ActivatedRoute } from '@angular/router';
-import {ReferencesService} from '../../../../services/user_services/references.service';
+import { Card } from '../../../../models/card.model';
+import { CardService } from '../../../../services/user_services/card.service';
+import { IProjects } from '../../../../models/projects.model';
+import { ProjectsService } from '../../../../services/user_services/projects.service';
+import {MatDialog} from '@angular/material/dialog';
+import {Donation} from '../../../../models/donation.model';
+import {DonationService} from '../../../../services/user_services/donation.service';
+import {BillDetailComponent} from '../../../components/dialogs/bill-detail/bill-detail.component';
 
 @Component({
   selector: 'app-donationList',
@@ -10,19 +15,25 @@ import {ReferencesService} from '../../../../services/user_services/references.s
   styleUrls: ['./donationList.component.css'],
 })
 export class DonationListComponent implements OnInit {
-  listProjects: IProjects[];
+  listDonation: Donation[];
+  displayedColumns: string[] = [
+    'Proyecto',
+    'Descripcion',
+    'Fecha de Donación',
+    'Tarjeta',
+    'Monto donado',
+    'id_card',
 
-  constructor(private service: ReferencesService) {}
+  ];
   userId: number = parseInt(localStorage.getItem('userId'));
-
-
-  ngOnInit(): void {
+  constructor(private service: DonationService, public dialog: MatDialog){}
+  ngOnInit() : void {
     this.loadlist();
   }
-
-  loadlist() {
-    this.service.getAllReferences(this.userId).subscribe((data) => {
-      this.listProjects = data;
+  loadlist(){
+    this.service.getAllDonation(this.userId).subscribe((data)=>
+    {
+      this.listDonation = data;
     });
-  }
+}
 }
