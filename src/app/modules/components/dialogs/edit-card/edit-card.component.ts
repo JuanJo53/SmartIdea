@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { CardService } from '../../../../services/user_services/card.service';
@@ -15,6 +15,8 @@ export class EditCardComponent implements OnInit {
   listCard: Card[];
   userId: number = parseInt(localStorage.getItem('userId'));
   card: Card;
+  lettersPattern = '^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$';
+  numPattern = '^-?[0-9]\\d*(\\.\\d{1,2})?$';
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -43,23 +45,34 @@ export class EditCardComponent implements OnInit {
   editCard(): void {
     this.edit = true;
     this.formCard = this.fromBuilder.group({
-      cardName: ['', [Validators.required, ]],
-      cardNumber: ['', [Validators.required, Validators.max(9999999999)]],
-      expirationYear: ['', [Validators.required, Validators.min(2020)]],
-      expirationMonth: ['', [Validators.required, Validators.max(12), Validators.min(1)]],
-      cvc: ['', [Validators.required, Validators.max(99999)]],
+      cardName: ['', [Validators.required, Validators.minLength(4), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern) ]],
+      cardNumber: ['', [Validators.required, Validators.minLength(10), this.noWhitespaceValidator, Validators.pattern(this.numPattern)]],
+      expirationYear: ['', [Validators.required, Validators.min(2021), Validators.max(2025), this.noWhitespaceValidator, Validators.pattern(this.numPattern)]],
+      expirationMonth: ['', [Validators.required ]],
+      cvc: ['', [Validators.required, Validators.maxLength(4), Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern(this.numPattern) ]],
     });
   }
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+  }
+
+  get cardName() { return this.formCard.get('cardName'); }
+  get cardNumber() { return this.formCard.get('cardNumber'); }
+  get expirationYear() { return this.formCard.get('expirationYear'); }
+  get expirationMonth() { return this.formCard.get('expirationMonth'); }
+  get cvc() { return this.formCard.get('cvc'); }
   updateCard(): void {
     if (this.formCard.valid) {
       let card: Card = {
         cardId:0,
-        cardName:this.formCard.value.cardName,
+        cardName: this.formCard.value.cardName,
         cardNumber: this.formCard.value.cardNumber,
-        expirationYear:this.formCard.value.expirationYear,
-        expirationMonth:this.formCard.value.expirationMonth,
-        cvc:this.formCard.value.cvc,
-        creationDate:null,
+        expirationYear: this.formCard.value.expirationYear,
+        expirationMonth: this.formCard.value.expirationMonth,
+        cvc: this.formCard.value.cvc,
+        creationDate: null,
       }
       console.log(card);
       this.update(this.data.cardId, card);
@@ -70,13 +83,13 @@ export class EditCardComponent implements OnInit {
     this.cardService
       .updatecard( card, cardId, iduser)
       .subscribe((card) => {
-      console.log(card);
-    });
+        console.log(card);
+      });
     this.onNoClick();
   }
   getCardRequest(){
     var iduser = parseInt(localStorage.getItem('userId'));
-    this.cardService.getCard(iduser,this.data.cardId).subscribe(value =>{
+    this.cardService.getCard(iduser, this.data.cardId).subscribe(value =>{
       this.card=value;
     } );
   }
