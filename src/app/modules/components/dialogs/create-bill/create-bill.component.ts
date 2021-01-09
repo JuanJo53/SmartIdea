@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialogRef } from '@angular/material/dialog';
 import { BillService } from '../../../../services/user_services/bill.service';
@@ -15,6 +15,8 @@ import {Card} from '../../../../models/card.model';
 })
 export class CreateBillComponent implements OnInit {
   formBill: FormGroup;
+  lettersPattern = '^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$';
+  numPattern = '^-?[0-9]\\d*(\\.\\d{1,2})?$';
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -37,11 +39,19 @@ export class CreateBillComponent implements OnInit {
   editBill(): void {
     this.edit = true;
     this.formBill = this.fromBuilder.group({
-      billingAddress: ['',[Validators.required]],
-      country: ['', [Validators.required]],
-      city: ['', [Validators.required]],
+      billingAddress: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(15), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern) ]],
+      country: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern) ]],
+      city: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(20), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern) ]],
     });
   }
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+  }
+  get billingAddress() { return this.formBill.get('billingAddress'); }
+  get country() { return this.formBill.get('country'); }
+  get city() { return this.formBill.get('city'); }
   savebill(): void {
     if (this.formBill.valid) {
       let cert:Bill ={billId: null,
