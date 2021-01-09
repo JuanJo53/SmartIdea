@@ -1,44 +1,101 @@
 <h1 mat-dialog-title>Agregar Datos para factura</h1>
 
-<form [formGroup]="formBill" (ngSubmit)="savebill()">
+<form [formGroup]="formBill" (ngSubmit)="savebill()" autocomplete="off">
   <mat-dialog-content>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field>
+          <mat-label class="omrs-input-label">Direccion de envio</mat-label><input matInput type="text" placeholder="Direccion de envio" formControlName="billingAddress" id="billingAddress" />
+
+          <mat-error *ngIf="(billingAddress.invalid && (billingAddress.dirty || billingAddress.touched)) && billingAddress.errors.required">
+            El nombre de la direccion de envio es requerido.
+          </mat-error>
+
+          <mat-error *ngIf="(billingAddress.invalid && (billingAddress.dirty || billingAddress.touched)) && billingAddress.errors.minlength">
+            4 caracteres como maximo
+          </mat-error>
+
+          <mat-error *ngIf="(billingAddress.invalid && (billingAddress.dirty || billingAddress.touched)) && billingAddress.errors.whitespace">
+            No se admite espacios  vacios.
+          </mat-error>
+
+          <mat-error *ngIf="(billingAddress.invalid && (billingAddress.dirty || billingAddress.touched)) && billingAddress.errors.pattern">
+            No se admiten nÃºmeros ni caracteres especiales.
+          </mat-error>
+
+          <mat-error *ngIf="(billingAddress.invalid && (billingAddress.dirty || billingAddress.touched)) && billingAddress.errors.maxlength">
+            15 caracteres como maximo.
+          </mat-error>
+
+        </mat-form-field>
+      </div>
 
 
-    <mat-form-field  >
-      <mat-label class="omrs-input-label">Direccion de envio</mat-label
-      ><input
-      matInput
-      type="text"
-      placeholder="Direccion de envio"
-      formControlName="billingAddress"
-    />
-    </mat-form-field>
+      <div class="col-6">
+        <mat-form-field>
+          <mat-label class="omrs-input-label">Pais</mat-label><input matInput type="text"
+                                                                     placeholder="Pais" formControlName="country" id=" country" />
 
-    <mat-form-field >
-      <mat-label class="omrs-input-label">Pais</mat-label
-      ><input
-      matInput
-      type="text"
-      placeholder="Pais "
-      formControlName="country"
-      required
-    />
-    </mat-form-field>
+          <mat-error *ngIf="(country.invalid && (country.dirty || country.touched)) && country.errors.required">
+            El nombre del Pais es requerido.
+          </mat-error>
+
+          <mat-error *ngIf="(country.invalid && (country.dirty || country.touched)) && country.errors.minlength">
+            4 caracteres como maximo
+          </mat-error>
+
+          <mat-error *ngIf="(country.invalid && (country.dirty || country.touched)) && country.errors.whitespace">
+            No se admite espacios vacios
+          </mat-error>
+
+          <mat-error *ngIf="(country.invalid && (country.dirty || country.touched)) && country.errors.pattern">
+            No se admiten nÃºmeros ni caracteres especiales.
+          </mat-error>
+
+          <mat-error *ngIf="(country.invalid && (country.dirty || country.touched)) && country.errors.maxlength">
+            20 caracteres como maximo.
+          </mat-error>
+
+        </mat-form-field>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field>
+          <mat-label class="omrs-input-label">Ciudad</mat-label><input matInput type="text"
+                                                                       placeholder="Ciudad" formControlName="city" id="city" />
 
 
-    <mat-form-field >
-      <mat-label class="omrs-input-label">Ciudad</mat-label
-      ><input
-      matInput
-      type="text"
-      placeholder="Ciudad"
-      formControlName="city"
-      required
-    />
-    </mat-form-field>
+          <mat-error *ngIf="(city.invalid && (country.dirty || city.touched)) && city.errors.required">
+            El nombre de la tarjeta es requerido.
+          </mat-error>
 
+          <mat-error *ngIf="(city.invalid && (country.dirty || city.touched)) && city.errors.minlength">
+            3 caracteres como maximo.
+          </mat-error>
+
+          <mat-error *ngIf="(city.invalid && (country.dirty || city.touched)) && city.errors.whitespace">
+            No se admite espacios vacios.
+          </mat-error>
+
+          <mat-error *ngIf="(city.invalid && (city.dirty || city.touched)) && city.errors.pattern">
+            No se admiten numeros ni caracteres especiales.
+          </mat-error>
+
+
+          <mat-error *ngIf="(city.invalid && (city.dirty || city.touched)) && city.errors.maxlength">
+            20 caracteres como maximo.
+          </mat-error>
+
+
+        </mat-form-field>
+
+      </div>
+
+
+    </div>
   </mat-dialog-content>
-
 
   <mat-dialog-actions>
     <button type="submit" mat-button color="primary" cdkFocusInitial>
