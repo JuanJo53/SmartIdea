@@ -4,6 +4,7 @@ import apiKey from '../apiKey';
 import {Donation} from '../../models/donation.model';
 import { DonationRequest } from './../../models/donationRequest.model';
 import {url} from 'inspector';
+import {PaymentPlan} from '../../models/paymentPlan.model';
 
 @Injectable({
   providedIn: 'root',
@@ -21,12 +22,11 @@ export class DonationService {
     donation: DonationRequest
   ) {
     return this.http.post(
-      `http://localhost:8080/user/${userid}/projects/${projectid}/${cardid}`,
+      `http://localhost:8080/user/${userid}/projects/${projectid}/donation/${donation}/${cardid}`,
       donation
     );
   }
     getDonation(userid:number){
     return this.http.get<Donation>(`http://localhost:8080/user/${userid}/donation`)
   }
-
 }

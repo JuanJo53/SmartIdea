@@ -119,18 +119,18 @@ const routes: Routes = [
             component: DonationsComponent,
           },
           {
-           path: ':id/paymentDonation/:pid',
+           path: ':id/paymentDonation/:did',
            component: PaymentDonationComponent,
+          },
+          {
+            path: ':id/paymentDonation/:did/donationList/:cid',
+            component: DonationListComponent,
           },
         ],
       },
       {
         path: 'userRequest/:id',
         component: UserrequesteComponent,
-      },
-      {
-        path: 'paymentDonation',
-        component: PaymentDonationComponent,
       },
     ],
   },

@@ -7,7 +7,6 @@ import {MediaService} from '../../../../services/user_services/media.service';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {TagsService} from '../../../../services/user_services/tags.service';
 import {Tag} from '../../../../models/tag.model';
-import {Donation} from '../../../../models/donation.model';
 
 @Component({
   selector: 'app-feed',
@@ -27,7 +26,7 @@ export class FeedComponent implements OnInit {
   form: FormGroup;
   busqueda: FormGroup;
   TagControl = new FormControl();
-  constructor(private service: ProjectsService, private mediaService: MediaService, private tagservice: TagsService, private formbuilder : FormBuilder) {
+  constructor( private service: ProjectsService, private mediaService: MediaService, private tagservice: TagsService, private formbuilder : FormBuilder) {
     this.form = new FormGroup({
       tag: this.TagControl,
     });
@@ -100,6 +99,4 @@ taglist(){
       }
     });
 }
-
-
 }

@@ -18,7 +18,11 @@ import {DonationService} from '../../../../services/user_services/donation.servi
 })
 export class DonationsComponent implements OnInit{
   donation: Donation;
+  listDonation: Donation[];
   project: IProjects;
+  user: User;
+  cardid = this.activatedRoute.snapshot.params.cid;
+  donationlistid = this.activatedRoute.snapshot.params.dlid;
   projectid = this.activatedRoute.snapshot.params.id;
   donationid = this.activatedRoute.snapshot.params.did;
   userId: number = parseInt(localStorage.getItem('userId'));
@@ -38,7 +42,9 @@ export class DonationsComponent implements OnInit{
     this.loaduser();
     this.loadproject();
     this.loadcard();
+    this.loadlist();
 }
+
   loaddonation(){
     const id = this.activatedRoute.snapshot.params.did;
     console.log('Donation ID:'+ id);
@@ -53,7 +59,6 @@ export class DonationsComponent implements OnInit{
     );
   }
   loaduser(){
-
   }
   loadproject(){
 
@@ -61,4 +66,11 @@ export class DonationsComponent implements OnInit{
   loadcard(){
 
   }
+  loadlist(){
+    console.log('Project id: ' + this.projectid);
+    this.service.getAllDonation(this.userId).subscribe((data) => {
+      this.listDonation= data;
+  });
+}
+
 }

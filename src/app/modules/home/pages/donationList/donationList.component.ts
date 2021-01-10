@@ -16,6 +16,8 @@ import {BillDetailComponent} from '../../../components/dialogs/bill-detail/bill-
 })
 export class DonationListComponent implements OnInit {
   listDonation: Donation[];
+  card: Card;
+  project: IProjects;
   displayedColumns: string[] = [
     'Proyecto',
     'Descripcion',
@@ -26,7 +28,13 @@ export class DonationListComponent implements OnInit {
 
   ];
   userId: number = parseInt(localStorage.getItem('userId'));
-  constructor(private service: DonationService, public dialog: MatDialog){}
+  constructor(
+    private service: DonationService,
+    private cardService: CardService,
+    private projectService: ProjectsService,
+    public dialog: MatDialog)
+  {}
+
   ngOnInit() : void {
     this.loadlist();
   }
