@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Event } from '@angular/router';
 import { certificateRequest } from 'src/app/models/certificateRequest.model';
 import { CertificateService } from 'src/app/services/user_services/certificate.service';
@@ -10,6 +10,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { DialogData } from '../../certificates/certificates.component';
+import {worker} from 'cluster';
 @Component({
   selector: 'app-create-certificate',
   templateUrl: './create-certificate.component.html',
@@ -33,12 +34,11 @@ export class CreateCertificateComponent implements OnInit {
   }
   editCert(): void {
     this.form = this.fromBuilder.group({
-      id: [0, [Validators.required]],
-      certificateName: ['', [Validators.required]],
-      company: ['', [Validators.required]],
-      expeditionDate: ['', [Validators.required]],
-      expirationDate: [''],
-      credentialId: ['', [Validators.required]],
+      certificateName: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(60)]],
+      company: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(60)]],
+      expeditionDate: ['', [Validators.required, Validators.min(2020)]],
+      expirationDate: ['', [Validators.required, Validators.min(2020)]],
+      credentialId: ['', [Validators.required, Validators.maxLength(60)]],
       credentialURL: ['', [Validators.required]],
     });
   }
@@ -50,7 +50,6 @@ export class CreateCertificateComponent implements OnInit {
     }
     this.dialogRef.close();
   }
-
   createCertificate(newCertificate: certificateRequest): void {
     var iduser = parseInt(localStorage.getItem('userId'));
     this.certificatesService

@@ -63,6 +63,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {DonationsComponent} from './pages/donations/donations.component';
 import {DonationListComponent} from './pages/donationList/donationList.component';
+import {PaymentDonationComponent} from './pages/paymentDonation/paymentDonation.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import {DonationListComponent} from './pages/donationList/donationList.component
     SearchPipe,
     DonationsComponent,
     DonationListComponent,
+    PaymentDonationComponent,
   ],
     imports: [
         CommonModule,

@@ -7,6 +7,7 @@ import {MediaService} from '../../../../services/user_services/media.service';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {TagsService} from '../../../../services/user_services/tags.service';
 import {Tag} from '../../../../models/tag.model';
+import {Donation} from '../../../../models/donation.model';
 
 @Component({
   selector: 'app-feed',
@@ -64,6 +65,7 @@ taglist(){
       });
     console.log('VIEW');
   }
+
   funcxx():void{
     this.busqueda =this.formbuilder.group({
       search: ['']

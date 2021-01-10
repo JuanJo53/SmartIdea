@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { certificateRequest } from 'src/app/models/certificateRequest.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { CertificateComponent } from '../../home/pages/certificate/certificate.component';
 import { WarningDialogComponent } from '../dialogs/warning-dialog/warning-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -53,10 +53,10 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
     this.edit = true;
     this.form = this.fromBuilder.group({
       id: [0, [Validators.required]],
-      certificateName: ['', [Validators.required]],
-      company: ['', [Validators.required]],
-      expeditionDate: ['', [Validators.required]],
-      expirationDate: ['', [Validators.required]],
+      certificateName: ['', [Validators.required, Validators.minLength(4)]],
+      company: ['', [Validators.required, Validators.minLength(4)]],
+      expeditionDate: ['', [Validators.required, Validators.min(2020)]],
+      expirationDate: ['', [Validators.required, Validators.min(2020)]],
       credentialId: ['', [Validators.required]],
       credentialURL: ['', [Validators.required]],
     });
@@ -75,7 +75,7 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
       console.log(cert);
       this.updateCertificate(id, cert);
     }
-    this.cancel();
+      this.cancel();
   }
   updateCertificate(id: number, updateCertificate: certificateRequest): void {
     this.certificatesService

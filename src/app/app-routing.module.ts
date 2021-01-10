@@ -22,6 +22,7 @@ import {ProjectPreviewOwnerComponent} from "./modules/home/pages/project-preview
 import {UserInProjectComponent} from "./modules/home/pages/user-in-project/user-in-project.component";
 import {DonationsComponent} from './modules/home/pages/donations/donations.component';
 import {DonationListComponent} from './modules/home/pages/donationList/donationList.component';
+import {PaymentDonationComponent} from './modules/home/pages/paymentDonation/paymentDonation.component';
 
 const routes: Routes = [
   {
@@ -86,6 +87,10 @@ const routes: Routes = [
         component: UserComponent,
       },
       {
+        path: 'donationList',
+        component: DonationListComponent,
+      },
+      {
         path: 'project',
         children: [
           {
@@ -108,6 +113,15 @@ const routes: Routes = [
             path: 'users/:idproject',
             component: UserInProjectComponent,
           },
+
+          {
+            path: ':id',
+            component: DonationsComponent,
+          },
+          {
+           path: ':id/paymentDonation/:pid',
+           component: PaymentDonationComponent,
+          },
         ],
       },
       {
@@ -115,12 +129,8 @@ const routes: Routes = [
         component: UserrequesteComponent,
       },
       {
-        path: 'donations/:id',
-        component: DonationsComponent,
-      },
-      {
-        path: 'donationList',
-        component: DonationListComponent,
+        path: 'paymentDonation',
+        component: PaymentDonationComponent,
       },
     ],
   },

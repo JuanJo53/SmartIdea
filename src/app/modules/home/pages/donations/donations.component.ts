@@ -8,6 +8,8 @@ import { User} from '../../../../models/user.model';
 import {UserService} from '../../../../services/user_services/user.service';
 import {MatDialog} from '@angular/material/dialog';
 import {FormBuilder,FormControl, FormGroup, Validators} from '@angular/forms';
+import {Donation} from '../../../../models/donation.model';
+import {DonationService} from '../../../../services/user_services/donation.service';
 
 @Component({
   selector: 'app-donations',
@@ -15,27 +17,48 @@ import {FormBuilder,FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./donations.component.css'],
 })
 export class DonationsComponent implements OnInit{
+  donation: Donation;
   project: IProjects;
   projectid = this.activatedRoute.snapshot.params.id;
+  donationid = this.activatedRoute.snapshot.params.did;
   userId: number = parseInt(localStorage.getItem('userId'));
 
   constructor(
+    private service: DonationService,
+    private userService: UserService,
     private projectService: ProjectsService,
     private cardService: CardService,
+    private donationService: DonationService,
     private activatedRoute: ActivatedRoute,
     public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    console.log(this.projectid);
+    this.loaddonation();
+    this.loaduser();
     this.loadproject();
+    this.loadcard();
 }
-  loadproject() {
-    this.projectService
-      .getProject(this.projectid, this.userId)
-      .subscribe((data) => {
-        this.project = data;
-        console.log('PROJECT: ' + this.project);
-      });
+  loaddonation(){
+    const id = this.activatedRoute.snapshot.params.did;
+    console.log('Donation ID:'+ id);
+    this.service.getDonation(id).subscribe(
+      (data)=>{
+        this.donation = data;
+        console.log(data);
+      },
+      (err) =>{
+        console.log(err);
+      }
+    );
+  }
+  loaduser(){
+
+  }
+  loadproject(){
+
+  }
+  loadcard(){
+
   }
 }
