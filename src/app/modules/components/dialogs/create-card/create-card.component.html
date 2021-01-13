@@ -8,14 +8,14 @@
       <div class="col-6">
         <mat-form-field>
           <mat-label class="omrs-input-label">Nombre de tarjeta</mat-label><input matInput type="text"
-            placeholder="Nombre de tarjeta" formControlName="cardName" id="cardName" />
+                                                                                  placeholder="Nombre de tarjeta" formControlName="cardName" id="cardName" />
 
           <mat-error *ngIf="(cardName.invalid && (cardName.dirty || cardName.touched)) && cardName.errors.required">
             El nombre de la tarjeta es requerido.
           </mat-error>
 
           <mat-error *ngIf="(cardName.invalid && (cardName.dirty || cardName.touched)) && cardName.errors.minlength">
-            3 caracteres como mínimo.
+            4 caracteres como mínimo.
           </mat-error>
 
           <mat-error *ngIf="(cardName.invalid && (cardName.dirty || cardName.touched)) && cardName.errors.whitespace">
@@ -26,14 +26,14 @@
             No se admiten números ni caracteres especiales.
           </mat-error>
 
-       
+
 
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field>
           <mat-label class="omrs-input-label">Numero de tarjeta</mat-label><input matInput type="text"
-            placeholder="Numero de tarjeta" formControlName="cardNumber" id="cardNumber" />
+                                                                                  placeholder="Numero de tarjeta" formControlName="cardNumber" id="cardNumber" />
 
           <mat-error
             *ngIf="(cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)) && cardNumber.errors.required">
@@ -42,7 +42,7 @@
 
           <mat-error
             *ngIf="(cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)) && cardNumber.errors.minLength">
-           Requiere 11 digitos como mínimo.
+            Requiere 11 digitos como mínimo.
           </mat-error>
 
           <mat-error *ngIf="(cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)) && cardNumber.errors.whitespace">
@@ -50,7 +50,7 @@
           </mat-error>
 
           <mat-error *ngIf="(cardNumber.invalid && (cardNumber.dirty || cardNumber.touched)) && cardNumber.errors.pattern">
-           Solo se admite numeros
+            Solo se admite numeros
           </mat-error>
 
 
@@ -62,7 +62,7 @@
       <div class="col-6">
         <mat-form-field>
           <mat-label class="omrs-input-label">Año de Expiración</mat-label><input matInput type="text"
-            placeholder="Año de Expiracion " formControlName="expirationYear" id="expirationYear" />
+                                                                                  placeholder="Año de Expiracion " formControlName="expirationYear" id="expirationYear" />
 
           <mat-error
             *ngIf="(expirationYear.invalid && (expirationYear.dirty || expirationYear.touched)) && expirationYear.errors.required">
@@ -84,7 +84,7 @@
           </mat-error>
 
           <mat-error *ngIf="(expirationYear.invalid && (expirationYear.dirty || expirationYear.touched)) && expirationYear.errors.pattern">
-           Solo se admite numeros
+            Solo se admite numeros
           </mat-error>
 
 
@@ -93,7 +93,7 @@
       <div class="col-6">
         <mat-form-field>
           <mat-label class="omrs-input-label">Mes de Expiración</mat-label>
-          
+
           <mat-select formControlName="expirationMonth" id="expirationMonth">
             <mat-option value="1">Enero</mat-option>
             <mat-option value="2">Febrero</mat-option>
@@ -113,7 +113,7 @@
             *ngIf="(expirationMonth.invalid && (expirationMonth.dirty || expirationMonth.touched)) && expirationMonth.errors.required">
             El mes es requerido.
           </mat-error>
-          
+
         </mat-form-field>
       </div>
     </div>
@@ -122,11 +122,11 @@
       <div class="col-6">
         <mat-form-field>
           <mat-label class="omrs-input-label">CVC</mat-label><input matInput type="text" placeholder="CVC"
-            formControlName="cvc" id="cvc" />
+                                                                    formControlName="cvc" id="cvc" />
 
 
 
-            <mat-error
+          <mat-error
             *ngIf="(cvc.invalid && (cvc.dirty || cvc.touched)) && cvc.errors.required">
             El CVC es requerido.
           </mat-error>
@@ -144,7 +144,7 @@
           </mat-error>
 
           <mat-error *ngIf="(cvc.invalid && (cvc.dirty || cvc.touched)) && cvc.errors.pattern">
-           Solo se admite numeros
+            Solo se admite numeros
           </mat-error>
 
 
@@ -152,23 +152,12 @@
         </mat-form-field>
       </div>
       <div class="col-6">
-        <mat-form-field>
-          <mat-label class="omrs-input-label">Fecha de creacion</mat-label><input matInput type="date"
-            placeholder="Fecha de creacion" formControlName="creationDate" required />
-        </mat-form-field>
+        <!--  <mat-form-field>
+            <mat-label class="omrs-input-label">Fecha de creacion</mat-label><input matInput type="date"
+              placeholder="Fecha de creacion" formControlName="creationDate" required />
+          </mat-form-field>-->
       </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
   </mat-dialog-content>

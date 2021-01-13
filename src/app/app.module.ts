@@ -8,6 +8,8 @@ import { HomeModule } from './modules/home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { UserDetailsComponent } from './modules/components/dialogs/user-details/user-details.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [AppComponent, UserDetailsComponent],
@@ -17,6 +19,7 @@ import { UserDetailsComponent } from './modules/components/dialogs/user-details/
     HomeModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent],
