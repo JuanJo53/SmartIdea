@@ -4,17 +4,35 @@
   <h2 class="text"><strong>Se realizará una donación a</strong></h2>
   <h1 class="text"><strong>{{project?.projectTitle}}</strong></h1>
 
-  <form >
+  <form [formGroup]="formUser" (ngSubmit)="saveUser" autocomplete="off" >
     <mat-form-field>
       <mat-label>Nombres:</mat-label>
       <input
       matInput
       placeholder="Nombres"
       formControlName="name"
-      required
-
+      id="name"
       />
+      <mat-error *ngIf="(name.invalid && (name.dirty || name.touched)) && name.errors.required">
+        El nombre es requerido.
+      </mat-error>
+
+      <mat-error *ngIf="(name.invalid && (name.dirty || name.touched)) && name.errors.minlength">
+       El nombre debe tener 3 caracteres como mínimo.
+      </mat-error>
+
+      <mat-error *ngIf="(name.invalid && (name.dirty || name.touched)) && name.errors.whitespace">
+        No se admite espacios vacíos.
+      </mat-error>
+
+      <mat-error *ngIf="(name.invalid && (name.dirty || name.touched)) && name.errors.pattern">
+        No se admiten números ni caracteres especiales.
+      </mat-error>
     </mat-form-field>
+    <br>
+
+
+
 
     <mat-form-field>
     <mat-label>Apellidos:</mat-label>
@@ -22,25 +40,53 @@
       matInput
       placeholder="Apellidos"
       formControlName="surname"
-      required
-
+      id="surname"
     />
+      <mat-error *ngIf="(surname.invalid && (surname.dirty || surname.touched)) && surname.errors.required">
+        El apellido es requerido.
+      </mat-error>
+
+      <mat-error *ngIf="(surname.invalid && (surname.dirty || surname.touched)) && surname.errors.minlength">
+        El nombre debe tener 3 caracteres como mínimo.
+      </mat-error>
+
+      <mat-error *ngIf="(surname.invalid && (surname.dirty || surname.touched)) && surname.errors.whitespace">
+        No se admite espacios vacíos.
+      </mat-error>
+
+      <mat-error *ngIf="(surname.invalid && (surname.dirty || surname.touched)) && surname.errors.pattern">
+        No se admiten números ni caracteres especiales.
+      </mat-error>
     </mat-form-field>
 
-    <mat-form-field>
-    <mat-label>Monto a donar:</mat-label>
-    <input
-      matInput
-      placeholder="monto"
-      formControlName="amount"
-      required
+    <form [formGroup]="formDonation" (ngSubmit)="saveDonation" autocomplete="off">
+      <mat-form-field>
+        <mat-label>Monto a donar:</mat-label>
+        <input
+          matInput
+          placeholder="monto"
+          formControlName="amount"
+          id="amount"
+        />
+        <mat-error *ngIf="(amount.invalid && (amount.dirty || amount.touched)) && amount.errors.required">
+          Se requiere el monto para donar.
+        </mat-error>
 
-    />
-    </mat-form-field>
+        <mat-error *ngIf="(amount.invalid && (amount.dirty || amount.touched)) && amount.errors.whitespace">
+          No se admite espacios vacios.
+        </mat-error>
+
+        <mat-error *ngIf="(amount.invalid && (amount.dirty ||amount.touched)) && amount.errors.pattern">
+          No se admiten caracteres especiales o letras solo números.
+        </mat-error>
+      </mat-form-field>
+    </form>
+
 
     <button
       type="button"
       class="donationButton"
+      (click)="loadpayment()"
     >
       Donar
     </button>
