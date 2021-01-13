@@ -28,7 +28,16 @@ export class CreateCertificateComponent implements OnInit {
     private route: ActivatedRoute,
     private certificatesService: CertificateService,
     public dialogRef: MatDialogRef<CreateCertificateComponent> // @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {}
+  ) {
+    this.form = this.fromBuilder.group({
+      certificateName: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator,Validators.pattern(this.lettersPattern)]],
+      company: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator,Validators.pattern(this.lettersPattern)]],
+      expeditionDate: ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator,Validators.pattern(this.numPattern)]],
+      expirationDate: ['', [Validators.required, Validators.min(2021), Validators.max(2029), this.noWhitespaceValidator,Validators.pattern(this.numPattern)]],
+      credentialId: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(30), this.noWhitespaceValidator, Validators.pattern(this.idPattern)]],
+      credentialURL: ['', [Validators.required,  Validators.minLength(15), Validators.maxLength(74), this.noWhitespaceValidator, Validators.pattern(this.URLPattern)]],
+    });
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -72,6 +81,12 @@ export class CreateCertificateComponent implements OnInit {
   }
 
   public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+  }
+
+  public space(control: FormControl) {
     const isWhitespace = (control.value || '').trim().length === 0;
     const isValid = !isWhitespace;
     return isValid ? null : { 'whitespace': true };

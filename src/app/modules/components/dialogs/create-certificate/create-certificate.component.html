@@ -1,4 +1,5 @@
 <h1 mat-dialog-title>Nuevo Certificado</h1>
+
 <form [formGroup]="form" (ngSubmit)="saveCertificate()" autocomplete="off">
   <mat-dialog-content>
     <mat-form-field class="form">
@@ -10,9 +11,9 @@
         placeholder="Nombre Certificado"
         id="certificateName"
       />
-    <mat-error *ngIf="(certificateName.invalid && (certificateName.dirty || certificateName.touched)) && certificateName.errors.required">
-      Se requiere nombre del Certificado.
-    </mat-error>
+      <mat-error *ngIf="(certificateName.invalid && (certificateName.dirty || certificateName.touched)) && certificateName.errors.required">
+        Se requiere nombre del Certificado.
+      </mat-error>
 
       <mat-error *ngIf="(certificateName.invalid && (certificateName.dirty || certificateName.touched)) && certificateName.errors.minlength">
         Se requiere 3 caracteres como minimo.
@@ -82,11 +83,12 @@
       </mat-error>
 
       <mat-error *ngIf="(expeditionDate.invalid && (expeditionDate.dirty || expeditionDate.touched)) && expeditionDate.errors.whitespace">
-       No se admiten espacios vacios.
+        No se admiten espacios vacios.
+      </mat-error>
 
         <mat-error *ngIf="(expeditionDate.invalid && (expeditionDate.dirty || expeditionDate.touched)) && expeditionDate.errors.pattern">
-        No se admiten caracteres especiales, solo numeros.
-      </mat-error>
+          No se admiten caracteres especiales, solo numeros.
+        </mat-error>
     </mat-form-field><br />
 
 
@@ -116,6 +118,7 @@
 
       <mat-error *ngIf="(expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)) && expirationDate.errors.whitespace">
         No se admiten espacios vacios.
+      </mat-error>
 
         <mat-error *ngIf="(expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)) && expirationDate.errors.pattern">
           No se admiten caracteres especiales, solo numeros.
@@ -127,65 +130,66 @@
     <mat-form-field class="form">
       <mat-label>Credential ID:</mat-label
       ><input
-        matInput
-        type="text"
-        placeholder="ID de la credencial"
-        formControlName="credentialId"
-        id="credentialId"
-      />
+      matInput
+      type="text"
+      placeholder="ID de la credencial"
+      formControlName="credentialId"
+      id="credentialId"
+    />
+      <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.required">
+        Se requiere nombre de la Empresa.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.minlength">
+        Se requiere 8 caracteres como minimo.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.maxlength">
+        Se requiere 30 caracteres como maximo.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.whitespace">
+        No se admite espacios vacios.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.pattern">
+        Se admiten caracteres especiales.
+      </mat-error>
     </mat-form-field>
 
-    <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.required">
-      Se requiere nombre de la Empresa.
-    </mat-error>
-
-    <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.minlength">
-      Se requiere 8 caracteres como minimo.
-    </mat-error>
-
-    <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.maxlength">
-      Se requiere 30 caracteres como maximo.
-    </mat-error>
-
-    <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.whitespace">
-      No se admite espacios vacios.
-    </mat-error>
-
-    <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.pattern">
-      Se admiten caracteres especiales.
-    </mat-error>
 
 
     <mat-form-field class="form">
       <mat-label>Credential URL: </mat-label
       ><input
-        matInput
-        type="text"
-        placeholder="URL de la credencial"
-        formControlName="credentialURL"
-        id="credentialURL"
-      />
+      matInput
+      type="text"
+      placeholder="URL de la credencial"
+      formControlName="credentialURL"
+      id="credentialURL"
+    />
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.required">
+        Se requiere nombre de la Empresa.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.minlength">
+        Se requiere 15 caracteres como minimo.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.maxlength">
+        Se requiere 74 caracteres como maximo.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.whitespace">
+        No se admite espacios vacios.
+      </mat-error>
+
+      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.pattern">
+        Se admiten caracteres especiales.
+      </mat-error>
     </mat-form-field>
 
-    <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.required">
-      Se requiere nombre de la Empresa.
-    </mat-error>
 
-    <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.minlength">
-      Se requiere 15 caracteres como minimo.
-    </mat-error>
-
-    <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.maxlength">
-      Se requiere 74 caracteres como maximo.
-    </mat-error>
-
-    <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.whitespace">
-      No se admite espacios vacios.
-    </mat-error>
-
-    <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.pattern">
-      Se admiten caracteres especiales.
-    </mat-error>
 
   </mat-dialog-content>
   <mat-dialog-actions>
