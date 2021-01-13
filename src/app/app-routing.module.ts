@@ -114,7 +114,7 @@ const routes: Routes = [
             component: UserInProjectComponent,
           },
 
-          {
+         /* {
             path: ':id',
             component: DonationsComponent,
           },
@@ -125,12 +125,24 @@ const routes: Routes = [
           {
             path: ':id/paymentDonation/:did/donationList/:cid',
             component: DonationListComponent,
-          },
+          },*/
         ],
       },
       {
         path: 'userRequest/:id',
         component: UserrequesteComponent,
+      },
+      {
+        path:'donations',
+        component: DonationsComponent,
+      },
+      {
+        path:'paymentDonation',
+        component: PaymentDonationComponent,
+      },
+      {
+        path: 'DonationListComponent',
+        component: DonationListComponent,
       },
     ],
   },

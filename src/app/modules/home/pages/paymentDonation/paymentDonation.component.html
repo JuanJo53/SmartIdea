@@ -1,0 +1,26 @@
+<h1>Pago de Donación</h1>
+
+<section class="container flex" *ngFor="let card of listCard">
+  <div class="table">
+    <!-- Card Information -->
+    <h2 class="text">
+      <strong>Tarjeta:</strong>{{ card.cardNumber | creditcard }}
+    </h2>
+    <h2 class="text"><strong>Nombre:</strong>{{ card.cardName }}</h2>
+    <h2 class="text">
+      <strong>Fecha de Caducidad:</strong>{{ card.expirationMonth }}/{{
+      card.expirationYear
+      }}
+    </h2>
+    <!-- button to select the card to use-->
+    <button
+      id="{{ card.cardId }}"
+      type="button"
+      class="SelectButton"
+      routerLink="/user/donationList"
+      (click)="newListDonation()"
+    >
+      Pagar
+    </button>
+  </div>
+</section>

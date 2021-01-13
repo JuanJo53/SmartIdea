@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProjects } from '../../models/projects.model';
 import { Skill } from '../../models/skill.model';
+import {Donation} from '../../models/donation.model';
 
 @Injectable({
   providedIn: 'root',

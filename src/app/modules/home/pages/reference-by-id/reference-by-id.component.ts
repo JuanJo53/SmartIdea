@@ -11,6 +11,8 @@ import {Skill} from '../../../../models/skill.model';
 import {SkillService} from '../../../../services/user_services/skill.service';
 import {TagsService} from '../../../../services/user_services/tags.service';
 import {ProjectsService} from '../../../../services/user_services/projects.service';
+import {Donation} from '../../../../models/donation.model';
+import {DonationService} from '../../../../services/user_services/donation.service';
 
 @Component({
   selector: 'app-reference-by-id',
@@ -25,7 +27,6 @@ export class ReferenceByIdComponent implements OnInit {
   listTags: Tag[];
   skills: Skill[];
   userId: number = parseInt(localStorage.getItem('userId'));
-
   constructor(
     private service: ReferencesService,
     private mediaService: MediaService,
@@ -33,8 +34,7 @@ export class ReferenceByIdComponent implements OnInit {
     private areaService: AreaService,
     private serviceSkill: SkillService,
     private tagservise: TagsService,
-    private Projetservse: ProjectsService,
-
+    private Projetservse: ProjectsService
   ) {}
 
   ngOnInit(): void {

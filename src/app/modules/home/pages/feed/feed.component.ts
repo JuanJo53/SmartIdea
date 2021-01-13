@@ -7,6 +7,9 @@ import {MediaService} from '../../../../services/user_services/media.service';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {TagsService} from '../../../../services/user_services/tags.service';
 import {Tag} from '../../../../models/tag.model';
+import {DonationService} from '../../../../services/user_services/donation.service';
+import {Donation} from '../../../../models/donation.model';
+import  {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-feed',
@@ -20,13 +23,17 @@ export class FeedComponent implements OnInit {
   public data: Array<string>;
   listProjects: IProjects[];
   projectDetails: IProjects[];
+  donation: Donation;
+  listDonation: Donation[];
   listtag: Tag[];
   clicked = false;
   filterProject = '';
   form: FormGroup;
   busqueda: FormGroup;
   TagControl = new FormControl();
-  constructor( private service: ProjectsService, private mediaService: MediaService, private tagservice: TagsService, private formbuilder : FormBuilder) {
+  constructor( private service: ProjectsService, private mediaService: MediaService, private tagservice: TagsService,
+               private formbuilder : FormBuilder,
+               private donationService: DonationService,) {
     this.form = new FormGroup({
       tag: this.TagControl,
     });
@@ -36,6 +43,7 @@ export class FeedComponent implements OnInit {
     this.loadlist();
     this.taglist();
     this.funcxx();
+    this.loadDonation();
   }
   loadlist() {
     this.service.getAllProjectsfeed().subscribe((data) => {
@@ -99,4 +107,7 @@ taglist(){
       }
     });
 }
+  loadDonation(){
+
+ }
 }
