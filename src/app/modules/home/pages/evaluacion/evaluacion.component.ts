@@ -123,9 +123,7 @@ export class EvaluacionComponent implements OnInit {
   }
 
   btnEnviarEvaluacion() {
-    console.log('enviando.....');
     this.addEvaluacion();
-
     var total_ = this.evaluacion.length;
     ////
     this.sendEvaluacion(this.sendEvaluacionIndex);

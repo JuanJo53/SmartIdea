@@ -9,35 +9,35 @@
         <mat-card-content>
           <table class="table table-bordered">
             <thead>
-              <tr>
-                <th scope="col">Usuario</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Respuestas correctas</th>
-                <th scope="col">Total de Preguntas</th>
-                <th scope="col">Estado</th>
-                <th></th>
-              </tr>
+            <tr>
+              <th scope="col">Usuario</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Respuestas correctas</th>
+              <th scope="col">Total de Preguntas</th>
+              <th scope="col">Estado</th>
+              <th></th>
+            </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let item of listNroEvaluacionFilter; let i=index">
-                <th>{{(item.usuario)?item.usuario.username:''}}</th>
-                <th>{{(item.usuario)?item.usuario.name:''}} {{(item.usuario)?item.usuario.surname:''}}</th>
-                <td>{{item|countRespCorrectas:this.listEvaluacion}}</td>
-                <td>{{item.totalPreguntas}}</td>
-                <td>{{item|notaFinal:this.listEvaluacion}}</td>
-                <td>
-                  <button class="action-button" (click)="aceptarUsuario(item)" mat-mini-fab>
+            <tr *ngFor="let item of listNroEvaluacionFilter; let i=index">
+              <th>{{(item.usuario)?item.usuario.username:''}}</th>
+              <th>{{(item.usuario)?item.usuario.name:''}} {{(item.usuario)?item.usuario.surname:''}}</th>
+              <td>{{item|countRespCorrectas:this.listEvaluacion}}</td>
+              <td>{{item.totalPreguntas}}</td>
+              <td>{{item|notaFinal:this.listEvaluacion}}</td>
+              <td>
+                <button class="action-button" (click)="aceptarUsuario(item)" mat-mini-fab>
                     <span>
                       <mat-icon>supervised_user_circle</mat-icon>
                     </span>
-                  </button>
-                  <button class="action-button" (click)="rechazarUsuario(item)" mat-mini-fab color="warn">
+                </button>
+                <button class="action-button" (click)="rechazarUsuario(item)" mat-mini-fab color="warn">
                     <span>
                       <mat-icon>delete</mat-icon>
                     </span>
-                  </button>
-                </td>
-              </tr>
+                </button>
+              </td>
+            </tr>
             </tbody>
           </table>
         </mat-card-content>
@@ -69,7 +69,7 @@
               <br>
               <ul class="list-group list-group-flush">
                 <button type="button" *ngFor="let respuesta of listRespuestas|filterRespuesta:pregunta; let i=index"
-                  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                        class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                   {{respuesta.respuesta}}
                   <mat-icon *ngIf="respuesta.respuestaCorrecta" color="primary">done</mat-icon>
                   <mat-icon *ngIf="!respuesta.respuestaCorrecta" color="warn">close</mat-icon>

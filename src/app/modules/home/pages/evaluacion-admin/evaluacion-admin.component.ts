@@ -15,6 +15,7 @@ import { EvaluacionService } from 'src/app/services/user_services/evaluacion.ser
 import { UserService } from 'src/app/services/user_services/user.service';
 import { ProjectsService } from 'src/app/services/user_services/projects.service';
 import { User } from 'src/app/models/user.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-evaluacion-admin',
@@ -34,7 +35,7 @@ export class EvaluacionAdminComponent implements OnInit {
     private preguntaService: PreguntaService,
     private respuestaService: RespuestaService,
     private activatedRoute: ActivatedRoute,
-
+    private _snackBar: MatSnackBar,
     private evaluacionService: EvaluacionService,
     private service: UserService,
     private servi: ProjectsService,
@@ -73,25 +74,35 @@ export class EvaluacionAdminComponent implements OnInit {
    * lista tabla
    */
   loadlistEvaluacion() {
-    this.evaluacionService.getAllEvaluacion(this.proyectId).subscribe((data) => {
-      this.listEvaluacion = data;
-      var listEvFilter = this.removeDuplicates(
-        this.listEvaluacion,
-        'nroEvaluacion'
-      );
-      // lista usuarios
-      this.service.getAlluserrequest(this.proyectId).subscribe((data) => {
-        this.listuser = data;
-        var lsUsuarios = data;
-        var respData = [];
-        listEvFilter.forEach((ev) => {
-          var addUser = ev;
-          addUser.usuario = this.getUsuario(ev.userId, data);
-          respData.push(addUser);
+    this.evaluacionService
+      .getAllEvaluacion(this.proyectId)
+      .subscribe((data) => {
+        this.listEvaluacion = data;
+        var listEvFilter = this.removeDuplicates(
+          this.listEvaluacion,
+          'nroEvaluacion'
+        );
+        // lista usuarios
+        this.service.getAlluserrequest(this.proyectId).subscribe((data) => {
+          this.listuser = data;
+          var lsUsuarios = data;
+          var respData = [];
+          listEvFilter.forEach((ev) => {
+            var addUser = ev;
+            var usr_ = this.getUsuario(ev.userId, data);
+            console.log('usr_ ', usr_);
+
+            if (usr_ != undefined) {
+              addUser.usuario = usr_;
+              respData.push(addUser);
+            }
+          });
+
+          this.listNroEvaluacionFilter = respData;
         });
+
+        // this.listNroEvaluacionFilter = listEvFilter;
       });
-      this.listNroEvaluacionFilter = listEvFilter;
-    });
   }
 
   getUsuario(userId: number, users: User[]): User {
@@ -103,7 +114,7 @@ export class EvaluacionAdminComponent implements OnInit {
       width: '500px',
       data: {
         status: 1,
-        proyectId:this.proyectId
+        proyectId: this.proyectId,
       },
     });
     dialogRef.afterClosed().subscribe((result) => {
@@ -125,32 +136,45 @@ export class EvaluacionAdminComponent implements OnInit {
   }
 
   aceptarUsuario(item) {
-   
     var userId_ = item.userId;
-    var usuario_ = item.usuario
-    console.log("usuario_ ", usuario_);
-    
+    var usuario_ = item.usuario;
+    console.log('usuario_ ', usuario_);
 
     const id = this.activatedRoute.snapshot.params.id;
-    this.servi.aceptuser(this.proyectId, userId_ , usuario_).subscribe((projects) => {
-     // console.log(projects);
-      this.loadlistEvaluacion();
-    });
-   // window.alert("logrado");
-   // this.ngOnInit();
-
-
+    this.servi
+      .aceptuser(this.proyectId, userId_, usuario_)
+      .subscribe((projects) => {
+        // console.log(projects);
+        this.openSnackBar('Afiliado');
+        this.loadlistEvaluacion();
+      },err=>{
+        this.openSnackBar('Afiliado.');
+        this.loadlistEvaluacion();
+      });
+    // window.alert("logrado");
+    // this.ngOnInit();
   }
 
   rechazarUsuario(item) {
     var userId_ = item.userId;
-    var usuario_ = item.usuario
+    var usuario_ = item.usuario;
 
     const id = this.activatedRoute.snapshot.params.id;
-    this.servi.rejectuser(this.proyectId, userId_ , usuario_).subscribe((projects) => {
-      this.loadlistEvaluacion();
-    });
+    this.servi
+      .rejectuser(this.proyectId, userId_, usuario_)
+      .subscribe((projects) => {
+        this.loadlistEvaluacion();
+        this.openSnackBar('Rechazado');
+      });
+  }
 
+  openSnackBar(message: string) {
+    this._snackBar.open(message, '', {
+      panelClass: 'color-snackbar',
+      duration: 5000,
+      //  horizontalPosition: this.horizontalPosition,
+      //  verticalPosition: this.verticalPosition,
+    });
   }
 
   //////
