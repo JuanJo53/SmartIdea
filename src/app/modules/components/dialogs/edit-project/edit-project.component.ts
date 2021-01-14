@@ -61,6 +61,7 @@ export class EditProjectComponent implements OnInit {
       projectTitle: string,
       description: string,
       benefits: string,
+      budget: number,
       status: number
     }
 
@@ -125,6 +126,7 @@ export class EditProjectComponent implements OnInit {
       projectTitle: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
       description: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
       benefits: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      budget: ['',[Validators.required, this.noWhitespaceValidator]],
       status:  [1, [Validators.required]]
     });
   }
@@ -192,6 +194,7 @@ export class EditProjectComponent implements OnInit {
         description:this.formProject.value.description,
         views: 0,
         benefits:this.formProject.value.benefits,
+        budget:this.formProject.value.budget,
         status:s,
         createDate: null
 

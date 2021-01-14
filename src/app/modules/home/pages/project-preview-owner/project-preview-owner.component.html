@@ -28,6 +28,12 @@
             <b>Fecha de creación : </b
             >{{ project?.createDate | date: "longDate" }}
           </h5>
+
+          <h5 class="title">
+            <b>Presupuesto: </b
+            >{{ project?.budget}} Bs.
+          </h5>
+
         </div>
         <button mat-raised-button color="primary" routerLink="/user/project/users/{{project?.projectsId}}">Participantes</button>
         <br>

@@ -146,5 +146,4 @@ export class DonationsComponent implements OnInit{
     // this.onNoClick();
   }
 
-
 }

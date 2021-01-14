@@ -45,6 +45,20 @@
 
     </mat-form-field>
 
+    <mat-form-field >
+      <mat-label class="omrs-input-label">Budget</mat-label
+      ><input
+      matInput
+      placeholder="budget"
+      formControlName="budget"
+      required
+      ngModel="{{this.data.budget}}"
+
+    />
+      <span *ngIf="this.formProject.get('budget').errors?.required">           El monto no puede ser vacío.         </span>
+    </mat-form-field>
+
+
   </mat-dialog-content>
   <mat-slide-toggle [(ngModel)]="isChecked" formControlName="status"><div *ngIf="isChecked">Público</div><div *ngIf="isChecked==false">Privado</div></mat-slide-toggle>
   <image-upload [style]="customStyle" (uploadFinished)="onUploadFinish($event)"></image-upload>

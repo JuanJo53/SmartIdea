@@ -45,6 +45,7 @@ export class CreateProjectComponent implements OnInit {
       projectTitle: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
       description: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
       benefits: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator]],
+      budget: ['',[Validators.required, this.noWhitespaceValidator]],
     });
   }
 

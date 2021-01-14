@@ -46,6 +46,7 @@
     <!-- The most important information about the product -->
     <p class="information">" {{ projects.description }} "</p>
 
+    <p class="information"><strong>Presupuesto:</strong>{{ projects.budget }} Bs.</p>
     <!-- 		Control -->
     <div class="control">
 
@@ -81,6 +82,11 @@
       <h2>Los beneficios</h2>
       <ul>
         <li>{{ projects.benefits }}</li>
+      </ul>
+
+      <h2>Presupuesto</h2>
+      <ul>
+        <li>{{ projects.budget }}</li>
       </ul>
     </div>
   </div>
