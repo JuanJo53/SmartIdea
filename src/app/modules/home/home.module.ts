@@ -63,8 +63,15 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {DonationsComponent} from './pages/donations/donations.component';
 import {DonationListComponent} from './pages/donationList/donationList.component';
-import {PaymentDonationComponent} from './pages/paymentDonation/paymentDonation.component';
-
+import { EvaluacionComponent } from './pages/evaluacion/evaluacion.component';
+import { EvaluacionAdminComponent } from './pages/evaluacion-admin/evaluacion-admin.component';
+import { CreatePreguntaComponent } from '../components/dialogs/create-pregunta/create-pregunta.component';
+import { CreateRespuestaComponent } from '../components/dialogs/create-respuesta/create-respuesta.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FilterRespuestaPipe } from 'src/app/tools/filter-respuesta.pipe';
+import {MatTabsModule} from '@angular/material/tabs';
+import { CountRespCorrectasPipe } from 'src/app/tools/count-resp-correctas.pipe';
+import { NotaFinalPipe } from 'src/app/tools/nota-final.pipe';
 @NgModule({
   declarations: [
     HomeComponent,
@@ -94,6 +101,8 @@ import {PaymentDonationComponent} from './pages/paymentDonation/paymentDonation.
     PaymentPlanComponent,
     OrderReviewComponent,
     CreateCardComponent,
+    CreatePreguntaComponent,
+    CreateRespuestaComponent,
     CreditCardPipe,
     EditCardComponent,
     SignupComponent,
@@ -108,36 +117,42 @@ import {PaymentDonationComponent} from './pages/paymentDonation/paymentDonation.
     SearchPipe,
     DonationsComponent,
     DonationListComponent,
-    PaymentDonationComponent,
+    EvaluacionComponent,
+    EvaluacionAdminComponent,
+    FilterRespuestaPipe,
+    CountRespCorrectasPipe,
+    NotaFinalPipe
   ],
-    imports: [
-        CommonModule,
-        RouterModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatSidenavModule,
-        MatIconModule,
-        MatListModule,
-        LayoutModule,
-        MatCardModule,
-        MatDialogModule,
-        MatInputModule,
-        ReactiveFormsModule,
-        FormsModule,
-        MatDialogModule,
-        MatIconModule,
-        MatBadgeModule,
-        MatMenuModule,
-        MatTableModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        ImageUploadModule.forRoot(),
-        MatChipsModule,
-        MatAutocompleteModule,
-        MatGridListModule,
-        MatSelectModule,
-        MatSlideToggleModule
-    ],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    LayoutModule,
+    MatCardModule,
+    MatDialogModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatDialogModule,
+    MatIconModule,
+    MatBadgeModule,
+    MatMenuModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ImageUploadModule.forRoot(),
+    MatChipsModule,
+    MatAutocompleteModule,
+    MatGridListModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MatTabsModule,
+  ],
   entryComponents: [
     CreateCertificateComponent,
     WarningDialogComponent,

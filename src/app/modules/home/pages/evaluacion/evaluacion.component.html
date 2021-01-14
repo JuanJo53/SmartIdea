@@ -1,0 +1,54 @@
+<div class="container" *ngIf="pregunta">
+
+  <h1><strong>Evaluación</strong></h1>
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+
+      <mat-card class="example-card">
+        <br>
+        <mat-card-header>
+          <mat-card-title>{{pregunta.pregunta}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+
+          <br>
+          <ul class="list-group list-group-flush">
+            <button type="button" *ngFor="let respuesta of respuestas|filterRespuesta:pregunta; let i=index"
+                    class="list-group-item list-group-item-action d-flex justify-content-between align-items-center {{(respuesta.respuestaId ==respuestaSelect?.respuestaId )?'item-seleccionado':''}} "
+                    (click)="btnSelectRespuesta(respuesta)">
+              {{respuesta.respuesta}}
+            </button>
+          </ul>
+        </mat-card-content>
+        <mat-card-actions>
+
+        </mat-card-actions>
+      </mat-card>
+      <br>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-sm-6">
+      <button [disabled]="!disableBtn" (click)="btnEnviarEvaluacion()" mat-raised-button color="primary">Enviar
+        evaluación</button>
+    </div>
+
+    <div class="col-sm-6">
+      <div style="width: 100%; text-align: end;">
+        <button [disabled]="disableBtnSiguiente" (click)="btnSiguiente()" mat-raised-button
+                color="primary">Siguiente
+          ({{(index+1)}}/{{listPreguntas.length}})</button>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+<div class="container" *ngIf="!pregunta">
+  Sin evaluación
+</div>

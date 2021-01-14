@@ -1,0 +1,89 @@
+<div class="container">
+  <br>
+  <h1><strong>Usuarios que quieren afiliarse</strong></h1>
+  <mat-tab-group>
+    <mat-tab label="EVALUACIÓN">
+      <!-- EVALUACIÓN -->
+      <br><br>
+      <mat-card class="example-card">
+        <mat-card-content>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Usuario</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Respuestas correctas</th>
+                <th scope="col">Total de Preguntas</th>
+                <th scope="col">Estado</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listNroEvaluacionFilter; let i=index">
+                <th>{{(item.usuario)?item.usuario.username:''}}</th>
+                <th>{{(item.usuario)?item.usuario.name:''}} {{(item.usuario)?item.usuario.surname:''}}</th>
+                <td>{{item|countRespCorrectas:this.listEvaluacion}}</td>
+                <td>{{item.totalPreguntas}}</td>
+                <td>{{item|notaFinal:this.listEvaluacion}}</td>
+                <td>
+                  <button class="action-button" (click)="aceptarUsuario(item)" mat-mini-fab>
+                    <span>
+                      <mat-icon>supervised_user_circle</mat-icon>
+                    </span>
+                  </button>
+                  <button class="action-button" (click)="rechazarUsuario(item)" mat-mini-fab color="warn">
+                    <span>
+                      <mat-icon>delete</mat-icon>
+                    </span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-card-content>
+      </mat-card>
+      <!-- FIN EVALUACIÓN -->
+    </mat-tab>
+    <mat-tab label="PREGUNTAS Y RESPUESTAS">
+
+      <!-- PREGUNTAS Y RESPUESTAS-->
+      <div class="buttonAdd" style="width: 100%; text-align: end;">
+        <button (click)="nuevaPregunta()" mat-fab color="primary">
+          <mat-icon>add_icon</mat-icon>
+        </button>
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12" *ngFor="let pregunta of listPreguntas">
+
+          <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>{{pregunta.pregunta}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <div class="buttonAdd" style="width: 100%; text-align: end;">
+                <button (click)="nuevaPrespuesta(pregunta)" mat-mini-fab>
+                  <mat-icon>add_icon</mat-icon>
+                </button>
+              </div>
+              <br>
+              <ul class="list-group list-group-flush">
+                <button type="button" *ngFor="let respuesta of listRespuestas|filterRespuesta:pregunta; let i=index"
+                  class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                  {{respuesta.respuesta}}
+                  <mat-icon *ngIf="respuesta.respuestaCorrecta" color="primary">done</mat-icon>
+                  <mat-icon *ngIf="!respuesta.respuestaCorrecta" color="warn">close</mat-icon>
+                </button>
+              </ul>
+            </mat-card-content>
+            <mat-card-actions>
+
+            </mat-card-actions>
+          </mat-card>
+          <br>
+        </div>
+      </div>
+      <!-- FIN PREGUNTAS Y RESPUESTAS-->
+    </mat-tab>
+  </mat-tab-group>
+</div>
