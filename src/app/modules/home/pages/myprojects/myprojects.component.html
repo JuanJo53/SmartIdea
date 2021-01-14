@@ -15,23 +15,35 @@
         <div class="team-content">
           <h3 class="name">{{ projects.projectTitle }}</h3>
           <h4 class="title">Descripcion :{{ projects.description }}</h4>
-          <h4 class="title">Presupuesto :{{ projects.budget }}</h4>
           <h5 class="title">Vistas : {{ projects.views }}</h5>
 
-          <button
-            type="button"
-            class="boton_personalizado"
-            routerLink="/user/userRequest/{{ projects.projectsId }}"
-          >
-            Ver solicitudes
-          </button>
-          <button
-            type="button"
-            class="boton_personalizado"
-            routerLink="/user/project/{{ projects.projectsId }}"
-          >
-            <mat-icon>credit_card</mat-icon>
-          </button>
+
+          <div class="row">
+
+            <div  class="col-md-6">
+              <button
+                type="button"
+                class="boton_personalizado"
+                routerLink="/user/administrar-evaluacion/{{ projects.projectsId }}"
+
+              >
+                <mat-icon>person_add</mat-icon>
+              </button>
+            </div>
+            <div  class="col-md-3">
+              <button
+                type="button"
+                class="boton_personalizado"
+                routerLink="/user/project/{{ projects.projectsId }}"
+
+              >
+                <mat-icon>credit_card</mat-icon>
+              </button>
+            </div>
+          </div>
+
+
+
         </div>
         <ul class="social">
           <li>

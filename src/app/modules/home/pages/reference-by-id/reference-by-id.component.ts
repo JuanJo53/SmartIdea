@@ -13,6 +13,8 @@ import {TagsService} from '../../../../services/user_services/tags.service';
 import {ProjectsService} from '../../../../services/user_services/projects.service';
 import {Donation} from '../../../../models/donation.model';
 import {DonationService} from '../../../../services/user_services/donation.service';
+import { MatDialog } from '@angular/material/dialog';
+import { EvaluacionComponent } from '../../../home/pages/evaluacion/evaluacion.component';
 
 @Component({
   selector: 'app-reference-by-id',
@@ -26,7 +28,9 @@ export class ReferenceByIdComponent implements OnInit {
   listArea: Area[];
   listTags: Tag[];
   skills: Skill[];
+  projectId: number;
   userId: number = parseInt(localStorage.getItem('userId'));
+
   constructor(
     private service: ReferencesService,
     private mediaService: MediaService,
@@ -34,8 +38,11 @@ export class ReferenceByIdComponent implements OnInit {
     private areaService: AreaService,
     private serviceSkill: SkillService,
     private tagservise: TagsService,
-    private Projetservse: ProjectsService
-  ) {}
+    private Projetservse: ProjectsService,
+    public dialog: MatDialog
+  ) {
+    this.projectId = this.activatedRoute.snapshot.params.id;
+  }
 
   ngOnInit(): void {
     this.loadproject();
@@ -46,16 +53,39 @@ export class ReferenceByIdComponent implements OnInit {
     this.conexion();
   }
 
-  listarea(): void{
+  listarea(): void {
     const id = this.activatedRoute.snapshot.params.id;
     console.log(id);
-    this.areaService.getarea(id).subscribe(data => {
+    this.areaService.getarea(id).subscribe((data) => {
       console.log(data);
       this.listArea = data;
     });
     /*.subscribe((data) => {
       this.listProjects = data;
     });*/
+  }
+
+  pruebaModal() {
+    console.log('modal');
+
+    const dialogRef = this.dialog.open(EvaluacionComponent, {
+      width: '1000px',
+      data: {
+        status: 1,
+        proyectId: this.projectId,
+      },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('afterClosed ', result);
+
+      if (result) {
+        this.afilarse(this.project.projectsId, this.project);
+
+        console.log('guardar datos');
+      }
+
+      //  this.loadlistPreguntas();
+    });
   }
 
   afilarse(idproyect: number, proyect: IProjects): void {

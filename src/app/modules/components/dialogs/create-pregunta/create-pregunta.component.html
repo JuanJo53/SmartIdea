@@ -8,14 +8,22 @@
       <div class="col-md-12">
         <mat-form-field>
           <mat-label class="omrs-input-label">Pregunta</mat-label>
-          <textarea  matInput 
-          formControlName="pregunta" id="pregunta" ></textarea>
+          <textarea  matInput
+                     formControlName="pregunta" id="pregunta" ></textarea>
           <mat-error *ngIf="(pregunta.invalid && (pregunta.dirty || pregunta.touched)) && pregunta.errors.required">
-          La pregunta es requerido.
+            La pregunta es requerido.
           </mat-error>
+          <mat-error *ngIf="(pregunta.invalid && (pregunta.dirty || pregunta.touched)) && pregunta.errors.whitespace">
+            No se admite espacios vacíos.
+          </mat-error>
+
+          <mat-error *ngIf="(pregunta.invalid && (pregunta.dirty || pregunta.touched)) && pregunta.errors.pattern">
+            No se admiten números ni caracteres especiales.
+          </mat-error>
+
         </mat-form-field>
       </div>
-     
+
     </div>
     <br>
     <br>

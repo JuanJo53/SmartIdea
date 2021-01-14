@@ -31,7 +31,7 @@ export class CreateRespuestaComponent implements OnInit {
   ) {
     this.data = data;
     this.formRespuesta = this.fromBuilder.group({
-      respuesta: ['', [Validators.required]],
+      respuesta: ['', [Validators.required, this.noWhitespaceValidator, Validators.minLength(2)]],
       respuestaCorrecta: [false, [Validators.required]],
       preguntaId: [this.data.pregunta.preguntaId, [Validators.required]],
       // projectsId: [this.data.pregunta.projectsId, [Validators.required]],
@@ -68,12 +68,13 @@ export class CreateRespuestaComponent implements OnInit {
         }
       );
     } else {
-      this.openSnackBar('Verifique sus datos');
+      this.openSnackBar('Verifique los campos');
     }
   }
 
   openSnackBar(message: string) {
     this._snackBar.open(message, 'ERROR', {
+      panelClass:'color-snackbar',
       duration: 5000,
       //  horizontalPosition: this.horizontalPosition,
       //  verticalPosition: this.verticalPosition,
@@ -86,4 +87,10 @@ export class CreateRespuestaComponent implements OnInit {
   close() {
     this.dialogRef.close(false);
   }
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { whitespace: true };
+  }
+
 }

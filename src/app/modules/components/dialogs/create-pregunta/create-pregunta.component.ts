@@ -22,18 +22,19 @@ export class CreatePreguntaComponent implements OnInit {
   formPregunta: FormGroup;
   data:any;
   userId: number = parseInt(localStorage.getItem('userId'));
+  lettersPattern = '^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$';
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
     private preguntaService: PreguntaService,
-  
+
     private _snackBar: MatSnackBar,
     private dialogRef: MatDialogRef<CreatePreguntaComponent>,
     @Inject(MAT_DIALOG_DATA) data
   ) {
     this.data = data;
     this.formPregunta = this.fromBuilder.group({
-      pregunta: ['', [Validators.required, Validators.minLength(3)]],
+      pregunta: ['', [Validators.required,this.noWhitespaceValidator, Validators.minLength(3), Validators.pattern(this.lettersPattern)]],
       projectsId: [this.data.proyectId, [Validators.required]],
     });
   }
@@ -57,12 +58,13 @@ export class CreatePreguntaComponent implements OnInit {
         }
       );
     } else {
-      this.openSnackBar('Verifique sus datos');
+      this.openSnackBar('Verifique los campos');
     }
   }
 
   openSnackBar(message: string) {
     this._snackBar.open(message, 'ERROR', {
+      panelClass:'color-snackbar',
       duration: 5000,
       //  horizontalPosition: this.horizontalPosition,
       //  verticalPosition: this.verticalPosition,
@@ -74,5 +76,11 @@ export class CreatePreguntaComponent implements OnInit {
   }
   close() {
     this.dialogRef.close(false);
+  }
+
+  public noWhitespaceValidator(control: FormControl) {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { whitespace: true };
   }
 }

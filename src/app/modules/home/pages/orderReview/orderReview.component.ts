@@ -2,7 +2,7 @@ import { Bill } from './../../../../models/bill.model';
 import { BillService } from './../../../../services/user_services/bill.service';
 import { Component, OnInit } from '@angular/core';
 import { Card } from '../../../../models/card.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentPlanService } from '../../../../services/user_services/paymentPlan.service';
 import { CardService } from '../../../../services/user_services/card.service';
 import { PaymentPlan } from '../../../../models/paymentPlan.model';
@@ -12,6 +12,7 @@ import { CreateBillComponent } from '../../../components/dialogs/create-bill/cre
 import {CreateCardComponent} from '../../../components/dialogs/create-card/create-card.component';
 import {MatDialog} from '@angular/material/dialog';
 import {FormBuilder} from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -35,7 +36,9 @@ export class OrderReviewComponent implements OnInit {
     private projectsService: ProjectsService,
     private paymentPlanService: PaymentPlanService,
     private billService: BillService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router, private route: ActivatedRoute,
+    private _snackBar: MatSnackBar,
   ) {}
 
   ngOnInit(): void {
@@ -88,24 +91,46 @@ export class OrderReviewComponent implements OnInit {
       console.log(result);
       this.bill=result;
       console.log(this.bill);
-     //this.bill.billingAddress=result.billingAddress;
-     //this.bill.country=result.country;
-     //this.bill.city=result.city;
+      //this.bill.billingAddress=result.billingAddress;
+      //this.bill.country=result.country;
+      //this.bill.city=result.city;
 
     });
   }
   newBill() {
-    this.billService
-      .postnewbill(
-        this.userId,
-        this.projectid,
-        this.paymentid,
-        this.cardid,
-        this.bill
-      )
-      .subscribe((data) => {
-        console.log(data);
-       // window.alert('Pago realizado');
-      });
+    console.log("this.bill.billingAddress ", this.bill);
+
+
+
+    if(this.bill){
+      this.billService
+        .postnewbill(
+          this.userId,
+          this.projectid,
+          this.paymentid,
+          this.cardid,
+          this.bill
+        )
+        .subscribe((data) => {
+          console.log(data);
+          // routerLink="/user/bill"
+          this.router.navigate(['/user/bill']);
+          // window.alert('Pago realizado');
+        });
+    }else{
+      this.openSnackBar("Los datos de la factura son requeridos");
+    }
+
+
+  }
+
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message, '', {
+      panelClass: 'color-snackbar',
+      duration: 5000,
+      //  horizontalPosition: this.horizontalPosition,
+      //  verticalPosition: this.verticalPosition,
+    });
   }
 }

@@ -13,7 +13,7 @@
     <h2 class="text"><strong>Direccion de Factura: </strong>{{bill?.billingAddress}}</h2>
     <h2 class="text"><strong>País: </strong>{{bill?.country}}</h2>
     <h2 class="text"><strong>Ciudad: </strong>{{bill?.city}}</h2>
-     <h2 class="text"> <strong>Total a Pagar: </strong>{{ paymentplan?.cost }} Bs.</h2>
+    <h2 class="text"> <strong>Total a Pagar: </strong>{{ paymentplan?.cost }} Bs.</h2>
 
     <mat-divider></mat-divider>
     <button
@@ -26,7 +26,7 @@
     <button
       type="button"
       class="SelectButton"
-      routerLink="/user/bill"
+
       (click)="newBill()">
 
       Pagar

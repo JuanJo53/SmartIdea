@@ -23,6 +23,7 @@ import {UserInProjectComponent} from "./modules/home/pages/user-in-project/user-
 import {DonationsComponent} from './modules/home/pages/donations/donations.component';
 import {DonationListComponent} from './modules/home/pages/donationList/donationList.component';
 import {PaymentDonationComponent} from './modules/home/pages/paymentDonation/paymentDonation.component';
+import { EvaluacionAdminComponent } from './modules/home/pages/evaluacion-admin/evaluacion-admin.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
     path: 'user',
     component: MainComponent,
     children: [
+      {
+        path: 'administrar-evaluacion/:id',
+        component: EvaluacionAdminComponent,
+      },
       {
         path: 'myprojects',
         component: MyprojectsComponent,
