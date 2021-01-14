@@ -86,9 +86,6 @@
         No se admiten espacios vacios.
       </mat-error>
 
-        <mat-error *ngIf="(expeditionDate.invalid && (expeditionDate.dirty || expeditionDate.touched)) && expeditionDate.errors.pattern">
-          No se admiten caracteres especiales, solo numeros.
-        </mat-error>
     </mat-form-field><br />
 
 
@@ -109,7 +106,7 @@
       </mat-error>
 
       <mat-error *ngIf="(expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)) && expirationDate.errors.min">
-        La fecha de expiración minima debe ser a partir del año 2021
+        La fecha de expedición minima debe ser a partir del año 2020
       </mat-error>
 
       <mat-error *ngIf="(expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)) && expirationDate.errors.max">
@@ -119,10 +116,6 @@
       <mat-error *ngIf="(expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)) && expirationDate.errors.whitespace">
         No se admiten espacios vacios.
       </mat-error>
-
-        <mat-error *ngIf="(expirationDate.invalid && (expirationDate.dirty || expirationDate.touched)) && expirationDate.errors.pattern">
-          No se admiten caracteres especiales, solo numeros.
-        </mat-error>
     </mat-form-field>
 
 
@@ -152,8 +145,8 @@
         No se admite espacios vacios.
       </mat-error>
 
-      <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.pattern">
-        Se admiten caracteres especiales.
+      <mat-error *ngIf="(credentialId.invalid && (credentialId.dirty || credentialId.touched)) && credentialId.errors.pattern">
+        Datos inválidos.
       </mat-error>
     </mat-form-field>
 
@@ -173,7 +166,7 @@
       </mat-error>
 
       <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.minlength">
-        Se requiere 15 caracteres como minimo.
+        Se requiere 8 caracteres como minimo.
       </mat-error>
 
       <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.maxlength">
@@ -185,7 +178,7 @@
       </mat-error>
 
       <mat-error *ngIf="(credentialURL.invalid && (credentialURL.dirty || credentialURL.touched)) && credentialURL.errors.pattern">
-        Se admiten caracteres especiales.
+        Datos inválidos.
       </mat-error>
     </mat-form-field>
 

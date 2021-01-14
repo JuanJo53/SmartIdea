@@ -20,26 +20,28 @@ export class CreateCertificateComponent implements OnInit {
   form: FormGroup;
   userId: number = 1;
   lettersPattern = '^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$';
-  numPattern= '^-?[0-9]\\d*(\\.\\d{1,2})?$';
+  numPattern = '^-?[0-9]\\d*(\\.\\d{1,2})?$';
   idPattern = '[A-Za-zÁÉÍÓÚáéíóúñÑ0-9]{0,74}';
-  URLPattern= '(https?: //)? ([\\ da-z.-] +) \\. ([az.] {2,6}) [/ \\ w .-] * /?';
+  URLPattern = '^(http|https):[-a-zA-Z0-9+&@#/%?=~_|!:,.;]{0,}';
   constructor(
     private fromBuilder: FormBuilder,
     private route: ActivatedRoute,
     private certificatesService: CertificateService,
     public dialogRef: MatDialogRef<CreateCertificateComponent> // @Inject(MAT_DIALOG_DATA) public data: DialogData
-  ) {
-    this.form = this.fromBuilder.group({
-      certificateName: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator,Validators.pattern(this.lettersPattern)]],
-      company: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator,Validators.pattern(this.lettersPattern)]],
-      expeditionDate: ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator,Validators.pattern(this.numPattern)]],
-      expirationDate: ['', [Validators.required, Validators.min(2021), Validators.max(2029), this.noWhitespaceValidator,Validators.pattern(this.numPattern)]],
-      credentialId: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(30), this.noWhitespaceValidator, Validators.pattern(this.idPattern)]],
-      credentialURL: ['', [Validators.required,  Validators.minLength(15), Validators.maxLength(74), this.noWhitespaceValidator, Validators.pattern(this.URLPattern)]],
-    });
-  }
+  ) {}
+
+  edit=false;
+
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  close() {
+    this.dialogRef.close(false);
+  }
+
+  cancel() {
+    this.edit = false;
   }
 
   ngOnInit(): void {
@@ -47,13 +49,14 @@ export class CreateCertificateComponent implements OnInit {
   }
   editCert(): void {
     this.form = this.fromBuilder.group({
-      certificateName: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator,Validators.pattern(this.lettersPattern)]],
-      company: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator,Validators.pattern(this.lettersPattern)]],
-      expeditionDate: ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator,Validators.pattern(this.numPattern)]],
-      expirationDate: ['', [Validators.required, Validators.min(2021), Validators.max(2029), this.noWhitespaceValidator,Validators.pattern(this.numPattern)]],
+      id: [0, [Validators.required]],
+      certificateName: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern)]],
+      company: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern)]],
+      expeditionDate: ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator]],
+      expirationDate:  ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator]],
       credentialId: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(30), this.noWhitespaceValidator, Validators.pattern(this.idPattern)]],
-      credentialURL: ['', [Validators.required,  Validators.minLength(15), Validators.maxLength(74), this.noWhitespaceValidator, Validators.pattern(this.URLPattern)]],
-    });
+      credentialURL: ['', [Validators.required,  Validators.minLength(8), Validators.maxLength(74), this.noWhitespaceValidator, Validators.pattern(this.URLPattern)]],
+          });
   }
 
   get certificateName(){
@@ -97,8 +100,10 @@ export class CreateCertificateComponent implements OnInit {
       const cert = this.form.value;
       console.log(cert);
       this.createCertificate(cert);
+    } else {
+      window.alert("ERROR: Datos vacios o inválidos");
+      //this.dialogRef.close();
     }
-    this.dialogRef.close();
   }
   createCertificate(newCertificate: certificateRequest): void {
     var iduser = parseInt(localStorage.getItem('userId'));
@@ -107,5 +112,6 @@ export class CreateCertificateComponent implements OnInit {
       .subscribe((certificate) => {
         console.log(certificate);
       });
+    this.onNoClick();
   }
 }

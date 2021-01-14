@@ -25,9 +25,9 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
   form: FormGroup;
   userId: number = parseInt(localStorage.getItem('userId'));
   lettersPattern = '^[A-Za-zñÑáéíóúÁÉÍÓÚ ]+$';
-  numPattern= '^-?[0-9]\\d*(\\.\\d{1,2})?$';
-  idPattern = '[A-Za-zÁÉÍÓÚáéíóúñÑ0-9]{0,74}';
-  URLPattern= '(https?: //)? ([\\ da-z.-] +) \\. ([az.] {2,6}) [/ \\ w .-] * /?';
+  numPattern = '^-?[0-9]\\d*(\\.\\d{1,2})?$';
+  idPattern  = '[A-Za-zÁÉÍÓÚáéíóúñÑ0-9]{0,74}';
+  URLPattern = '^(http|https):[-a-zA-Z0-9+&@#/%?=~_|!:,.;]{0,}';
 
   constructor(
     private fromBuilder: FormBuilder,
@@ -35,14 +35,7 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
     private certificatesService: CertificateService,
     public dialog: MatDialog
   ) {
-    this.form = this.fromBuilder.group({
-      certificateName: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator,Validators.pattern(this.lettersPattern)]],
-      company: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator,Validators.pattern(this.lettersPattern)]],
-      expeditionDate: ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator,Validators.pattern(this.numPattern)]],
-      expirationDate: ['', [Validators.required, Validators.min(2021), Validators.max(2029), this.noWhitespaceValidator,Validators.pattern(this.numPattern)]],
-      credentialId: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(30), this.noWhitespaceValidator, Validators.pattern(this.idPattern)]],
-      credentialURL: ['', [Validators.required,  Validators.minLength(15), Validators.maxLength(74), this.noWhitespaceValidator, Validators.pattern(this.URLPattern)]],
-    });
+
   }
   edit = false;
   destroyed = false;
@@ -56,8 +49,6 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
     });
   }
 
-
-
   ngOnDestroy(): void {
     this.destroyed = true;
     console.log('Component destroyed');
@@ -65,17 +56,18 @@ export class CertificateContentComponent implements OnInit, OnDestroy {
   cancel() {
     this.edit = false;
   }
+
   editCert(): void {
     this.edit = true;
     this.form = this.fromBuilder.group({
       id: [0, [Validators.required]],
-      certificateName: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator,Validators.pattern(this.lettersPattern)]],
-      company: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator,Validators.pattern(this.lettersPattern)]],
-      expeditionDate: ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator,Validators.pattern(this.numPattern)]],
-      expirationDate: ['', [Validators.required, Validators.min(2021), Validators.max(2029), this.noWhitespaceValidator,Validators.pattern(this.numPattern)]],
+      certificateName: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern)]],
+      company: ['', [Validators.required, Validators.minLength(3), this.noWhitespaceValidator, Validators.pattern(this.lettersPattern)]],
+      expeditionDate: ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator, Validators.pattern(this.numPattern)]],
+      expirationDate:  ['', [Validators.required, Validators.min(2020), Validators.max(2029), this.noWhitespaceValidator, Validators.pattern(this.numPattern)]],
       credentialId: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(30), this.noWhitespaceValidator, Validators.pattern(this.idPattern)]],
-      credentialURL: ['', [Validators.required,  Validators.minLength(15), Validators.maxLength(74), this.noWhitespaceValidator, Validators.pattern(this.URLPattern)]],
-    });
+      credentialURL: ['', [Validators.required,  Validators.minLength(8), Validators.maxLength(74), this.noWhitespaceValidator, Validators.pattern(this.URLPattern)]],
+     });
   }
 
   get certificateName(){
